@@ -13,7 +13,7 @@
   <div class="container header-row">
     <div class="brand">
       <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
+      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC / Analytics</div>
     </div>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -28,145 +28,138 @@
 </header>
 
 <main class="container">
-  <section class="card hero">
-    <h1>Optical Coating Examples</h1>
-    <p class="muted">
-      Textbook-style coating design examples created as illustrations (AR/HR/bandpass/beam splitters/partial reflectors).
-    </p>
 
-    <h2 class="h3">Design tools & approach</h2>
-    <ul>
-      <li><b>Software:</b> FilmStar, OpenFilters, TFCalc, Essential Macleod</li>
-      <li><b>Design methods:</b> QWOT stacks and target-based optimization of physical thicknesses</li>
-      <li><b>Content below:</b> examples spanning visible, NIR, and IR bands</li>
-    </ul>
+<section class="card hero">
+  <h1>Optical Coating Examples</h1>
+  <p class="muted">
+    Textbook-style coating designs created as illustrations across visible, NIR, and IR bands.
+  </p>
 
-    <p class="muted small">
-      (Images will be added later. Each section below has a placeholder where you can drop the figure file.)
-    </p>
-  </section>
+  <ul>
+    <li><b>Design tools:</b> FilmStar, OpenFilters, TFCalc, Essential Macleod</li>
+    <li><b>Methods:</b> QWOT stacks and target-based optimization</li>
+    <li><b>Purpose:</b> illustrate common optical coating architectures</li>
+  </ul>
+</section>
 
-  <!-- Helper note for adding images later -->
-  <section class="card section">
-    <h2>How you’ll add images later</h2>
-    <p class="muted">
-      Put images in <code>assets/img/optical/</code> and insert:
-      <code>&lt;img class="img" src="assets/img/optical/V_coat.png" alt="V coat"&gt;</code>
-    </p>
-  </section>
+<!-- V COAT -->
+<section class="card section">
+  <h2>V Coat (2-layer)</h2>
+  <img class="img" src="assets/img/optical/V_coat.png" alt="V coat optical coating design">
+  <ul>
+    <li>2-layer V-coat centered at a selectable wavelength.</li>
+    <li>Used for narrowband applications (typically &lt; ~40nm).</li>
+  </ul>
+</section>
 
-  <!-- Example sections -->
-  <section class="card section">
-    <h2>V Coat (2-layer)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/V_coat.png</code></p>
-    <ul>
-      <li>2-layer V-coat design centered at selectable wavelength.</li>
-      <li>Used for narrow wavelength applications (roughly &lt; ~40nm wide).</li>
-    </ul>
-  </section>
+<!-- VISIBLE AR -->
+<section class="card section">
+  <h2>Visible AR Coating (4-layer)</h2>
+  <img class="img" src="assets/img/optical/Typical_AR.png" alt="Typical visible AR coating">
+  <ul>
+    <li>4-layer W-shaped oxide design.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Visible AR coating (4-layer)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/Typical_AR.png</code></p>
-    <ul>
-      <li>4-layer W-shaped design using oxide materials.</li>
-    </ul>
-  </section>
+<!-- WIDEBAND VIS-NIR -->
+<section class="card section">
+  <h2>Wide Bandpass: Visible → Near IR (12-layer)</h2>
+  <img class="img" src="assets/img/optical/WB_AR.png" alt="Wide bandpass visible to near IR coating">
+  <ul>
+    <li>12-layer oxide design.</li>
+    <li>Reflection &lt; 2% across the band.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Wide bandpass: Visible → Near IR (12-layer)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/WB_AR.png</code></p>
-    <ul>
-      <li>12-layer oxide design.</li>
-      <li>Reflection &lt; 2% across the band.</li>
-    </ul>
-  </section>
+<!-- WIDEBAND IR -->
+<section class="card section">
+  <h2>Wide Bandpass: IR ~3–5µm (47-layer)</h2>
+  <img class="img" src="assets/img/optical/WB_IR.png" alt="Wide bandpass infrared coating">
+  <ul>
+    <li>47-layer non-oxide design.</li>
+    <li>Built by combining short- and long-wavelength bandpass designs, then re-optimized.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Wide bandpass: IR ~3–5µm (47-layer)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/WB_IR.png</code></p>
-    <ul>
-      <li>47-layer design using non-oxide materials.</li>
-      <li>Built by combining short- and long-wavelength bandpass designs, then re-optimized.</li>
-    </ul>
-  </section>
+<!-- FOUR WL -->
+<section class="card section">
+  <h2>4-Wavelength Bandpass Filter (21-layer)</h2>
+  <img class="img" src="assets/img/optical/FourWL.png" alt="Four wavelength bandpass filter design">
+  <ul>
+    <li>21-layer oxide design with 9 transmission targets.</li>
+    <li>Blocked regions &lt; 10%, pass regions &gt; 95%.</li>
+    <li>Mixed-index variants improve passband performance.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>4-wavelength bandpass filter (21-layer)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/FourWL.png</code></p>
-    <ul>
-      <li>21-layer oxide design with multiple transmission targets.</li>
-      <li>Blocked regions: T &lt; 10%; pass regions: T &gt; 95%.</li>
-      <li>Using different index variants of the same material can improve passband performance.</li>
-    </ul>
-  </section>
+<!-- HR RIPPLE -->
+<section class="card section">
+  <h2>Dielectric High Reflector (Ripple Reduction)</h2>
+  <img class="img" src="assets/img/optical/HR_Dielectric.png" alt="Dielectric high reflector with ripple reduction">
+  <ul>
+    <li>20-layer oxide design.</li>
+    <li>Reflection &gt; 99.9%.</li>
+    <li>Ripple reduction applied to tail regions.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Dielectric High Reflector (20-layer) with ripple reduction</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/HR_Dielectric.png</code></p>
-    <ul>
-      <li>20-layer oxide design.</li>
-      <li>Reflection &gt; 99.9%.</li>
-      <li>Ripple reduction applied in tail regions.</li>
-    </ul>
-  </section>
+<!-- HR WIDEN -->
+<section class="card section">
+  <h2>Dielectric High Reflector — Widened</h2>
+  <img class="img" src="assets/img/optical/HR_Widen.png" alt="Widened dielectric high reflector">
+  <ul>
+    <li>Widened by adding a thicker stack and coupling layer.</li>
+    <li>Reflection &gt; 99.9%.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Dielectric High Reflector — widened</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/HR_Widen.png</code></p>
-    <ul>
-      <li>Widened by adding a thicker stack and coupling layer.</li>
-      <li>Reflection &gt; 99.9%.</li>
-    </ul>
-  </section>
+<!-- POL BS -->
+<section class="card section">
+  <h2>Polarizing Beamsplitter</h2>
+  <img class="img" src="assets/img/optical/Beamsplitter_pol.png" alt="Polarizing beamsplitter coating design">
+  <ul>
+    <li>24-layer design.</li>
+    <li>Reflects s-polarized light and transmits p-polarized light.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Polarizing beamsplitter</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/Beamsplitter_pol.png</code></p>
-    <ul>
-      <li>24-layer design with reflection &gt; 99.9%.</li>
-      <li>Splits incident light into reflected s-polarized and transmitted p-polarized beams.</li>
-    </ul>
-  </section>
+<!-- NON-POL BS -->
+<section class="card section">
+  <h2>Non-Polarizing Beamsplitter</h2>
+  <img class="img" src="assets/img/optical/Beamsplitter_nonpol.png" alt="Non-polarizing beamsplitter coating design">
+  <ul>
+    <li>Splits incident light into defined reflected/transmitted ratios.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Non-polarizing beamsplitter</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/Beamsplitter_nonpol.png</code></p>
-    <ul>
-      <li>Splits incident light into defined reflected/transmitted ratios.</li>
-    </ul>
-  </section>
+<!-- PARTIAL REFLECTOR -->
+<section class="card section">
+  <h2>Partial Reflector</h2>
+  <img class="img" src="assets/img/optical/PR.png" alt="Partial reflector coating design">
+  <ul>
+    <li>2-layer and 5-layer designs.</li>
+    <li>Reflection tunable by material choice and stack thickness.</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Partial reflector (2-layer and 5-layer examples)</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/PR.png</code></p>
-    <ul>
-      <li>Reflection tunability based on material choice and number of layers.</li>
-      <li>Illustrative examples shown for R at ~550nm.</li>
-    </ul>
-  </section>
+<!-- LASER PR -->
+<section class="card section">
+  <h2>Laser / Narrowband Partial Reflector</h2>
+  <img class="img" src="assets/img/optical/PR_Laser.png" alt="Laser narrowband partial reflector design">
+  <ul>
+    <li>Reflection tunability via number of layers.</li>
+    <li>R(14 layers) &gt; R(12) &gt; R(10).</li>
+  </ul>
+</section>
 
-  <section class="card section">
-    <h2>Laser / narrowband partial reflector</h2>
-    <p class="muted">Placeholder for image: <code>assets/img/optical/PR_Laser.png</code></p>
-    <ul>
-      <li>Reflection tunability achieved by changing layer count.</li>
-      <li>R(14 layers) &gt; R(12) &gt; R(10).</li>
-    </ul>
-  </section>
-
-  <section class="card section">
-    <h2>Want to go deeper?</h2>
-    <p class="muted">
-      I can add layer-stack tables, design constraints, and sanitized exports as downloadable assets.
-    </p>
-  </section>
 </main>
 
 <footer class="footer">
   <div class="container">© <span id="year"></span> Manuel Bonilla</div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
