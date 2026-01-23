@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page | Manuel Bonilla, Ph.D.</title>
+  <title>Optical Coating Examples | Manuel Bonilla, Ph.D.</title>
+  <meta name="description" content="Optical coating design examples: AR, HR, beamsplitters, bandpass filters, partial reflectors." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-row">
@@ -16,7 +18,7 @@
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
-        <a href="optical.html">Optical</a>
+        <a class="active" href="optical.html">Optical</a>
         <a href="deposition.html">Deposition</a>
         <a href="spc.html">SPC</a>
         <a href="contact.html">Contact</a>
@@ -26,8 +28,176 @@
 
   <main class="container">
     <section class="card hero">
-      <h1>Coming soon</h1>
-      <p class="muted">We’ll build this page next.</p>
+      <div class="hero-grid">
+        <div>
+          <h1>Optical Coating Examples</h1>
+          <p class="muted">
+            Illustrations of common coating designs (AR/HR/bandpass/beam splitters/partial reflectors).
+          </p>
+
+          <h2 class="h3">Intro</h2>
+          <ul>
+            <li><b>Design tools:</b> FilmStar, OpenFilters, TFCalc, Essential Macleod</li>
+            <li><b>Methods:</b> QWOT stacks and target-optimized thicknesses</li>
+            <li><b>Examples:</b> V-coat, visible/IR bandpass, 4-wavelength bandpass, HR, beamsplitters, PR</li>
+          </ul>
+        </div>
+
+        <div class="hero-media card inset">
+          <div class="muted small">Optional animation / hero graphic</div>
+          <p class="muted small">We can replace the Streamlit Lottie with a GIF or static image here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery items -->
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/V_coat.png" alt="V coat design"></div>
+        <div>
+          <h2>V Coat</h2>
+          <ul>
+            <li>2-layer V-coat design centered at selectable wavelength.</li>
+            <li>Used for narrowband applications (typically &lt; ~40nm wide).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/Typical_AR.png" alt="Visible AR coating"></div>
+        <div>
+          <h2>Visible AR Coating</h2>
+          <ul>
+            <li>4-layer W-shaped design using oxides.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/WB_AR.png" alt="Wide bandpass visible to near IR"></div>
+        <div>
+          <h2>Wide Bandpass: Visible → Near IR</h2>
+          <ul>
+            <li>12-layer design using oxides.</li>
+            <li>Reflection &lt; 2%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/WB_IR.png" alt="Wide bandpass 3-5um IR"></div>
+        <div>
+          <h2>Wide Bandpass: IR ~3–5µm</h2>
+          <ul>
+            <li>47-layer design using non-oxide materials.</li>
+            <li>Built from short-WL and long-WL bandpass designs; re-optimized to final stack.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/FourWL.png" alt="Four wavelength bandpass"></div>
+        <div>
+          <h2>4-Wavelength Bandpass (mixed indices)</h2>
+          <ul>
+            <li>21-layer oxide design.</li>
+            <li>9 transmission targets: blocked regions &lt;10%, pass regions &gt;95%.</li>
+            <li>Using material variants with different indices can improve passband performance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/HR_Dielectric.png" alt="Dielectric high reflector with ripple reduction"></div>
+        <div>
+          <h2>Dielectric High Reflector (ripple reduction)</h2>
+          <ul>
+            <li>20-layer oxide design.</li>
+            <li>Reflection &gt; 99.9%.</li>
+            <li>Ripple reduction applied in tail regions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/HR_Widen.png" alt="Dielectric high reflector widen"></div>
+        <div>
+          <h2>Dielectric High Reflector (widen)</h2>
+          <ul>
+            <li>Widened by adding thicker stack + coupling layer.</li>
+            <li>Reflection &gt; 99.9%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/Beamsplitter_pol.png" alt="Polarizing beamsplitter"></div>
+        <div>
+          <h2>Polarizing Beamsplitter</h2>
+          <ul>
+            <li>24-layer design with reflection &gt; 99.9%.</li>
+            <li>Reflects s-polarized and transmits p-polarized beams.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/Beamsplitter_nonpol.png" alt="Non-polarizing beamsplitter"></div>
+        <div>
+          <h2>Non-Polarizing Beamsplitter</h2>
+          <ul>
+            <li>Splits incident light into specific reflected/transmitted ratios.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/PR.png" alt="Partial reflector"></div>
+        <div>
+          <h2>Partial Reflector</h2>
+          <ul>
+            <li>2-layer and 5-layer designs with tunable reflection at 550nm (by material choice and stack).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="split">
+        <div><img class="img" src="assets/img/optical/PR_Laser.png" alt="Laser narrowband partial reflector"></div>
+        <div>
+          <h2>Laser / Narrowband Partial Reflector</h2>
+          <ul>
+            <li>Reflection tunability achieved via number of layers.</li>
+            <li>R(14 layers) &gt; R(12) &gt; R(10).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <h2>Want the underlying designs?</h2>
+      <p class="muted">
+        I can add: design tables, layer stacks, and export files (sanitized) as downloadable assets.
+      </p>
     </section>
   </main>
 
