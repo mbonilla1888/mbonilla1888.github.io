@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SPC Automation | Manuel Bonilla, Ph.D.</title>
-  <meta name="description" content="Statistical Process Control automation and analytics." />
+  <meta name="description" content="Statistical Process Control automation and data visualization using Python." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
@@ -13,7 +13,7 @@
   <div class="container header-row">
     <div class="brand">
       <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
+      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC / Analytics</div>
     </div>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -28,53 +28,117 @@
 </header>
 
 <main class="container">
+
 <section class="card hero">
-  <h1>Statistical Process Control (SPC)</h1>
-  <p class="muted">
-    Automation of SPC analysis for optical and semiconductor manufacturing.
-  </p>
-</section>
+  <h1>Statistical Process Control (SPC) automation & data visualization using Python</h1>
 
-<section class="card section">
-  <h2>Problem</h2>
   <p class="muted">
-    Traditional SPC tools struggled with spectral data, custom control limits,
-    and multi-run optical datasets.
+    SPC monitors processes so they remain within operational boundaries. Traditional SPC often requires specialized
+    software (e.g., Minitab). By using Python, I can:
   </p>
-</section>
 
-<section class="card section">
-  <h2>Solution</h2>
   <ul>
-    <li>Python-based SPC framework</li>
-    <li>X̄–R charts customized for spectral minima</li>
-    <li>Static and warning control regions</li>
-    <li>Automated reflection averaging across wavelength bands</li>
+    <li>Eliminate SPC license dependency (cost reduction)</li>
+    <li>Automate statistics + Western Electric (WECO) rules directly from data sources (time savings, less human error)</li>
+    <li>Generate automatic alerts when warning or control limits are hit (faster corrective action)</li>
+    <li>Customize visualizations for fast executive and cross-team status clarity</li>
+  </ul>
+
+  <p class="muted small">
+    Below are two examples: spectral monitoring in optics and thickness monitoring in semiconductors.
+  </p>
+</section>
+
+<!-- Spectral monitoring -->
+<section class="card section">
+  <h2>SPC for Spectral Monitoring (Optics)</h2>
+
+  <img class="img" src="assets/img/spc/R4PLOT.png" alt="Spectral plot with reflection limits and wavelength regions">
+
+  <ul>
+    <li>Plots spectral data for selected dates or run numbers.</li>
+    <li>Overlays reflection requirements (horizontal dashed line) and wavelength regions (vertical dashed lines).</li>
+    <li>Automatically tags runs as <b>Warning</b> or <b>Out-of-limits</b> based on defined thresholds.</li>
+  </ul>
+
+  <p class="muted small">
+    Example requirements used in this illustration:
+    R<sub>avg</sub> &lt; 3.0% (390–490nm) and R<sub>avg</sub> &lt; 3.0% (670–720nm).
+  </p>
+</section>
+
+<section class="card section">
+  <h2>Minima shift tracking (within a control region)</h2>
+
+  <img class="img" src="assets/img/spc/R4spc2.png" alt="SPC tracking of spectral minima shift in selected region">
+
+  <ul>
+    <li>Focuses on the 390–490nm region.</li>
+    <li>Tracks minima by run to monitor centering wavelength and coating performance.</li>
+    <li>Can be configured to monitor minima, R<sub>avg</sub>, or any derived metric.</li>
   </ul>
 </section>
 
 <section class="card section">
-  <h2>Impact</h2>
+  <h2>Automated alerts</h2>
+
+  <img class="img" src="assets/img/spc/Alert.png" alt="Email alert generated when warning limit is reached">
+
   <ul>
-    <li>Early detection of wavelength drift</li>
-    <li>Reduced false positives vs textbook SPC</li>
-    <li>Improved decision-making during production runs</li>
+    <li>Email alert auto-generated when warning or control limits are reached.</li>
+    <li>Includes run identification and the out-of-limit value for quick response.</li>
+  </ul>
+</section>
+
+<!-- Thickness monitoring -->
+<section class="card section">
+  <h2>SPC for thickness monitoring (Semiconductors)</h2>
+
+  <img class="img" src="assets/img/spc/chart1_spc.png" alt="X chart for thickness monitoring built from 5 measurements per sample">
+
+  <ul>
+    <li>Uses 5 measurement points per sample to compute the sample average (X chart).</li>
+    <li>Calculates and plots UCL/LCL based on data spread.</li>
   </ul>
 </section>
 
 <section class="card section">
-  <h2>Next</h2>
-  <p class="muted">
-    This framework later fed into MES dashboards, automated alerts,
-    and standardized review cadence.
-  </p>
+  <h2>Range chart (R chart)</h2>
+
+  <img class="img" src="assets/img/spc/chart2_spc.png" alt="R chart showing range across samples">
+
+  <ul>
+    <li>Computes and plots range per sample (R chart) to capture variation.</li>
+  </ul>
 </section>
+
+<section class="card section">
+  <h2>Box plot visualization</h2>
+
+  <img class="img" src="assets/img/spc/spc_box.png" alt="Box plot comparing average against measurement distribution">
+
+  <ul>
+    <li>Visualizes how the average stacks against each measurement distribution.</li>
+    <li>Can be extended to moving range and process capability (Cpk), etc.</li>
+  </ul>
+</section>
+
+<section class="card section">
+  <h2>How this ties into MES & operations</h2>
+  <ul>
+    <li>SPC outputs can feed dashboards, shift summaries, and automated notifications.</li>
+    <li>Reduces manual reporting and standardizes decision-making across teams.</li>
+  </ul>
+</section>
+
 </main>
 
 <footer class="footer">
   <div class="container">© <span id="year"></span> Manuel Bonilla</div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
