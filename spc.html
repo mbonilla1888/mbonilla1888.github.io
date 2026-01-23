@@ -3,40 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page | Manuel Bonilla, Ph.D.</title>
+  <title>SPC Automation | Manuel Bonilla, Ph.D.</title>
+  <meta name="description" content="Statistical Process Control automation and analytics." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="name">Manuel Bonilla, Ph.D.</div>
-        <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="optical.html">Optical</a>
-        <a href="deposition.html">Deposition</a>
-        <a href="spc.html">SPC</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<header class="site-header">
+  <div class="container header-row">
+    <div class="brand">
+      <div class="name">Manuel Bonilla, Ph.D.</div>
+      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
     </div>
-  </header>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="optical.html">Optical</a>
+      <a href="deposition.html">Deposition</a>
+      <a class="active" href="spc.html">SPC</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
-    <section class="card hero">
-      <h1>Coming soon</h1>
-      <p class="muted">We’ll build this page next.</p>
-    </section>
-  </main>
+<main class="container">
+<section class="card hero">
+  <h1>Statistical Process Control (SPC)</h1>
+  <p class="muted">
+    Automation of SPC analysis for optical and semiconductor manufacturing.
+  </p>
+</section>
 
-  <footer class="footer">
-    <div class="container">
-      <span>© <span id="year"></span> Manuel Bonilla</span>
-    </div>
-  </footer>
+<section class="card section">
+  <h2>Problem</h2>
+  <p class="muted">
+    Traditional SPC tools struggled with spectral data, custom control limits,
+    and multi-run optical datasets.
+  </p>
+</section>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<section class="card section">
+  <h2>Solution</h2>
+  <ul>
+    <li>Python-based SPC framework</li>
+    <li>X̄–R charts customized for spectral minima</li>
+    <li>Static and warning control regions</li>
+    <li>Automated reflection averaging across wavelength bands</li>
+  </ul>
+</section>
+
+<section class="card section">
+  <h2>Impact</h2>
+  <ul>
+    <li>Early detection of wavelength drift</li>
+    <li>Reduced false positives vs textbook SPC</li>
+    <li>Improved decision-making during production runs</li>
+  </ul>
+</section>
+
+<section class="card section">
+  <h2>Next</h2>
+  <p class="muted">
+    This framework later fed into MES dashboards, automated alerts,
+    and standardized review cadence.
+  </p>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
