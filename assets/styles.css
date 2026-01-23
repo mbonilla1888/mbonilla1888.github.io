@@ -1,80 +1,179 @@
-:root{
-  --bg:#0b1416;
-  --card:#101e21;
-  --text:#e8f1f2;
-  --muted:#b7c6c9;
-  --accent:#22c55e;
-  --accent2:#60a5fa;
-  --border:rgba(232,241,242,.10);
+/* =========================
+   GLOBAL RESET & BASE
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-  background: radial-gradient(1200px 800px at 20% 0%, #103438 0%, var(--bg) 55%);
-  color:var(--text);
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top, #0c1a1d, #050a0c 70%);
+  color: #e8f1f2;
+  line-height: 1.6;
 }
 
-.container{max-width:1100px;margin:0 auto;padding:20px}
-
-.site-header{
-  position:sticky; top:0;
-  background: rgba(11,20,22,.85);
-  backdrop-filter: blur(8px);
-  border-bottom:1px solid var(--border);
-  z-index:10;
+a {
+  color: #7dd3c7;
+  text-decoration: none;
 }
 
-.header-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-.brand .name{font-weight:800;letter-spacing:.2px}
-.brand .tag{color:var(--muted);font-size:.95rem;margin-top:4px}
-
-.nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-  padding:8px 10px;
-  border-radius:10px;
-  border:1px solid transparent;
-}
-.nav a:hover{color:var(--text);border-color:var(--border)}
-.nav a.active{color:var(--text);border-color:rgba(34,197,94,.35)}
-
-.card{
-  background: linear-gradient(180deg, rgba(16,30,33,.85) 0%, rgba(16,30,33,.65) 100%);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+a:hover {
+  text-decoration: underline;
 }
 
-.hero h1{margin:0 0 10px;font-size:2rem;line-height:1.15}
-.muted{color:rgba(232,241,242,.75)}
+/* =========================
+   LAYOUT
+   ========================= */
 
-.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 6px}
-.btn{
-  display:inline-block;
-  background:var(--accent);
-  color:#06210f;
-  text-decoration:none;
-  padding:10px 12px;
-  border-radius:12px;
-  font-weight:700;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
 }
-.btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(96,165,250,.55)}
-.btn.secondary:hover{border-color:rgba(96,165,250,.95)}
 
-.grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:14px;
-  margin-top:14px;
+/* =========================
+   HEADER / NAV
+   ========================= */
+
+.site-header {
+  background: linear-gradient(180deg, #081416, #050a0c);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.section{margin-top:14px}
 
-.footer{margin-top:26px;border-top:1px solid var(--border);color:var(--muted)}
-@media (max-width: 860px){
-  .grid{grid-template-columns: 1fr}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand .name {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.brand .tag {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.nav a.active,
+.nav a:hover {
+  background: rgba(125, 211, 199, 0.15);
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+  background: linear-gradient(180deg, #0f2327, #0a171a);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+  overflow: hidden; /* 🔑 FIXES IMAGE OVERFLOW */
+}
+
+.card.hero {
+  padding: 2.5rem;
+}
+
+.card.section {
+  padding: 2rem;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+}
+
+.h3 {
+  font-size: 1.05rem;
+  margin-top: 1.5rem;
+}
+
+.muted {
+  opacity: 0.75;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* =========================
+   LISTS
+   ========================= */
+
+ul, ol {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   IMAGES
+   ========================= */
+
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.25rem 0;
+  border-radius: 12px;
+  background: white;          /* makes diagrams pop */
+  padding: 12px;
+}
+
+/* Optional wrapper if needed */
+.img-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
