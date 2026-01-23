@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page | Manuel Bonilla, Ph.D.</title>
+  <title>Deposition Techniques | Manuel Bonilla, Ph.D.</title>
+  <meta name="description" content="Deposition techniques: MBE, e-beam evaporation, ALD, PECVD. Experience and illustrations." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-row">
@@ -16,8 +18,7 @@
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
-        <a href="optical.html">Optical</a>
-        <a href="deposition.html">Deposition</a>
+        <a class="active" href="deposition.html">Deposition</a>
         <a href="spc.html">SPC</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -25,9 +26,210 @@
   </header>
 
   <main class="container">
+    <!-- HERO -->
     <section class="card hero">
-      <h1>Coming soon</h1>
-      <p class="muted">We’ll build this page next.</p>
+      <div class="hero-grid">
+        <div>
+          <h1>Deposition Techniques</h1>
+          <p class="muted">
+            15+ years of experience with deposition processes across research and manufacturing.
+          </p>
+
+          <h2 class="h3">Intro</h2>
+          <ul>
+            <li><b>Undergraduate research:</b> thermal evaporation for metal electrodes.</li>
+            <li><b>Internships:</b> graphene and carbon nanotubes with CVD.</li>
+            <li><b>Graduate research:</b> transition metal dichalcogenides with MBE; PLD to grow oxides.</li>
+            <li><b>Professional:</b> ALD, PECVD, e-beam, sputtering in optics and semiconductor manufacturing.</li>
+            <li><b>Below:</b> illustrations for PVD (MBE, e-beam) and CVD (ALD, PECVD).</li>
+          </ul>
+        </div>
+
+        <!-- Lottie replacement (static) -->
+        <div class="hero-media card inset">
+          <div class="muted small">Animation placeholder</div>
+          <p class="muted small">
+            GitHub Pages is static, so instead of Streamlit Lottie we either:
+            (1) embed a Lottie player script, or (2) use a GIF/PNG.
+          </p>
+
+          <!-- Option A: put a GIF here -->
+          <!-- <img class="img" src="assets/img/deposition_animation.gif" alt="Deposition animation"> -->
+
+          <!-- Option B: embed Lottie (uncomment to use) -->
+          <!--
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player
+            src="https://lottie.host/f7d92ec6-9e35-4723-ac4f-7a4dc7c5003a/mMOPRnMJup.json"
+            background="transparent"
+            speed="1"
+            style="width: 100%; height: 320px;"
+            loop
+            autoplay>
+          </lottie-player>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: MBE -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/MBE.png" alt="Molecular Beam Epitaxy diagram">
+        </div>
+        <div>
+          <h2>Molecular Beam Epitaxy (MBE)</h2>
+          <ul>
+            <li>PVD technique for UHV deposition (~1e-09 to 1e-11 Torr).</li>
+            <li>Multi-stage pumping: ion pump, turbo-molecular pump, roughing pump.</li>
+            <li>Highest purity; controlled deposition down to sub-monolayer regime.</li>
+            <li>Max substrate temperature ~500°C; slow rate (few microns/hr).</li>
+            <li>Co-deposition or sequential deposition with anneal.</li>
+            <li>Common MBE tools are not designed for mass production.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SOURCE -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/source.png" alt="Effusion cell and valved cracking tube diagram">
+        </div>
+        <div>
+          <h2>Effusion Cell and Valved Cracking Tube</h2>
+
+          <h3 class="h3">Effusion cell</h3>
+          <ul>
+            <li>Typically used for III-V MBE materials.</li>
+            <li>Source temperatures up to ~1400°C.</li>
+            <li>Electron emission/acceleration drives sublimation of source atoms (as configured in many sources).</li>
+          </ul>
+
+          <h3 class="h3">Valved cracking source</h3>
+          <ul>
+            <li>For high vapor pressure materials (Se, S, Te, As, P).</li>
+            <li>Cracks clusters into atoms; stable flux using 3 temp regions:</li>
+            <li>Bulk/crucible (~100°C), valve (~250°C), hot-wall cracking tube (&gt;500°C).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: E-BEAM -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/Ebeam.png" alt="E-beam evaporation diagram">
+        </div>
+        <div>
+          <h2>E-beam Evaporation</h2>
+          <ul>
+            <li>PVD technique where electrons heat the source material to evaporate it.</li>
+            <li>E-gun generates electrons; magnets focus beam to the target.</li>
+            <li>Rotating crucible supports multiple sources for deposition.</li>
+            <li>Manufacturing-capable for thin-film production.</li>
+            <li>Thickness control is strong, but not like ALD/MBE for atomic-scale control.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ALD A -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/ALD_a.png" alt="ALD step diagram part A">
+        </div>
+        <div>
+          <h2>Atomic Layer Deposition (ALD)</h2>
+          <ul>
+            <li>CVD technique depositing sequential layers using precursors + inert carrier gas.</li>
+            <li>Excellent thickness control via self-limiting surface chemistry.</li>
+            <li>Manufacturing-capable for high-quality films.</li>
+          </ul>
+
+          <h3 class="h3">Example: HfO₂ (conceptual)</h3>
+          <ol>
+            <li>Introduce first precursor (e.g., HfCl₄).</li>
+            <li>Surface reactions proceed until saturation (self-limiting).</li>
+            <li>Purge with N₂ to remove excess reactants/byproducts.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ALD B -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/ALD_b.png" alt="ALD step diagram part B">
+        </div>
+        <div>
+          <h2>ALD continued</h2>
+          <ol start="4">
+            <li>Introduce second precursor (e.g., H₂O).</li>
+            <li>Surface reaction removes ligands from the first half-reaction.</li>
+            <li>Purge again to clear excess species.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ALD C -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/ALD_c.png" alt="ALD step diagram part C">
+        </div>
+        <div>
+          <h2>ALD cycle completion</h2>
+          <ul>
+            <li>One full ALD cycle forms ~one layer (depending on chemistry).</li>
+            <li>Repeat cycle to build thickness with angstrom-level control.</li>
+            <li>CVD is generally more conformal than PVD (less line-of-sight dependence).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PECVD -->
+    <section class="card section">
+      <div class="split">
+        <div>
+          <img class="img" src="assets/img/PECVD.png" alt="PECVD diagram">
+        </div>
+        <div>
+          <h2>Plasma Enhanced Chemical Vapor Deposition (PECVD)</h2>
+          <ul>
+            <li>CVD process using plasma to provide formation energy (lower substrate temperature than thermal CVD).</li>
+            <li>Depending on conditions, substrate can rise to ~200°C.</li>
+            <li>RF power influences density/stress of films.</li>
+            <li>Manufacturing-friendly due to higher rate, higher pressure operation, and plasma cleaning.</li>
+            <li>CVD is generally more conformal than PVD.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (Static-friendly) -->
+    <section class="card section">
+      <h2>Let’s work together</h2>
+      <p class="muted">
+        For a static site, the easiest contact options are:
+        (1) a mailto link, or (2) a form service (Formspree / FormSubmit).
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="mailto:mbonilla1888@gmail.com">Email me</a>
+        <a class="btn secondary" href="contact.html">Contact page</a>
+      </div>
+
+      <p class="small muted" style="margin-top:10px;">
+        If you want the form on this page, tell me which service you prefer and I’ll drop in the exact HTML.
+      </p>
     </section>
   </main>
 
@@ -37,6 +239,8 @@
     </div>
   </footer>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
