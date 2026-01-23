@@ -3,40 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page | Manuel Bonilla, Ph.D.</title>
+  <title>Projects | Manuel Bonilla, Ph.D.</title>
+  <meta name="description" content="Selected projects in MES, digital transformation, SPC/analytics, and manufacturing automation." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="name">Manuel Bonilla, Ph.D.</div>
-        <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="optical.html">Optical</a>
-        <a href="deposition.html">Deposition</a>
-        <a href="spc.html">SPC</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<header class="site-header">
+  <div class="container header-row">
+    <div class="brand">
+      <div class="name">Manuel Bonilla, Ph.D.</div>
+      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
     </div>
-  </header>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="optical.html">Optical</a>
+      <a href="deposition.html">Deposition</a>
+      <a href="spc.html">SPC</a>
+      <a href="mes.html">MES</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
-    <section class="card hero">
-      <h1>Coming soon</h1>
-      <p class="muted">We’ll build this page next.</p>
-    </section>
-  </main>
+<main class="container">
+  <section class="card hero">
+    <h1>Projects</h1>
+    <p class="muted">
+      A selection of work across MES implementations, operational dashboards, analytics automation, and process engineering.
+      (Images and diagrams will be added next.)
+    </p>
+  </section>
 
-  <footer class="footer">
-    <div class="container">
-      <span>© <span id="year"></span> Manuel Bonilla</span>
-    </div>
-  </footer>
+  <!-- Project 1 -->
+  <section class="card section">
+    <h2>MES rollout & governance (multi-site scaling)</h2>
+    <p class="muted"><b>What it is:</b> A governance-first approach to scaling MES adoption: standards, workflows, metrics, and training.</p>
+    <ul>
+      <li><b>Focus:</b> data model consistency, naming standards, auditability, and scalable adoption</li>
+      <li><b>Deliverables:</b> workflows, training, dashboards, operational reporting cadence</li>
+      <li><b>Tech:</b> MES + SQL + Power BI + SharePoint + automation tooling</li>
+    </ul>
+    <p class="muted small">Add later: architecture diagram (data flow + ownership model).</p>
+  </section>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <!-- Project 2 -->
+  <section class="card section">
+    <h2>Operational dashboards & alerts (tool / WIP / performance visibility)</h2>
+    <p class="muted"><b>What it is:</b> Tactical operations dashboards that reduce manual status reporting and speed up response time.</p>
+    <ul>
+      <li><b>Focus:</b> real-time visibility, standardized status updates, and escalations</li>
+      <li><b>Deliverables:</b> dashboards, automated notifications, KPI tracking</li>
+      <li><b>Tech:</b> Power BI, SharePoint, Power Automate, SQL, Python (as needed)</li>
+    </ul>
+    <p class="muted small">Add later: screenshots of dashboard views + alert examples.</p>
+  </section>
+
+  <!-- Project 3 -->
+  <section class="card section">
+    <h2>SPC automation for spectral/process data</h2>
+    <p class="muted"><b>What it is:</b> Automated SPC analysis and custom control logic for datasets that don’t fit standard SPC templates.</p>
+    <ul>
+      <li><b>Focus:</b> robustness, repeatability, “actionable not noisy” signals</li>
+      <li><b>Deliverables:</b> automated charts, rules, summary outputs</li>
+      <li><b>Tech:</b> Python, NumPy/Pandas, Plotting, exportable reports</li>
+    </ul>
+    <p class="muted small">Add later: one “before/after” plot + a sample chart image.</p>
+  </section>
+
+  <!-- Project 4 -->
+  <section class="card section">
+    <h2>Engineering process expertise (optics + thin film deposition)</h2>
+    <p class="muted"><b>What it is:</b> Process development and manufacturing support across optical coatings and semiconductor thin films.</p>
+    <ul>
+      <li><b>Focus:</b> deposition processes, film design, process stability, production readiness</li>
+      <li><b>Related pages:</b> <a href="optical.html">Optical Coating Examples</a>, <a href="deposition.html">Deposition Techniques</a></li>
+    </ul>
+    <p class="muted small">Add later: selected figures and a “tech stack” diagram.</p>
+  </section>
+
+  <section class="card section">
+    <h2>What I add next</h2>
+    <ul>
+      <li>1 page per project (case-study): Problem → Solution → Results → Architecture</li>
+      <li>Sanitized screenshots, charts, and diagrams</li>
+      <li>Links to public artifacts (if any) and a “skills in action” section</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
