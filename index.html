@@ -1,75 +1,366 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Manuel Bonilla, Ph.D. | Tehcnical Program & Operational Lead</title>
-  <meta name="description" content="MES architecture, digital transformation, SPC/analytics, manufacturing systems leadership." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Manuel Bonilla, Ph.D.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 7%;
+      background: #111820;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 520px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,.35),
+          rgba(0,0,0,.60)
+        ),
+        url("images/hero.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-small {
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      line-height: 1.5;
+      color: #e4e4e4;
+    }
+
+    /* PROJECT / CAPABILITY SECTION */
+
+    .projects {
+      max-width: 1250px;
+      margin: auto;
+      padding: 70px 6%;
+    }
+
+    .projects h2 {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 45px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 22px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,.85)
+        );
+    }
+
+    .project-overlay h3 {
+      font-size: 22px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 45px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
-  <header class="site-header">
-    <div class="container header-row">
-      <div class="brand">
-        <div class="name">Manuel Bonilla, Ph.D.</div>
-        <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
-      </div>
-      <nav class="nav">
-        <a class="active" href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="optical.html">Optical</a>
-        <a href="deposition.html">Deposition</a>
-        <a href="spc.html">SPC</a>
-        <a href="mes.html">MES</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="name">
+    Manuel Bonilla, Ph.D.
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="resume.pdf">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Engineering • Technology • Operations
     </div>
-  </header>
 
-  <main class="container">
-    <section class="card hero">
-      <h1>Manufacturing systems leader focused on MES, automation, and operational governance.</h1>
-      <p class="muted">
-        I build scalable MES and data platforms that turn shop-floor reality into standardized digital workflows,
-        metrics, and real-time visibility.
-      </p>
+    <h1>
+      Technical Program & Systems Leader
+    </h1>
 
-      <div class="cta-row">
-        <a class="btn" href="assets/Manuel_Bonilla_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
-        <a class="btn secondary" href="projects.html">View Projects</a>
+    <p>
+      Manufacturing • Engineering • Systems • Data • Technology
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECT AREAS -->
+
+<section class="projects" id="projects">
+
+  <h2>
+    Selected Work & Expertise
+  </h2>
+
+
+  <div class="project-grid">
+
+
+    <a class="project-card" href="mes.html">
+      <img src="images/mes.jpg" alt="MES">
+      <div class="project-overlay">
+        <h3>MES & Manufacturing Systems</h3>
       </div>
-    </section>
+    </a>
 
-    <section class="grid">
-      <article class="card">
-        <h2>What I do</h2>
-        <ul>
-          <li><b>MES architecture & governance</b>: data models, workflows, standards, metrics</li>
-          <li><b>Operational visibility</b>: dashboards, alerts, tool/WIP/performance tracking</li>
-          <li><b>Automation</b>: Python/SQL/Power Automate to eliminate manual reporting</li>
-        </ul>
-      </article>
 
-      <article class="card">
-        <h2>Featured sections</h2>
-        <ul>
-          <li><b>MES</b>: multi-site scaling, governance model, metrics</li>
-          <li><b>SPC</b>: charting automation, rules, reporting cadence</li>
-          <li><b>Optics</b>: coating examples + deposition technique illustrations</li>
-        </ul>
-      </article>
-    </section>
+    <a class="project-card" href="project-management.html">
+      <img src="images/project-management.jpg" alt="Project Management">
+      <div class="project-overlay">
+        <h3>Project & Program Leadership</h3>
+      </div>
+    </a>
 
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <span>© <span id="year"></span> Manuel Bonilla</span>
-    </div>
-  </footer>
+    <a class="project-card" href="spc.html">
+      <img src="images/spc.jpg" alt="SPC">
+      <div class="project-overlay">
+        <h3>SPC & Analytics</h3>
+      </div>
+    </a>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+    <a class="project-card" href="python.html">
+      <img src="images/python.jpg" alt="Python">
+      <div class="project-overlay">
+        <h3>Python & Automation</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="semiconductor.html">
+      <img src="images/semiconductor.jpg" alt="Semiconductors">
+      <div class="project-overlay">
+        <h3>Semiconductor Manufacturing</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="optical.html">
+      <img src="images/optics.jpg" alt="Optics">
+      <div class="project-overlay">
+        <h3>Optics & Optical Coatings</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="deposition.html">
+      <img src="images/deposition.jpg" alt="Deposition">
+      <div class="project-overlay">
+        <h3>Thin Films & Deposition</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="quality.html">
+      <img src="images/quality.jpg" alt="Quality">
+      <div class="project-overlay">
+        <h3>Quality & Process Control</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="metrology.html">
+      <img src="images/metrology.jpg" alt="Metrology">
+      <div class="project-overlay">
+        <h3>Metrology & Measurement</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="tool-ownership.html">
+      <img src="images/tool-ownership.jpg" alt="Tool Ownership">
+      <div class="project-overlay">
+        <h3>Equipment & Tool Ownership</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="data-systems.html">
+      <img src="images/data-systems.jpg" alt="Data Systems">
+      <div class="project-overlay">
+        <h3>Data & Systems Integration</h3>
+      </div>
+    </a>
+
+
+    <a class="project-card" href="research.html">
+      <img src="images/research.jpg" alt="Research">
+      <div class="project-overlay">
+        <h3>Research & Technical Work</h3>
+      </div>
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<footer>
+  © 2026 Manuel Bonilla
+</footer>
+
+
 </body>
 </html>
