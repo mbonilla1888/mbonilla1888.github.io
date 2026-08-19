@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Python & Engineering Automation | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Python-based engineering automation, manufacturing data processing, SPC analysis, equipment data extraction, MES support, dashboards, and workflow automation."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       PROJECT GRID
+    ========================================================= */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .project-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .project-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .project-card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Python & Engineering Automation
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Python, Engineering Automation & Manufacturing Data
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        I use Python as an engineering tool to automate repetitive work,
+        process manufacturing data, connect equipment and systems,
+        perform statistical analysis, and convert raw information into
+        formats engineers can use for decision-making.
+      </p>
+
+      <div class="hero-summary">
+        My programming work is driven by engineering needs rather than
+        software development for its own sake. When equipment, MES,
+        analysis software, databases, or manufacturing workflows do not
+        connect cleanly, I use code to close the gap.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/python/python_hero.png"
+        alt="Python engineering automation and manufacturing data analysis"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Engineering Automation</h3>
+
+    <p>
+      Automating repetitive engineering tasks, notifications,
+      file processing, reporting, and manufacturing workflows.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Equipment & Manufacturing Data</h3>
+
+    <p>
+      Extracting, transforming, restructuring, and analyzing raw
+      equipment data for engineering and operational use.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Analysis & Decision Support</h3>
+
+    <p>
+      Statistical analysis, SPC, plots, dashboards, alerts, and
+      engineering-ready data products.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFESSIONAL USE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Python as an Engineering Tool</h2>
+
+  <p>
+    I use Python when an engineering or manufacturing problem can be
+    solved more efficiently through automation, data transformation,
+    analysis, or system interaction.
+  </p>
+
+  <p>
+    This has included everything from processing equipment files and
+    calculating statistical-control rules to connecting manufacturing
+    systems with local hardware and automatically preparing data for
+    engineering analysis.
+  </p>
+
+  <ul>
+    <li>Manufacturing and equipment-data processing</li>
+    <li>Statistical and process analysis</li>
+    <li>Automated file conversion and restructuring</li>
+    <li>Engineering plots and visualizations</li>
+    <li>Automated alerts and notifications</li>
+    <li>MES-support utilities and workflow automation</li>
+    <li>Data preparation for dashboards and reporting systems</li>
+    <li>Integration between otherwise disconnected applications or devices</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     EQUIPMENT DATA
+========================================================= -->
+
+<section class="section">
+
+  <h2>Equipment Data Extraction & Engineering Analysis</h2>
+
+  <p>
+    Manufacturing equipment often produces raw files that are designed
+    for the tool rather than for engineers. File structures may be difficult
+    to analyze directly, incompatible with standard analysis software,
+    or require substantial manual preparation.
+  </p>
+
+  <p>
+    I have used Python to automate that translation between equipment
+    output and engineering analysis.
+  </p>
+
+  <ul>
+    <li>Read raw equipment-generated data files</li>
+    <li>Extract relevant measurements and metadata</li>
+    <li>Clean and restructure inconsistent data</li>
+    <li>Combine multiple files into usable engineering datasets</li>
+    <li>Generate plots directly from equipment output</li>
+    <li>Convert raw files into formats compatible with tools such as JMP</li>
+    <li>Prepare equipment data for dashboards and recurring analysis</li>
+  </ul>
+
+  <p>
+    This approach allows engineers to spend more time interpreting process
+    behavior and less time manually preparing files before analysis can begin.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     SPC
+========================================================= -->
+
+<section class="section">
+
+  <h2>Statistical Process Control & Automated Analysis</h2>
+
+  <p>
+    Python has also been useful for building flexible Statistical Process
+    Control (SPC) tools when engineering requirements extend beyond
+    standard spreadsheet analysis or commercial software workflows.
+  </p>
+
+  <ul>
+    <li>Control-chart calculations</li>
+    <li>X-bar and Range analysis</li>
+    <li>Western Electric (WECO) rule evaluation</li>
+    <li>Warning and control-limit detection</li>
+    <li>Process trend monitoring</li>
+    <li>Automated plotting and visualization</li>
+    <li>Automated notifications when defined conditions occur</li>
+    <li>Batch processing of manufacturing datasets</li>
+  </ul>
+
+  <p>
+    The objective is not to replace commercial statistical software in
+    every situation, but to create automated engineering workflows when
+    customization, integration, or repetitive analysis makes automation useful.
+  </p>
+
+  <div class="related-links">
+    <a href="spc.html">SPC Implementation & Analytics →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     MES AUTOMATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES & Manufacturing Workflow Automation</h2>
+
+  <p>
+    Python can also serve as a lightweight bridge when Manufacturing
+    Execution Systems (MES), local equipment, printers, files, or other
+    manufacturing resources do not communicate directly.
+  </p>
+
+  <p>
+    One example involved supporting barcode printing where an existing
+    local printer was not directly integrated with MES. A lightweight
+    automation workflow received manufacturing information, generated
+    the required barcode image, and enabled the local workstation to
+    print the label without requiring a full replacement of the existing
+    hardware.
+  </p>
+
+  <ul>
+    <li>Barcode and label generation</li>
+    <li>Local workstation automation</li>
+    <li>File and message monitoring</li>
+    <li>Data preparation before MES use</li>
+    <li>Translation between system outputs and local manufacturing needs</li>
+    <li>Automated operational notifications</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="mes.html">MES Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     ENVIRONMENTAL DATA
+========================================================= -->
+
+<section class="section">
+
+  <h2>Environmental Monitoring & Automated Data Pipelines</h2>
+
+  <p>
+    I have used automation to turn continuously generated environmental
+    and manufacturing data into usable monitoring systems rather than
+    relying on manual data collection and review.
+  </p>
+
+  <ul>
+    <li>Scheduled extraction of temperature and humidity data</li>
+    <li>Automated appending of new measurements to historical datasets</li>
+    <li>Preparation of data for Power BI and SharePoint reporting</li>
+    <li>Threshold-based alerts for abnormal environmental conditions</li>
+    <li>Recurring dashboards for engineering and manufacturing visibility</li>
+  </ul>
+
+  <p>
+    This type of workflow connects data acquisition, analysis,
+    visualization, and notification into a single automated process.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     SELECTED EXAMPLES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Selected Automation Examples</h2>
+
+
+  <div class="project-grid">
+
+
+    <div class="project-card">
+
+      <h3>SPC Automation</h3>
+
+      <p>
+        Automated statistical calculations, WECO-rule evaluation,
+        control charts, plots, and process alerts from manufacturing data.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Equipment File Processing</h3>
+
+      <p>
+        Converted raw equipment outputs into structured datasets and
+        formats suitable for engineering analysis and JMP.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Barcode Workflow Automation</h3>
+
+      <p>
+        Created a lightweight bridge between manufacturing information
+        and an existing local printer to generate and print barcode labels.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Environmental Monitoring</h3>
+
+      <p>
+        Automated collection and processing of temperature and humidity
+        data for dashboards, historical trending, and threshold alerts.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Equipment Data Visualization</h3>
+
+      <p>
+        Transformed raw equipment data into engineering plots and
+        analysis outputs needed to understand process behavior.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Manufacturing Data Preparation</h3>
+
+      <p>
+        Cleaned, combined, and reformatted operational data for MES,
+        dashboards, reporting, and engineering decision support.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNICAL FOUNDATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Computational & Scientific Foundation</h2>
+
+  <p>
+    My programming background developed alongside physics, engineering,
+    mathematics, and scientific data analysis rather than through a
+    traditional software-engineering career path.
+  </p>
+
+  <p>
+    Computational coursework, scientific research, and applied engineering
+    work provided a foundation for using programming to model, analyze,
+    visualize, and automate technical problems.
+  </p>
+
+  <ul>
+    <li>Python</li>
+    <li>SQL</li>
+    <li>MATLAB</li>
+    <li>VBA and Excel automation</li>
+    <li>R</li>
+    <li>JMP and statistical analysis tools</li>
+    <li>Scientific computing and numerical analysis</li>
+    <li>Computational physics and quantitative data analysis</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     DATA SYSTEMS LINK
+========================================================= -->
+
+<section class="section">
+
+  <h2>From Code to Connected Manufacturing Systems</h2>
+
+  <p>
+    Many automation problems extend beyond Python itself and require
+    understanding databases, equipment interfaces, MES, dashboards,
+    data structures, and the systems surrounding the code.
+  </p>
+
+  <p>
+    That broader systems and integration experience is covered separately
+    in the Data & Systems Integration section.
+  </p>
+
+  <div class="related-links">
+    <a href="data-systems.html">Data & Systems Integration →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
