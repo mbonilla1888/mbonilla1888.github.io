@@ -1,168 +1,973 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Deposition Techniques | Manuel Bonilla, Ph.D.</title>
-  <meta name="description" content="Deposition techniques: MBE, e-beam evaporation, ALD, PECVD with illustrations." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thin-Film Deposition | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Thin-film deposition, process engineering, vacuum systems, equipment ownership, ALD, PECVD, e-beam evaporation, sputtering, MBE, PLD, and CVD experience."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       TECHNIQUE CARDS
+    ========================================================= */
+
+    .technique-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .technique-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .technique-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .technique-card p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .technique-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+
+    /* =========================================================
+       ALD SEQUENCE
+    ========================================================= */
+
+    .ald-sequence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .ald-step {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .ald-step h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .ald-step img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .ald-step p {
+      text-align: center;
+      margin: 12px 0 0 0;
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .technique-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ald-sequence {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
+
 <body>
-<header class="site-header">
-  <div class="container header-row">
-    <div class="brand">
-      <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC / Analytics</div>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
     </div>
-    <nav class="nav">
+
+    <nav>
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="optical.html">Optical</a>
-      <a class="active" href="deposition.html">Deposition</a>
-      <a href="spc.html">SPC</a>
-      <a href="mes.html">MES</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Thin-Film Deposition & Vacuum Process Engineering
   </div>
-</header>
 
-<main class="container">
+</div>
 
-<section class="card hero">
-  <h1>Deposition Techniques</h1>
-  <p class="muted">
-    15+ years of experience with deposition processes across research and manufacturing.
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Thin-Film Deposition, Vacuum Systems & Process Engineering
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Hands-on thin-film deposition and process experience dating to 2008
+        across semiconductor manufacturing, optical coatings, nanotechnology,
+        and advanced materials research.
+      </p>
+
+      <div class="hero-summary">
+        My experience spans production-scale deposition equipment and
+        ultra-high-vacuum research systems, combining process development,
+        equipment ownership, vacuum physics, characterization, troubleshooting,
+        qualification, and manufacturing support.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/deposition/MBE.png"
+        alt="Thin-film deposition and molecular beam epitaxy system"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     HIGH LEVEL CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Industrial Process Engineering</h3>
+
+    <p>
+      Deposition recipe development, equipment ownership, qualification,
+      production support, troubleshooting, and process improvement.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Vacuum Systems</h3>
+
+    <p>
+      Practical experience from manufacturing vacuum systems through
+      high and ultra-high vacuum environments approaching 10⁻¹¹ Torr.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Advanced Thin Films</h3>
+
+    <p>
+      Experience across ALD, PECVD, e-beam evaporation, sputtering,
+      thermal evaporation, CVD, MBE, and PLD.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFESSIONAL EXPERIENCE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Professional Thin-Film & Deposition Experience</h2>
+
+  <p>
+    My deposition experience includes direct industrial responsibility for
+    semiconductor and optical coating processes, where the work extended
+    beyond operating deposition equipment to owning the process and supporting
+    its long-term manufacturing performance.
+  </p>
+
+  <p>
+    This included developing and adjusting recipes, understanding equipment
+    behavior, evaluating deposited films, qualifying processes, supporting
+    production, troubleshooting process excursions, and sustaining the tools
+    used to manufacture the coatings.
   </p>
 
   <ul>
-    <li><b>Undergraduate research:</b> thermal evaporation for metal electrodes</li>
-    <li><b>Internships:</b> graphene and CNT growth via CVD</li>
-    <li><b>Graduate research:</b> MBE (monolayer VSe₂), PLD oxides</li>
-    <li><b>Industry:</b> ALD, PECVD, e-beam, sputtering (optics & semiconductors)</li>
+    <li>Atomic Layer Deposition (ALD) semiconductor process engineering at Intel</li>
+    <li>Optical thin-film deposition and process development at Lockheed Martin</li>
+    <li>PECVD Diamond-Like Carbon (DLC) process and equipment ownership</li>
+    <li>E-beam evaporation, thermal evaporation, and sputtering</li>
+    <li>Deposition recipe development and optimization</li>
+    <li>Tool qualification, troubleshooting, maintenance, and upgrades</li>
+    <li>Film characterization and process-performance evaluation</li>
+    <li>Production work instructions and operator technical support</li>
   </ul>
+
 </section>
 
-<!-- MBE -->
-<section class="card section">
-  <h2>Molecular Beam Epitaxy (MBE)</h2>
-  <img class="img" src="assets/img/deposition/MBE.png" alt="Molecular Beam Epitaxy diagram">
+
+<!-- =========================================================
+     PROCESS DEVELOPMENT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Process Development & Equipment Ownership</h2>
+
+  <p>
+    Thin-film process development requires understanding both the desired
+    material or optical result and the behavior of the equipment used to
+    create it.
+  </p>
 
   <ul>
-    <li>PVD technique for UHV deposition (10⁻⁹–10⁻¹¹ Torr).</li>
-    <li>Multi-stage pumping (ion pump, turbo-molecular pump, roughing pump).</li>
-    <li>Highest purity; controlled deposition down to the sub-monolayer regime.</li>
-    <li>Max substrate temperature ~500°C; slow rate (few microns per hour).</li>
-    <li>Co-deposition or sequential deposition with anneal.</li>
-    <li>Common MBE platforms are not designed for mass production.</li>
+    <li>Translate film requirements into deposition recipes</li>
+    <li>Establish pressure, power, temperature, gas-flow, and deposition-rate conditions</li>
+    <li>Run engineering trials and characterize deposited films</li>
+    <li>Adjust recipes based on measured film performance</li>
+    <li>Evaluate chamber condition and process repeatability</li>
+    <li>Qualify processes for manufacturing use</li>
+    <li>Troubleshoot equipment and process excursions</li>
+    <li>Support preventive maintenance and chamber recovery</li>
+    <li>Develop operator instructions and production controls</li>
+    <li>Support equipment upgrades and additional manufacturing capacity</li>
   </ul>
+
 </section>
 
-<!-- SOURCE -->
-<section class="card section">
-  <h2>Effusion Cell and Valved Cracking Tube</h2>
-  <img class="img" src="assets/img/deposition/source.png" alt="Effusion cell and valved cracking tube diagram">
 
-  <h3 class="h3">Effusion cell</h3>
-  <ul>
-    <li>Typically used for III–V MBE materials.</li>
-    <li>Source temperatures can reach high values (tool-dependent).</li>
-    <li>Used to deliver stable flux for controlled growth.</li>
-  </ul>
+<!-- =========================================================
+     VACUUM PHYSICS
+========================================================= -->
 
-  <h3 class="h3">Valved cracking source</h3>
-  <ul>
-    <li>For high vapor pressure materials (Se, S, Te, As, P).</li>
-    <li>Cracks clusters into atoms to stabilize flux.</li>
-    <li>Three temperature-controlled regions are commonly used:
-      <ul>
-        <li>Bulk/Crucible (~100°C)</li>
-        <li>Valve (~250°C)</li>
-        <li>Hot-wall cracking tube (&gt;500°C)</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+<section class="section">
 
-<!-- E-BEAM -->
-<section class="card section">
-  <h2>E-beam Evaporation</h2>
-  <img class="img" src="assets/img/deposition/Ebeam.png" alt="E-beam evaporation diagram">
+  <h2>Vacuum Systems & Thin-Film Process Physics</h2>
+
+  <p>
+    My deposition background spans a wide range of pressure regimes,
+    from manufacturing processes operating at relatively higher vacuum
+    pressures to research systems operating in ultra-high vacuum near
+    10⁻¹¹ Torr.
+  </p>
+
+  <p>
+    Working across these regimes provides a deeper understanding of how
+    chamber condition, residual gases, pumping behavior, temperature,
+    materials, and pressure influence film growth and equipment performance.
+  </p>
 
   <ul>
-    <li>PVD technique where an electron beam heats the source to evaporate material.</li>
-    <li>E-gun generates electrons; magnets focus the beam to the target.</li>
-    <li>Rotating crucible stages can accommodate multiple sources.</li>
-    <li>Manufacturing-capable thin film deposition.</li>
-    <li>Thickness control is strong, but not at the atomic-scale like ALD/MBE.</li>
+    <li>Vacuum, high-vacuum, and ultra-high-vacuum process environments</li>
+    <li>Pressure regimes spanning approximately 10⁻³ to 10⁻¹¹ Torr depending on process and equipment</li>
+    <li>Rate-of-rise testing and chamber-integrity evaluation</li>
+    <li>Distinguishing leaks, outgassing, contamination, and residual process gases</li>
+    <li>Gas purity and controlled-reactant delivery</li>
+    <li>Vacuum pumping and chamber recovery behavior</li>
+    <li>Temperature behavior under reduced-pressure conditions</li>
+    <li>Material stress and film response during pressure and temperature changes</li>
+    <li>Controlled heating, cooling, pump-down, and venting</li>
+    <li>Effects of chamber cleanliness on process stability and deposited-film quality</li>
   </ul>
+
+  <p>
+    This vacuum-physics foundation is especially useful during troubleshooting,
+    because similar pressure readings can result from very different physical
+    conditions such as a true leak, water or solvent outgassing, contamination,
+    incomplete pumping, or process-gas behavior.
+  </p>
+
 </section>
 
-<!-- ALD A -->
-<section class="card section">
-  <h2>Atomic Layer Deposition (ALD)</h2>
-  <img class="img" src="assets/img/deposition/ALD_a.png" alt="Atomic Layer Deposition illustration (part A)">
+
+<!-- =========================================================
+     SELECTED TECHNOLOGIES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Selected Deposition Technologies</h2>
+
+  <p>
+    My experience covers deposition methods with very different growth
+    mechanisms, pressure regimes, materials, and manufacturing applications.
+  </p>
+
+
+  <div class="technique-grid">
+
+
+    <div class="technique-card">
+
+      <h3>Atomic Layer Deposition (ALD)</h3>
+
+      <p>
+        Self-limiting surface chemistry provides precise thickness control
+        and highly conformal films. My industrial ALD experience includes
+        semiconductor process engineering and manufacturing support.
+      </p>
+
+    </div>
+
+
+    <div class="technique-card">
+
+      <h3>PECVD</h3>
+
+      <img
+        src="assets/img/deposition/PECVD.png"
+        alt="Plasma Enhanced Chemical Vapor Deposition illustration"
+      >
+
+      <p>
+        Plasma Enhanced Chemical Vapor Deposition uses plasma-assisted
+        chemistry to deposit films at reduced substrate temperatures.
+        My experience includes PECVD-based DLC durable optical coatings.
+      </p>
+
+    </div>
+
+
+    <div class="technique-card">
+
+      <h3>E-Beam & Thermal Evaporation</h3>
+
+      <img
+        src="assets/img/deposition/Ebeam.png"
+        alt="Electron beam evaporation illustration"
+      >
+
+      <p>
+        Physical Vapor Deposition methods used across optical coatings,
+        metallic films, and device fabrication. Experience includes
+        industrial optical production and research applications.
+      </p>
+
+    </div>
+
+
+    <div class="technique-card">
+
+      <h3>Sputtering</h3>
+
+      <p>
+        Physical vapor deposition using energetic ions to remove material
+        from a target and deposit it onto the substrate. Experience includes
+        optical and thin-film manufacturing applications.
+      </p>
+
+    </div>
+
+
+    <div class="technique-card">
+
+      <h3>Molecular Beam Epitaxy (MBE)</h3>
+
+      <p>
+        Ultra-high-vacuum epitaxial growth with precise flux control.
+        Graduate research included growth of ultrathin and monolayer
+        transition-metal dichalcogenide materials.
+      </p>
+
+    </div>
+
+
+    <div class="technique-card">
+
+      <h3>CVD & Pulsed Laser Deposition</h3>
+
+      <p>
+        Research experience includes Chemical Vapor Deposition growth
+        of carbon-based nanomaterials and Pulsed Laser Deposition of
+        oxide materials.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     ALD VISUAL SEQUENCE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Atomic Layer Deposition — Surface-Reaction Sequence</h2>
+
+  <p>
+    The sequence below illustrates the basic self-limiting chemistry of
+    an ALD cycle. The example uses HfO₂ growth from alternating precursor
+    exposures separated by purge steps.
+  </p>
+
+
+  <div class="ald-sequence">
+
+
+    <div class="ald-step">
+
+      <h3>1 — First Precursor</h3>
+
+      <img
+        src="assets/img/deposition/ALD_a.png"
+        alt="First precursor exposure in an ALD cycle"
+      >
+
+      <p>
+        The first precursor reacts with available surface sites until
+        the surface reaction reaches saturation.
+      </p>
+
+    </div>
+
+
+    <div class="ald-step">
+
+      <h3>2 — Second Precursor</h3>
+
+      <img
+        src="assets/img/deposition/ALD_b.png"
+        alt="Second precursor exposure in an ALD cycle"
+      >
+
+      <p>
+        After purging, the second precursor reacts with the modified
+        surface and completes the second half-reaction.
+      </p>
+
+    </div>
+
+
+    <div class="ald-step">
+
+      <h3>3 — Layer Completion</h3>
+
+      <img
+        src="assets/img/deposition/ALD_c.png"
+        alt="Completed ALD surface reaction cycle"
+      >
+
+      <p>
+        Repeating the precursor-and-purge sequence builds film thickness
+        through controlled surface reactions.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH FOUNDATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Research & Advanced Thin-Film Experience</h2>
+
+  <p>
+    My research background provided exposure to deposition regimes and
+    materials beyond normal production environments, including ultra-high
+    vacuum growth and nanoscale materials.
+  </p>
 
   <ul>
-    <li>CVD technique that deposits sequential layers using gas precursors and an inert carrier gas.</li>
-    <li>Excellent thickness control due to self-limiting surface chemistry.</li>
-    <li>Manufacturing-capable high-quality films.</li>
+    <li>MBE growth of ultrathin and monolayer VSe₂</li>
+    <li>Ultra-high-vacuum surface and thin-film preparation</li>
+    <li>PLD growth of oxide materials</li>
+    <li>CVD growth of graphene and carbon nanotube materials</li>
+    <li>Thermal evaporation of metallic electrodes</li>
+    <li>Nanomaterial and thin-film characterization</li>
+    <li>Experimental process development and parameter optimization</li>
   </ul>
 
-  <h3 class="h3">Example cycle (conceptual)</h3>
-  <ol>
-    <li>Introduce first precursor (e.g., HfCl₄).</li>
-    <li>Surface reaction proceeds until saturation (growth self-limits).</li>
-    <li>Purge (e.g., N₂) removes excess reactants/byproducts.</li>
-  </ol>
+  <p>
+    This research experience complements industrial process engineering
+    by providing additional understanding of surface science, vacuum behavior,
+    material growth, and the physical mechanisms behind thin-film formation.
+  </p>
+
 </section>
 
-<!-- ALD B -->
-<section class="card section">
-  <h2>ALD continued</h2>
-  <img class="img" src="assets/img/deposition/ALD_b.png" alt="Atomic Layer Deposition illustration (part B)">
 
-  <ol start="4">
-    <li>Introduce second precursor (e.g., H₂O).</li>
-    <li>Ligand exchange completes the second half-reaction.</li>
-    <li>Purge again to remove excess species.</li>
-  </ol>
-</section>
+<!-- =========================================================
+     APPLICATIONS
+========================================================= -->
 
-<!-- ALD C -->
-<section class="card section">
-  <h2>ALD cycle completion</h2>
-  <img class="img" src="assets/img/deposition/ALD_c.png" alt="Atomic Layer Deposition illustration (part C)">
+<section class="section">
+
+  <h2>Deposition Across Semiconductor & Optical Manufacturing</h2>
+
+  <p>
+    The same thin-film fundamentals apply across very different applications,
+    while the required materials, equipment, pressure regimes, performance
+    targets, and process controls can vary significantly.
+  </p>
 
   <ul>
-    <li>One full cycle forms ~one layer (chemistry-dependent); repeating cycles builds thickness.</li>
-    <li>CVD methods are generally more conformal than PVD (less line-of-sight dependence).</li>
+    <li>Semiconductor thin films and device structures</li>
+    <li>Optical interference coatings</li>
+    <li>Durable DLC optical coatings</li>
+    <li>Metallic electrodes and device contacts</li>
+    <li>Nanomaterials and research-scale thin films</li>
   </ul>
+
+  <div class="related-links">
+    <a href="semiconductor.html">Semiconductor Manufacturing →</a>
+    <a href="optical.html">Optical Engineering & Coatings →</a>
+  </div>
+
 </section>
 
-<!-- PECVD -->
-<section class="card section">
-  <h2>Plasma Enhanced Chemical Vapor Deposition (PECVD)</h2>
-  <img class="img" src="assets/img/deposition/PECVD.png" alt="PECVD diagram">
 
-  <ul>
-    <li>CVD process using plasma to provide reaction energy instead of a heater.</li>
-    <li>“High-temperature chemistry at lower substrate temperature” (process-dependent).</li>
-    <li>Plasma can raise substrate temperature to ~200°C depending on conditions.</li>
-    <li>RF power influences film density and stress.</li>
-    <li>Manufacturing-friendly: higher deposition rate, higher pressure operation, plasma cleaning.</li>
-    <li>CVD is generally more conformal than PVD.</li>
-  </ul>
-</section>
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
 
 </main>
 
-<footer class="footer">
-  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
 </footer>
 
+
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
+
+
 </body>
 </html>
