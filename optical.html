@@ -1,165 +1,1049 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Optical Coating Examples | Manuel Bonilla, Ph.D.</title>
-  <meta name="description" content="Optical coating design examples: AR, HR, beamsplitters, bandpass filters, partial reflectors." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Optical Engineering & Coatings | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Optical engineering, thin-film coating design, process development, durable coatings, manufacturing support, equipment ownership, metrology, and technical leadership."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      margin: 25px 0;
+      border: 1px solid #34414d;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       DESIGN GRID
+    ========================================================= */
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .design-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .design-card h3 {
+      color: #72d6d0;
+      font-size: 19px;
+      margin: 0 0 12px 0;
+    }
+
+    .design-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .design-card p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .design-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
+
 <body>
-<header class="site-header">
-  <div class="container header-row">
-    <div class="brand">
-      <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC / Analytics</div>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
     </div>
-    <nav class="nav">
+
+    <nav>
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a class="active" href="optical.html">Optical</a>
-      <a href="deposition.html">Deposition</a>
-      <a href="spc.html">SPC</a>
-      <a href="mes.html">MES</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Optical Engineering & Coatings
   </div>
-</header>
 
-<main class="container">
+</div>
 
-<section class="card hero">
-  <h1>Optical Coating Examples</h1>
-  <p class="muted">
-    Textbook-style coating designs created as illustrations across visible, NIR, and IR bands.
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Optical Engineering, Coating Design & Manufacturing
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Professional experience spanning optical coating design,
+        thin-film process development, production equipment ownership,
+        metrology, qualification, troubleshooting, and manufacturing
+        support for aerospace and defense applications.
+      </p>
+
+      <div class="hero-summary">
+        My optical work covered the complete path from defining and
+        designing a coating to developing the deposition recipe,
+        qualifying the process, supporting operators, resolving quality
+        issues, and sustaining the equipment used in production.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/optics.jpg"
+        alt="Optical lens and thin-film coating"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Optical Coating Design</h3>
+
+    <p>
+      Anti-reflection coatings, high reflectors, filters,
+      beamsplitters, partial reflectors, and visible through
+      infrared optical designs.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Process Development</h3>
+
+    <p>
+      Translating optical designs into manufacturable deposition
+      recipes through chamber testing, process optimization,
+      qualification, and production documentation.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Manufacturing Leadership</h3>
+
+    <p>
+      Tool ownership, operator support, quality investigations,
+      equipment improvements, RCCA, and production-process sustainment.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFESSIONAL OPTICAL EXPERIENCE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Professional Optical & Coating Manufacturing Experience</h2>
+
+  <p>
+    My optical engineering experience included responsibility for both
+    coating performance and the manufacturing processes required to
+    repeatedly produce that performance.
+  </p>
+
+  <p>
+    Optical design was the beginning of the work rather than the end.
+    After developing a coating design, I worked directly with deposition
+    equipment to establish the process recipe, evaluate results, adjust
+    parameters, qualify the process, and transition the coating into
+    repeatable manufacturing.
   </p>
 
   <ul>
-    <li><b>Design tools:</b> FilmStar, OpenFilters, TFCalc, Essential Macleod</li>
-    <li><b>Methods:</b> QWOT stacks and target-based optimization</li>
-    <li><b>Purpose:</b> illustrate common optical coating architectures</li>
+    <li>Optical thin-film coating design</li>
+    <li>Visible, near-infrared, and infrared applications</li>
+    <li>Coating process and recipe development</li>
+    <li>Deposition equipment and process ownership</li>
+    <li>Spectral measurement and coating-performance analysis</li>
+    <li>Process qualification and production release</li>
+    <li>Operator work instructions and technical support</li>
+    <li>Quality investigations and Root Cause and Corrective Action (RCCA)</li>
+    <li>Production troubleshooting and process improvement</li>
   </ul>
+
 </section>
 
-<!-- V COAT -->
-<section class="card section">
-  <h2>V Coat (2-layer)</h2>
-  <img class="img" src="assets/img/optical/V_coat.png" alt="V coat optical coating design">
+
+<!-- =========================================================
+     DESIGN TO PRODUCTION
+========================================================= -->
+
+<section class="section">
+
+  <h2>From Optical Design to Production</h2>
+
+  <p>
+    Developing a production optical coating requires more than creating
+    a theoretical layer stack. The design must be converted into a
+    deposition process that can consistently meet optical and manufacturing
+    requirements.
+  </p>
+
   <ul>
-    <li>2-layer V-coat centered at a selectable wavelength.</li>
-    <li>Used for narrowband applications (typically &lt; ~40nm).</li>
+    <li>Develop optical requirements and coating architecture</li>
+    <li>Create and optimize the theoretical thin-film design</li>
+    <li>Translate the design into deposition parameters and chamber recipes</li>
+    <li>Run engineering trials and characterize deposited coatings</li>
+    <li>Adjust process parameters based on measured spectral performance</li>
+    <li>Establish repeatable production settings</li>
+    <li>Create manufacturing work instructions for operators</li>
+    <li>Support production as the technical point of contact</li>
+    <li>Investigate defects, excursions, and quality issues</li>
+    <li>Implement corrective actions and process improvements</li>
   </ul>
+
 </section>
 
-<!-- VISIBLE AR -->
-<section class="card section">
-  <h2>Visible AR Coating (4-layer)</h2>
-  <img class="img" src="assets/img/optical/Typical_AR.png" alt="Typical visible AR coating">
+
+<!-- =========================================================
+     DURABLE COATINGS / DLC
+========================================================= -->
+
+<section class="section">
+
+  <h2>Durable Coatings & DLC Process Ownership</h2>
+
+  <p>
+    I also owned manufacturing capability for durable optical coatings,
+    including Diamond-Like Carbon (DLC) processes used where environmental
+    durability was critical.
+  </p>
+
+  <p>
+    My responsibility extended beyond the coating recipe to the production
+    equipment itself, including process health, maintenance, troubleshooting,
+    upgrades, and expansion of manufacturing capability.
+  </p>
+
   <ul>
-    <li>4-layer W-shaped oxide design.</li>
+    <li>Department tool ownership for the DLC coating chamber</li>
+    <li>DLC process ownership and production support</li>
+    <li>Equipment maintenance and technical troubleshooting</li>
+    <li>Chamber upgrades and capability improvements</li>
+    <li>Support for procurement and expansion of additional DLC equipment</li>
+    <li>Process qualification and durable-coating performance evaluation</li>
   </ul>
+
 </section>
 
-<!-- WIDEBAND VIS-NIR -->
-<section class="card section">
-  <h2>Wide Bandpass: Visible → Near IR (12-layer)</h2>
-  <img class="img" src="assets/img/optical/WB_AR.png" alt="Wide bandpass visible to near IR coating">
+
+<!-- =========================================================
+     IRAD
+========================================================= -->
+
+<section class="section">
+
+  <h2>IRAD — Development of Alternative Durable Optical Coatings</h2>
+
+  <p>
+    I led an Internal Research and Development (IRAD) effort investigating
+    durable optical coatings that could provide improved environmental
+    resistance while preserving more optical transmission than traditional
+    DLC solutions.
+  </p>
+
+  <p>
+    DLC provides excellent durability, but the optical absorption associated
+    with the coating can reduce transmission. The project investigated
+    oxide-based coating approaches intended to improve the balance between
+    durability and optical performance.
+  </p>
+
   <ul>
-    <li>12-layer oxide design.</li>
-    <li>Reflection &lt; 2% across the band.</li>
+    <li>Technical lead for the coating-development effort</li>
+    <li>Evaluation of alternative durable optical coating architectures</li>
+    <li>Optical design and process-development planning</li>
+    <li>Balance of durability requirements with transmission performance</li>
+    <li>Experimental coating and characterization strategy</li>
   </ul>
+
+  <p class="small">
+    The effort was still in development when I left the organization and
+    had not yet reached production implementation.
+  </p>
+
 </section>
 
-<!-- WIDEBAND IR -->
-<section class="card section">
-  <h2>Wide Bandpass: IR ~3–5µm (47-layer)</h2>
-  <img class="img" src="assets/img/optical/WB_IR.png" alt="Wide bandpass infrared coating">
+
+<!-- =========================================================
+     TOOL OWNERSHIP
+========================================================= -->
+
+<section class="section">
+
+  <h2>Optical Manufacturing Equipment Ownership</h2>
+
+  <p>
+    My equipment responsibilities extended across several parts of the
+    optical coating manufacturing process, not only deposition.
+  </p>
+
   <ul>
-    <li>47-layer non-oxide design.</li>
-    <li>Built by combining short- and long-wavelength bandpass designs, then re-optimized.</li>
+    <li>Durable-coating / DLC deposition chamber</li>
+    <li>Environmental humidity testing chamber</li>
+    <li>Automated optical-component cleaning station</li>
+    <li>Equipment troubleshooting and first-line engineering support</li>
+    <li>Preventive maintenance and capability sustainment</li>
+    <li>Equipment upgrades and manufacturing improvements</li>
   </ul>
+
+  <p>
+    Owning these systems provided visibility into the full manufacturing
+    chain from part preparation and cleaning through deposition,
+    environmental testing, inspection, and production release.
+  </p>
+
+  <div class="related-links">
+    <a href="tool-ownership.html">Equipment & Tool Ownership →</a>
+  </div>
+
 </section>
 
-<!-- FOUR WL -->
-<section class="card section">
-  <h2>4-Wavelength Bandpass Filter (21-layer)</h2>
-  <img class="img" src="assets/img/optical/FourWL.png" alt="Four wavelength bandpass filter design">
+
+<!-- =========================================================
+     OPTICAL DESIGN
+========================================================= -->
+
+<section class="section">
+
+  <h2>Optical Thin-Film Design</h2>
+
+  <p>
+    My coating-design work included both traditional thin-film structures
+    and optimized multilayer designs covering visible, near-infrared,
+    and infrared wavelengths.
+  </p>
+
   <ul>
-    <li>21-layer oxide design with 9 transmission targets.</li>
-    <li>Blocked regions &lt; 10%, pass regions &gt; 95%.</li>
-    <li>Mixed-index variants improve passband performance.</li>
+    <li>Anti-reflection (AR) coatings</li>
+    <li>High-reflection (HR) coatings</li>
+    <li>Wide-band optical coatings</li>
+    <li>Bandpass and multi-wavelength filters</li>
+    <li>Polarizing and non-polarizing beamsplitters</li>
+    <li>Partial reflectors</li>
+    <li>Laser and narrowband coatings</li>
+    <li>Polarization-dependent designs</li>
   </ul>
+
+  <h3>Design Tools & Methods</h3>
+
+  <ul>
+    <li>FilmStar</li>
+    <li>TFCalc</li>
+    <li>Essential Macleod</li>
+    <li>OpenFilters</li>
+    <li>Quarter-Wave Optical Thickness (QWOT) structures</li>
+    <li>Target-based numerical optimization</li>
+  </ul>
+
 </section>
 
-<!-- HR RIPPLE -->
-<section class="card section">
-  <h2>Dielectric High Reflector (Ripple Reduction)</h2>
-  <img class="img" src="assets/img/optical/HR_Dielectric.png" alt="Dielectric high reflector with ripple reduction">
-  <ul>
-    <li>20-layer oxide design.</li>
-    <li>Reflection &gt; 99.9%.</li>
-    <li>Ripple reduction applied to tail regions.</li>
-  </ul>
+
+<!-- =========================================================
+     DESIGN EXAMPLES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Selected Optical Design Examples</h2>
+
+  <p>
+    The examples below are independently created coating designs used
+    to demonstrate several common thin-film optical architectures.
+  </p>
+
+
+  <div class="design-grid">
+
+
+    <div class="design-card">
+
+      <h3>Anti-Reflection Coatings</h3>
+
+      <img
+        src="assets/img/optical/Typical_AR.png"
+        alt="Visible anti-reflection coating example"
+      >
+
+      <p>
+        Multilayer designs used to reduce unwanted reflection across
+        defined wavelength regions.
+      </p>
+
+    </div>
+
+
+    <div class="design-card">
+
+      <h3>Wide-Band Infrared Coatings</h3>
+
+      <img
+        src="assets/img/optical/WB_IR.png"
+        alt="Wide-band infrared optical coating example"
+      >
+
+      <p>
+        Multilayer designs optimized across broader infrared wavelength
+        regions where material selection and layer structure become critical.
+      </p>
+
+    </div>
+
+
+    <div class="design-card">
+
+      <h3>High Reflectors</h3>
+
+      <img
+        src="assets/img/optical/HR_Dielectric.png"
+        alt="Dielectric high reflector coating example"
+      >
+
+      <p>
+        Dielectric multilayer structures designed for very high reflection
+        with control of spectral width and ripple.
+      </p>
+
+    </div>
+
+
+    <div class="design-card">
+
+      <h3>Beamsplitters</h3>
+
+      <img
+        src="assets/img/optical/Beamsplitter_pol.png"
+        alt="Polarizing beamsplitter coating example"
+      >
+
+      <p>
+        Coatings designed to control reflected and transmitted light,
+        including polarization-dependent performance.
+      </p>
+
+    </div>
+
+
+    <div class="design-card">
+
+      <h3>Multi-Wavelength Filters</h3>
+
+      <img
+        src="assets/img/optical/FourWL.png"
+        alt="Multi-wavelength optical filter example"
+      >
+
+      <p>
+        Target-optimized multilayer designs providing controlled
+        transmission and blocking across multiple wavelength bands.
+      </p>
+
+    </div>
+
+
+    <div class="design-card">
+
+      <h3>Partial Reflectors</h3>
+
+      <img
+        src="assets/img/optical/PR.png"
+        alt="Partial reflector coating example"
+      >
+
+      <p>
+        Designs used to achieve controlled reflection and transmission
+        ratios through material and layer-thickness selection.
+      </p>
+
+    </div>
+
+
+  </div>
+
 </section>
 
-<!-- HR WIDEN -->
-<section class="card section">
-  <h2>Dielectric High Reflector — Widened</h2>
-  <img class="img" src="assets/img/optical/HR_Widen.png" alt="Widened dielectric high reflector">
+
+<!-- =========================================================
+     QUALITY / METROLOGY
+========================================================= -->
+
+<section class="section">
+
+  <h2>Optical Metrology, Qualification & Quality</h2>
+
+  <p>
+    Optical manufacturing requires the coating design, deposited film,
+    and final component to be evaluated as a complete manufacturing
+    process. My work included measurement, qualification, environmental
+    testing, and resolution of production quality issues.
+  </p>
+
   <ul>
-    <li>Widened by adding a thicker stack and coupling layer.</li>
-    <li>Reflection &gt; 99.9%.</li>
+    <li>Spectral transmission and reflection measurements</li>
+    <li>Optical coating performance evaluation</li>
+    <li>Environmental durability testing</li>
+    <li>Humidity testing</li>
+    <li>Optical surface and coating inspection</li>
+    <li>Process qualification</li>
+    <li>Defect investigation and RCCA</li>
+    <li>Support of production quality reviews</li>
+    <li>Work within aerospace and defense manufacturing requirements</li>
   </ul>
+
 </section>
 
-<!-- POL BS -->
-<section class="card section">
-  <h2>Polarizing Beamsplitter</h2>
-  <img class="img" src="assets/img/optical/Beamsplitter_pol.png" alt="Polarizing beamsplitter coating design">
+
+<!-- =========================================================
+     MANUFACTURING LEADERSHIP
+========================================================= -->
+
+<section class="section">
+
+  <h2>Manufacturing Leadership & Operator Support</h2>
+
+  <p>
+    In addition to process and equipment ownership, I worked directly
+    with operators and manufacturing teams to identify recurring production
+    barriers and drive improvements to closure.
+  </p>
+
+  <p>
+    I led a Performance Management Team (PMT) process where operator
+    concerns and manufacturing issues were collected, organized into a
+    dashboard, assigned for action, and tracked through resolution.
+    This work was recognized with a PMT award.
+  </p>
+
   <ul>
-    <li>24-layer design.</li>
-    <li>Reflects s-polarized light and transmits p-polarized light.</li>
+    <li>Structured recurring operator and manufacturing feedback</li>
+    <li>Created visibility of open production issues through dashboards</li>
+    <li>Coordinated engineering and manufacturing actions</li>
+    <li>Tracked issues through closure</li>
+    <li>Provided first-line technical support for coating processes and equipment</li>
   </ul>
+
+  <div class="related-links">
+    <a href="project-management.html">Project & Program Leadership →</a>
+  </div>
+
 </section>
 
-<!-- NON-POL BS -->
-<section class="card section">
-  <h2>Non-Polarizing Beamsplitter</h2>
-  <img class="img" src="assets/img/optical/Beamsplitter_nonpol.png" alt="Non-polarizing beamsplitter coating design">
+
+<!-- =========================================================
+     PHYSICS FOUNDATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Physics & Optical Engineering Foundation</h2>
+
+  <p>
+    My professional optical work is supported by a Ph.D. physics
+    background and formal training in the physical principles underlying
+    optical systems and thin-film behavior.
+  </p>
+
   <ul>
-    <li>Splits incident light into defined reflected/transmitted ratios.</li>
+    <li>Geometrical and physical optics</li>
+    <li>Reflection, refraction, and Snell's law</li>
+    <li>Interference and thin-film optics</li>
+    <li>Polarization</li>
+    <li>Laser physics</li>
+    <li>Electromagnetic and quantum-mechanical foundations</li>
+    <li>Optical materials and wavelength-dependent behavior</li>
   </ul>
+
+  <p>
+    That foundation supports both optical design and practical
+    interpretation of how materials, interfaces, thickness, wavelength,
+    and deposition processes affect final optical performance.
+  </p>
+
 </section>
 
-<!-- PARTIAL REFLECTOR -->
-<section class="card section">
-  <h2>Partial Reflector</h2>
-  <img class="img" src="assets/img/optical/PR.png" alt="Partial reflector coating design">
-  <ul>
-    <li>2-layer and 5-layer designs.</li>
-    <li>Reflection tunable by material choice and stack thickness.</li>
-  </ul>
+
+<!-- =========================================================
+     DEPOSITION LINK
+========================================================= -->
+
+<section class="section">
+
+  <h2>Thin-Film Deposition</h2>
+
+  <p>
+    Optical coating development is closely connected to deposition
+    technology, equipment, materials, and process control.
+  </p>
+
+  <p>
+    More details on deposition experience can be explored in the link below.
+  </p>
+
+  <div class="related-links">
+    <a href="deposition.html">Thin Films & Deposition →</a>
+  </div>
+
 </section>
 
-<!-- LASER PR -->
-<section class="card section">
-  <h2>Laser / Narrowband Partial Reflector</h2>
-  <img class="img" src="assets/img/optical/PR_Laser.png" alt="Laser narrowband partial reflector design">
-  <ul>
-    <li>Reflection tunability via number of layers.</li>
-    <li>R(14 layers) &gt; R(12) &gt; R(10).</li>
-  </ul>
-</section>
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
 
 </main>
 
-<footer class="footer">
-  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
 </footer>
 
+
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
 </script>
+
+
 </body>
 </html>
