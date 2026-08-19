@@ -1,144 +1,563 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SPC Automation | Manuel Bonilla, Ph.D.</title>
-  <meta name="description" content="Statistical Process Control automation and data visualization using Python." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Statistical Process Control | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Statistical Process Control implementation, manufacturing analytics, process monitoring, training, and MES integration."
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 6% 55px;
+      text-align: center;
+    }
+
+    .hero-small {
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #72d6d0;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 20px;
+      color: #c8d0d7;
+    }
+
+    /* MAIN CONTENT */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      margin: 25px 0;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+    /* CAPABILITY GRID */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 45px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
+
 <body>
-<header class="site-header">
-  <div class="container header-row">
-    <div class="brand">
-      <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC / Analytics</div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="optical.html">Optical</a>
-      <a href="deposition.html">Deposition</a>
-      <a class="active" href="spc.html">SPC</a>
-      <a href="mes.html">MES</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="name">
+    Manuel Bonilla, Ph.D.
   </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="resume.pdf">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
 </header>
 
-<main class="container">
 
-<section class="card hero">
-  <h1>Statistical Process Control (SPC) automation & data visualization using Python</h1>
+<!-- HERO -->
 
-  <p class="muted">
-    SPC monitors processes so they remain within operational boundaries. Traditional SPC often requires specialized
-    software (e.g., Minitab). By using Python, I can:
+<section class="hero">
+
+  <div class="hero-small">
+    Statistical Process Control
+  </div>
+
+  <h1>
+    SPC Implementation, Process Control & Manufacturing Analytics
+  </h1>
+
+  <p>
+    Experience applying Statistical Process Control from hands-on process
+    engineering and equipment ownership through department-level implementation,
+    training, governance, analytics, and MES integration.
+  </p>
+
+</section>
+
+
+<main>
+
+
+<!-- HIGH LEVEL CAPABILITIES -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+    <h3>SPC Program Leadership</h3>
+    <p>
+      Developed department SPC plans, established implementation structure,
+      coordinated engineering participation, and supported adoption across manufacturing.
+    </p>
+  </div>
+
+  <div class="capability">
+    <h3>Process Engineering</h3>
+    <p>
+      Applied SPC for process monitoring, tool ownership, troubleshooting,
+      variation analysis, and Root Cause and Corrective Action (RCCA).
+    </p>
+  </div>
+
+  <div class="capability">
+    <h3>MES & Operational Integration</h3>
+    <p>
+      Served as an SPC subject-matter expert supporting MES configuration,
+      data structures, training, monitoring, and manufacturing review processes.
+    </p>
+  </div>
+
+</div>
+
+
+<!-- IMPLEMENTATION LEADERSHIP -->
+
+<section class="section">
+
+  <h2>SPC Implementation & Department Leadership</h2>
+
+  <p>
+    My SPC experience extends beyond creating control charts. I have helped
+    establish the structure required for manufacturing organizations to use SPC
+    consistently as an engineering and operational decision-making tool.
   </p>
 
   <ul>
-    <li>Eliminate SPC license dependency (cost reduction)</li>
-    <li>Automate statistics + Western Electric (WECO) rules directly from data sources (time savings, less human error)</li>
-    <li>Generate automatic alerts when warning or control limits are hit (faster corrective action)</li>
-    <li>Customize visualizations for fast executive and cross-team status clarity</li>
+    <li>Developed the department SPC implementation plan.</li>
+
+    <li>
+      Defined how engineers should establish, maintain, and review SPC monitoring.
+    </li>
+
+    <li>
+      Worked directly with engineers to identify process data and create SPC monitoring.
+    </li>
+
+    <li>
+      Served as the SPC SME during MES implementation.
+    </li>
+
+    <li>
+      Led MES training related to SPC functionality and use.
+    </li>
+
+    <li>
+      Established recurring biweekly SPC review meetings with engineering teams.
+    </li>
+
+    <li>
+      Supported development of SPC training and standardized engineering practices.
+    </li>
+
+    <li>
+      Helped transition SPC from individual engineering activity into a structured
+      department capability.
+    </li>
   </ul>
 
-  <p class="muted small">
-    Below are two examples: spectral monitoring in optics and thickness monitoring in semiconductors.
+</section>
+
+
+<!-- METHODS -->
+
+<section class="section">
+
+  <h2>SPC Methods & Implementation Approaches</h2>
+
+  <p>
+    Depending on the manufacturing environment and available systems, SPC can
+    be implemented through multiple approaches.
   </p>
-</section>
-
-<!-- Spectral monitoring -->
-<section class="card section">
-  <h2>SPC for Spectral Monitoring (Optics)</h2>
-
-  <img class="img" src="assets/img/spc/R4PLOT.png" alt="Spectral plot with reflection limits and wavelength regions">
 
   <ul>
-    <li>Plots spectral data for selected dates or run numbers.</li>
-    <li>Overlays reflection requirements (horizontal dashed line) and wavelength regions (vertical dashed lines).</li>
-    <li>Automatically tags runs as <b>Warning</b> or <b>Out-of-limits</b> based on defined thresholds.</li>
+    <li>MES-integrated SPC monitoring</li>
+    <li>Excel-based SPC analysis</li>
+    <li>Automated data analysis</li>
+    <li>Manual engineering review where appropriate</li>
+    <li>X-bar and Range control charts</li>
+    <li>Western Electric (WECO) rule evaluation</li>
+    <li>Warning and control limits</li>
+    <li>Process variation monitoring</li>
+    <li>Trend analysis</li>
+    <li>Automated notifications and engineering review workflows</li>
   </ul>
 
-  <p class="muted small">
-    Example requirements used in this illustration:
-    R<sub>avg</sub> &lt; 3.0% (390–490nm) and R<sub>avg</sub> &lt; 3.0% (670–720nm).
+</section>
+
+
+<!-- OPTICS EXAMPLE -->
+
+<section class="section">
+
+  <h2>SPC for Spectral Monitoring — Optics</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/R4PLOT.png"
+    alt="Spectral monitoring example"
+  >
+
+  <ul>
+    <li>Monitors spectral performance across manufacturing runs.</li>
+
+    <li>
+      Compares process results against defined wavelength regions and performance limits.
+    </li>
+
+    <li>
+      Identifies warning conditions and out-of-limit results requiring engineering review.
+    </li>
+  </ul>
+
+  <p class="small">
+    Example shown using representative optical coating monitoring data.
   </p>
+
 </section>
 
-<section class="card section">
-  <h2>Minima shift tracking (within a control region)</h2>
 
-  <img class="img" src="assets/img/spc/R4spc2.png" alt="SPC tracking of spectral minima shift in selected region">
+<!-- MINIMA -->
+
+<section class="section">
+
+  <h2>Process Trend Monitoring</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/R4spc2.png"
+    alt="Process trend monitoring example"
+  >
 
   <ul>
-    <li>Focuses on the 390–490nm region.</li>
-    <li>Tracks minima by run to monitor centering wavelength and coating performance.</li>
-    <li>Can be configured to monitor minima, R<sub>avg</sub>, or any derived metric.</li>
+    <li>Tracks changes in process behavior across manufacturing runs.</li>
+
+    <li>
+      Enables monitoring of derived process metrics rather than individual measurements alone.
+    </li>
+
+    <li>
+      Supports early identification of process drift before product requirements are exceeded.
+    </li>
   </ul>
+
 </section>
 
-<section class="card section">
-  <h2>Automated alerts</h2>
 
-  <img class="img" src="assets/img/spc/Alert.png" alt="Email alert generated when warning limit is reached">
+<!-- ALERTS -->
+
+<section class="section">
+
+  <h2>Automated Engineering Alerts</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/Alert.png"
+    alt="Automated SPC alert example"
+  >
 
   <ul>
-    <li>Email alert auto-generated when warning or control limits are reached.</li>
-    <li>Includes run identification and the out-of-limit value for quick response.</li>
+    <li>Generates alerts when defined warning or control conditions occur.</li>
+
+    <li>
+      Provides engineers with the relevant process or run information for investigation.
+    </li>
+
+    <li>
+      Supports faster response to emerging manufacturing variation.
+    </li>
   </ul>
+
 </section>
 
-<!-- Thickness monitoring -->
-<section class="card section">
-  <h2>SPC for thickness monitoring (Semiconductors)</h2>
 
-  <img class="img" src="assets/img/spc/chart1_spc.png" alt="X chart for thickness monitoring built from 5 measurements per sample">
+<!-- SEMICONDUCTOR -->
+
+<section class="section">
+
+  <h2>SPC for Thickness Monitoring — Semiconductor Manufacturing</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/chart1_spc.png"
+    alt="Thickness SPC monitoring"
+  >
 
   <ul>
-    <li>Uses 5 measurement points per sample to compute the sample average (X chart).</li>
-    <li>Calculates and plots UCL/LCL based on data spread.</li>
+    <li>Uses multiple measurement locations to evaluate process performance.</li>
+
+    <li>
+      Tracks average process behavior across manufacturing samples.
+    </li>
+
+    <li>
+      Establishes control limits based on process variation.
+    </li>
   </ul>
+
 </section>
 
-<section class="card section">
-  <h2>Range chart (R chart)</h2>
 
-  <img class="img" src="assets/img/spc/chart2_spc.png" alt="R chart showing range across samples">
+<!-- RANGE -->
+
+<section class="section">
+
+  <h2>Range & Within-Sample Variation</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/chart2_spc.png"
+    alt="Range chart"
+  >
 
   <ul>
-    <li>Computes and plots range per sample (R chart) to capture variation.</li>
+    <li>
+      Tracks measurement range to identify changes in within-sample process variation.
+    </li>
+
+    <li>
+      Provides a complementary view to average process performance.
+    </li>
   </ul>
+
 </section>
 
-<section class="card section">
-  <h2>Box plot visualization</h2>
 
-  <img class="img" src="assets/img/spc/spc_box.png" alt="Box plot comparing average against measurement distribution">
+<!-- BOX -->
+
+<section class="section">
+
+  <h2>Distribution & Variation Analysis</h2>
+
+  <img
+    class="img"
+    src="assets/img/spc/spc_box.png"
+    alt="Process distribution visualization"
+  >
 
   <ul>
-    <li>Visualizes how the average stacks against each measurement distribution.</li>
-    <li>Can be extended to moving range and process capability (Cpk), etc.</li>
+    <li>Visualizes measurement distributions across manufacturing samples.</li>
+
+    <li>
+      Helps engineers distinguish changes in process center from changes in variation.
+    </li>
+
+    <li>
+      Supports deeper investigation of manufacturing process behavior.
+    </li>
   </ul>
+
 </section>
 
-<section class="card section">
-  <h2>How this ties into MES & operations</h2>
+
+<!-- OPERATIONS -->
+
+<section class="section">
+
+  <h2>Connecting SPC to Manufacturing Operations</h2>
+
+  <p>
+    Effective SPC requires more than generating charts. It requires process
+    ownership, appropriate data, engineering review, defined reaction plans,
+    training, and integration into normal manufacturing operations.
+  </p>
+
   <ul>
-    <li>SPC outputs can feed dashboards, shift summaries, and automated notifications.</li>
-    <li>Reduces manual reporting and standardizes decision-making across teams.</li>
+    <li>Engineering ownership and recurring review</li>
+    <li>MES-based process monitoring</li>
+    <li>Manufacturing dashboards and visibility</li>
+    <li>Standardized reaction to warning and control conditions</li>
+    <li>Training and adoption across engineering teams</li>
+    <li>Use of SPC during process troubleshooting and RCCA</li>
   </ul>
+
 </section>
+
 
 </main>
 
-<footer class="footer">
-  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
 </footer>
 
+
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
+
+
 </body>
 </html>
