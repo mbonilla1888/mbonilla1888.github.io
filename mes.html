@@ -1,93 +1,1000 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MES & Digital Transformation | Manuel Bonilla, Ph.D.</title>
-  <meta name="description" content="MES architecture, governance, adoption, and manufacturing digital transformation." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MES Program Leadership | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="MES program leadership, manufacturing systems implementation, operational readiness, cross-functional execution, equipment integration, analytics, governance, and deployment."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       WORKSTREAM GRID
+    ========================================================= */
+
+    .workstream-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .workstream {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .workstream h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 19px;
+    }
+
+    .workstream ul {
+      padding-left: 20px;
+    }
+
+    .workstream li {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+
+    /* =========================================================
+       SCALE GRID
+    ========================================================= */
+
+    .scale-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .scale-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .scale-card h3 {
+      color: #72d6d0;
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+
+    .scale-card p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .workstream-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scale-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+      .scale-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
 </head>
 
+
 <body>
-<header class="site-header">
-  <div class="container header-row">
-    <div class="brand">
-      <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
     </div>
-    <nav class="nav">
+
+    <nav>
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="optical.html">Optical</a>
-      <a href="deposition.html">Deposition</a>
-      <a href="spc.html">SPC</a>
-      <a class="active" href="mes.html">MES</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+  </header>
+
+  <div class="page-bar">
+    MES Program Leadership & Manufacturing Systems
   </div>
-</header>
 
-<main class="container">
-  <section class="card hero">
-    <h1>MES & Digital Transformation</h1>
-    <p class="muted">
-      I design and deploy manufacturing execution systems and operational data platforms that scale beyond a single line,
-      single department, or single site.
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    MES Program Leadership & Manufacturing Systems Implementation
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Leading Manufacturing Execution System implementations from
+        department-level deployment through cross-site, sector, and
+        enterprise manufacturing initiatives.
+      </p>
+
+      <div class="hero-summary">
+        My role extends beyond configuring MES software. I assess
+        manufacturing readiness, structure implementation workstreams,
+        coordinate technical and operational teams, translate shop-floor
+        requirements into digital workflows, and lead execution through
+        testing, training, deployment, and sustained operations.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/mes/mes_hero.png"
+        alt="Manufacturing execution system architecture and workflow"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     HIGH LEVEL CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Implementation Leadership</h3>
+
+    <p>
+      Roadmaps, workstreams, readiness assessment, cross-functional
+      coordination, testing, training, deployment, and sustainment.
     </p>
-  </section>
 
-  <section class="card section">
-    <h2>My approach</h2>
-    <ul>
-      <li><b>Governance-first:</b> naming standards, definitions, ownership, training, and auditability</li>
-      <li><b>Workflow clarity:</b> shop-floor realities translated into simple, consistent digital steps</li>
-      <li><b>Metrics that matter:</b> adoption, cycle time, tool availability, WIP flow, and actionable KPIs</li>
-      <li><b>Automation:</b> eliminate manual status chasing and reporting via systems + alerts</li>
-    </ul>
-  </section>
+  </div>
 
-  <section class="card section">
-    <h2>What I build</h2>
-    <ul>
-      <li><b>MES configuration & data model:</b> states, sub-states, transactions, attributes, genealogy</li>
-      <li><b>Dashboards:</b> real-time visibility for tool/WIP/performance and weekly operational reviews</li>
-      <li><b>Operational workflows:</b> standardized forms, approvals, escalation paths</li>
-      <li><b>Training:</b> user enablement, documentation, and scalable onboarding</li>
-    </ul>
-  </section>
 
-  <section class="card section">
-    <h2>Leadership & scaling</h2>
-    <p class="muted">
-      The hardest part of MES isn’t the software but the alignment: standards, adoption, and making it usable across groups.
-      My focus is building a structure that enables multi-team growth while maintaining quality and consistency.
+  <div class="capability">
+
+    <h3>Manufacturing Expertise</h3>
+
+    <p>
+      Converting real manufacturing processes, equipment, quality
+      requirements, product flow, and engineering needs into usable
+      digital execution.
     </p>
-    <ul>
-      <li>Cross-functional coordination (engineering, ops, managers, stakeholders)</li>
-      <li>Roadmaps that prioritize stability + adoption before “features”</li>
-    </ul>
-  </section>
 
-  <section class="card section">
-    <h2>Typical architecture (example)</h2>
-    <p class="muted">
-      MES → database/analytics layer → dashboards/alerts → operational action.
-      
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Systems & Integration</h3>
+
+    <p>
+      MES configuration, data structures, SQL, dashboards, equipment
+      connectivity, interfaces, automation, and operational analytics.
     </p>
-    <ul>
-      <li>MES transactions captured with standard definitions</li>
-      <li>Data stored/queried (SQL)</li>
-      <li>Dashboards and alerts drive action (Power BI / SharePoint / messaging)</li>
-      <li>Feedback loop improves process + quality</li>
-    </ul>
-  </section>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     LEADERSHIP ACROSS SCALE
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES Leadership Across Organizational Scale</h2>
+
+  <p>
+    My MES work has expanded from independently leading a department
+    implementation to supporting and leading initiatives across multiple
+    sites and broader enterprise manufacturing organizations.
+  </p>
+
+
+  <div class="scale-grid">
+
+    <div class="scale-card">
+
+      <h3>Department</h3>
+
+      <p>
+        Independently led implementation of a manufacturing department
+        from process definition through production deployment.
+      </p>
+
+    </div>
+
+
+    <div class="scale-card">
+
+      <h3>Cross-Site</h3>
+
+      <p>
+        Supported additional manufacturing organizations adopting and
+        scaling MES capabilities.
+      </p>
+
+    </div>
+
+
+    <div class="scale-card">
+
+      <h3>Enterprise</h3>
+
+      <p>
+        Leading implementation activities for an internally developed
+        enterprise MES platform at another manufacturing site.
+      </p>
+
+    </div>
+
+
+    <div class="scale-card">
+
+      <h3>Sector</h3>
+
+      <p>
+        Supporting digital-transformation efforts involving enterprise
+        MES deployment and machine integration across a broader
+        manufacturing organization.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FULL IMPLEMENTATION LIFECYCLE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Full MES Implementation Lifecycle</h2>
+
+  <p>
+    I have led MES efforts from the point where a manufacturing organization
+    begins evaluating what must be digitized through production release
+    and long-term support.
+  </p>
+
+  <ul>
+    <li>Manufacturing-process and operational-readiness assessment</li>
+    <li>Implementation planning and workstream definition</li>
+    <li>Process modeling and manufacturing-flow definition</li>
+    <li>System configuration and data-structure development</li>
+    <li>Equipment, product, quality, and user structures</li>
+    <li>Testing and production-readiness verification</li>
+    <li>User and engineering training</li>
+    <li>Production deployment and release planning</li>
+    <li>Post-deployment troubleshooting and sustainment</li>
+    <li>Continuous improvement and expansion of system capabilities</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     READINESS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Manufacturing Readiness Before Digitization</h2>
+
+  <p>
+    One of the most important parts of an MES implementation occurs
+    before system configuration begins. Departments are not always
+    operationally structured in a way that can immediately be translated
+    into a digital system.
+  </p>
+
+  <p>
+    I help identify and close those gaps so that MES reflects a controlled,
+    executable manufacturing process rather than digitizing ambiguity.
+  </p>
+
+  <ul>
+    <li>Clarify process ownership and responsibilities</li>
+    <li>Define manufacturing steps and product flow</li>
+    <li>Establish equipment naming, hierarchy, and states</li>
+    <li>Identify required product and lot attributes</li>
+    <li>Define quality, inspection, and approval requirements</li>
+    <li>Establish maintenance and qualification structures</li>
+    <li>Define data ownership and reporting requirements</li>
+    <li>Identify training and governance needs before deployment</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     IMPLEMENTATION WORKSTREAMS
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES Implementation Workstreams</h2>
+
+  <p>
+    A complete MES deployment touches many parts of manufacturing.
+    The workstreams below represent the types of activities I have
+    structured, coordinated, and technically supported during implementations.
+  </p>
+
+
+  <div class="workstream-grid">
+
+
+    <div class="workstream">
+
+      <h3>Manufacturing Foundation</h3>
+
+      <ul>
+        <li>User and permission structures</li>
+        <li>Equipment hierarchy</li>
+        <li>Equipment states</li>
+        <li>Staging locations</li>
+        <li>Product attributes</li>
+        <li>Naming standards</li>
+      </ul>
+
+    </div>
+
+
+    <div class="workstream">
+
+      <h3>Production Execution</h3>
+
+      <ul>
+        <li>Travelers and routings</li>
+        <li>Bills of material</li>
+        <li>Consumables</li>
+        <li>Recipes</li>
+        <li>Rework routes</li>
+        <li>Barcode and scanner workflows</li>
+      </ul>
+
+    </div>
+
+
+    <div class="workstream">
+
+      <h3>Quality & Equipment</h3>
+
+      <ul>
+        <li>Inspection checks</li>
+        <li>Defect and resolution structures</li>
+        <li>Electronic approvals</li>
+        <li>Preventive maintenance</li>
+        <li>Qualification schedules</li>
+        <li>SPC integration</li>
+      </ul>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CROSS FUNCTIONAL LEADERSHIP
+========================================================= -->
+
+<section class="section">
+
+  <h2>Cross-Functional Implementation Leadership</h2>
+
+  <p>
+    MES implementation requires coordination between groups that often
+    view the manufacturing process from very different perspectives.
+    My role is frequently to bridge those groups and keep technical
+    and operational work moving toward deployment.
+  </p>
+
+  <ul>
+    <li>Manufacturing and operations</li>
+    <li>Process and manufacturing engineering</li>
+    <li>Quality engineering</li>
+    <li>Equipment and maintenance organizations</li>
+    <li>Information Technology</li>
+    <li>Digital-transformation teams</li>
+    <li>MES developers and system administrators</li>
+    <li>External software and equipment vendors</li>
+    <li>Site, sector, and enterprise leadership</li>
+  </ul>
+
+  <p>
+    Detailed examples of roadmap development, dependency management,
+    implementation planning, and cross-functional execution are included
+    in the Program Leadership section of this portfolio.
+  </p>
+
+  <div class="related-links">
+    <a href="project-management.html">Project & Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PLATFORMS
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES Platforms & Manufacturing Systems</h2>
+
+  <p>
+    My experience includes working with multiple MES approaches rather than
+    a single software platform, including commercial systems and internally
+    developed enterprise solutions.
+  </p>
+
+  <ul>
+    <li>Eyelit MES implementation, administration, and cross-site support</li>
+    <li>Internally developed enterprise MES implementation</li>
+    <li>iBaseT Solumina implementation support</li>
+    <li>Manufacturing workflow and configuration development</li>
+    <li>Platform licensing and upgrade coordination</li>
+    <li>Vendor communication and technical issue resolution</li>
+    <li>User access, roles, permissions, and governance</li>
+    <li>Production support and system sustainment</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNICAL DEPTH
+========================================================= -->
+
+<section class="section">
+
+  <h2>Technical Depth Behind the Implementation</h2>
+
+  <p>
+    Although my MES work is increasingly focused on implementation and
+    program leadership, I also have enough technical depth to work directly
+    with the systems, data, and interfaces involved in manufacturing execution.
+  </p>
+
+  <ul>
+    <li>SQL and manufacturing database analysis</li>
+    <li>HTML-based interfaces and system links</li>
+    <li>JSON-based data structures and configuration</li>
+    <li>Python-based analysis and automation</li>
+    <li>Dashboards and operational reporting</li>
+    <li>Automated notifications and workflow support</li>
+    <li>MES data extraction and troubleshooting</li>
+    <li>Equipment-to-system communication and integration</li>
+  </ul>
+
+  <p>
+    More detailed examples of development, automation, data architecture,
+    and integration are covered separately so the MES page can remain
+    focused on implementation leadership.
+  </p>
+
+  <div class="related-links">
+    <a href="python.html">Python & Automation →</a>
+    <a href="data-systems.html">Data & Systems Integration →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EQUIPMENT INTEGRATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Equipment Integration & Connected Manufacturing</h2>
+
+  <p>
+    MES increasingly depends on direct interaction with manufacturing
+    equipment and operational data sources. My work includes supporting
+    efforts that connect equipment information with manufacturing
+    execution, analytics, and operational decision-making.
+  </p>
+
+  <ul>
+    <li>Equipment-to-MES communication</li>
+    <li>Machine-data acquisition and integration planning</li>
+    <li>Standard and vendor-specific communication approaches</li>
+    <li>Equipment states and manufacturing context</li>
+    <li>Operational dashboards and alerts</li>
+    <li>Integration with broader manufacturing-system architectures</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     GOVERNANCE / ADOPTION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Governance, Training & Adoption</h2>
+
+  <p>
+    A technically correct MES implementation is not successful unless
+    manufacturing personnel can use it consistently and the organization
+    has clear standards for maintaining it.
+  </p>
+
+  <ul>
+    <li>MES work instructions and controlled documentation</li>
+    <li>User and engineering training</li>
+    <li>Role and permission structures</li>
+    <li>Naming and data-entry standards</li>
+    <li>Engineering ownership of manufacturing data</li>
+    <li>Recurring implementation and operational reviews</li>
+    <li>Cross-site support and knowledge transfer</li>
+    <li>Post-deployment issue resolution and continuous improvement</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES as a Manufacturing Leadership Problem</h2>
+
+  <p>
+    The difficult part of MES is rarely the software alone. Successful
+    implementation requires manufacturing processes that are understood,
+    ownership that is defined, data that is meaningful, teams that are
+    aligned, and a deployment structure capable of moving from planning
+    into sustained production.
+  </p>
+
+  <p>
+    My value in MES programs comes from being able to operate on both sides
+    of that problem: leading the implementation while also understanding
+    the manufacturing processes, equipment, data, quality requirements,
+    and technical systems well enough to recognize what is missing and
+    help complete the work.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
 
 </main>
 
-<footer class="footer">
-  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
 </body>
 </html>
