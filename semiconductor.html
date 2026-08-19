@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Semiconductor Manufacturing | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Semiconductor manufacturing, process engineering, device fabrication, electrical characterization, equipment ownership, process control, and digital manufacturing experience."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN CONTENT
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .section a {
+      color: #72d6d0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section a:hover {
+      text-decoration: underline;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .hero-text p {
+        font-size: 17px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Semiconductor Manufacturing
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Semiconductor Manufacturing, Devices & Process Engineering
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Experience spanning semiconductor research, device fabrication,
+        process engineering, equipment ownership, electrical characterization,
+        process control, and digital manufacturing systems.
+      </p>
+
+      <div class="hero-summary">
+        My semiconductor background connects device-level science and fabrication
+        with the realities of manufacturing: equipment, process stability,
+        measurement, quality, troubleshooting, data, and the systems used to
+        control and improve production.
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/semiconductor/semiconductor_hero.jpg"
+        alt="Semiconductor wafer and integrated circuit manufacturing"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     HIGH LEVEL CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Process Engineering</h3>
+
+    <p>
+      Manufacturing process ownership, equipment support, process monitoring,
+      troubleshooting, qualification, and continuous improvement.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Devices & Characterization</h3>
+
+    <p>
+      Early experience with semiconductor devices, sensors, transistors,
+      diodes, fabrication processes, and electrical characterization.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Digital Manufacturing</h3>
+
+    <p>
+      Applying manufacturing knowledge to MES, SPC, equipment structures,
+      data systems, workflows, analytics, and operational visibility.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     SEMICONDUCTOR EXPERIENCE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Semiconductor Manufacturing Experience</h2>
+
+  <p>
+    My semiconductor experience developed across research, fabrication,
+    process engineering, equipment ownership, manufacturing support, and
+    digital manufacturing. This provides both a device-level and
+    production-level perspective of semiconductor operations.
+  </p>
+
+  <ul>
+    <li>Semiconductor and advanced manufacturing environments</li>
+    <li>Process engineering and manufacturing process support</li>
+    <li>Equipment and tool ownership</li>
+    <li>Process qualification and production readiness</li>
+    <li>Process monitoring and statistical process control</li>
+    <li>Manufacturing troubleshooting and RCCA</li>
+    <li>Metrology and process characterization</li>
+    <li>Thin-film processing and deposition</li>
+    <li>Manufacturing data analysis</li>
+    <li>MES and digital manufacturing implementation</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS ENGINEERING & TOOL OWNERSHIP
+========================================================= -->
+
+<section class="section">
+
+  <h2>Process Engineering & Equipment Ownership</h2>
+
+  <p>
+    Semiconductor manufacturing depends on understanding both the process
+    and the equipment producing it. My experience includes direct ownership
+    and support of manufacturing processes and tools, with responsibility
+    for process health, stability, and production performance.
+  </p>
+
+  <ul>
+    <li>Process monitoring and troubleshooting</li>
+    <li>Equipment performance and manufacturing readiness</li>
+    <li>Process qualification and change evaluation</li>
+    <li>Preventive maintenance and equipment-state awareness</li>
+    <li>Investigation of process excursions and abnormal results</li>
+    <li>Root Cause and Corrective Action (RCCA)</li>
+    <li>Statistical Process Control (SPC)</li>
+    <li>Collaboration with technicians, operators, quality, and engineering</li>
+    <li>Translation of process requirements into sustainable manufacturing practices</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="tool-ownership.html">Equipment & Tool Ownership →</a>
+    <a href="spc.html">SPC & Process Control →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DEVICES & ELECTRONICS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Semiconductor Devices, Sensors & Electronics</h2>
+
+  <p>
+    My semiconductor foundation began before industrial manufacturing through
+    undergraduate applied-physics coursework and research involving electronic
+    devices, sensors, semiconductor structures, and electrical measurement.
+  </p>
+
+  <ul>
+    <li>Diodes, transistors, and sensor structures</li>
+    <li>Carbon-nanotube and nanofiber-based electronic devices</li>
+    <li>Gas-sensing and biosensing concepts</li>
+    <li>Photolithography and device fabrication</li>
+    <li>Chemical Vapor Deposition (CVD)</li>
+    <li>Electrical characterization and I-V measurements</li>
+    <li>Open/short testing and circuit troubleshooting</li>
+    <li>Integration of electronic devices with measurement systems</li>
+  </ul>
+
+  <p>
+    Applied-electronics coursework also included circuit design, measurement,
+    microprocessor-based control using Intel 8085 devices, and laboratory
+    automation using LabVIEW.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH EXPERIENCE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Early Semiconductor & Nanodevice Research</h2>
+
+  <p>
+    Undergraduate research provided hands-on exposure to semiconductor and
+    nanoscale device fabrication before my later work in industrial
+    manufacturing.
+  </p>
+
+  <ul>
+    <li>
+      Conductive and semiconductive nanofiber devices, sensors, diodes,
+      and transistor structures
+    </li>
+
+    <li>
+      Photolithography and thin-film fabrication
+    </li>
+
+    <li>
+      CVD-based nanomaterial growth
+    </li>
+
+    <li>
+      Electrical characterization of fabricated devices
+    </li>
+
+    <li>
+      Sensor response measurements and device-performance analysis
+    </li>
+
+    <li>
+      Research presentations and technical communication
+    </li>
+  </ul>
+
+  <p>
+    This work included undergraduate research through the University of
+    Puerto Rico at Humacao and collaborative research programs involving
+    the University of Pennsylvania.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     UPENN REU
+========================================================= -->
+
+<section class="section">
+
+  <h2>University of Pennsylvania REU — Carbon Nanotube Transistors</h2>
+
+  <p>
+    During a Research Experiences for Undergraduates (REU) program at the
+    University of Pennsylvania, I contributed to research involving
+    carbon-nanotube transistor devices and non-invasive sensing.
+  </p>
+
+  <ul>
+    <li>Photolithography and device-processing activities</li>
+    <li>Thin-film and nanomaterial processing</li>
+    <li>Electrical measurements and device characterization</li>
+    <li>Transistor response analysis</li>
+    <li>Sensor-device research</li>
+  </ul>
+
+  <p>
+    The work contributed to the publication:
+  </p>
+
+  <p>
+    <b>
+      “Scalable, Non-Invasive Glucose Sensor Based on Boronic Acid
+      Functionalized Carbon Nanotube Transistors”
+    </b>
+  </p>
+
+  <p class="small">
+    Authors include Mitchell B. Lerner, Nicholas Kybert, Ryan Mendoza,
+    Romain Villechenon, Manuel A. Bonilla Lopez, and A. T. Charlie Johnson.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     THIN FILMS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Thin Films & Semiconductor Processing</h2>
+
+  <p>
+    Thin-film processing connects much of my research and manufacturing
+    experience. I have worked with multiple deposition technologies across
+    semiconductor, optical, and research applications.
+  </p>
+
+  <ul>
+    <li>Atomic Layer Deposition (ALD)</li>
+    <li>Plasma-Enhanced Chemical Vapor Deposition (PECVD)</li>
+    <li>Chemical Vapor Deposition (CVD)</li>
+    <li>Sputtering</li>
+    <li>Electron-beam deposition</li>
+    <li>Thermal evaporation</li>
+    <li>Molecular Beam Epitaxy (MBE)</li>
+    <li>Pulsed Laser Deposition (PLD)</li>
+  </ul>
+
+  <p>
+    The semiconductor page keeps these technologies at a high level because
+    the deposition page provides a deeper look at the individual techniques
+    and their applications.
+  </p>
+
+  <div class="related-links">
+    <a href="deposition.html">Explore Thin Films & Deposition →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     METROLOGY QUALITY SPC
+========================================================= -->
+
+<section class="section">
+
+  <h2>Metrology, Process Control & Quality</h2>
+
+  <p>
+    Semiconductor processes cannot be managed effectively without reliable
+    measurement and structured process control. My experience combines
+    measurement, statistical analysis, troubleshooting, and quality methods
+    with direct process knowledge.
+  </p>
+
+  <ul>
+    <li>Process and equipment metrology</li>
+    <li>Measurement-data interpretation</li>
+    <li>Process trending and statistical monitoring</li>
+    <li>SPC implementation and control-chart analysis</li>
+    <li>Process capability evaluation</li>
+    <li>Defect and variation analysis</li>
+    <li>RCCA and structured problem solving</li>
+    <li>Qualification and manufacturing readiness</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="metrology.html">Metrology & Measurement →</a>
+    <a href="quality.html">Quality & RCCA →</a>
+    <a href="spc.html">SPC & Analytics →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DIGITAL MANUFACTURING
+========================================================= -->
+
+<section class="section">
+
+  <h2>From Semiconductor Process Engineering to Digital Manufacturing</h2>
+
+  <p>
+    My later work expanded from controlling individual manufacturing processes
+    to helping structure and digitize the manufacturing systems surrounding
+    those processes.
+  </p>
+
+  <p>
+    That process-engineering background is important when implementing digital
+    manufacturing systems because the software must represent how equipment,
+    products, operators, quality controls, process data, and manufacturing
+    decisions actually work on the shop floor.
+  </p>
+
+  <ul>
+    <li>MES implementation and manufacturing workflow design</li>
+    <li>Equipment hierarchy and equipment-state structures</li>
+    <li>Digital travelers and routings</li>
+    <li>Manufacturing data structures</li>
+    <li>SPC integration</li>
+    <li>Quality and defect workflows</li>
+    <li>Dashboards and manufacturing analytics</li>
+    <li>Equipment-to-system integration</li>
+    <li>Cross-functional implementation leadership</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="mes.html">MES & Digital Manufacturing →</a>
+    <a href="data-systems.html">Data & Systems Integration →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCIENTIFIC FOUNDATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Scientific Foundation</h2>
+
+  <p>
+    My semiconductor work is supported by a broader scientific background
+    in physics, materials, nanotechnology, optics, thin films, and quantitative
+    data analysis.
+  </p>
+
+  <ul>
+    <li>Ph.D. in Physics</li>
+    <li>Semiconductor and nanoscale materials research</li>
+    <li>Thin-film growth and characterization</li>
+    <li>Electronic-device research</li>
+    <li>Peer-reviewed scientific publications</li>
+    <li>Scientific data analysis and experimental design</li>
+  </ul>
+
+  <p>
+    This scientific foundation provides additional depth when moving between
+    device physics, process engineering, manufacturing systems, and data-driven
+    problem solving.
+  </p>
+
+  <div class="related-links">
+    <a href="research.html">Research & Publications →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
