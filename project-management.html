@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Project & Program Leadership | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Technical project and program leadership across MES implementations, SPC deployment, manufacturing improvement, technical development, and equipment capability expansion."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       PROJECT GRID
+    ========================================================= */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .project-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .project-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .project-card p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .project-card ul {
+      padding-left: 20px;
+    }
+
+    .project-card li {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Project & Program Leadership
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Technical Project & Program Leadership
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        I lead technical initiatives where successful execution requires
+        both project structure and enough subject-matter expertise to
+        understand the work being performed.
+      </p>
+
+      <div class="hero-summary">
+        My role frequently combines implementation leadership with hands-on
+        technical ownership: defining roadmaps, organizing workstreams,
+        identifying gaps and dependencies, coordinating cross-functional
+        teams, supporting technical decisions, and driving initiatives
+        toward deployment or operational closure.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/project-management/project_roadmap.png"
+        alt="Technical project roadmap and implementation plan"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     LEADERSHIP CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Structure & Planning</h3>
+
+    <p>
+      Transform broad technical objectives into roadmaps, workstreams,
+      milestones, dependencies, priorities, and executable tasks.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Cross-Functional Execution</h3>
+
+    <p>
+      Coordinate engineering, manufacturing, quality, maintenance,
+      IT, vendors, operators, and leadership toward a common objective.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Technical Leadership</h3>
+
+    <p>
+      Serve as a subject-matter expert while leading the work, allowing
+      technical gaps and implementation risks to be identified early.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     LEADERSHIP APPROACH
+========================================================= -->
+
+<section class="section">
+
+  <h2>How I Lead Technical Programs</h2>
+
+  <p>
+    My project leadership experience developed through engineering and
+    manufacturing roles where complex work needed someone to create structure,
+    coordinate the right people, and keep technical execution moving.
+  </p>
+
+  <p>
+    I do not approach project leadership as schedule tracking alone.
+    I typically understand the manufacturing process, equipment, data,
+    quality requirements, or technical system well enough to identify
+    what is missing and help the team resolve it.
+  </p>
+
+  <ul>
+    <li>Define project objectives and implementation scope</li>
+    <li>Create roadmaps and structured workstreams</li>
+    <li>Break complex initiatives into executable activities</li>
+    <li>Establish priorities, sequencing, milestones, and dependencies</li>
+    <li>Identify operational and technical readiness gaps</li>
+    <li>Coordinate cross-functional meetings and technical decisions</li>
+    <li>Track open actions and drive issues toward closure</li>
+    <li>Plan testing, training, release, and transition to operations</li>
+    <li>Provide technical leadership when execution requires subject-matter expertise</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     MES
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES Implementation Leadership</h2>
+
+  <p>
+    MES implementation has become one of the clearest examples of my
+    project and program leadership because the work crosses manufacturing,
+    engineering, quality, equipment, IT, vendors, training, and operations.
+  </p>
+
+  <p>
+    I independently led a department MES implementation from initial
+    planning through production deployment, while also serving as the
+    technical MES and manufacturing subject-matter expert.
+  </p>
+
+  <ul>
+    <li>Created implementation roadmaps and project workstreams</li>
+    <li>Assessed department readiness for digital manufacturing</li>
+    <li>Defined process, equipment, product, quality, and data requirements</li>
+    <li>Coordinated manufacturing, engineering, quality, maintenance, IT, and vendors</li>
+    <li>Sequenced configuration, testing, training, and deployment activities</li>
+    <li>Identified missing processes and ownership before digitization</li>
+    <li>Led production-release planning and post-deployment support</li>
+  </ul>
+
+  <p>
+    My MES responsibilities later expanded into cross-site and enterprise
+    implementation work, including leadership activities involving an
+    internally developed enterprise MES solution at another manufacturing
+    location.
+  </p>
+
+  <p>
+    I also currently support a broader digital-manufacturing organization
+    working on enterprise MES and machine-integration efforts. Because that
+    assignment is relatively recent, I treat it as an expanding leadership
+    responsibility rather than a completed implementation example.
+  </p>
+
+  <div class="related-links">
+    <a href="mes.html">MES Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SPC
+========================================================= -->
+
+<section class="section">
+
+  <h2>SPC Capability Implementation</h2>
+
+  <p>
+    I led the introduction and expansion of Statistical Process Control
+    as a structured engineering capability within a manufacturing department.
+  </p>
+
+  <p>
+    This effort required more than selecting control charts. It required
+    defining how SPC would be implemented, establishing engineering ownership,
+    creating review practices, supporting system configuration, and developing
+    the training needed for sustained use.
+  </p>
+
+  <ul>
+    <li>Developed the department SPC implementation plan</li>
+    <li>Defined expectations for engineering SPC ownership and review</li>
+    <li>Worked with engineers to identify and establish SPC monitoring</li>
+    <li>Served as the SPC subject-matter expert during MES implementation</li>
+    <li>Led SPC-related MES training</li>
+    <li>Established recurring biweekly engineering SPC reviews</li>
+    <li>Supported development of standardized SPC training and practices</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="spc.html">SPC Implementation & Analytics →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PMT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Manufacturing Improvement Leadership — Performance Management Team</h2>
+
+  <p>
+    At Lockheed Martin, I led a Performance Management Team (PMT) effort
+    focused on capturing operator concerns, improving manufacturing conditions,
+    and ensuring reported issues were assigned and driven to closure.
+  </p>
+
+  <p>
+    I created a dashboard to organize and track issues raised by operators.
+    The topics were broader than engineering alone and included manufacturing
+    processes, safety, materials, work-area conditions, equipment needs,
+    and other barriers affecting daily production.
+  </p>
+
+  <ul>
+    <li>Collected and organized operator feedback</li>
+    <li>Created dashboard-based visibility of open actions</li>
+    <li>Prioritized manufacturing and operational concerns</li>
+    <li>Coordinated owners and follow-up actions</li>
+    <li>Tracked items from identification through closure</li>
+    <li>Supported recognition of employees who identified meaningful improvements</li>
+    <li>Worked across engineering, manufacturing, operations, and support functions</li>
+  </ul>
+
+  <p>
+    This effort received a PMT award and demonstrated a leadership model
+    centered on visibility, accountability, employee engagement, and
+    consistent follow-through.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNICAL DEVELOPMENT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Technical Development & IRAD Leadership</h2>
+
+  <p>
+    I have also led technical development work where the objective was
+    not simply to execute an established manufacturing process, but to
+    evaluate a new technical approach.
+  </p>
+
+  <p>
+    One example was an Internal Research and Development (IRAD) effort
+    investigating alternatives to Diamond-Like Carbon (DLC) durable optical
+    coatings. DLC provides strong durability but can reduce optical transmission,
+    so the project evaluated oxide-based approaches intended to improve
+    the balance between durability and optical performance.
+  </p>
+
+  <ul>
+    <li>Led the technical direction of the development effort</li>
+    <li>Defined the performance problem and development objective</li>
+    <li>Evaluated alternative coating architectures</li>
+    <li>Planned experimental development and characterization activities</li>
+    <li>Balanced competing durability and optical-performance requirements</li>
+  </ul>
+
+  <p class="small">
+    The project remained in development when I left the organization
+    and had not yet reached production implementation.
+  </p>
+
+  <div class="related-links">
+    <a href="optical.html">Optical Engineering & Coatings →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAPABILITY EXPANSION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Equipment & Manufacturing Capability Expansion</h2>
+
+  <p>
+    Some of my project leadership has centered on manufacturing equipment
+    and technical capability rather than software or organizational programs.
+  </p>
+
+  <p>
+    As a coating-process and equipment owner, I supported maintenance,
+    upgrades, troubleshooting, qualification, and expansion of deposition
+    capability, including procurement activities associated with additional
+    DLC coating equipment.
+  </p>
+
+  <ul>
+    <li>Technical definition of manufacturing capability needs</li>
+    <li>Equipment troubleshooting and upgrade coordination</li>
+    <li>Vendor communication and technical evaluation</li>
+    <li>Support for equipment procurement and capacity expansion</li>
+    <li>Installation and qualification planning</li>
+    <li>Transition of equipment into sustainable manufacturing support</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECT EXAMPLES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Examples of Programs & Projects Led</h2>
+
+  <div class="project-grid">
+
+
+    <div class="project-card">
+
+      <h3>Department MES Deployment</h3>
+
+      <p>
+        Full implementation from readiness assessment and roadmap
+        development through configuration, training, release, and support.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Cross-Site MES Implementation</h3>
+
+      <p>
+        Leadership and coordination supporting deployment of an enterprise
+        manufacturing system across organizational boundaries.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>SPC Department Program</h3>
+
+      <p>
+        Structured implementation of SPC practices, engineering ownership,
+        training, recurring reviews, and MES integration.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Manufacturing PMT</h3>
+
+      <p>
+        Operator-feedback and continuous-improvement program using dashboard
+        visibility, ownership, follow-up, and closure.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Durable Coatings IRAD</h3>
+
+      <p>
+        Technical development program investigating alternative coating
+        solutions for competing durability and optical-performance requirements.
+      </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+      <h3>Equipment Capability Expansion</h3>
+
+      <p>
+        Technical ownership supporting equipment upgrades, procurement,
+        additional manufacturing capacity, and production readiness.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EARLY PROJECT EXECUTION FOUNDATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Early Technical Project Execution</h2>
+
+  <p>
+    My comfort with complex technical projects began during graduate research.
+    Early responsibilities included safely disassembling laboratory equipment
+    for relocation and later supporting installation, startup, and troubleshooting
+    of replacement research systems in the same laboratory space.
+  </p>
+
+  <p>
+    I did not design those systems; the research faculty and equipment vendors
+    defined the equipment. My responsibility was the hands-on execution required
+    to safely remove, install, operate, maintain, and troubleshoot the tools.
+  </p>
+
+  <p>
+    That experience helped establish the practical equipment and execution
+    skills that later became valuable when leading manufacturing projects
+    involving complex tools, processes, vendors, and production requirements.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="section">
+
+  <h2>Leadership Through Technical Depth & Execution</h2>
+
+  <p>
+    My strongest project-leadership roles occur where technical complexity
+    and organizational coordination overlap. I can structure the work,
+    communicate across functions, track dependencies and milestones, and
+    also understand the underlying engineering well enough to recognize
+    when an issue requires more than project-status reporting.
+  </p>
+
+  <p>
+    That combination allows me to lead initiatives from loosely defined
+    technical problems toward structured execution, deployment, and
+    sustained operational use.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
