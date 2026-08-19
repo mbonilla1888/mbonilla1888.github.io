@@ -35,10 +35,6 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
-
 
     /* =========================================================
        STICKY HEADER
@@ -103,47 +99,63 @@
     .hero {
       max-width: 1200px;
       margin: auto;
-      padding: 65px 6% 45px;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 42px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 45px;
-      align-items: center;
+      align-items: stretch;
     }
 
-    .hero-text h1 {
-      font-size: 46px;
-      line-height: 1.12;
-      margin-bottom: 22px;
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-text p {
-      font-size: 19px;
+      font-size: 18px;
+      line-height: 1.7;
       color: #c8d0d7;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .spc-definition {
-      border-left: 4px solid #72d6d0;
-      padding-left: 18px;
-      margin-top: 24px;
       color: #e4eaee;
       font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
     }
 
     .hero-image img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
       display: block;
+      background: white;
       border-radius: 10px;
       border: 1px solid #34414d;
     }
 
 
     /* =========================================================
-       MAIN
+       MAIN CONTENT
     ========================================================= */
 
     main {
@@ -154,7 +166,7 @@
 
 
     /* =========================================================
-       CAPABILITY CARDS
+       HIGH LEVEL CAPABILITIES
     ========================================================= */
 
     .capability-grid {
@@ -169,7 +181,7 @@
       border: 1px solid #28323c;
       border-top: 3px solid #72d6d0;
       border-radius: 10px;
-      padding: 27px;
+      padding: 28px;
     }
 
     .capability h3 {
@@ -233,7 +245,7 @@
 
 
     /* =========================================================
-       BACK / NAV BUTTONS
+       PAGE NAVIGATION
     ========================================================= */
 
     .page-navigation {
@@ -283,15 +295,20 @@
         grid-template-columns: 1fr;
       }
 
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
       .capability-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-text h1 {
-        font-size: 38px;
-      }
-
     }
+
 
     @media (max-width: 700px) {
 
@@ -316,11 +333,12 @@
       }
 
       .hero {
-        padding-top: 40px;
+        padding-top: 38px;
       }
 
-      .hero-text h1 {
+      .hero h1 {
         font-size: 32px;
+        margin-bottom: 30px;
       }
 
       .hero-text p {
@@ -341,7 +359,7 @@
 
 
 <!-- =========================================================
-     STICKY HEADER + PAGE IDENTIFIER
+     STICKY HEADER
 ========================================================= -->
 
 <div class="sticky-shell">
@@ -374,13 +392,13 @@
 
 <section class="hero">
 
+  <h1>
+    SPC Implementation, Process Control & Manufacturing Analytics
+  </h1>
+
   <div class="hero-grid">
 
     <div class="hero-text">
-
-      <h1>
-        SPC Implementation, Process Control & Manufacturing Analytics
-      </h1>
 
       <p>
         Experience applying Statistical Process Control from hands-on process
@@ -401,7 +419,7 @@
     <div class="hero-image">
 
       <img
-        src="assets/img/spc/generic_control_chart.jpg"
+        src="assets/img/spc/generic_control_chart.png"
         alt="SPC control chart showing process limits and an out-of-control condition"
       >
 
@@ -475,7 +493,7 @@
 
   <ul>
     <li>Detects process drift and instability earlier</li>
-    <li>Helps avoid unnecessary adjustments to processes that are operating normally</li>
+    <li>Helps avoid unnecessary adjustments to processes operating normally</li>
     <li>Supports consistent, data-based engineering decisions</li>
     <li>Improves process visibility and manufacturing discipline</li>
     <li>Supports troubleshooting, quality improvement, and RCCA</li>
@@ -593,30 +611,34 @@
   >
 
   <ul>
+
     <li>
       <b>Rule 1:</b> One point outside the 3-sigma control limit
     </li>
 
     <li>
-      <b>Rule 2:</b> Two of three consecutive points beyond 2 sigma on the same side
+      <b>Rule 2:</b> Two of three consecutive points beyond 2 sigma
+      on the same side of the mean
+    </li>
+
+    <li>
+      <b>Rule 3:</b> Four of five consecutive points beyond 1 sigma
+      on the same side of the mean
+    </li>
+
+    <li>
+      <b>Rule 4:</b> Nine or more consecutive points on one side
       of the mean
     </li>
 
     <li>
-      <b>Rule 3:</b> Four of five consecutive points beyond 1 sigma on the same side
-      of the mean
+      <b>Rule 5:</b> Six or more consecutive points continuously
+      increasing or decreasing
     </li>
 
     <li>
-      <b>Rule 4:</b> Nine or more consecutive points on one side of the mean
-    </li>
-
-    <li>
-      <b>Rule 5:</b> Six or more consecutive points continuously increasing or decreasing
-    </li>
-
-    <li>
-      <b>Rule 6:</b> Fourteen or more consecutive points alternating up and down
+      <b>Rule 6:</b> Fourteen or more consecutive points alternating
+      up and down
     </li>
 
   </ul>
@@ -631,7 +653,7 @@
 
 
 <!-- =========================================================
-     ALERTS
+     AUTOMATED ALERTS
 ========================================================= -->
 
 <section class="section">
