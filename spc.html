@@ -357,69 +357,95 @@
 </section>
 
 
-<!-- OPTICS EXAMPLE -->
+<!-- WECO RULES -->
 
 <section class="section">
 
-  <h2>SPC for Spectral Monitoring — Optics</h2>
+  <h2>Western Electric (WECO) Rules</h2>
+
+  <p>
+    Western Electric (WECO) rules are a standard method used in Statistical
+    Process Control to determine whether a process is behaving normally or
+    showing signs of special-cause variation that may require attention.
+  </p>
+
+  <p>
+    Rather than reacting to every data fluctuation, WECO rules help engineers
+    and manufacturing teams distinguish between normal process noise and
+    meaningful signals that suggest instability, drift, or loss of control.
+    These rules are widely used across manufacturing environments including
+    semiconductors, optics, aerospace, automotive, and other production settings.
+  </p>
 
   <img
     class="img"
-    src="assets/img/spc/R4PLOT.png"
-    alt="Spectral monitoring example"
+    src="assets/img/spc/weco_rules.png"
+    alt="Illustration of Western Electric rule violations"
   >
 
   <ul>
-    <li>Monitors spectral performance across manufacturing runs.</li>
-
-    <li>
-      Compares process results against defined wavelength regions and performance limits.
-    </li>
-
-    <li>
-      Identifies warning conditions and out-of-limit results requiring engineering review.
-    </li>
+    <li><b>Rule 1:</b> One point outside the 3-sigma control limit</li>
+    <li><b>Rule 2:</b> Two out of three consecutive points beyond 2 sigma on the same side of the mean</li>
+    <li><b>Rule 3:</b> Four out of five consecutive points beyond 1 sigma on the same side of the mean</li>
+    <li><b>Rule 4:</b> Nine or more consecutive points on one side of the mean</li>
+    <li><b>Rule 5:</b> Six or more points in a row increasing or decreasing</li>
+    <li><b>Rule 6:</b> Fourteen or more points alternating up and down</li>
   </ul>
 
   <p class="small">
-    Example shown using representative optical coating monitoring data.
+    These rules support consistent decision-making by identifying patterns that
+    may indicate the process should be investigated, adjusted, or left alone.
   </p>
 
 </section>
 
 
-<!-- MINIMA -->
+<!-- GENERIC SPC CHART -->
 
 <section class="section">
 
-  <h2>Process Trend Monitoring</h2>
+  <h2>Control Charts & Process Monitoring</h2>
+
+  <p>
+    Control charts are one of the core tools of SPC. They track process
+    performance over time relative to a process average and statistically
+    derived control limits.
+  </p>
+
+  <p>
+    When used correctly, control charts help teams monitor process stability,
+    identify unusual behavior early, and avoid unnecessary adjustments to
+    processes that are operating normally.
+  </p>
 
   <img
     class="img"
-    src="assets/img/spc/R4spc2.png"
-    alt="Process trend monitoring example"
+    src="assets/img/spc/generic_control_chart.png"
+    alt="Generic SPC control chart showing a violation beyond control limits"
   >
 
   <ul>
-    <li>Tracks changes in process behavior across manufacturing runs.</li>
-
-    <li>
-      Enables monitoring of derived process metrics rather than individual measurements alone.
-    </li>
-
-    <li>
-      Supports early identification of process drift before product requirements are exceeded.
-    </li>
+    <li>Visualizes process behavior over time</li>
+    <li>Uses center line, warning limits, and control limits</li>
+    <li>Highlights out-of-control points and abnormal patterns</li>
+    <li>Supports engineering review and reaction planning</li>
   </ul>
 
 </section>
 
 
-<!-- ALERTS -->
+<!-- AUTOMATED ALERTS -->
 
 <section class="section">
 
-  <h2>Automated Engineering Alerts</h2>
+  <h2>Automated Alerts & Engineering Response</h2>
+
+  <p>
+    SPC becomes more valuable when signals are connected to timely action.
+    Automated alerts can notify engineers or manufacturing teams when warning
+    or control limits are exceeded so that issues are reviewed quickly and
+    consistently.
+  </p>
 
   <img
     class="img"
@@ -428,136 +454,67 @@
   >
 
   <ul>
-    <li>Generates alerts when defined warning or control conditions occur.</li>
-
-    <li>
-      Provides engineers with the relevant process or run information for investigation.
-    </li>
-
-    <li>
-      Supports faster response to emerging manufacturing variation.
-    </li>
+    <li>Supports faster awareness of emerging process issues</li>
+    <li>Reduces dependence on delayed manual review</li>
+    <li>Improves consistency in engineering response</li>
+    <li>Can be integrated into normal review and escalation workflows</li>
   </ul>
 
 </section>
 
 
-<!-- SEMICONDUCTOR -->
+<!-- PROCESS CAPABILITY -->
 
 <section class="section">
 
-  <h2>SPC for Thickness Monitoring — Semiconductor Manufacturing</h2>
-
-  <img
-    class="img"
-    src="assets/img/spc/chart1_spc.png"
-    alt="Thickness SPC monitoring"
-  >
-
-  <ul>
-    <li>Uses multiple measurement locations to evaluate process performance.</li>
-
-    <li>
-      Tracks average process behavior across manufacturing samples.
-    </li>
-
-    <li>
-      Establishes control limits based on process variation.
-    </li>
-  </ul>
-
-</section>
-
-
-<!-- RANGE -->
-
-<section class="section">
-
-  <h2>Range & Within-Sample Variation</h2>
-
-  <img
-    class="img"
-    src="assets/img/spc/chart2_spc.png"
-    alt="Range chart"
-  >
-
-  <ul>
-    <li>
-      Tracks measurement range to identify changes in within-sample process variation.
-    </li>
-
-    <li>
-      Provides a complementary view to average process performance.
-    </li>
-  </ul>
-
-</section>
-
-
-<!-- BOX -->
-
-<section class="section">
-
-  <h2>Distribution & Variation Analysis</h2>
-
-  <img
-    class="img"
-    src="assets/img/spc/spc_box.png"
-    alt="Process distribution visualization"
-  >
-
-  <ul>
-    <li>Visualizes measurement distributions across manufacturing samples.</li>
-
-    <li>
-      Helps engineers distinguish changes in process center from changes in variation.
-    </li>
-
-    <li>
-      Supports deeper investigation of manufacturing process behavior.
-    </li>
-  </ul>
-
-</section>
-
-
-<!-- OPERATIONS -->
-
-<section class="section">
-
-  <h2>Connecting SPC to Manufacturing Operations</h2>
+  <h2>Process Capability</h2>
 
   <p>
-    Effective SPC requires more than generating charts. It requires process
-    ownership, appropriate data, engineering review, defined reaction plans,
-    training, and integration into normal manufacturing operations.
+    In addition to process stability, SPC is often used together with process
+    capability analysis to evaluate how well a process can meet defined
+    requirements or specifications.
+  </p>
+
+  <p>
+    Capability metrics help determine whether a process is not only stable,
+    but also capable of consistently producing acceptable results.
   </p>
 
   <ul>
-    <li>Engineering ownership and recurring review</li>
-    <li>MES-based process monitoring</li>
-    <li>Manufacturing dashboards and visibility</li>
-    <li>Standardized reaction to warning and control conditions</li>
-    <li>Training and adoption across engineering teams</li>
-    <li>Use of SPC during process troubleshooting and RCCA</li>
+    <li><b>Cp:</b> Potential capability relative to specification width</li>
+    <li><b>Cpk:</b> Actual capability accounting for process centering</li>
+    <li><b>Pp:</b> Overall process performance relative to specifications</li>
+    <li><b>Ppk:</b> Overall performance including centering effects</li>
   </ul>
+
+  <p class="small">
+    Capability analysis is typically most meaningful when the process is
+    already reasonably stable and the measurement approach is understood.
+  </p>
 
 </section>
 
 
-</main>
+<!-- WHY SPC MATTERS -->
 
+<section class="section">
 
-<footer>
-  © <span id="year"></span> Manuel Bonilla
-</footer>
+  <h2>Why SPC Matters in Manufacturing</h2>
 
+  <p>
+    SPC provides a structured, data-based approach for determining when a
+    process should be investigated, adjusted, or left unchanged. This helps
+    reduce overreaction to normal variation while improving responsiveness to
+    meaningful process shifts.
+  </p>
 
-<script>
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-</script>
+  <ul>
+    <li>Improves process visibility</li>
+    <li>Supports earlier detection of drift and instability</li>
+    <li>Promotes more consistent engineering decisions</li>
+    <li>Strengthens process control and manufacturing discipline</li>
+    <li>Supports quality improvement, troubleshooting, and RCCA</li>
+    <li>Can be integrated into MES, dashboards, and recurring engineering reviews</li>
+  </ul>
 
-
-</body>
-</html>
+</section>
