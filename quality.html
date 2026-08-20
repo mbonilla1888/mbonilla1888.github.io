@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quality Engineering & RCCA | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Quality engineering, root cause and corrective action, SPC, OCAP, PFMEA, change control, MES quality workflows, manufacturing risk reduction, and defect elimination."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       HERO QUALITY FLOW
+    ========================================================= */
+
+    .quality-flow {
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .flow-title {
+      color: #72d6d0;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .flow-step {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 7px;
+      padding: 13px 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: #72d6d0;
+      font-size: 22px;
+      line-height: 1.2;
+      padding: 4px 0;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       QUALITY GRID
+    ========================================================= */
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .quality-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .quality-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .quality-card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       LARGE IMAGE
+    ========================================================= */
+
+    .content-image {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      display: block;
+      margin: 28px auto;
+      background: white;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+    }
+
+
+    /* =========================================================
+       METRIC HIGHLIGHT
+    ========================================================= */
+
+    .metric-highlight {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 28px;
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .metric-number {
+      color: #72d6d0;
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .metric-text {
+      color: #dfe5ea;
+      font-size: 16px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .quality-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Quality Engineering, RCCA & Process Control
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Quality Engineering, Defect Elimination & Manufacturing Control
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Quality engineering turns manufacturing requirements into controls
+        that prevent defects, detect abnormal conditions, investigate failures,
+        and keep process changes from introducing new risk.
+      </p>
+
+      <div class="hero-summary">
+        My experience includes Root Cause and Corrective Action (RCCA),
+        Statistical Process Control (SPC), Out-of-Control Action Plans (OCAP),
+        Process Failure Mode and Effects Analysis (PFMEA), change control,
+        MES quality workflows, manufacturing quality reviews, defect metrics,
+        and process-risk reduction.
+      </div>
+
+    </div>
+
+
+    <div class="quality-flow">
+
+      <div class="flow-title">
+        Quality Control Loop
+      </div>
+
+      <div class="flow-step">
+        Detect Abnormal Condition
+      </div>
+
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        Contain / Assess Product
+      </div>
+
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        Investigate Process & Equipment
+      </div>
+
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        Root Cause & Corrective Action
+      </div>
+
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        Update Controls & Prevent Recurrence
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>RCCA & Defect Elimination</h3>
+
+    <p>
+      Structured troubleshooting, containment, root-cause determination,
+      corrective action, verification, and prevention of recurrence.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Quality Systems & Governance</h3>
+
+    <p>
+      Change control, manufacturing approvals, quality reviews,
+      MES workflows, defect tracking, and controlled process changes.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Prevention & Process Control</h3>
+
+    <p>
+      SPC, OCAP, PFMEA, risk assessment, process monitoring,
+      qualification, and preventive controls.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     QUALITY ROLE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Quality Leadership Through Process Engineering</h2>
+
+  <p>
+    My quality experience developed through direct ownership of manufacturing
+    processes and equipment where I was responsible for preventing defects,
+    investigating failures, controlling process changes, and demonstrating
+    that corrective actions actually improved performance.
+  </p>
+
+  <p>
+    In organizations where dedicated quality resources were limited,
+    I also helped establish quality structure, reviewed manufacturing
+    dispositions for consistency with approved processes and MES controls,
+    supported quality-system development, and later helped onboard and
+    train dedicated quality personnel.
+  </p>
+
+  <p>
+    The result is a practical quality perspective that combines process
+    engineering, manufacturing systems, data, equipment knowledge,
+    and formal quality methods.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     RCCA
+========================================================= -->
+
+<section class="section">
+
+  <h2>Root Cause & Corrective Action</h2>
+
+  <p>
+    Root Cause and Corrective Action has been a major part of my manufacturing
+    work. I have led and supported investigations involving process,
+    equipment, cleaning, inspection, material, environmental, and
+    measurement-related failures.
+  </p>
+
+  <p>
+    At Lockheed Martin, the formal RCCA methodology used 4-Blocker reports
+    rather than fishbone diagrams. These reports provided a structured
+    mechanism for documenting the problem, investigation, root cause,
+    corrective action, and verification.
+  </p>
+
+  <ul>
+    <li>Process excursions and manufacturing defects</li>
+    <li>Thin-film and optical coating failures</li>
+    <li>Delamination and adhesion problems</li>
+    <li>Spectral-performance deviations</li>
+    <li>Cleaning-related defects</li>
+    <li>Inspection and handling issues</li>
+    <li>Equipment and chamber problems</li>
+    <li>Vacuum leaks and contamination</li>
+    <li>Temperature and calibration issues</li>
+    <li>Environmental and durability failures</li>
+    <li>Material and witness-sample abnormalities</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     DEFECT REDUCTION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Defect Reduction & Sustained Process Performance</h2>
+
+  <p>
+    One of my strongest quality results came from taking responsibility
+    for a manufacturing area that initially experienced multiple defects
+    per week across several tools and process steps.
+  </p>
+
+  <p>
+    The failures were not caused by a single mechanism. They included
+    equipment, process, cleaning, inspection, and other manufacturing
+    contributors, requiring a combination of RCCA, process control,
+    operator support, equipment improvement, and sustained follow-up.
+  </p>
+
+
+  <div class="metric-highlight">
+
+    <div class="metric-number">
+      7 Months
+    </div>
+
+    <div class="metric-text">
+      Before leaving the organization, my primary manufacturing scope
+      reached approximately seven consecutive months without a defect
+      attributed to the processes, equipment, cleaning activities,
+      or inspections under my responsibility.
+    </div>
+
+  </div>
+
+
+  <p>
+    The improvement changed the nature of recurring quality meetings.
+    Reviews that previously required discussion of active failures eventually
+    became brief confirmations of continued zero-defect performance for
+    that manufacturing scope.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     QUALITY METRICS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Quality Metrics, Reporting & Performance Visibility</h2>
+
+  <p>
+    Sustainable quality improvement requires historical visibility.
+    Without trend data, an organization may know what failed today but
+    cannot clearly determine whether the process is actually improving.
+  </p>
+
+  <p>
+    I pushed for stronger historical defect tracking and quality dashboards
+    so manufacturing performance could be measured over time and improvements
+    could be demonstrated objectively.
+  </p>
+
+  <ul>
+    <li>Recurring quality reports</li>
+    <li>4-Blocker RCCA reporting</li>
+    <li>Defect and failure tracking</li>
+    <li>Historical quality-performance trending</li>
+    <li>Dashboard development and visualization</li>
+    <li>Weekly quality-review participation</li>
+    <li>Process and equipment performance metrics</li>
+    <li>Verification of corrective-action effectiveness</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     SPC / OCAP
+========================================================= -->
+
+<section class="section">
+
+  <h2>SPC, OCAP & Structured Failure Response</h2>
+
+  <p>
+    As the department Statistical Process Control (SPC) lead, I also
+    developed the response structure used when a process triggered
+    statistical-control rules.
+  </p>
+
+  <p>
+    The objective was to prevent an SPC alarm from becoming merely
+    another notification. Engineers and supervisors needed a defined
+    decision path for containment, troubleshooting, product disposition,
+    escalation, corrective action, and prevention of recurrence.
+  </p>
+
+
+  <img
+    class="content-image"
+    src="assets/img/quality/spc_ocap_rcca_flow.png"
+    alt="SPC OCAP RCCA manufacturing response process"
+  >
+
+
+  <p class="small">
+    Example of the SPC failure-response process I developed linking
+    Statistical Process Control, Western Electric rules, Out-of-Control
+    Action Plans, Nonconformance Reports, RCCA, and PFMEA updates.
+  </p>
+
+
+  <ul>
+    <li>Western Electric (WECO) statistical-rule response</li>
+    <li>Out-of-Control Action Plan (OCAP) workflow</li>
+    <li>Product containment and hold decisions</li>
+    <li>Repeat measurement and verification</li>
+    <li>Process and equipment troubleshooting</li>
+    <li>Engineering and supervisor escalation</li>
+    <li>Nonconformance Report (NCR) initiation</li>
+    <li>Root Cause and Corrective Action</li>
+    <li>Corrective and preventive action implementation</li>
+    <li>PFMEA update following identified failure mechanisms</li>
+  </ul>
+
+
+  <div class="related-links">
+    <a href="spc.html">SPC Implementation & Analytics →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PFMEA
+========================================================= -->
+
+<section class="section">
+
+  <h2>Process Failure Mode & Effects Analysis</h2>
+
+  <p>
+    I developed the first department-wide Process Failure Mode and Effects
+    Analysis (PFMEA) for a new semiconductor manufacturing organization.
+  </p>
+
+  <p>
+    Rather than limiting the analysis to one piece of equipment or one
+    process step, the PFMEA covered the department's manufacturing tools
+    and processes and created a common framework for identifying potential
+    failure modes, evaluating risk, and defining preventive controls.
+  </p>
+
+  <ul>
+    <li>Process failure-mode identification</li>
+    <li>Potential effect evaluation</li>
+    <li>Potential cause identification</li>
+    <li>Existing prevention and detection controls</li>
+    <li>Risk prioritization</li>
+    <li>Recommended corrective and preventive actions</li>
+    <li>Connection between real manufacturing failures and PFMEA updates</li>
+  </ul>
+
+  <p>
+    The PFMEA was designed as a living process-control document rather
+    than a one-time compliance exercise.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     CHANGE CONTROL
+========================================================= -->
+
+<section class="section">
+
+  <h2>Change Control & Manufacturing Approval</h2>
+
+  <p>
+    Manufacturing quality also depends on controlling what is allowed
+    to change after a process has been qualified.
+  </p>
+
+  <p>
+    I served as an approval member of the Change Review Board responsible
+    for reviewing proposed manufacturing changes. My approval represented
+    the manufacturing function, while I also provided technical feedback
+    on the potential process impact of proposed changes.
+  </p>
+
+  <ul>
+    <li>Review of proposed manufacturing-process changes</li>
+    <li>Manufacturing approval authority within the review board</li>
+    <li>Technical evaluation of potential process impact</li>
+    <li>Assessment of quality and production risk</li>
+    <li>Verification that approved changes were properly controlled</li>
+    <li>Coordination with engineering and quality stakeholders</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     MES QUALITY
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES Quality Workflows & Digital Quality Controls</h2>
+
+  <p>
+    My Manufacturing Execution System (MES) work has allowed me to move
+    quality controls from paper or informal processes into structured
+    digital workflows.
+  </p>
+
+  <ul>
+    <li>Nonconformance Report workflows</li>
+    <li>Engineering and process-change workflows</li>
+    <li>Defect and resolution structures</li>
+    <li>Electronic approvals</li>
+    <li>Product holds and controlled dispositions</li>
+    <li>Quality forms and standardized data collection</li>
+    <li>Inspection and measurement requirements</li>
+    <li>Defect categorization and resolution logic</li>
+    <li>Traceable manufacturing-quality records</li>
+  </ul>
+
+  <p>
+    During a period when the department did not have a dedicated cleared
+    quality engineer, I reviewed MES dispositions for consistency with
+    established manufacturing and change-control requirements and returned
+    dispositions that did not align with those controls.
+  </p>
+
+  <p>
+    Once a dedicated quality engineer joined the organization, I supported
+    his transition by training him on the MES quality workflows and approval
+    process until he was able to assume that responsibility independently.
+  </p>
+
+  <div class="related-links">
+    <a href="mes.html">MES Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SAFETY / RISK
+========================================================= -->
+
+<section class="section">
+
+  <h2>Manufacturing Risk, Safety & Equipment Readiness</h2>
+
+  <p>
+    Risk control has also included equipment safety and operational readiness.
+    In a newly established manufacturing department, a large number of tools
+    required formal safety assessments before the equipment could be fully
+    incorporated into the controlled manufacturing environment.
+  </p>
+
+  <p>
+    I worked with Environmental, Health and Safety personnel to evaluate
+    equipment and document risks such as pinch points, required labeling,
+    chemical storage, and other equipment-specific hazards.
+  </p>
+
+  <ul>
+    <li>Approximately 50 equipment safety assessments completed during a compressed implementation period</li>
+    <li>Tool-by-tool hazard review</li>
+    <li>Pinch-point identification</li>
+    <li>Safety and warning-label verification</li>
+    <li>Chemical-storage and handling review</li>
+    <li>Equipment-readiness documentation</li>
+    <li>Support for asset creation and preventive-maintenance setup</li>
+    <li>Coordination with Environmental, Health and Safety</li>
+  </ul>
+
+  <p>
+    This work received internal recognition for its contribution to
+    equipment safety and manufacturing readiness.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     QUALITY TOOLKIT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Quality Methods & Manufacturing Controls</h2>
+
+  <div class="quality-grid">
+
+
+    <div class="quality-card">
+
+      <h3>Corrective Action</h3>
+
+      <p>
+        RCCA, 4-Blockers, containment, troubleshooting, corrective action,
+        preventive action, verification, and recurrence prevention.
+      </p>
+
+    </div>
+
+
+    <div class="quality-card">
+
+      <h3>Process Control</h3>
+
+      <p>
+        SPC, Western Electric rules, OCAP, process limits,
+        trending, alerts, and structured escalation.
+      </p>
+
+    </div>
+
+
+    <div class="quality-card">
+
+      <h3>Risk Prevention</h3>
+
+      <p>
+        PFMEA, equipment risk assessment, qualification,
+        preventive controls, and process-readiness evaluation.
+      </p>
+
+    </div>
+
+
+    <div class="quality-card">
+
+      <h3>Change Governance</h3>
+
+      <p>
+        Change Review Board participation, manufacturing approval,
+        controlled process changes, and technical risk review.
+      </p>
+
+    </div>
+
+
+    <div class="quality-card">
+
+      <h3>Digital Quality</h3>
+
+      <p>
+        MES-based NCR, approvals, inspection structures,
+        dispositions, defect codes, and traceable quality records.
+      </p>
+
+    </div>
+
+
+    <div class="quality-card">
+
+      <h3>Quality Analytics</h3>
+
+      <p>
+        Historical defect tracking, dashboards, recurring quality reports,
+        performance trends, and corrective-action effectiveness.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     RECOGNITION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Recognition for Quality, Safety & Process Improvement</h2>
+
+  <p>
+    My quality-related work has received internal recognition for contributions
+    involving safety-risk assessment, manufacturing improvement, defect reduction,
+    root-cause resolution, and operational performance.
+  </p>
+
+  <p>
+    I view these recognitions primarily as evidence that the work produced
+    measurable value beyond completing required quality documentation.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="section">
+
+  <h2>Quality as an Engineering System</h2>
+
+  <p>
+    I do not view quality as a final inspection performed after manufacturing.
+    Effective quality starts with process definition, equipment readiness,
+    risk identification, measurement, process control, disciplined change
+    management, and rapid response when something behaves abnormally.
+  </p>
+
+  <p>
+    My experience allows me to work across that full loop — from detecting
+    a problem, through technical investigation and root cause, to implementing
+    the process or system changes needed to prevent it from happening again.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
