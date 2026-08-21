@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research & Scientific Innovation | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Research in two-dimensional materials, surface science, thin-film synthesis, magnetism, charge-density waves, electronic structure, semiconductor devices, and advanced materials characterization."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       HERO IMPACT PANEL
+    ========================================================= */
+
+    .impact-panel {
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+    .impact-panel h3 {
+      color: #72d6d0;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .impact-item {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 7px;
+      padding: 16px 18px;
+      margin-bottom: 13px;
+    }
+
+    .impact-item strong {
+      display: block;
+      color: #72d6d0;
+      margin-bottom: 4px;
+    }
+
+    .impact-item span {
+      color: #dfe5ea;
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESEARCH GRID
+    ========================================================= */
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .research-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 23px;
+    }
+
+    .research-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .research-card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       PUBLICATION CARDS
+    ========================================================= */
+
+    .publication {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 18px;
+    }
+
+    .publication .journal {
+      color: #72d6d0;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .publication h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .publication p {
+      margin-bottom: 10px;
+    }
+
+    .publication a {
+      color: #72d6d0;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .publication a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* =========================================================
+       FEATURE
+    ========================================================= */
+
+    .feature {
+      background: #111820;
+      border: 1px solid #72d6d0;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 25px;
+    }
+
+    .feature-label {
+      color: #72d6d0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 25px;
+      margin: 0 0 14px;
+    }
+
+    .feature p {
+      margin-bottom: 16px;
+    }
+
+    .feature a {
+      color: #72d6d0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Research, Scientific Innovation & Advanced Materials
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Research, Scientific Discovery & Advanced Materials
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        My research experience spans experimental condensed-matter physics,
+        two-dimensional materials, surface science, semiconductor devices,
+        nanotechnology, thin-film synthesis, electronic structure,
+        magnetism, and nanoscale characterization.
+      </p>
+
+      <div class="hero-summary">
+        The common thread is solving technically difficult problems:
+        building the experimental capability, producing the material,
+        selecting the measurements needed to understand it, interpreting
+        results across multiple techniques, and turning those results
+        into peer-reviewed scientific contributions.
+      </div>
+
+    </div>
+
+
+    <div class="impact-panel">
+
+      <h3>Research Impact</h3>
+
+      <div class="impact-item">
+        <strong>First-Author Nature Nanotechnology</strong>
+        <span>
+          Experimental demonstration of strong room-temperature
+          ferromagnetism in atomically thin vanadium selenide.
+        </span>
+      </div>
+
+      <div class="impact-item">
+        <strong>Independent Nature Editorial Highlight</strong>
+        <span>
+          Featured by Nature Nanotechnology in the editorial
+          “2D magnetism gets hot.”
+        </span>
+      </div>
+
+      <div class="impact-item">
+        <strong>10+ Peer-Reviewed Publications</strong>
+        <span>
+          Research spanning 2D materials, nanotechnology,
+          electronic structure, magnetism, and devices.
+        </span>
+      </div>
+
+      <div class="impact-item">
+        <strong>Thousands of Scientific Citations</strong>
+        <span>
+          Continued use and discussion of the research across
+          the international scientific community.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Scientific Discovery</h3>
+
+    <p>
+      Formulating questions, designing experiments, interpreting
+      unexpected results, and refining scientific explanations.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Experimental Physics</h3>
+
+    <p>
+      Thin-film synthesis, UHV systems, atomic-scale characterization,
+      spectroscopy, magnetism, and electronic structure.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Research Collaboration</h3>
+
+    <p>
+      Working across experimental groups, theoretical collaborators,
+      national laboratories, synchrotrons, and specialized facilities.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     FIELD IMPACT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Research Impact & Field Recognition</h2>
+
+  <p>
+    One of my major research contributions was the experimental observation
+    of strong room-temperature ferromagnetism in atomically thin vanadium
+    selenide systems.
+  </p>
+
+  <p>
+    At the time, experimental two-dimensional magnets had largely been
+    associated with magnetic ordering at substantially lower temperatures.
+    Demonstrating robust magnetic behavior near and above room temperature
+    expanded the possibilities being considered for two-dimensional
+    magnetic materials and spin-based devices.
+  </p>
+
+  <p>
+    The work became part of the early experimental foundation of
+    room-temperature 2D magnetism and helped establish vanadium selenides
+    as an important research direction within the emerging field.
+  </p>
+
+
+  <div class="feature">
+
+    <div class="feature-label">
+      Nature Nanotechnology Editorial
+    </div>
+
+    <h3>
+      2D magnetism gets hot
+    </h3>
+
+    <p>
+      Nature Nanotechnology independently highlighted the research in
+      an editorial discussing the significance of room-temperature
+      ferromagnetism in an atomically thin material and its implications
+      for future two-dimensional devices.
+    </p>
+
+    <a
+      href="https://www.nature.com/articles/s41565-018-0128-9"
+      target="_blank"
+      rel="noopener"
+    >
+      View Nature Nanotechnology Editorial →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     VSE2
+========================================================= -->
+
+<section class="section">
+
+  <h2>Room-Temperature Magnetism in Atomically Thin Materials</h2>
+
+  <p>
+    My first-author research demonstrated strong room-temperature
+    ferromagnetic behavior in ultrathin vanadium selenide films grown
+    on van der Waals substrates.
+  </p>
+
+  <p>
+    The research required development of controlled Molecular Beam
+    Epitaxy (MBE) growth in the monolayer and sub-monolayer regimes,
+    protection of air-sensitive samples, and correlation of structural,
+    electronic, and magnetic measurements across multiple experimental
+    techniques.
+  </p>
+
+  <ul>
+    <li>Synthesis of ultrathin and monolayer vanadium selenide</li>
+    <li>Room-temperature magnetic characterization</li>
+    <li>Thickness-dependent magnetic behavior</li>
+    <li>Substrate-dependent behavior</li>
+    <li>Atomic-scale structural characterization</li>
+    <li>Electronic-structure measurements</li>
+    <li>Comparison with theoretical predictions</li>
+    <li>Multi-technique investigation of the origin of the observed magnetism</li>
+  </ul>
+
+
+  <div class="publication">
+
+    <div class="journal">
+      Nature Nanotechnology · First Author
+    </div>
+
+    <h3>
+      Strong Room-Temperature Ferromagnetism in VSe₂ Monolayers
+      on van der Waals Substrates
+    </h3>
+
+    <p>
+      Experimental work reporting strong magnetic ordering in atomically
+      thin vanadium selenide systems at room temperature.
+    </p>
+
+    <a
+      href="https://doi.org/10.1038/s41565-018-0063-9"
+      target="_blank"
+      rel="noopener"
+    >
+      View Publication →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCIENTIFIC FOLLOW-UP
+========================================================= -->
+
+<section class="section">
+
+  <h2>Following the Evidence Beyond the Initial Discovery</h2>
+
+  <p>
+    An important part of research leadership is continuing to test an
+    interpretation after the initial result is published.
+  </p>
+
+  <p>
+    Subsequent work investigated the origin of the magnetic behavior more
+    deeply. By combining composition, atomic structure, electronic structure,
+    annealing studies, and magnetic measurements, I found strong evidence
+    connecting the observed magnetism with changes in vanadium-selenide
+    composition and the formation of self-intercalated structures.
+  </p>
+
+  <p>
+    This work demonstrated how subtle differences in composition and atomic
+    arrangement can substantially change the physical properties of an
+    ultrathin material and provided an important refinement to the original
+    interpretation of the system.
+  </p>
+
+  <ul>
+    <li>Controlled post-growth annealing experiments</li>
+    <li>Composition tracking through XPS</li>
+    <li>Atomic structure and surface-phase identification through STM</li>
+    <li>Magnetic-property correlation with structural transformation</li>
+    <li>High-resolution synchrotron characterization</li>
+    <li>TEM and diffraction support through collaborating laboratories</li>
+    <li>Comparison of experimental observations with theoretical calculations</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     PHASE CHANGE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Composition-Driven Phase Transformation in Ultrathin Films</h2>
+
+  <p>
+    Another major research contribution involved identifying how
+    post-growth thermal processing changes the composition and atomic
+    structure of ultrathin vanadium and titanium selenides.
+  </p>
+
+  <p>
+    The work connected selenium loss, atomic rearrangement, new
+    superstructures, and the formation of self-intercalated compounds.
+    Multiple characterization techniques were combined to distinguish
+    structural changes that could otherwise be incorrectly interpreted
+    from morphology alone.
+  </p>
+
+
+  <div class="publication">
+
+    <div class="journal">
+      Advanced Materials Interfaces · First Author
+    </div>
+
+    <h3>
+      Compositional Phase Change of Early Transition Metal Diselenide
+      (VSe₂ and TiSe₂) Ultrathin Films by Postgrowth Annealing
+    </h3>
+
+    <p>
+      Investigation of compositionally driven structural transitions
+      in ultrathin transition-metal diselenides.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     TISE2
+========================================================= -->
+
+<section class="section">
+
+  <h2>Charge-Density-Wave Physics & Tunable Electronic States</h2>
+
+  <p>
+    My research also investigated Charge Density Waves (CDW), a collective
+    electronic and structural state found in several low-dimensional materials.
+  </p>
+
+  <p>
+    In monolayer TiSe₂, we studied how reducing dimensionality changes
+    the CDW state and how that state can be modified through substrate
+    selection and electron doping.
+  </p>
+
+  <ul>
+    <li>Layer-dependent CDW behavior</li>
+    <li>Substrate-dependent electronic interactions</li>
+    <li>Temperature-dependent energy-gap measurements</li>
+    <li>Scanning Tunneling Spectroscopy measurements</li>
+    <li>Angle-Resolved Photoemission Spectroscopy</li>
+    <li>Electron-doping experiments</li>
+    <li>Suppression and tuning of collective electronic states</li>
+  </ul>
+
+
+  <div class="publication">
+
+    <div class="journal">
+      2D Materials
+    </div>
+
+    <h3>
+      Layer- and Substrate-Dependent Charge Density Wave Criticality
+      in 1T-TiSe₂
+    </h3>
+
+    <p>
+      Investigation of how dimensionality and substrate interactions
+      influence the charge-density-wave state of ultrathin TiSe₂.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIMENTAL PROBLEM SOLVING
+========================================================= -->
+
+<section class="section">
+
+  <h2>Experimental Problem Solving</h2>
+
+  <p>
+    Much of experimental research is creating the capability required
+    to answer a question that cannot be solved with a single existing
+    measurement.
+  </p>
+
+  <div class="research-grid">
+
+
+    <div class="research-card">
+
+      <h3>Air-Sensitive Material Protection</h3>
+
+      <p>
+        Developed and validated a removable selenium protective layer
+        that allowed UHV-grown materials to be transported for ex-situ
+        characterization while protecting the underlying surface from
+        atmospheric contamination.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Atomic-Scale Materials Growth</h3>
+
+      <p>
+        Established MBE conditions capable of producing controlled
+        sub-monolayer and monolayer transition-metal diselenide films.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Multi-Technique Interpretation</h3>
+
+      <p>
+        Combined structural, compositional, electronic, magnetic,
+        and theoretical evidence rather than relying on a single
+        characterization method.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Complex Experimental Systems</h3>
+
+      <p>
+        Worked with UHV deposition and characterization systems,
+        synchrotron experiments, low-temperature measurements,
+        spectroscopy, microscopy, and magnetometry.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH BREADTH
+========================================================= -->
+
+<section class="section">
+
+  <h2>Research Breadth Beyond 2D Magnetism</h2>
+
+  <p>
+    My research experience extends beyond the dissertation topic and
+    includes semiconductor devices, nanomaterials, sensors, electronic
+    structure, organic materials, and surface science.
+  </p>
+
+  <div class="research-grid">
+
+
+    <div class="research-card">
+
+      <h3>Semiconductor & Nanoscale Devices</h3>
+
+      <p>
+        Transistors, diodes, carbon nanotube devices, nanosensors,
+        photolithography, electrical characterization, and device behavior.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Nanomaterials</h3>
+
+      <p>
+        Carbon nanotubes, electrospun nanofibers, graphene-related
+        materials, two-dimensional materials, and ultrathin films.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Electronic Structure</h3>
+
+      <p>
+        Occupied and unoccupied electronic states, work function,
+        band alignment, band bending, chemical states, and interfaces.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Surface Science</h3>
+
+      <p>
+        Ultra-high-vacuum experiments, surface chemistry,
+        atomic structure, thin-film growth, adsorption,
+        and surface-sensitive characterization.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIMENTAL CAPABILITIES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Experimental & Scientific Capabilities</h2>
+
+  <p>
+    My research required integrating material synthesis with advanced
+    characterization rather than treating those activities as separate
+    specialties.
+  </p>
+
+  <div class="research-grid">
+
+
+    <div class="research-card">
+
+      <h3>Materials Synthesis</h3>
+
+      <p>
+        Molecular Beam Epitaxy (MBE), Chemical Vapor Deposition (CVD),
+        Pulsed Laser Deposition (PLD), thermal evaporation, and other
+        thin-film processes.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Surface & Atomic Structure</h3>
+
+      <p>
+        Scanning Tunneling Microscopy (STM), Scanning Tunneling
+        Spectroscopy (STS), Atomic Force Microscopy (AFM),
+        electron microscopy, and diffraction.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Electronic Structure</h3>
+
+      <p>
+        XPS, UPS, IPES, ARPES, work-function measurements,
+        valence-band characterization, and electronic-state analysis.
+      </p>
+
+    </div>
+
+
+    <div class="research-card">
+
+      <h3>Physical Properties</h3>
+
+      <p>
+        Magnetometry, magnetic hysteresis, temperature-dependent
+        measurements, Hall measurements, and other physical-property
+        characterization.
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="related-links">
+    <a href="deposition.html">Thin-Film Deposition →</a>
+    <a href="metrology.html">Metrology & Characterization →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     COLLABORATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Scientific Collaboration & Communication</h2>
+
+  <p>
+    Advanced materials research often requires techniques that no single
+    laboratory possesses. My work involved coordinating samples, experiments,
+    data, and interpretation across researchers with different specialties.
+  </p>
+
+  <ul>
+    <li>Multi-university research collaboration</li>
+    <li>National laboratory and specialized-facility measurements</li>
+    <li>International synchrotron experiments</li>
+    <li>Experimental and theoretical collaboration</li>
+    <li>Peer-reviewed scientific publications</li>
+    <li>Scientific conference presentations and posters</li>
+    <li>Technical figures and data visualization</li>
+    <li>Translation of complex experimental results into scientific conclusions</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     DISSERTATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Ph.D. Research</h2>
+
+  <p>
+    <strong>
+      Van der Waals Epitaxy of Ultrathin Early Transition Metal
+      (Ti & V) (di)Selenides: Charge and Magnetic Order in the Ultrathin Limit
+    </strong>
+  </p>
+
+  <p>
+    Ph.D. in Physics — University of South Florida
+  </p>
+
+  <p>
+    The dissertation integrated thin-film synthesis, surface science,
+    atomic-scale microscopy, electronic structure, magnetism,
+    collective electronic phases, and composition-driven structural
+    transformations in ultrathin materials.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PUBLICATION PROFILE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Publications & Scientific Impact</h2>
+
+  <p>
+    My publication record includes research across advanced materials,
+    two-dimensional magnetism, electronic structure, nanotechnology,
+    semiconductor devices, and surface science.
+  </p>
+
+  <p>
+    Because citation counts continue to change, my Google Scholar profile
+    provides the most current publication and citation record.
+  </p>
+
+
+  <div class="related-links">
+
+    <a
+      href="https://scholar.google.com/citations?user=BniTvzsAAAAJ&hl=en"
+      target="_blank"
+      rel="noopener"
+    >
+      View Google Scholar →
+    </a>
+
+    <a
+      href="https://doi.org/10.1038/s41565-018-0063-9"
+      target="_blank"
+      rel="noopener"
+    >
+      Nature Nanotechnology Paper →
+    </a>
+
+    <a
+      href="https://www.nature.com/articles/s41565-018-0128-9"
+      target="_blank"
+      rel="noopener"
+    >
+      Nature Editorial →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     INDUSTRIAL VALUE
+========================================================= -->
+
+<section class="section">
+
+  <h2>Research Mindset Beyond Academia</h2>
+
+  <p>
+    The most transferable part of my research background is not a
+    particular material or instrument. It is the ability to enter a
+    technically difficult problem where the answer is not known,
+    determine what information is required, build a structured
+    experimental approach, challenge assumptions, and follow the
+    evidence until the problem is understood.
+  </p>
+
+  <p>
+    That same approach now supports my work in manufacturing,
+    process engineering, quality, data analysis, systems implementation,
+    and technical leadership.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
