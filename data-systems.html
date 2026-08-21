@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Manufacturing Data & Systems Integration | Manuel Bonilla, Ph.D.</title>
+
+  <meta
+    name="description"
+    content="Manufacturing data and systems integration across equipment, MES, databases, middleware, analytics, dashboards, automation, and connected manufacturing."
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #c8d0d7;
+      margin-bottom: 22px;
+    }
+
+    .hero-summary {
+      color: #e4eaee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      display: block;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #34414d;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CAPABILITY CARDS
+    ========================================================= */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .capability {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .capability h3 {
+      color: #72d6d0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .capability p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .section h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #c8d0d7;
+      margin-bottom: 18px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 9px;
+      color: #dfe5ea;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE FLOW
+    ========================================================= */
+
+    .architecture-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .architecture-box {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 18px 12px;
+      text-align: center;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .architecture-arrow {
+      color: #72d6d0;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+
+    /* =========================================================
+       SYSTEM GRID
+    ========================================================= */
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .system-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .system-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .system-card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       DATA FLOW CARDS
+    ========================================================= */
+
+    .data-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .data-flow-card {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .data-flow-card h3 {
+      color: #72d6d0;
+      margin: 0 0 12px 0;
+      font-size: 19px;
+    }
+
+    .data-flow-card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       RELATED LINKS
+    ========================================================= */
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 9px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       PAGE NAVIGATION
+    ========================================================= */
+
+    .page-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 55px 0 10px;
+    }
+
+    .page-navigation a {
+      display: inline-block;
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .page-navigation a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .architecture-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-arrow {
+        transform: rotate(90deg);
+      }
+
+    }
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .capability-grid,
+      .system-grid,
+      .data-flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     STICKY HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Manufacturing Data & Systems Integration
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <h1>
+    Manufacturing Data, Systems Integration & Connected Operations
+  </h1>
+
+  <div class="hero-grid">
+
+    <div class="hero-text">
+
+      <p>
+        Modern manufacturing depends on information moving reliably
+        between equipment, manufacturing systems, databases,
+        engineering tools, and the people making operational decisions.
+      </p>
+
+      <div class="hero-summary">
+        I work across that environment to define how manufacturing data
+        should move, help connect otherwise isolated systems, troubleshoot
+        information flow, and turn raw equipment and system data into
+        something useful for manufacturing execution, engineering,
+        analytics, and decision-making.
+      </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+      <img
+        src="assets/img/data-systems/data_systems_hero.png"
+        alt="Manufacturing equipment MES database and analytics integration"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CAPABILITIES
+========================================================= -->
+
+<div class="capability-grid">
+
+  <div class="capability">
+
+    <h3>Manufacturing Systems</h3>
+
+    <p>
+      Understanding how equipment, MES, databases, engineering tools,
+      and operational systems work together.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Data Integration</h3>
+
+    <p>
+      Moving, restructuring, querying, and transforming manufacturing
+      data between systems and applications.
+    </p>
+
+  </div>
+
+
+  <div class="capability">
+
+    <h3>Operational Visibility</h3>
+
+    <p>
+      Turning connected data into dashboards, alerts, reports,
+      and engineering actions.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     SYSTEMS THINKING
+========================================================= -->
+
+<section class="section">
+
+  <h2>Connecting the Manufacturing Digital Thread</h2>
+
+  <p>
+    My systems-integration work is centered on the manufacturing digital
+    thread: how information generated by a physical process becomes
+    structured data that can be used by MES, engineers, quality,
+    management, and other enterprise systems.
+  </p>
+
+  <p>
+    This requires understanding both ends of the connection. I work with
+    the manufacturing processes and equipment producing the information
+    while also working with MES, databases, data structures, automation,
+    middleware, and analytics.
+  </p>
+
+
+  <div class="architecture-flow">
+
+    <div class="architecture-box">
+      Manufacturing Equipment
+    </div>
+
+    <div class="architecture-arrow">→</div>
+
+    <div class="architecture-box">
+      Connectivity / Middleware
+    </div>
+
+    <div class="architecture-arrow">→</div>
+
+    <div class="architecture-box">
+      MES & Manufacturing Systems
+    </div>
+
+  </div>
+
+
+  <div class="architecture-flow">
+
+    <div class="architecture-box">
+      MES & Manufacturing Systems
+    </div>
+
+    <div class="architecture-arrow">→</div>
+
+    <div class="architecture-box">
+      Database / Data Layer
+    </div>
+
+    <div class="architecture-arrow">→</div>
+
+    <div class="architecture-box">
+      Analytics / Operational Action
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     MACHINE INTEGRATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>Equipment & Machine Integration</h2>
+
+  <p>
+    Manufacturing equipment frequently produces valuable process,
+    inspection, status, and quality data, but that information is not
+    automatically available to MES or enterprise applications.
+  </p>
+
+  <p>
+    I support the technical work required to understand what the equipment
+    can provide, how the data can be accessed, what information should be
+    transferred, and how the connection fits into the broader manufacturing
+    architecture.
+  </p>
+
+  <ul>
+    <li>Equipment-to-MES integration planning</li>
+    <li>Machine-data acquisition and requirements definition</li>
+    <li>Manufacturing equipment status and event data</li>
+    <li>Inspection and process-data extraction</li>
+    <li>Vendor interface and communication review</li>
+    <li>Data-format and protocol evaluation</li>
+    <li>Integration testing and troubleshooting</li>
+    <li>Assessment of where data should be stored and consumed</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     CONNECTIVITY
+========================================================= -->
+
+<section class="section">
+
+  <h2>Connectivity, Middleware & Interface Technologies</h2>
+
+  <p>
+    The connection between equipment and enterprise manufacturing systems
+    often requires an intermediate technology layer rather than a direct
+    equipment-to-MES connection.
+  </p>
+
+  <div class="system-grid">
+
+
+    <div class="system-card">
+
+      <h3>Manufacturing Connectivity</h3>
+
+      <p>
+        Experience working with equipment-connectivity concepts including
+        machine interfaces, gateways, equipment connectors, and
+        manufacturing middleware.
+      </p>
+
+    </div>
+
+
+    <div class="system-card">
+
+      <h3>IPC-CFX</h3>
+
+      <p>
+        Experience evaluating IPC Connected Factory Exchange (CFX)
+        for transferring manufacturing-equipment data through
+        standardized connected-factory messaging.
+      </p>
+
+    </div>
+
+
+    <div class="system-card">
+
+      <h3>AMQP</h3>
+
+      <p>
+        Understanding of Advanced Message Queuing Protocol (AMQP)
+        concepts used to transport messages between manufacturing
+        applications and connected equipment.
+      </p>
+
+    </div>
+
+
+    <div class="system-card">
+
+      <h3>Ignition & Middleware</h3>
+
+      <p>
+        Work involving Ignition and middleware architectures used to
+        connect equipment, manufacturing applications, data sources,
+        and MES platforms.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     MES INTEGRATION
+========================================================= -->
+
+<section class="section">
+
+  <h2>MES as Part of the Broader Manufacturing Architecture</h2>
+
+  <p>
+    Manufacturing Execution Systems (MES) rarely operate as isolated
+    applications. They depend on information from equipment, engineering,
+    product, quality, database, and enterprise systems.
+  </p>
+
+  <p>
+    My MES experience helps me evaluate integrations from both the
+    implementation side and the manufacturing side.
+  </p>
+
+  <ul>
+    <li>Equipment and machine interfaces</li>
+    <li>Manufacturing databases</li>
+    <li>Inspection and quality data</li>
+    <li>Barcode and printing workflows</li>
+    <li>Engineering and product data</li>
+    <li>Dashboards and operational reporting</li>
+    <li>External manufacturing applications</li>
+    <li>Middleware and interface layers</li>
+  </ul>
+
+  <div class="related-links">
+    <a href="mes.html">MES Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DATABASES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Databases, SQL & Manufacturing Data Models</h2>
+
+  <p>
+    I use database access as a way to understand what is happening behind
+    a manufacturing application rather than relying only on what the
+    user interface exposes.
+  </p>
+
+  <ul>
+    <li>SQL Server and manufacturing databases</li>
+    <li>SQL querying and data extraction</li>
+    <li>Understanding relationships between manufacturing data objects</li>
+    <li>Equipment and tool records</li>
+    <li>Work-in-process and manufacturing-unit data</li>
+    <li>Defect, resolution, and history data</li>
+    <li>Operational status and event information</li>
+    <li>Preparation of datasets for analytics and dashboards</li>
+    <li>Application and database troubleshooting</li>
+  </ul>
+
+  <p>
+    This capability is useful when investigating why an application
+    behaves a certain way, determining where information is stored,
+    creating reporting datasets, or validating that manufacturing
+    transactions are producing the expected data.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     DATA FORMATS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Data Transformation & Interoperability</h2>
+
+  <p>
+    Systems do not always produce information in the format required by
+    the next application. A significant portion of integration work is
+    therefore translating data between different structures and tools.
+  </p>
+
+  <ul>
+    <li>JSON — JavaScript Object Notation</li>
+    <li>CSV — Comma-Separated Values</li>
+    <li>SQL queries and relational datasets</li>
+    <li>Equipment-generated proprietary and raw files</li>
+    <li>HTML-based system links and interfaces</li>
+    <li>API — Application Programming Interface concepts</li>
+    <li>Data cleaning and restructuring</li>
+    <li>Conversion of equipment output into engineering-ready formats</li>
+  </ul>
+
+  <p>
+    Python is one of the tools I use for this type of work, particularly
+    when equipment files or system outputs need to be automatically
+    transformed before they can be used by engineers, MES, or dashboards.
+  </p>
+
+  <div class="related-links">
+    <a href="python.html">Python & Engineering Automation →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DATA PIPELINES
+========================================================= -->
+
+<section class="section">
+
+  <h2>Manufacturing Data Pipelines</h2>
+
+  <p>
+    I have developed and supported practical data flows that move
+    information from manufacturing or equipment sources into analysis,
+    reporting, alerts, and operational use.
+  </p>
+
+
+  <div class="data-flow-grid">
+
+
+    <div class="data-flow-card">
+
+      <h3>Equipment → Engineering Analysis</h3>
+
+      <p>
+        Raw equipment files are extracted, cleaned, converted, and
+        prepared for engineering analysis, plotting, or use in tools
+        such as JMP.
+      </p>
+
+    </div>
+
+
+    <div class="data-flow-card">
+
+      <h3>Process Data → SPC → Action</h3>
+
+      <p>
+        Manufacturing measurements feed Statistical Process Control
+        calculations, dashboards, alerts, and structured engineering
+        response.
+      </p>
+
+    </div>
+
+
+    <div class="data-flow-card">
+
+      <h3>Environmental Data → Dashboard</h3>
+
+      <p>
+        Temperature and humidity data are collected automatically,
+        appended to historical records, prepared for reporting,
+        and used for threshold-based alerts.
+      </p>
+
+    </div>
+
+
+    <div class="data-flow-card">
+
+      <h3>MES Data → Local Manufacturing Hardware</h3>
+
+      <p>
+        Manufacturing information can be transferred through lightweight
+        automation to local workstations or printers when direct
+        integration is unavailable.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARDS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Dashboards, Reporting & Operational Visibility</h2>
+
+  <p>
+    Dashboards are useful only when the underlying data source,
+    definitions, transformations, and update process are reliable.
+  </p>
+
+  <p>
+    My work often includes the entire path behind the visualization:
+    understanding the source, structuring the data, automating updates,
+    and presenting the information in a way that supports operational action.
+  </p>
+
+  <ul>
+    <li>Power BI dashboards</li>
+    <li>SharePoint-based reporting</li>
+    <li>MES operational dashboards</li>
+    <li>SQL-backed reporting</li>
+    <li>Equipment-status visibility</li>
+    <li>Work-in-process monitoring</li>
+    <li>Quality and defect reporting</li>
+    <li>SPC and process-control dashboards</li>
+    <li>Environmental monitoring</li>
+    <li>Automated alerts and notifications</li>
+  </ul>
+
+</section>
+
+
+<!-- =========================================================
+     INTEGRATION REQUIREMENTS
+========================================================= -->
+
+<section class="section">
+
+  <h2>Integration Requirements & Technical Coordination</h2>
+
+  <p>
+    A large part of systems integration occurs before development begins.
+    The right questions must be answered about what data exists, how it
+    can be accessed, who owns it, and what the manufacturing process
+    actually requires.
+  </p>
+
+  <ul>
+    <li>What information does the equipment generate?</li>
+    <li>What data needs to reach MES or another enterprise system?</li>
+    <li>What communication methods does the equipment support?</li>
+    <li>Is middleware required?</li>
+    <li>What data belongs in MES versus an external repository?</li>
+    <li>Where should large files or images be stored?</li>
+    <li>What licenses or vendor capabilities are required?</li>
+    <li>How will authentication and access be managed?</li>
+    <li>How will the interface be tested?</li>
+    <li>What happens when communication fails?</li>
+  </ul>
+
+  <p>
+    I frequently work between equipment vendors, manufacturing engineers,
+    IT teams, MES teams, and leadership to help answer these questions
+    before an integration is implemented.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     BRIDGING OT / IT
+========================================================= -->
+
+<section class="section">
+
+  <h2>Bridging Manufacturing, OT, IT & Data</h2>
+
+  <p>
+    My value in systems integration comes from working across disciplines
+    that are often separated organizationally.
+  </p>
+
+  <p>
+    I understand the physical manufacturing process and equipment generating
+    the data, while also being able to work with MES, databases, data structures,
+    middleware, automation, and analytics.
+  </p>
+
+  <p>
+    That allows me to help define not only how two systems should connect,
+    but what information should move between them, why that information matters,
+    and how it should ultimately be used by manufacturing.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="section">
+
+  <h2>From Raw Data to Manufacturing Action</h2>
+
+  <p>
+    Connected manufacturing is not simply about collecting more data.
+    The objective is to create a reliable path from the physical process
+    to the systems and people capable of acting on that information.
+  </p>
+
+  <p>
+    My systems work focuses on that complete path — equipment,
+    connectivity, MES, databases, transformation, analytics,
+    and operational use.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
+
+<div class="page-navigation">
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+  <a href="index.html#projects">
+    Explore Other Areas
+  </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
+</footer>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
