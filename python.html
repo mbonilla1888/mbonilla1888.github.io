@@ -93,14 +93,16 @@
     }
 
     .hero-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 45px;
+      align-items: stretch;
     }
 
     .hero-text {
-      max-width: 1000px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-text p {
@@ -118,7 +120,7 @@
 
     .hero-image {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       width: 100%;
       cursor: zoom-in;
@@ -126,7 +128,8 @@
 
     .hero-image img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      min-height: 340px;
       object-fit: contain;
       display: block;
       background: white;
@@ -331,6 +334,7 @@
     }
 
     @media (max-width: 900px) {
+      .hero-grid,
       .capability-grid,
       .project-grid {
         grid-template-columns: 1fr;
@@ -338,6 +342,10 @@
 
       .hero h1 {
         font-size: 38px;
+      }
+
+      .hero-image img {
+        min-height: auto;
       }
     }
 
