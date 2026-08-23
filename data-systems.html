@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Manufacturing Data &amp; Systems Integration | Manuel Bonilla, Ph.D.</title>
+  <title>PFMEA, Quality Engineering &amp; Manufacturing Control | Manuel Bonilla, Ph.D.</title>
 
-  <meta name="description" content="Manufacturing data architecture, systems integration, equipment connectivity, MES, SQL databases, dashboards, automation, and operational decision support.">
+  <meta name="description" content="Department-wide PFMEA and OCAP leadership, quality engineering, root-cause and corrective action, change governance, preventive maintenance, process control, and manufacturing risk reduction.">
 
   <style>
     * {
@@ -93,14 +93,10 @@
     }
 
     .hero-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .hero-text {
-      max-width: 1000px;
-      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 45px;
+      align-items: center;
     }
 
     .hero-text p {
@@ -116,22 +112,37 @@
       line-height: 1.7;
     }
 
-    .hero-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      cursor: zoom-in;
+    .quality-loop {
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-radius: 10px;
+      padding: 28px;
     }
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      background: white;
-      border-radius: 10px;
+    .quality-loop h2 {
+      color: #72d6d0;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .loop-step {
+      background: #111820;
       border: 1px solid #34414d;
+      border-radius: 7px;
+      padding: 13px 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .loop-arrow {
+      color: #72d6d0;
+      text-align: center;
+      font-size: 19px;
+      line-height: 1.5;
     }
 
     main {
@@ -203,84 +214,139 @@
       color: #dfe5ea;
     }
 
-    .card-grid {
+    .impact-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 25px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+      margin-bottom: 0;
     }
 
-    .detail-card {
+    .impact-card {
       background: #111820;
       border: 1px solid #34414d;
       border-radius: 8px;
       padding: 22px;
     }
 
-    .detail-card h3 {
+    .impact-value {
+      display: block;
+      color: #72d6d0;
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .impact-card p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .pfmea-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .pfmea-stage {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-top: 3px solid #72d6d0;
+      border-radius: 8px;
+      padding: 21px;
+    }
+
+    .pfmea-stage span {
+      display: block;
+      color: #72d6d0;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .09em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .pfmea-stage h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .pfmea-stage p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .scale-note {
+      background: rgba(114, 214, 208, .08);
+      border: 1px solid rgba(114, 214, 208, .35);
+      border-radius: 8px;
+      color: #dfe5ea;
+      padding: 18px 20px;
+      margin: 24px 0 0;
+    }
+
+    .card-grid,
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .detail-card,
+    .case-block {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .detail-card h3,
+    .case-block h3 {
       color: #72d6d0;
       margin: 0 0 12px;
       font-size: 20px;
     }
 
-    .detail-card p {
+    .detail-card p,
+    .case-block p {
       font-size: 15px;
+    }
+
+    .detail-card p:last-child,
+    .case-block p:last-child {
       margin-bottom: 0;
     }
 
-    .detail-card ul {
-      margin-top: 10px;
+    .case-label {
+      color: white;
+      font-weight: bold;
     }
 
-    .architecture-grid {
+    .method-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
       margin-top: 24px;
     }
 
-    .architecture-step {
+    .method-card {
       background: #111820;
       border: 1px solid #34414d;
       border-radius: 8px;
       padding: 20px;
     }
 
-    .step-label,
-    .status-label {
-      display: inline-block;
+    .method-card h3 {
       color: #72d6d0;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .architecture-step h3 {
-      font-size: 17px;
+      font-size: 18px;
       margin: 0 0 10px;
     }
 
-    .architecture-step p {
+    .method-card p {
       font-size: 14px;
-      margin-bottom: 0;
-    }
-
-    .current-work {
-      background: #10171e;
-      border: 1px solid #72d6d0;
-      border-radius: 8px;
-      padding: 24px;
-      margin-top: 22px;
-    }
-
-    .current-work h3 {
-      color: #72d6d0;
-      margin: 0 0 12px;
-    }
-
-    .current-work p:last-child {
       margin-bottom: 0;
     }
 
@@ -306,6 +372,32 @@
     .related-links a:focus-visible {
       background: #72d6d0;
       color: #111820;
+    }
+
+    .evidence-figure {
+      margin: 28px auto 8px;
+      max-width: 820px;
+    }
+
+    .evidence-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: white;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+    }
+
+    .evidence-figure figcaption {
+      color: #aab3bb;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .wide-card {
+      grid-column: 1 / -1;
     }
 
     .small {
@@ -345,15 +437,21 @@
       color: #aab3bb;
     }
 
-    @media (max-width: 1050px) {
-      .architecture-grid {
-        grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 1000px) {
+      .impact-grid,
+      .pfmea-grid,
+      .method-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 900px) {
+      .hero-grid,
       .capability-grid,
-      .card-grid {
+      .impact-grid,
+      .pfmea-grid,
+      .card-grid,
+      .case-grid {
         grid-template-columns: 1fr;
       }
 
@@ -392,7 +490,7 @@
         margin-bottom: 30px;
       }
 
-      .architecture-grid {
+      .method-grid {
         grid-template-columns: 1fr;
       }
 
@@ -416,320 +514,448 @@
       </nav>
     </header>
 
-    <div class="page-bar">Manufacturing Data &amp; Systems Integration</div>
+    <div class="page-bar">PFMEA, Quality Engineering, RCCA &amp; Process Control</div>
   </div>
 
   <section class="hero">
-    <h1>Manufacturing Data, Systems Integration &amp; Connected Operations</h1>
+    <h1>PFMEA, Quality Engineering &amp; Manufacturing Control</h1>
 
     <div class="hero-grid">
       <div class="hero-text">
         <p>
-          Modern manufacturing depends on information moving reliably between
-          equipment, Manufacturing Execution Systems (MES), databases,
-          engineering tools, reporting platforms, and the people making
-          operational decisions.
+          Quality engineering converts manufacturing requirements into controls
+          that prevent defects, detect abnormal conditions, guide technical
+          investigation, and keep process changes from introducing new risk.
         </p>
 
         <div class="hero-summary">
-          I work across that environment to define what manufacturing data means,
-          how it should move, how otherwise isolated systems should connect, and
-          how raw information becomes useful for execution, engineering, quality,
-          analytics, and action.
+          My experience combines Process Failure Mode and Effects Analysis (PFMEA),
+          Root Cause and Corrective Action (RCCA), Statistical Process Control
+          (SPC), process and equipment ownership, digital quality workflows,
+          change governance, inspection and metrology, and sustained follow-through
+          after corrective actions are implemented.
         </div>
       </div>
 
-      <a class="hero-image" href="assets/img/data-systems.jpg" target="_blank" rel="noopener" aria-label="Open the manufacturing data and systems integration architecture at full size">
-        <img src="assets/img/data-systems.jpg" alt="Manufacturing integration architecture from equipment and gateways through MES databases dashboards alerts and actions">
-      </a>
+      <div class="quality-loop" aria-label="Quality control loop">
+        <h2>Quality Control Loop</h2>
+        <div class="loop-step">Detect Abnormal Condition</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-step">Contain &amp; Assess Product</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-step">Investigate Process &amp; Equipment</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-step">Correct Root Cause</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-step">Verify &amp; Prevent Recurrence</div>
+      </div>
     </div>
   </section>
 
   <main>
     <div class="capability-grid">
       <section class="capability">
-        <h2>Manufacturing Systems</h2>
-        <p>Connecting physical processes, equipment, MES, quality requirements, engineering tools, and operational workflows.</p>
+        <h2>PFMEA &amp; Risk Architecture</h2>
+        <p>Department-wide process-risk analysis, scoring standards, prevention and detection controls, action ownership, and defect-code architecture.</p>
       </section>
 
       <section class="capability">
-        <h2>Data Integration</h2>
-        <p>Querying, transforming, validating, and moving manufacturing data between systems and applications.</p>
+        <h2>RCCA &amp; Defect Elimination</h2>
+        <p>Containment, structured investigation, root-cause determination, corrective action, verification, and prevention of recurrence.</p>
       </section>
 
       <section class="capability">
-        <h2>Operational Visibility</h2>
-        <p>Turning connected data into dashboards, reports, alerts, and structured engineering or production response.</p>
+        <h2>Digital Quality &amp; Process Control</h2>
+        <p>MES quality workflows, department-wide OCAP response, SPC, approvals, traceability, process monitoring, change governance, and preventive controls.</p>
       </section>
     </div>
 
     <section class="section">
-      <h2>Connecting the Manufacturing Digital Thread</h2>
+      <h2>Selected Quality Impact</h2>
 
-      <p>
-        My systems-integration work centers on the complete path from a physical
-        manufacturing event to an operational decision. That requires understanding
-        both the source and the destination: what the equipment or process produces,
-        what the manufacturing system needs, how the data should be structured, and
-        how the result will be used.
-      </p>
-
-      <div class="architecture-grid">
-        <div class="architecture-step">
-          <span class="step-label">Layer 1</span>
-          <h3>Equipment &amp; Sources</h3>
-          <p>Machines, instruments, sensors, files, user input, and manufacturing transactions.</p>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-value">~50 Tools</span>
+          <p>Department-wide PFMEA coverage across manufacturing equipment and the processes performed on each tool.</p>
         </div>
 
-        <div class="architecture-step">
-          <span class="step-label">Layer 2</span>
-          <h3>Connectivity</h3>
-          <p>Gateways, equipment connectors, middleware, message transport, and access controls.</p>
+        <div class="impact-card">
+          <span class="impact-value">Hundreds of Entries</span>
+          <p>Detailed failure modes, effects, causes, controls, risk scores, recommended actions, owners, dates, and results.</p>
         </div>
 
-        <div class="architecture-step">
-          <span class="step-label">Layer 3</span>
-          <h3>Manufacturing Systems</h3>
-          <p>MES workflows, product and process context, work instructions, quality, and traceability.</p>
+        <div class="impact-card">
+          <span class="impact-value">Multiple per Week → Near-Zero</span>
+          <p>Recurring optical-manufacturing failures reduced within months through coordinated process, equipment, inspection, and quality improvements.</p>
         </div>
 
-        <div class="architecture-step">
-          <span class="step-label">Layer 4</span>
-          <h3>Data &amp; Transformation</h3>
-          <p>Databases, data models, validation, restructuring, calculations, and history.</p>
+        <div class="impact-card">
+          <span class="impact-value">Up to One Month Early</span>
+          <p>Improved process stability helped enable selected production deliveries as much as one month ahead of schedule.</p>
         </div>
 
-        <div class="architecture-step">
-          <span class="step-label">Layer 5</span>
-          <h3>Visibility &amp; Action</h3>
-          <p>Dashboards, reports, notifications, engineering response, and operational decisions.</p>
-        </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Implemented Systems &amp; Data Workflows</h2>
+      <h2>Department-Wide Process Failure Mode and Effects Analysis</h2>
 
       <p>
-        The examples below represent systems and workflows I have directly
-        implemented, administered, developed, or sustained—not only technologies
-        I have discussed conceptually.
+        I created and led a department-wide Process Failure Mode and Effects
+        Analysis (PFMEA) covering approximately 50 manufacturing tools and nearly
+        every process performed across the area. This was one of the most extensive
+        quality-engineering efforts I have completed: a single tool could require
+        about a dozen detailed failure-mode records and an individual process about
+        six, resulting in hundreds of analyzed risks across the department.
       </p>
 
-      <div class="card-grid">
-        <div class="detail-card">
-          <h3>Eyelit MES &amp; Manufacturing Data</h3>
-          <p>
-            Configured and sustained MES structures covering routes, operations,
-            Work in Process (WIP), data collection, users and roles, equipment,
-            quality, documents, and reporting for a production organization.
-          </p>
+      <p>
+        The work linked each process step, process description, and requirement to
+        its potential failure modes and effects. I then documented potential causes,
+        current prevention and detection controls, risk scores, classifications,
+        recommended actions, responsible owners, target dates, actual completion,
+        and post-action results. That structure made the PFMEA an active engineering
+        and management system—not a compliance document stored after completion.
+      </p>
+
+      <div class="pfmea-grid" aria-label="PFMEA risk-control structure">
+        <div class="pfmea-stage">
+          <span>1 · Define</span>
+          <h3>Process &amp; Requirement</h3>
+          <p>Map the tool, process step, description, and expected manufacturing requirement.</p>
         </div>
 
-        <div class="detail-card">
-          <h3>Environmental Monitoring Pipeline</h3>
-          <p>
-            Automated temperature and relative-humidity collection, historical
-            data preparation, dashboard reporting, and Microsoft Teams alerts for
-            defined abnormal conditions.
-          </p>
+        <div class="pfmea-stage">
+          <span>2 · Analyze</span>
+          <h3>Failure &amp; Controls</h3>
+          <p>Identify failure modes, effects, causes, prevention controls, detection controls, and unresolved gaps.</p>
         </div>
 
-        <div class="detail-card">
-          <h3>Dashboards &amp; Operational Reporting</h3>
-          <p>
-            Developed reporting and visualization workflows using Power BI,
-            SharePoint, Microsoft SQL Server, and structured data preparation to support recurring
-            engineering and manufacturing decisions.
-          </p>
+        <div class="pfmea-stage">
+          <span>3 · Prioritize</span>
+          <h3>Score the Risk</h3>
+          <p>Apply consistent severity, occurrence, and inverse-detection scales to calculate the Risk Priority Number (RPN) and establish classification.</p>
         </div>
 
-        <div class="detail-card">
-          <h3>Microsoft Power Platform Workflows</h3>
-          <p>
-            Used SharePoint, Power Apps, Power Automate, Planner, and Teams to
-            support tool-status visibility, recurring schedules, task tracking,
-            notifications, and operational coordination.
-          </p>
+        <div class="pfmea-stage">
+          <span>4 · Act &amp; Sustain</span>
+          <h3>Close the Loop</h3>
+          <p>Assign recommended actions, owners, and dates; record completion and evaluate post-action results.</p>
         </div>
+      </div>
+
+      <p>
+        I developed the severity, occurrence, and inverse-detection scales used to
+        make scoring consistent. The analysis exposed not only known failure modes,
+        but also structural shortcomings—conditions that could not yet be prevented,
+        adequately measured or detected, or fully resolved. Those gaps became
+        prioritized engineering actions with accountable owners and follow-through.
+      </p>
+
+      <p>
+        I also translated the PFMEA into the department's defect-code list and
+        severity structure. That connected the risk analysis to standardized defect
+        reporting, MES quality records, failure analysis, and trend visibility,
+        allowing actual production events to use the same quality language established
+        by the preventive analysis.
+      </p>
+
+      <div class="scale-note">
+        <strong>Scope:</strong> approximately 50 manufacturing tools, hundreds of
+        tool- and process-level records, scoring standards, prevention and detection
+        gaps, action governance, and the resulting department defect taxonomy.
       </div>
     </section>
 
     <section class="section">
-      <h2>Equipment &amp; Machine Integration</h2>
+      <h2>Quality Leadership Through Process Engineering</h2>
 
       <p>
-        Manufacturing equipment frequently produces valuable process, inspection,
-        status, and quality data that is not automatically available to MES or
-        enterprise applications. A useful connection begins by understanding the
-        equipment and the manufacturing purpose—not by selecting a protocol first.
+        My quality experience developed through direct responsibility for
+        manufacturing processes and equipment. I was accountable not only for
+        identifying defects, but for understanding the technical mechanism,
+        correcting the process or equipment, verifying the result, and sustaining
+        performance in production.
       </p>
 
+      <p>
+        This creates a practical quality perspective: inspection alone cannot
+        produce quality. Stable performance requires clear requirements, capable
+        equipment, controlled processes, meaningful measurements, disciplined
+        change management, and timely engineering response.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Optical Manufacturing Recovery</h2>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <h3>Failure Environment</h3>
+          <p>
+            A manufacturing area was experiencing multiple failures per week
+            across coating processes, equipment, cleaning, inspection, and
+            supporting operations. The failures did not have one common cause,
+            so a single corrective action could not resolve the overall problem.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <h3>Coordinated Response</h3>
+          <p>
+            I coordinated technical work across process development, equipment,
+            inspection, operators, quality, metrology, and suppliers. Actions
+            addressed individual mechanisms while also strengthening the controls
+            used to detect and prevent recurrence.
+          </p>
+        </div>
+      </div>
+
+      <h3>Problems Investigated</h3>
       <ul>
-        <li>Determine what information the equipment can produce and how it can be accessed</li>
-        <li>Define which measurements, status events, images, files, or results are operationally useful</li>
-        <li>Establish the required manufacturing context, identifiers, and data ownership</li>
-        <li>Evaluate direct interfaces, gateways, equipment connectors, or middleware</li>
-        <li>Define expected behavior for failures, retries, validation, storage, and traceability</li>
-        <li>Coordinate requirements among equipment vendors, manufacturing, Information Technology, and MES teams</li>
+        <li>Coating delamination and environmental-durability failures</li>
+        <li>Thickness or performance non-uniformity</li>
+        <li>Spectral deviation from required optical performance</li>
+        <li>Chamber leaks and equipment-condition problems</li>
+        <li>Witness-sample absorption and measurement anomalies</li>
+        <li>Temperature-calibration errors and process-control gaps</li>
+        <li>Supplier or material-related quality issues</li>
       </ul>
-    </section>
-
-    <section class="section">
-      <h2>Current iBaseT Solumina Integration Work</h2>
-
-      <div class="current-work">
-        <span class="status-label">Current Program Contribution</span>
-        <h3>Automated Optical Inspection Data &amp; Equipment Connectivity</h3>
-
-        <p>
-          As part of a segment-wide iBaseT Solumina digital-transformation program,
-          I recently joined work involving the integration of manufacturing equipment
-          and data across multiple production areas. One current use case involves a
-          Koh Young Automated Optical Inspection (AOI) system and the path required to
-          make inspection information available to the broader manufacturing architecture.
-        </p>
-
-        <p>
-          My contribution is focused on manufacturing requirements, vendor questions,
-          data needs, interface behavior, and technical coordination. Technologies being
-          evaluated or discussed include IPC Connected Factory Exchange (IPC-CFX),
-          Advanced Message Queuing Protocol (AMQP), Ignition, and enterprise middleware.
-        </p>
-      </div>
-
-      <p class="small">
-        This is ongoing planning and implementation support within a larger program;
-        it is not presented as a completed integration solely designed or deployed by me.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Databases &amp; Manufacturing Data Models</h2>
 
       <p>
-        I use database access to understand what is happening behind a manufacturing
-        application rather than relying only on what the user interface exposes.
-        Microsoft SQL Server and Structured Query Language (SQL) are practical tools
-        for investigating data, validating behavior, and supporting reporting.
+        The combined improvement effort reduced failures from multiple per week
+        to near-zero within months and helped enable selected deliveries up to
+        one month early. This was a cross-functional technical recovery, not the
+        result of one isolated quality tool.
       </p>
-
-      <div class="card-grid">
-        <div class="detail-card">
-          <h3>Application &amp; MES Investigation</h3>
-          <ul>
-            <li>Locate relevant tables, fields, identifiers, and relationships</li>
-            <li>Trace manufacturing transactions into stored records</li>
-            <li>Investigate system behavior and reporting discrepancies</li>
-            <li>Validate that expected data is being created and maintained</li>
-          </ul>
-        </div>
-
-        <div class="detail-card">
-          <h3>Reporting &amp; Operational Data</h3>
-          <ul>
-            <li>Create structured datasets for dashboards and reports</li>
-            <li>Combine manufacturing, equipment, quality, and status information</li>
-            <li>Support defect, tool, WIP, maintenance, and production visibility</li>
-            <li>Define data ownership and recurring update processes</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Data Transformation &amp; Interoperability</h2>
-
-      <p>
-        Systems rarely produce information in exactly the form required by the next
-        application. Integration work therefore includes translating identifiers,
-        structures, file formats, units, and context—not simply transporting bytes.
-      </p>
-
-      <ul>
-        <li>Python-based extraction, cleaning, restructuring, and file conversion</li>
-        <li>Comma-Separated Values (CSV) and other structured file formats</li>
-        <li>JavaScript Object Notation (JSON) structures and configuration</li>
-        <li>Application Programming Interface (API) concepts and system-interface requirements</li>
-        <li>HyperText Markup Language (HTML) forms, interfaces, and external-system links</li>
-        <li>Mapping between equipment results, manufacturing context, and enterprise records</li>
-      </ul>
 
       <div class="related-links">
-        <a href="python.html">Python &amp; Engineering Automation →</a>
+        <a href="optical.html">Optical Engineering &amp; Coatings →</a>
+        <a href="deposition.html">Thin-Film Deposition →</a>
       </div>
     </section>
 
     <section class="section">
-      <h2>Dashboards, Reporting &amp; Operational Visibility</h2>
+      <h2>Root Cause &amp; Corrective Action</h2>
 
       <p>
-        A dashboard is only as reliable as the data source, definitions, transformation,
-        and refresh process behind it. My work often includes that complete path rather
-        than beginning only at the visual layer.
-      </p>
-
-      <ul>
-        <li>Define what the metric represents and who is responsible for it</li>
-        <li>Identify the authoritative source and required transformations</li>
-        <li>Automate recurring data preparation and refresh where practical</li>
-        <li>Create displays for production, equipment, quality, environment, and task status</li>
-        <li>Connect abnormal conditions to notifications and defined engineering response</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Integration Requirements &amp; Technical Coordination</h2>
-
-      <p>
-        A large part of integration work occurs before development begins. The team
-        must determine what data exists, who owns it, how it can be accessed, how often
-        it should move, where it belongs, and what manufacturing decision it supports.
+        RCCA has been a major part of my manufacturing work. The investigation
+        begins by defining the problem and containing risk, then separating
+        symptoms from mechanisms and verifying that the selected action changes
+        the actual failure behavior.
       </p>
 
       <div class="card-grid">
         <div class="detail-card">
-          <h3>Requirements &amp; Architecture</h3>
+          <h3>Investigation</h3>
           <ul>
-            <li>Source and destination systems</li>
-            <li>Data elements, identifiers, and manufacturing context</li>
-            <li>Timing, message, storage, and retention expectations</li>
-            <li>Error handling, validation, security, and ownership</li>
+            <li>Define the failure and affected manufacturing scope</li>
+            <li>Review history, measurements, equipment condition, and process changes</li>
+            <li>Separate process, equipment, material, inspection, and environmental contributors</li>
+            <li>Use structured technical experiments or comparisons when required</li>
           </ul>
         </div>
 
         <div class="detail-card">
-          <h3>Cross-Functional Coordination</h3>
+          <h3>Correction &amp; Verification</h3>
           <ul>
-            <li>Manufacturing and process engineers</li>
-            <li>Equipment vendors and technical specialists</li>
-            <li>MES developers and administrators</li>
-            <li>Information Technology and Operational Technology teams</li>
+            <li>Contain affected product and control immediate risk</li>
+            <li>Implement corrective and preventive actions</li>
+            <li>Update process instructions, equipment controls, or quality records</li>
+            <li>Monitor performance to verify effectiveness and prevent recurrence</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Bridging Manufacturing, Operational Technology &amp; Information Technology</h2>
+      <h2>Requirements, Inspection &amp; Process Controls</h2>
 
       <p>
-        My value in systems integration comes from working across disciplines that
-        are often separated organizationally. I understand the physical manufacturing
-        process and equipment generating the information while also working with MES,
-        databases, data structures, automation, and analytics.
+        I developed and supported optical-coating processes against customer
+        drawings, program specifications, and MIL-PRF-13830 where applicable.
+        This experience represents manufacturing and process ownership; it is not
+        presented as a separate inspection certification.
       </p>
 
+      <ul>
+        <li>Translate drawing and specification requirements into process and inspection criteria</li>
+        <li>Define pass/fail requirements and measurement methods</li>
+        <li>Coordinate metrology, inspection, and manufacturing feedback</li>
+        <li>Control recipes, parameters, materials, equipment condition, and operator instructions</li>
+        <li>Support equipment qualification, calibration, preventive maintenance, and readiness</li>
+        <li>Document changes and verify continued compliance after improvement activity</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>MES Quality Workflows &amp; Digital Controls</h2>
+
       <p>
-        This allows me to help define not only how two systems should connect, but
-        what information should move, why it matters, and how manufacturing will use it.
-        Connected operations are successful when the data path ends in a reliable action,
-        not merely in another database.
+        My Manufacturing Execution System (MES) work allowed quality requirements
+        to move from paper or informal practice into structured digital workflows.
+        The system connects production status, defects, approvals, inspections,
+        product history, and corrective action to the manufacturing record. I used
+        the department PFMEA as a technical foundation for the defect-code taxonomy
+        and severity structure, connecting anticipated process risk to the language
+        used for actual production defects.
       </p>
+
+      <div class="card-grid">
+        <div class="detail-card">
+          <h3>Digital Quality Structure</h3>
+          <ul>
+            <li>PFMEA-derived defect types, codes, severity, resolutions, and traceable history</li>
+            <li>Nonconformance Report (NCR) and disposition workflows</li>
+            <li>Product holds, releases, rework, and scrap controls</li>
+            <li>Required inspections and electronic approvals</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3>Governance &amp; Ownership</h3>
+          <ul>
+            <li>Alignment with approved manufacturing and change controls</li>
+            <li>Defined responsibility for engineering and quality decisions</li>
+            <li>Training on MES quality workflows and approval responsibilities</li>
+            <li>Historical data for recurring review and performance tracking</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="related-links">
         <a href="mes.html">MES Architecture &amp; Implementation →</a>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>SPC &amp; Structured Failure Response</h2>
+
+      <p>
+        As the department Statistical Process Control (SPC) lead, I defined the
+        Out-of-Control Action Plan (OCAP) response for each major process or tool.
+        I also created the department-wide response template shown below so SPC
+        alarms would trigger a consistent sequence of product containment, tool
+        control, engineering ownership, investigation, approval, and closure.
+      </p>
+
+      <p>
+        The model connected SPC alarms and Western Electric rule failures to tool
+        status, repeat metrology, wafer holds, OCAP ownership, process or equipment
+        troubleshooting, Root Cause and Corrective Action (RCCA), Nonconformance
+        Reports (NCRs), preventive and corrective actions, PFMEA updates, and formal
+        review and closure. This turned the department's separate quality methods
+        into one governed response system.
+      </p>
+
+      <figure class="evidence-figure">
+        <img src="spc-ocap-response-plan.png" alt="Department-wide SPC, OCAP, RCCA, NCR, and PFMEA response workflow created by Manuel Bonilla">
+        <figcaption>
+          Department-wide SPC failure-response template linking OCAP containment
+          and ownership to RCCA, NCR, corrective action, PFMEA updates, and closure.
+        </figcaption>
+      </figure>
+
+      <p>
+        The dedicated SPC page covers process selection, control-chart structure,
+        Western Electric rules, recurring reviews, training, process capability,
+        and the detailed implementation of these OCAP responses.
+      </p>
+
+      <div class="related-links">
+        <a href="spc.html">SPC Implementation &amp; Analytics →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Change Control, Preventive Maintenance &amp; Manufacturing Readiness</h2>
+
+      <div class="card-grid">
+        <div class="detail-card">
+          <h3>Change Control Board</h3>
+          <p>
+            Served as a manufacturing member of the Change Control Board, reviewing
+            proposed process changes and providing technical approval feedback on
+            manufacturing risk, required validation, implementation readiness, and
+            alignment with approved controls.
+          </p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Equipment Risk &amp; Readiness</h3>
+          <p>
+            Worked with Environmental, Health and Safety personnel on equipment
+            assessments addressing pinch points, required labeling, chemical
+            storage, and other equipment-specific hazards before controlled use.
+          </p>
+        </div>
+
+        <div class="detail-card wide-card">
+          <h3>Department Preventive-Maintenance Program</h3>
+          <p>
+            Led the department effort to construct the facility and equipment
+            preventive-maintenance calendar. I reviewed equipment manuals, worked
+            directly with tool owners and the equipment team, identified required
+            maintenance activities and frequencies, and consolidated them into the
+            department's qualification and preventive-maintenance schedule. The
+            result created shared visibility and accountability for equipment
+            readiness instead of relying on disconnected owner knowledge.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quality Methods &amp; Manufacturing Controls</h2>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <h3>Corrective Action</h3>
+          <p>RCCA, containment, troubleshooting, verification, and recurrence prevention.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Process Control</h3>
+          <p>SPC, process limits, trending, alerts, Out-of-Control Action Plans (OCAPs), and recurring review.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Technical Analysis</h3>
+          <p>Design of Experiments (DOE), comparisons, measurement analysis, and failure testing.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>PFMEA &amp; Risk Prioritization</h3>
+          <p>Process Failure Mode and Effects Analysis (PFMEA), severity/occurrence/detection scoring, Risk Priority Number (RPN), control gaps, and action ownership.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Digital Quality</h3>
+          <p>MES defects, inspections, approvals, dispositions, holds, and traceable records.</p>
+        </div>
+
+        <div class="method-card">
+          <h3>Quality Analytics</h3>
+          <p>Historical defect tracking, dashboards, trends, and corrective-action effectiveness.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quality as an Engineering System</h2>
+
+      <p>
+        I do not view quality as a final inspection performed after manufacturing.
+        Effective quality begins with process definition, equipment readiness,
+        controlled change, meaningful measurement, and rapid response when a
+        system behaves abnormally.
+      </p>
+
+      <p>
+        My experience covers that full loop—from detecting a problem and identifying
+        the technical cause to implementing and sustaining the process, equipment,
+        training, or digital-system changes needed to keep it from returning.
+      </p>
     </section>
 
     <div class="page-navigation">
