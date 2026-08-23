@@ -1,60 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Manuel Bonilla, Ph.D.</title>
+  <title>Manuel Bonilla, Ph.D. | Technical Program & Systems Leader</title>
+
+  <meta
+    name="description"
+    content="Technical program and systems leader with experience across manufacturing, MES, digital transformation, semiconductor engineering, quality, data systems, automation, optics, thin films, metrology, and advanced research."
+  >
+
+  <meta name="theme-color" content="#111820">
 
   <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #111820;
       color: white;
+      line-height: 1.6;
     }
 
-    /* HEADER */
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 28px 7%;
+      padding: 22px 7%;
       background: #111820;
+      border-bottom: 1px solid #28323c;
     }
 
     .name {
       font-size: 22px;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 28px;
       font-size: 15px;
+      transition: color .2s ease;
     }
 
     nav a:hover {
       color: #72d6d0;
     }
 
-    /* HERO */
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .hero {
-      min-height: 520px;
+      min-height: 540px;
 
       background:
         linear-gradient(
-          rgba(0,0,0,.35),
-          rgba(0,0,0,.60)
+          rgba(5, 10, 15, .45),
+          rgba(5, 10, 15, .78)
         ),
         url("img/hero.jpg");
 
@@ -66,45 +121,155 @@
       justify-content: center;
 
       text-align: center;
-      padding: 40px;
+      padding: 55px 6%;
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 980px;
     }
 
     .hero-small {
-      font-size: 16px;
-      letter-spacing: 2px;
+      color: #72d6d0;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
 
     .hero h1 {
       font-size: 60px;
-      line-height: 1.1;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+
+    .hero-lead {
+      max-width: 860px;
+      margin: auto;
+      font-size: 21px;
+      line-height: 1.55;
+      color: #e4eaee;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-actions a {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #72d6d0;
+      color: #72d6d0;
+      padding: 11px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all .2s ease;
+    }
+
+    .hero-actions a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 70px 6% 85px;
+    }
+
+
+    /* =========================================================
+       INTRODUCTION
+    ========================================================= */
+
+    .intro {
+      max-width: 1000px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 36px;
       margin-bottom: 22px;
     }
 
-    .hero p {
-      font-size: 21px;
-      line-height: 1.5;
-      color: #e4e4e4;
+    .intro p {
+      color: #c8d0d7;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: auto;
     }
 
-    /* PROJECT / CAPABILITY SECTION */
+
+    /* =========================================================
+       VALUE CARDS
+    ========================================================= */
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 75px;
+    }
+
+    .value-card {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .value-card h3 {
+      color: #72d6d0;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: #c8d0d7;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       EXPERTISE SECTION
+    ========================================================= */
 
     .projects {
-      max-width: 1250px;
-      margin: auto;
-      padding: 70px 6%;
+      scroll-margin-top: 120px;
     }
 
-    .projects h2 {
+    .projects-heading {
       text-align: center;
-      font-size: 38px;
-      margin-bottom: 45px;
+      margin-bottom: 42px;
     }
+
+    .projects-heading h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .projects-heading p {
+      color: #aeb8c1;
+      font-size: 17px;
+    }
+
+
+    /* =========================================================
+       PROJECT GRID
+    ========================================================= */
 
     .project-grid {
       display: grid;
@@ -114,22 +279,33 @@
 
     .project-card {
       position: relative;
-      height: 260px;
+      height: 275px;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 9px;
+      border: 1px solid #34414d;
       text-decoration: none;
       color: white;
+      background: #17212b;
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #72d6d0;
     }
 
     .project-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .3s ease;
+      display: block;
+      transition: transform .35s ease;
     }
 
     .project-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.045);
     }
 
     .project-overlay {
@@ -137,218 +313,592 @@
       inset: 0;
 
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-end;
 
       padding: 22px;
 
       background:
         linear-gradient(
-          transparent,
-          rgba(0,0,0,.85)
+          to bottom,
+          rgba(0, 0, 0, .04) 28%,
+          rgba(7, 12, 17, .95) 100%
         );
     }
 
     .project-overlay h3 {
-      font-size: 22px;
+      font-size: 21px;
+      line-height: 1.25;
+      margin-bottom: 5px;
     }
 
-    /* FOOTER */
+    .project-overlay p {
+      color: #cbd3d9;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+
+    /* =========================================================
+       CLOSING
+    ========================================================= */
+
+    .closing {
+      margin-top: 75px;
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .closing h2 {
+      color: #72d6d0;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .closing p {
+      color: #c8d0d7;
+      max-width: 850px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    .closing-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .closing-links a {
+      text-decoration: none;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .closing-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
     footer {
       text-align: center;
-      padding: 45px;
+      padding: 42px;
       border-top: 1px solid #28323c;
       color: #aab3bb;
     }
 
-    /* MOBILE */
 
-    @media (max-width: 900px) {
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
 
-      .project-grid {
+    @media (max-width: 1000px) {
+
+      .project-grid,
+      .value-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .hero h1 {
-        font-size: 44px;
+        font-size: 50px;
       }
 
     }
 
-    @media (max-width: 600px) {
+
+    @media (max-width: 700px) {
 
       header {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        padding: 16px 5%;
       }
 
-      nav a {
-        margin: 0 10px;
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      .project-grid {
-        grid-template-columns: 1fr;
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 500px;
+        padding: 45px 7%;
       }
 
       .hero h1 {
-        font-size: 36px;
+        font-size: 37px;
+      }
+
+      .hero-lead {
+        font-size: 18px;
+      }
+
+      main {
+        padding-top: 50px;
+      }
+
+      .intro h2,
+      .projects-heading h2 {
+        font-size: 31px;
+      }
+
+      .project-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        height: 270px;
+      }
+
+      .closing {
+        padding: 28px 22px;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-<header>
+<div class="sticky-shell">
 
-  <div class="name">
-    Manuel Bonilla, Ph.D.
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Manufacturing • Engineering • Systems • Data • Technology
   </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="resume.pdf">Resume</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-</header>
+</div>
 
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero">
 
   <div class="hero-content">
-<!--
+
     <div class="hero-small">
-      Engineering • Technology • Operations
+      Technical Leadership Across Complex Manufacturing & Technology
     </div>
--->
+
     <h1>
       Technical Program & Systems Leader
     </h1>
 
-    <p>
-      Manufacturing • Engineering • Systems • Data • Technology
+    <p class="hero-lead">
+      I lead complex technical initiatives at the intersection of
+      manufacturing, engineering, digital systems, data, and technology —
+      combining program leadership with the technical depth needed to
+      understand the work and drive it toward execution.
     </p>
+
+    <div class="hero-actions">
+
+      <a href="#projects">
+        Explore My Work
+      </a>
+
+      <a href="resume.pdf">
+        View Resume
+      </a>
+
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- PROJECT AREAS -->
+<main>
+
+
+<!-- =========================================================
+     POSITIONING
+========================================================= -->
+
+<section class="intro">
+
+  <h2>
+    Engineering Depth. Systems Thinking. Execution.
+  </h2>
+
+  <p>
+    My career spans semiconductor manufacturing, digital transformation,
+    Manufacturing Execution Systems (MES), process engineering, quality,
+    analytics, automation, optics, thin films, metrology, and advanced
+    scientific research. The common thread is the ability to enter a
+    technically complex environment, understand what is missing, create
+    structure around the problem, and help teams move from technical
+    challenges to sustainable operational solutions.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     VALUE
+========================================================= -->
+
+<div class="value-grid">
+
+  <div class="value-card">
+
+    <h3>Technical Program Leadership</h3>
+
+    <p>
+      Roadmaps, implementation planning, workstreams, cross-functional
+      coordination, technical decision support, deployment, and
+      sustained execution.
+    </p>
+
+  </div>
+
+
+  <div class="value-card">
+
+    <h3>Manufacturing & Digital Systems</h3>
+
+    <p>
+      Connecting manufacturing processes, equipment, MES, databases,
+      analytics, automation, quality systems, and operational workflows.
+    </p>
+
+  </div>
+
+
+  <div class="value-card">
+
+    <h3>Deep Technical Foundation</h3>
+
+    <p>
+      Process engineering, semiconductor manufacturing, thin films,
+      optics, metrology, materials science, physics, statistics,
+      and experimental problem solving.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     WORK & EXPERTISE
+========================================================= -->
 
 <section class="projects" id="projects">
 
-  <h2>
-    Selected Work & Expertise
-  </h2>
+  <div class="projects-heading">
+
+    <h2>
+      Selected Work & Expertise
+    </h2>
+
+    <p>
+      Explore specific areas of technical leadership, implementation,
+      engineering, and research.
+    </p>
+
+  </div>
 
 
   <div class="project-grid">
 
 
-    <a class="project-card" href="mes.html">
-      <img src="assets/img/mes.jpg" alt="MES">
-      <div class="project-overlay">
-        <h3>MES & Manufacturing Systems</h3>
-      </div>
-    </a>
-
-
+    <!-- 1 -->
     <a class="project-card" href="project-management.html">
-      <img src="assets/img/project-management.png" alt="Project Management">
+
+      <img
+        src="assets/img/project-management.png"
+        alt="Technical project and program leadership"
+      >
+
       <div class="project-overlay">
+
         <h3>Project & Program Leadership</h3>
+
+        <p>
+          Technical initiatives, roadmaps, execution, and cross-functional leadership.
+        </p>
+
       </div>
+
     </a>
 
 
-    <a class="project-card" href="spc.html">
-      <img src="assets/img/spc.png" alt="SPC">
+    <!-- 2 -->
+    <a class="project-card" href="mes.html">
+
+      <img
+        src="assets/img/mes.jpg"
+        alt="Manufacturing execution systems"
+      >
+
       <div class="project-overlay">
-        <h3>SPC & Analytics</h3>
+
+        <h3>MES & Manufacturing Systems</h3>
+
+        <p>
+          Department, cross-site, and enterprise manufacturing-system implementation.
+        </p>
+
       </div>
+
     </a>
 
 
-    <a class="project-card" href="python.html">
-      <img src="assets/img/python.png" alt="Python">
-      <div class="project-overlay">
-        <h3>Python & Automation</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="semiconductor.html">
-      <img src="assets/img/semiconductor.jpg" alt="Semiconductors">
-      <div class="project-overlay">
-        <h3>Semiconductor Manufacturing</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="optical.html">
-      <img src="assets/img/optics.jpg" alt="Optics">
-      <div class="project-overlay">
-        <h3>Optics & Optical Coatings</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="deposition.html">
-      <img src="assets/img/deposition.jpg" alt="Deposition">
-      <div class="project-overlay">
-        <h3>Thin Films & Deposition</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="quality.html">
-      <img src="assets/img/quality.jpg" alt="Quality">
-      <div class="project-overlay">
-        <h3>Quality & Process Control</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="metrology.html">
-      <img src="assets/img/metrology.jpg" alt="Metrology">
-      <div class="project-overlay">
-        <h3>Metrology & Measurement</h3>
-      </div>
-    </a>
-
-
-    <a class="project-card" href="recognition.html">
-      <img src="assets/img/tool-ownership.JPG" alt="Tool Ownership">
-      <div class="project-overlay">
-        <h3>Recognition, Teaching & Professional Developmen</h3>
-      </div>
-    </a>
-
-
+    <!-- 3 -->
     <a class="project-card" href="data-systems.html">
-      <img src="assets/img/data-systems.jpg" alt="Data Systems">
+
+      <img
+        src="assets/img/data-systems.jpg"
+        alt="Manufacturing data and systems integration"
+      >
+
       <div class="project-overlay">
+
         <h3>Data & Systems Integration</h3>
+
+        <p>
+          Equipment, MES, databases, middleware, analytics, and connected operations.
+        </p>
+
       </div>
+
     </a>
 
 
-    <a class="project-card" href="research.html">
-      <img src="assets/img/research.jpg" alt="Research">
+    <!-- 4 -->
+    <a class="project-card" href="quality.html">
+
+      <img
+        src="assets/img/quality.jpg"
+        alt="Quality engineering and process control"
+      >
+
       <div class="project-overlay">
-        <h3>Research & Technical Work</h3>
+
+        <h3>Quality Engineering & Process Control</h3>
+
+        <p>
+          RCCA, PFMEA, change control, defect elimination, and manufacturing quality.
+        </p>
+
       </div>
+
+    </a>
+
+
+    <!-- 5 -->
+    <a class="project-card" href="spc.html">
+
+      <img
+        src="assets/img/spc.png"
+        alt="Statistical process control"
+      >
+
+      <div class="project-overlay">
+
+        <h3>SPC & Analytics</h3>
+
+        <p>
+          Statistical Process Control implementation, monitoring, and engineering response.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 6 -->
+    <a class="project-card" href="semiconductor.html">
+
+      <img
+        src="assets/img/semiconductor.jpg"
+        alt="Semiconductor manufacturing"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Semiconductor Manufacturing</h3>
+
+        <p>
+          Process engineering, manufacturing systems, equipment, devices, and thin films.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 7 -->
+    <a class="project-card" href="python.html">
+
+      <img
+        src="assets/img/python.png"
+        alt="Python and engineering automation"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Python & Engineering Automation</h3>
+
+        <p>
+          Data processing, manufacturing automation, equipment data, and engineering tools.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 8 -->
+    <a class="project-card" href="optical.html">
+
+      <img
+        src="assets/img/optics.jpg"
+        alt="Optical engineering and coatings"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Optics & Optical Coatings</h3>
+
+        <p>
+          Optical design, coating development, production support, and manufacturing.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 9 -->
+    <a class="project-card" href="deposition.html">
+
+      <img
+        src="assets/img/deposition.jpg"
+        alt="Thin-film deposition"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Thin-Film Deposition</h3>
+
+        <p>
+          ALD, MBE, PECVD, evaporation, sputtering, vacuum systems, and process engineering.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 10 -->
+    <a class="project-card" href="metrology.html">
+
+      <img
+        src="assets/img/metrology.jpg"
+        alt="Metrology and materials characterization"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Metrology & Characterization</h3>
+
+        <p>
+          Spectroscopy, microscopy, optical, electrical, and materials characterization.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 11 -->
+    <a class="project-card" href="research.html">
+
+      <img
+        src="assets/img/research.jpg"
+        alt="Scientific research and innovation"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Research & Scientific Innovation</h3>
+
+        <p>
+          2D materials, scientific discovery, advanced research, and publication impact.
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- 12 -->
+    <a class="project-card" href="recognition.html">
+
+      <img
+        src="assets/img/recognition.jpg"
+        alt="Professional recognition teaching and development"
+      >
+
+      <div class="project-overlay">
+
+        <h3>Recognition, Teaching & Development</h3>
+
+        <p>
+          Awards, fellowships, university teaching, mentoring, and professional growth.
+        </p>
+
+      </div>
+
     </a>
 
 
@@ -357,9 +907,56 @@
 </section>
 
 
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="closing">
+
+  <h2>
+    A Career Built Across Technical Boundaries
+  </h2>
+
+  <p>
+    My background is intentionally broad, but the work is connected:
+    understand complex technical systems, build structure where it is
+    missing, use data and engineering to improve them, and lead people
+    toward practical implementation.
+  </p>
+
+  <div class="closing-links">
+
+    <a href="resume.pdf">
+      View Resume
+    </a>
+
+    <a href="contact.html">
+      Contact
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-  © 2026 Manuel Bonilla
+  © <span id="year"></span> Manuel Bonilla
 </footer>
+
+
+<script>
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
 
 
 </body>
