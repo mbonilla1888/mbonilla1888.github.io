@@ -93,16 +93,17 @@
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 45px;
-      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
     .hero-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .hero-text p {
@@ -120,14 +121,15 @@
 
     .hero-image {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      width: 100%;
+      cursor: zoom-in;
     }
 
     .hero-image img {
       width: 100%;
-      height: 100%;
-      min-height: 340px;
+      height: auto;
       object-fit: contain;
       display: block;
       background: #10171e;
@@ -495,15 +497,15 @@
 
         <div class="hero-summary">
           I independently recovered and deployed a department MES for approximately
-          200 users, then expanded into reference architecture, administrator enablement,
-          implementation planning, and selected workstream leadership across five U.S.
-          manufacturing sites.
+          200 users, then expanded into cross-site Eyelit architecture, administrator
+          enablement, implementation planning, an internally developed Zeus implementation,
+          and current iBaseT Solumina work within a segment-wide digital-transformation program.
         </div>
       </div>
 
-      <div class="hero-image">
+      <a class="hero-image" href="assets/img/mes.jpg" target="_blank" rel="noopener" aria-label="Open the MES architecture image at full size">
         <img src="assets/img/mes.jpg" alt="Manufacturing Execution System architecture connecting production, equipment, quality, data, and operations">
-      </div>
+      </a>
     </div>
   </section>
 
@@ -536,17 +538,17 @@
       <div class="impact-grid">
         <div class="impact-card">
           <span class="impact-value">~200 Users</span>
-          <p>Production Eyelit MES deployment, governance, administration, adoption, and sustainment.</p>
+          <p>Production Eyelit MES deployment for semiconductor manufacturing, including governance, administration, adoption, and sustainment.</p>
         </div>
 
         <div class="impact-card">
           <span class="impact-value">50–100 Users</span>
-          <p>Separate Palm Bay Circuit Card Assembly (CCA) MES implementation currently being planned and structured.</p>
+          <p>Separate Palm Bay Circuit Card Assembly (CCA) Eyelit implementation currently being planned and structured.</p>
         </div>
 
         <div class="impact-card">
           <span class="impact-value">5 U.S. Sites</span>
-          <p>Direct ownership, reference architecture, site enablement, and current implementation workstreams.</p>
+          <p>Eyelit and Zeus responsibilities spanning direct ownership, reference architecture, site enablement, and current implementation workstreams.</p>
         </div>
 
         <div class="impact-card">
@@ -565,7 +567,8 @@
           <p>
             <span class="case-label">Situation:</span> Earlier implementation efforts
             had not produced a sustainable production system, while the manufacturing
-            department still depended heavily on paper and disconnected processes.
+            department still depended heavily on paper and disconnected processes for
+            semiconductor production.
           </p>
           <p>
             <span class="case-label">Ownership:</span> I assumed direct responsibility
@@ -815,33 +818,39 @@
     </section>
 
     <section class="section">
-      <h2>Multi-Site MES Scope</h2>
+      <h2>Multi-Site &amp; Segment MES Scope</h2>
 
       <p>
-        My site responsibilities range from direct system ownership to reference
-        architecture, administrator enablement, implementation advising, and current
-        workstream leadership. The distinctions below reflect the actual role at each location.
+        My responsibilities span three MES environments and range from direct system
+        ownership to reference architecture, administrator enablement, implementation
+        advising, and current workstream leadership. The distinctions below reflect
+        the actual platform, manufacturing scope, and role at each location or program.
       </p>
 
       <div class="site-grid">
         <div class="site-card">
-          <h3>Palm Bay, Florida — Eyelit Department</h3>
-          <p>Independently recovered, architected, deployed, administered, and sustained the production system for approximately 200 users.</p>
+          <h3>Palm Bay, Florida — Eyelit Semiconductor Department</h3>
+          <p>Independently recovered, architected, deployed, administered, and sustained the production Eyelit system for approximately 200 users supporting semiconductor manufacturing.</p>
         </div>
 
         <div class="site-card">
-          <h3>Palm Bay, Florida — Circuit Card Assembly</h3>
-          <p>Lead planning and activity tracking for a separate Circuit Card Assembly implementation expected to support approximately 50–100 MES users.</p>
+          <h3>Palm Bay, Florida — Eyelit Circuit Card Assembly</h3>
+          <p>Lead planning and activity tracking for a separate Eyelit Circuit Card Assembly implementation expected to support approximately 50–100 MES users.</p>
         </div>
 
         <div class="site-card">
-          <h3>Tempe, Arizona; Mason, Ohio; Londonderry, New Hampshire</h3>
-          <p>Reference MES architect and implementation advisor for roadmaps, governance, workflow standardization, training curricula, and future local-administrator enablement.</p>
+          <h3>Tempe, Arizona; Mason, Ohio; Londonderry, New Hampshire — Eyelit</h3>
+          <p>Reference Eyelit architect and implementation advisor supporting manufacturing areas that include semiconductors, power supplies, and other products. Scope includes roadmaps, governance, workflow standardization, training curricula, and future local-administrator enablement.</p>
         </div>
 
         <div class="site-card">
-          <h3>State College, Pennsylvania</h3>
-          <p>Currently lead selected implementation workstreams involving work instructions, team training, developer and Information Technology coordination, task assignment, scheduling, and dependency tracking.</p>
+          <h3>State College, Pennsylvania — Zeus Circuit Card Assembly</h3>
+          <p>Currently lead selected Circuit Card Assembly implementation workstreams using Zeus, an internally developed MES. Responsibilities include work instructions, team training, developer and Information Technology coordination, task assignment, scheduling, and dependency tracking.</p>
+        </div>
+
+        <div class="site-card">
+          <h3>Segment-Wide Digital Transformation — iBaseT Solumina</h3>
+          <p>Recently joined the segment-level iBaseT Solumina program supporting multiple manufacturing areas. Current contributions include manufacturing-workflow support, equipment-integration and data requirements, testing, troubleshooting, and technical coordination within the broader digital-transformation solution.</p>
         </div>
       </div>
     </section>
@@ -851,48 +860,38 @@
 
       <div class="platform-grid">
         <div class="platform-card">
-          <h3>Eyelit MES — Direct Ownership</h3>
+          <h3>Eyelit MES — Direct &amp; Cross-Site Leadership</h3>
           <ul>
-            <li>Architecture, configuration, administration, and governance</li>
-            <li>Production deployment, training, troubleshooting, and sustainment</li>
-            <li>Cross-site reference model and administrator enablement</li>
-            <li>Licensing, upgrades, vendor coordination, and continued expansion</li>
+            <li>Direct Palm Bay semiconductor deployment and sustainment</li>
+            <li>Separate Palm Bay Circuit Card Assembly implementation planning</li>
+            <li>Tempe, Mason, and Londonderry reference architecture and enablement</li>
+            <li>Configuration, governance, training, troubleshooting, and expansion</li>
           </ul>
         </div>
 
         <div class="platform-card">
-          <h3>Enterprise MES — Implementation Workstreams</h3>
+          <h3>Zeus — State College Circuit Card Assembly</h3>
           <ul>
+            <li>Implementation workstreams for an internally developed MES</li>
             <li>Manufacturing-to-system requirement translation</li>
             <li>Work instructions, training, and operational readiness</li>
-            <li>Developer and Information Technology coordination</li>
-            <li>Task, schedule, dependency, and implementation tracking</li>
+            <li>Developer coordination and activity tracking</li>
           </ul>
         </div>
 
         <div class="platform-card">
-          <h3>iBaseT Solumina — Current Support</h3>
+          <h3>iBaseT Solumina — Segment Digital Transformation</h3>
           <ul>
-            <li>Implementation and manufacturing-workflow support</li>
+            <li>Recently joined a segment-wide implementation program</li>
+            <li>Support across multiple manufacturing areas</li>
             <li>Equipment-integration and data requirements</li>
-            <li>Testing, troubleshooting, and technical coordination</li>
-            <li>Participation within a broader digital-manufacturing program</li>
-          </ul>
-        </div>
-
-        <div class="platform-card">
-          <h3>Internally Developed Manufacturing Systems</h3>
-          <ul>
-            <li>Site implementation and adoption support</li>
-            <li>Operational requirement definition</li>
-            <li>Standardization and governance alignment</li>
-            <li>Training, documentation, and ownership transfer</li>
+            <li>Testing, troubleshooting, workflow support, and technical coordination</li>
           </ul>
         </div>
       </div>
 
       <p class="small">
-        Newer enterprise and Solumina responsibilities are ongoing contributions within
+        Zeus and iBaseT Solumina responsibilities are ongoing contributions within
         larger programs and are not presented as completed deployments under my sole ownership.
       </p>
     </section>
