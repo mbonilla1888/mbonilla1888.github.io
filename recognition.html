@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +10,7 @@
 
   <meta
     name="description"
-    content="Professional recognition, awards, fellowships, university teaching, technical mentoring, and continued professional development across engineering, manufacturing, physics, and digital transformation."
+    content="Professional awards, recognition, fellowships, university teaching, technical mentoring, and continued professional development across engineering, manufacturing, physics, and digital transformation."
   >
 
   <style>
@@ -112,9 +113,15 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 45px;
-      align-items: center;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-text p {
@@ -130,41 +137,20 @@
       line-height: 1.7;
     }
 
-
-    /* =========================================================
-       RECOGNITION PANEL
-    ========================================================= */
-
-    .recognition-panel {
-      background: #17212b;
-      border: 1px solid #34414d;
-      border-radius: 10px;
-      padding: 30px;
+    .hero-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
     }
 
-    .recognition-panel h3 {
-      color: #72d6d0;
-      font-size: 22px;
-      margin-bottom: 18px;
-    }
-
-    .recognition-item {
-      background: #111820;
-      border: 1px solid #34414d;
-      border-radius: 7px;
-      padding: 16px 18px;
-      margin-bottom: 13px;
-    }
-
-    .recognition-item strong {
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
       display: block;
-      color: #72d6d0;
-      margin-bottom: 4px;
-    }
-
-    .recognition-item span {
-      color: #dfe5ea;
-      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid #34414d;
     }
 
 
@@ -246,18 +232,18 @@
     }
 
     .section li {
-      margin-bottom: 9px;
       color: #dfe5ea;
+      margin-bottom: 9px;
     }
 
     .small {
-      font-size: 14px;
       color: #aab3bb;
+      font-size: 14px;
     }
 
 
     /* =========================================================
-       GRID CARDS
+       DETAIL GRID
     ========================================================= */
 
     .detail-grid {
@@ -287,39 +273,68 @@
 
 
     /* =========================================================
-       FEATURE
+       AWARD FEATURE
     ========================================================= */
 
-    .feature {
+    .award-feature {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      margin-top: 25px;
       background: #111820;
       border: 1px solid #72d6d0;
       border-radius: 10px;
-      padding: 30px;
-      margin-top: 25px;
+      overflow: hidden;
     }
 
-    .feature-label {
+    .award-feature img {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .award-feature-content {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .award-label {
       color: #72d6d0;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 13px;
+      letter-spacing: 1.3px;
+      font-size: 12px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .feature h3 {
-      font-size: 24px;
-      margin: 0 0 14px;
+    .award-feature h3 {
+      font-size: 25px;
+      margin: 0 0 15px;
     }
 
-    .feature p {
+    .award-feature p {
       margin-bottom: 15px;
     }
 
-    .feature a {
+
+    /* =========================================================
+       HIGHLIGHT PANEL
+    ========================================================= */
+
+    .highlight {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 27px;
+      margin-top: 22px;
+    }
+
+    .highlight strong {
       color: #72d6d0;
-      text-decoration: none;
-      font-weight: bold;
     }
 
 
@@ -399,7 +414,8 @@
 
       .hero-grid,
       .capability-grid,
-      .detail-grid {
+      .detail-grid,
+      .award-feature {
         grid-template-columns: 1fr;
       }
 
@@ -407,7 +423,13 @@
         font-size: 38px;
       }
 
+      .hero-image img,
+      .award-feature img {
+        min-height: auto;
+      }
+
     }
+
 
     @media (max-width: 700px) {
 
@@ -427,6 +449,10 @@
         font-size: 20px;
       }
 
+      .page-bar {
+        font-size: 11px;
+      }
+
       .hero {
         padding-top: 38px;
       }
@@ -442,6 +468,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -491,57 +518,33 @@
     <div class="hero-text">
 
       <p>
-        Across research, engineering, manufacturing, and digital transformation,
-        my work has been recognized through competitive fellowships,
-        professional awards, technical recognition, and opportunities
-        to teach and mentor others.
+        My work has been recognized across manufacturing systems,
+        digital transformation, process engineering, quality,
+        continuous improvement, safety, and scientific development.
       </p>
 
       <div class="hero-summary">
-        These experiences complement the technical work shown throughout
-        this portfolio by demonstrating communication, knowledge transfer,
-        continued learning, and recognition from academic, scientific,
-        and industrial organizations.
+        These recognitions complement the technical work throughout
+        this portfolio by showing measurable impact, rapid learning,
+        leadership, knowledge transfer, and the ability to contribute
+        across very different technical environments.
       </div>
 
     </div>
 
 
-    <div class="recognition-panel">
+    <div class="hero-image">
 
-      <h3>Selected Recognition</h3>
+      <!--
+        Recommended image:
+        an APS Bridge inaugural-cohort/event photo, professional award
+        photo, or strong teaching/presentation image.
+      -->
 
-      <div class="recognition-item">
-        <strong>L3Harris Rising Star</strong>
-        <span>
-          Recognition for technical contribution, initiative,
-          and organizational impact.
-        </span>
-      </div>
-
-      <div class="recognition-item">
-        <strong>APS Bridge Program — Inaugural Cohort</strong>
-        <span>
-          Selected in 2013 as part of the first group of fellows
-          participating in the American Physical Society Bridge Program.
-        </span>
-      </div>
-
-      <div class="recognition-item">
-        <strong>Lockheed Martin Recognition</strong>
-        <span>
-          Multiple awards recognizing collaboration, root-cause resolution,
-          manufacturing improvement, and technical contribution.
-        </span>
-      </div>
-
-      <div class="recognition-item">
-        <strong>Florida LSAMP Graduate Fellowship</strong>
-        <span>
-          Graduate fellowship supporting advanced study in science
-          and engineering.
-        </span>
-      </div>
+      <img
+        src="assets/img/recognition/recognition_hero.jpg"
+        alt="Professional recognition and development"
+      >
 
     </div>
 
@@ -554,7 +557,7 @@
 
 
 <!-- =========================================================
-     CAPABILITIES
+     HIGH-LEVEL THEMES
 ========================================================= -->
 
 <div class="capability-grid">
@@ -564,8 +567,8 @@
     <h3>Professional Recognition</h3>
 
     <p>
-      Awards recognizing technical performance, problem solving,
-      manufacturing impact, safety, and organizational contribution.
+      Formal awards recognizing technical impact, innovation,
+      manufacturing performance, safety, quality, and leadership.
     </p>
 
   </div>
@@ -573,11 +576,11 @@
 
   <div class="capability">
 
-    <h3>Teaching & Mentoring</h3>
+    <h3>Teaching & Knowledge Transfer</h3>
 
     <p>
-      University instruction, laboratory teaching, technical tutoring,
-      training, and knowledge transfer.
+      University instruction, tutoring, technical training,
+      engineering enablement, and mentoring.
     </p>
 
   </div>
@@ -588,8 +591,8 @@
     <h3>Continued Development</h3>
 
     <p>
-      Fellowships, professional programs, technical coursework,
-      conferences, and continued learning across disciplines.
+      Competitive fellowships, scholarships, professional programs,
+      conferences, coursework, and continued cross-disciplinary learning.
     </p>
 
   </div>
@@ -598,30 +601,36 @@
 
 
 <!-- =========================================================
-     PROFESSIONAL RECOGNITION
+     L3HARRIS
 ========================================================= -->
 
 <section class="section">
 
-  <h2>Professional Recognition</h2>
+  <h2>L3Harris Recognition</h2>
 
   <p>
-    Recognition throughout my industrial career has come from work that
-    produced measurable technical or operational impact rather than from
-    a single type of assignment.
+    My L3Harris recognition spans manufacturing systems, digital
+    transformation, operational analytics, safety, and technical leadership.
   </p>
+
 
   <div class="detail-grid">
 
 
     <div class="detail-card">
 
-      <h3>L3Harris Rising Star Award</h3>
+      <h3>2025 Rising Star Award</h3>
 
       <p>
-        Recognition for technical initiative and impact involving
-        manufacturing systems, operational visibility, and digital
-        manufacturing capabilities.
+        Selected as a Rising Star in the inaugural Space and Airborne
+        Systems Operations Praise & Recognition in Operations (PROPS) Awards.
+      </p>
+
+      <p style="margin-top:12px;">
+        The award recognizes an Operations employee with fewer than three
+        years of tenure who demonstrates exceptional talent, initiative,
+        rapid learning-to-action, proactive contribution, and tangible
+        results that outperform expectations.
       </p>
 
     </div>
@@ -629,12 +638,14 @@
 
     <div class="detail-card">
 
-      <h3>L3Harris R.I.S.E. Recognition</h3>
+      <h3>MES & Digital Manufacturing — R.I.S.E.</h3>
 
       <p>
-        Internal recognition associated with contributions including
-        preventive-maintenance strategy, equipment readiness, and
-        safety-risk assessment.
+        Recognized for exceeding performance expectations through a broad
+        skillset spanning manufacturing technology, process engineering,
+        and scripting; successfully implementing Eyelit MES; developing
+        automated visualization platforms; and helping ensure project
+        adoption and sustainability.
       </p>
 
     </div>
@@ -642,12 +653,12 @@
 
     <div class="detail-card">
 
-      <h3>Lockheed Martin Next Gen Recognition</h3>
+      <h3>Operational Analytics — R.I.S.E.</h3>
 
       <p>
-        Multiple recognition awards associated with technical collaboration,
-        manufacturing improvement, root-cause resolution, yield and process
-        performance, and operational contribution.
+        Recognized for developing an engineering tool that simplified
+        operational work and brought real-time data to the forefront
+        of tactical decision-making.
       </p>
 
     </div>
@@ -655,12 +666,12 @@
 
     <div class="detail-card">
 
-      <h3>Performance Management Team Award</h3>
+      <h3>Safety & Equipment Readiness — R.I.S.E.</h3>
 
       <p>
-        Recognition connected to manufacturing-improvement leadership,
-        operator engagement, issue visibility, and driving operational
-        concerns through closure.
+        Recognized for leading and delivering the required Risk Safety
+        Assessments across manufacturing equipment under short notice
+        and compressed implementation deadlines.
       </p>
 
     </div>
@@ -668,17 +679,234 @@
 
   </div>
 
-  <p class="small">
-    Detailed examples of the work behind these recognitions are included
-    throughout the Quality, Project Leadership, MES, and manufacturing
-    sections of this portfolio.
-  </p>
+
+  <div class="highlight">
+
+    <strong>Three R.I.S.E. recognitions</strong> demonstrate impact across
+    distinctly different areas: manufacturing safety and readiness,
+    operational analytics, and MES / digital manufacturing implementation.
+
+  </div>
+
+
+  <div class="related-links">
+    <a href="mes.html">MES & Manufacturing Systems →</a>
+    <a href="data-systems.html">Data & Systems Integration →</a>
+  </div>
 
 </section>
 
 
 <!-- =========================================================
-     APS
+     PMT ADVOCATE AWARD
+========================================================= -->
+
+<section class="section">
+
+  <h2>Lockheed Martin PMT Advocate Award</h2>
+
+  <p>
+    I received the Lockheed Martin Performance Management Team (PMT)
+    Advocate Award for the fourth quarter of 2022.
+  </p>
+
+  <p>
+    The award recognized being a champion of continuous improvement
+    and making a positive impact on manufacturing culture through
+    the PMT process.
+  </p>
+
+
+  <div class="award-feature">
+
+    <img
+      src="assets/img/recognition/pmt_award.jpg"
+      alt="Lockheed Martin PMT Advocate Award"
+    >
+
+    <div class="award-feature-content">
+
+      <div class="award-label">
+        Lockheed Martin · 4th Quarter 2022
+      </div>
+
+      <h3>
+        Performance Management Team Advocate Award
+      </h3>
+
+      <p>
+        Award criteria included promoting a growth mindset through
+        continuous improvement, actively participating in PMT,
+        creating an inclusive environment, and driving positive
+        manufacturing culture.
+      </p>
+
+      <p>
+        Candidates could be nominated by peers, PMT staff, and/or
+        management.
+      </p>
+
+      <p>
+        My PMT work focused on creating visibility and accountability
+        around operator concerns and manufacturing barriers and
+        ensuring those issues were driven toward resolution.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="detail-grid">
+
+
+    <div class="detail-card">
+
+      <h3>Operator Engagement</h3>
+
+      <p>
+        Created structure for capturing concerns directly from
+        production personnel so manufacturing barriers were visible
+        rather than remaining informal shop-floor discussions.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Issue Tracking & Closure</h3>
+
+      <p>
+        Used dashboard-based tracking to assign ownership and drive
+        issues involving processes, materials, equipment, safety,
+        and workplace conditions through closure.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Continuous Improvement</h3>
+
+      <p>
+        Helped convert employee feedback into actionable improvement
+        activities while maintaining visibility of open items,
+        ownership, and progress.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Positive Manufacturing Culture</h3>
+
+      <p>
+        Supported recognition of employees who identified meaningful
+        issues and encouraged participation in improving the
+        manufacturing environment.
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="related-links">
+    <a href="project-management.html">Project & Program Leadership →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCKHEED NEXTGEN
+========================================================= -->
+
+<section class="section">
+
+  <h2>Lockheed Martin NextGen Recognition</h2>
+
+  <p>
+    I also received four NextGen Recognition awards covering technical
+    collaboration, manufacturing performance, quality improvement,
+    and rapid technical problem solving.
+  </p>
+
+
+  <div class="detail-grid">
+
+
+    <div class="detail-card">
+
+      <h3>Cross-Center Coating Development</h3>
+
+      <p>
+        Recognized for rapidly supporting the development and evaluation
+        of a working optical coating through strong cross-center
+        technical collaboration.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Yield & Measurement Improvement</h3>
+
+      <p>
+        Recognized for identifying witness-sample absorption in ZnSe
+        substrates as a contributor to coating-yield loss, improving
+        measurement techniques and material specifications, and helping
+        establish a method to account for substrate absorption in final
+        transmission measurements.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Production & Schedule Performance</h3>
+
+      <p>
+        Recognized as part of the manufacturing effort that significantly
+        improved hardware availability and schedule position across
+        an optical lens-part portfolio.
+      </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <h3>Root Cause & Corrective Action</h3>
+
+      <p>
+        Recognized for resolving challenging optical-coating production
+        problems by identifying causes, developing corrective actions,
+        and rapidly implementing solutions under production pressure.
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="related-links">
+    <a href="optical.html">Optics & Optical Coatings →</a>
+    <a href="quality.html">Quality Engineering & Process Control →</a>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     APS BRIDGE
 ========================================================= -->
 
 <section class="section">
@@ -687,39 +915,26 @@
 
   <p>
     In 2013, I was selected as part of the inaugural cohort of the
-    American Physical Society (APS) Bridge Program, participating during
-    the national launch and early development of the program.
+    American Physical Society (APS) Bridge Program, participating
+    during the national launch and early development of the program.
   </p>
 
   <p>
-    The experience extended well beyond financial support. As part of the
-    first cohort, I participated in APS meetings, conferences, professional
-    development activities, networking events, and direct engagement with
-    APS leadership and the broader physics community.
+    The experience extended beyond financial support. As part of the
+    first cohort, I participated in APS meetings, conferences,
+    professional-development activities, networking events, and
+    direct engagement with APS leadership and the broader physics community.
   </p>
 
-  <div class="feature">
 
-    <div class="feature-label">
-      National Fellowship & Professional Development
-    </div>
+  <div class="highlight">
 
-    <h3>
-      APS Bridge Program — Inaugural Fellow
-    </h3>
+    <strong>APS Bridge Program — Inaugural Cohort</strong><br><br>
 
-    <p>
-      The Bridge Program provided a pathway into doctoral physics education
-      while also creating a national community of students, faculty,
-      mentors, and APS leaders focused on graduate success and expanding
-      participation in physics.
-    </p>
-
-    <p>
-      Years later, APS News highlighted my completion of the Ph.D. and
-      professional transition as part of its coverage of Bridge Program
-      graduates.
-    </p>
+    The program provided a pathway into doctoral physics education
+    while creating a national network of students, faculty, mentors,
+    and professional-society leaders focused on graduate success
+    and expanding participation in physics.
 
   </div>
 
@@ -727,7 +942,7 @@
 
 
 <!-- =========================================================
-     FELLOWSHIPS
+     FELLOWSHIPS & SCHOLARSHIPS
 ========================================================= -->
 
 <section class="section">
@@ -735,10 +950,11 @@
   <h2>Selected Fellowships & Academic Recognition</h2>
 
   <p>
-    Competitive academic support and fellowship programs played an
-    important role in my development from undergraduate physics through
+    Competitive fellowships, scholarships, and research opportunities
+    supported my development from undergraduate physics through
     doctoral research.
   </p>
+
 
   <div class="detail-grid">
 
@@ -748,8 +964,9 @@
       <h3>APS Bridge Program Fellowship</h3>
 
       <p>
-        American Physical Society fellowship and graduate-development
-        program; selected as part of the inaugural 2013 cohort.
+        Selected in 2013 as part of the inaugural cohort of the
+        American Physical Society Bridge Program and its national
+        graduate-development network.
       </p>
 
     </div>
@@ -760,9 +977,9 @@
       <h3>Florida LSAMP Graduate Fellowship</h3>
 
       <p>
-        Graduate fellowship through the Florida Louis Stokes Alliance
-        for Minority Participation supporting advanced STEM education
-        and research.
+        Competitive graduate fellowship through the Florida
+        Louis Stokes Alliance for Minority Participation supporting
+        doctoral education and research in STEM.
       </p>
 
     </div>
@@ -770,11 +987,11 @@
 
     <div class="detail-card">
 
-      <h3>AAAE Foundation Support</h3>
+      <h3>AAAE-Sponsored Undergraduate Scholarship</h3>
 
       <p>
-        Undergraduate scholarship support contributing to the development
-        of my early physics and engineering education.
+        Selected in 2012 for a $1,500 scholarship supporting my
+        undergraduate Physics education at the University of Puerto Rico.
       </p>
 
     </div>
@@ -782,12 +999,13 @@
 
     <div class="detail-card">
 
-      <h3>Research & Academic Opportunities</h3>
+      <h3>Competitive Research Opportunities</h3>
 
       <p>
-        Competitive research programs, internships, and collaborative
-        opportunities provided early access to nanotechnology,
-        semiconductor devices, surface science, and advanced materials.
+        Participation in research programs, internships, and collaborative
+        opportunities that provided early exposure to nanotechnology,
+        semiconductor devices, surface science, electronic structure,
+        and advanced materials.
       </p>
 
     </div>
@@ -799,7 +1017,7 @@
 
 
 <!-- =========================================================
-     TEACHING
+     UNIVERSITY TEACHING
 ========================================================= -->
 
 <section class="section">
@@ -807,10 +1025,11 @@
   <h2>University Teaching & Technical Instruction</h2>
 
   <p>
-    Teaching has been part of my technical background for many years and
-    helped develop the communication skills I now use when training
+    Teaching has been part of my technical background for many years
+    and helped develop the communication skills I now use when training
     engineers, operators, and technical teams.
   </p>
+
 
   <div class="detail-grid">
 
@@ -820,9 +1039,9 @@
       <h3>Physics Laboratory Instructor</h3>
 
       <p>
-        Taught introductory Physics Laboratory I and II, guiding students
-        through experimental setup, measurement, data collection,
-        uncertainty, analysis, and technical reporting.
+        Taught introductory Physics Laboratory I and II, guiding
+        students through experimental setup, measurement, data
+        collection, uncertainty, analysis, and technical reporting.
       </p>
 
     </div>
@@ -855,8 +1074,8 @@
   <h2>Mathematics & Physics Tutoring</h2>
 
   <p>
-    During my undergraduate education, I also worked extensively as a
-    tutor across mathematics and physics courses.
+    During my undergraduate education, I also worked extensively
+    as a tutor across mathematics and physics courses.
   </p>
 
   <ul>
@@ -878,7 +1097,7 @@
 
 
 <!-- =========================================================
-     TEACHING TO LEADERSHIP
+     TEACHING TO PROFESSIONAL LEADERSHIP
 ========================================================= -->
 
 <section class="section">
@@ -902,6 +1121,7 @@
 
   <div class="related-links">
     <a href="project-management.html">Project & Program Leadership →</a>
+    <a href="mes.html">MES & Manufacturing Systems →</a>
   </div>
 
 </section>
@@ -917,15 +1137,15 @@
 
   <p>
     My career has crossed several technical disciplines, requiring
-    continuous learning as responsibilities expanded from physics and
-    process engineering into manufacturing systems, analytics,
+    continuous learning as responsibilities expanded from physics
+    and process engineering into manufacturing systems, analytics,
     automation, digital transformation, and technical leadership.
   </p>
 
   <p>
-    Professional development has included formal coursework, technical
-    training, self-directed learning, vendor training, conferences,
-    and application-based development in areas such as:
+    Professional development has included formal coursework,
+    technical training, vendor training, conferences, self-directed
+    learning, and application-based development in areas such as:
   </p>
 
   <ul>
@@ -942,92 +1162,15 @@
   </ul>
 
   <!--
-    Add named professional certifications and completed courses here
-    once the exact official titles are confirmed.
+    Add official named certifications and course titles here once
+    you have confirmed the exact credential names.
   -->
 
 </section>
 
 
 <!-- =========================================================
-     RESEARCH FACILITIES
-========================================================= -->
-
-<section class="section">
-
-  <h2>Scientific & Professional Engagement</h2>
-
-  <p>
-    My research and professional development also provided exposure to
-    large-scale scientific facilities and international research
-    collaborations beyond a single university laboratory.
-  </p>
-
-  <div class="detail-grid">
-
-
-    <div class="detail-card">
-
-      <h3>SOLEIL Synchrotron</h3>
-
-      <p>
-        Research collaboration involving advanced synchrotron-based
-        characterization and Angle-Resolved Photoemission Spectroscopy
-        (ARPES) in France.
-      </p>
-
-    </div>
-
-
-    <div class="detail-card">
-
-      <h3>SLAC National Accelerator Laboratory</h3>
-
-      <p>
-        Exposure to large-scale national-laboratory research environments
-        and advanced scientific instrumentation.
-      </p>
-
-    </div>
-
-
-    <div class="detail-card">
-
-      <h3>Scientific Conferences</h3>
-
-      <p>
-        Participation in physics, materials, nanotechnology, and
-        professional-development conferences through research programs,
-        fellowships, and scientific collaborations.
-      </p>
-
-    </div>
-
-
-    <div class="detail-card">
-
-      <h3>Professional Networks</h3>
-
-      <p>
-        Engagement with researchers, faculty, professional societies,
-        national laboratories, industry engineers, and technical leaders
-        across multiple disciplines.
-      </p>
-
-    </div>
-
-
-  </div>
-
-  <div class="related-links">
-    <a href="research.html">Research & Scientific Innovation →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     KNOWLEDGE TRANSFER
+     CLOSING
 ========================================================= -->
 
 <section class="section">
@@ -1035,17 +1178,18 @@
   <h2>Recognition, Learning & Knowledge Transfer</h2>
 
   <p>
-    The common thread across these experiences is continued growth and
-    the ability to transfer technical knowledge to others.
+    The recognition across these different organizations reflects
+    a consistent pattern: learning complex work quickly, solving
+    practical problems, improving how teams operate, and transferring
+    technical knowledge so the improvement can be sustained.
   </p>
 
   <p>
-    Competitive fellowships created opportunities to develop as a
-    scientist. Teaching required communicating difficult concepts
-    clearly. Industrial recognition came from applying technical
-    knowledge to practical manufacturing problems. Continued learning
-    has allowed me to move across disciplines without losing technical
-    depth.
+    Competitive fellowships supported my development as a scientist.
+    Teaching strengthened my ability to explain difficult concepts.
+    Industrial recognition has come from applying technical depth to
+    manufacturing, systems, quality, safety, analytics, and operational
+    problems.
   </p>
 
   <p>
