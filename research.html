@@ -433,6 +433,75 @@
       color: #aab3bb;
     }
 
+    /* =========================================================
+   RESEARCH FACILITIES
+========================================================= */
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 25px;
+}
+
+.facility-card {
+  background: #111820;
+  border: 1px solid #34414d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.facility-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+}
+
+.facility-content {
+  padding: 24px;
+}
+
+.facility-location {
+  color: #72d6d0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.facility-card h3 {
+  color: white;
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+.facility-card p {
+  color: #c8d0d7;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.facility-card .related-links {
+  margin-top: 18px;
+}
+
+
+/* add this inside your existing @media (max-width: 900px) section */
+
+@media (max-width: 900px) {
+
+  .facility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-card img {
+    height: auto;
+  }
+
+}
+
 
     /* =========================================================
        RESPONSIVE
@@ -1147,6 +1216,128 @@
     <li>Technical figures and data visualization</li>
     <li>Translation of complex experimental results into scientific conclusions</li>
   </ul>
+
+</section>
+
+  <!-- =========================================================
+     INTERNATIONAL & NATIONAL RESEARCH FACILITIES
+========================================================= -->
+
+<section class="section">
+
+  <h2>International & National Research Facilities</h2>
+
+  <p>
+    My research extended beyond university laboratories into large-scale
+    accelerator and synchrotron facilities, where specialized instrumentation
+    provides experimental capabilities not available in conventional
+    research laboratories.
+  </p>
+
+  <p>
+    I was selected as a guest scientist at SOLEIL Synchrotron in France
+    and SLAC National Accelerator Laboratory in California, participating
+    in Angle-Resolved Photoemission Spectroscopy (ARPES) experiments
+    investigating the electronic structure of ultrathin two-dimensional
+    materials.
+  </p>
+
+
+  <div class="facility-grid">
+
+
+    <!-- =====================================================
+         SOLEIL
+    ====================================================== -->
+
+    <div class="facility-card">
+
+      <img
+        src="assets/img/research/soleil.jpg"
+        alt="SOLEIL Synchrotron research facility in France"
+      >
+
+      <div class="facility-content">
+
+        <div class="facility-location">
+          France · International Research Experience
+        </div>
+
+        <h3>
+          SOLEIL Synchrotron
+        </h3>
+
+        <p>
+          Selected as a guest scientist at SOLEIL Synchrotron in France,
+          where I participated in Angle-Resolved Photoemission Spectroscopy
+          (ARPES) experiments supporting research into the electronic
+          structure of ultrathin transition-metal diselenides.
+        </p>
+
+        <p>
+          The work involved international scientific collaboration,
+          beamline experiments, and electronic-band-structure
+          characterization using one of Europe's major synchrotron
+          research facilities.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SLAC
+    ====================================================== -->
+
+    <div class="facility-card">
+
+      <img
+        src="assets/img/research/slac.jpg"
+        alt="SLAC National Accelerator Laboratory in California"
+      >
+
+      <div class="facility-content">
+
+        <div class="facility-location">
+          California, USA · U.S. National Laboratory
+        </div>
+
+        <h3>
+          SLAC National Accelerator Laboratory
+        </h3>
+
+        <p>
+          Selected as a guest scientist at SLAC National Accelerator
+          Laboratory, where I participated in Angle-Resolved Photoemission
+          Spectroscopy (ARPES) experiments investigating the electronic
+          structure of monolayer TiSe₂.
+        </p>
+
+        <p>
+          These measurements contributed to published research examining
+          how substrate interactions and electron doping modify the
+          Charge Density Wave (CDW) state of an atomically thin material.
+        </p>
+
+        <div class="related-links">
+
+          <a
+            href="https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/qute.201800070"
+            target="_blank"
+            rel="noopener"
+          >
+            View Published Research →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
 
 </section>
 
