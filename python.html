@@ -1,23 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Python & Engineering Automation | Manuel Bonilla, Ph.D.</title>
+  <title>Python &amp; Engineering Automation | Manuel Bonilla, Ph.D.</title>
 
-  <meta
-    name="description"
-    content="Python-based engineering automation, manufacturing data processing, SPC analysis, equipment data extraction, MES support, dashboards, and workflow automation."
-  >
+  <meta name="description" content="Python-based engineering automation, equipment-data processing, manufacturing workflows, SPC analysis, environmental monitoring, dashboards, and MES support.">
 
   <style>
-
-    /* =========================================================
-       GLOBAL
-    ========================================================= */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -34,11 +25,6 @@
       color: white;
       line-height: 1.6;
     }
-
-
-    /* =========================================================
-       STICKY HEADER
-    ========================================================= */
 
     .sticky-shell {
       position: sticky;
@@ -75,7 +61,8 @@
       transition: color .2s ease;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus-visible {
       color: #72d6d0;
     }
 
@@ -91,11 +78,6 @@
       border-bottom: 1px solid #28323c;
     }
 
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
     .hero {
       max-width: 1200px;
       margin: auto;
@@ -106,21 +88,19 @@
       font-size: 46px;
       line-height: 1.15;
       text-align: center;
-      max-width: 950px;
+      max-width: 980px;
       margin: 0 auto 42px;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 45px;
-      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
     .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .hero-text p {
@@ -138,14 +118,15 @@
 
     .hero-image {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      width: 100%;
+      cursor: zoom-in;
     }
 
     .hero-image img {
       width: 100%;
-      height: 100%;
-      min-height: 340px;
+      height: auto;
       object-fit: contain;
       display: block;
       background: white;
@@ -153,21 +134,11 @@
       border: 1px solid #34414d;
     }
 
-
-    /* =========================================================
-       MAIN
-    ========================================================= */
-
     main {
       max-width: 1150px;
       margin: auto;
       padding: 0 6% 80px;
     }
-
-
-    /* =========================================================
-       CAPABILITY CARDS
-    ========================================================= */
 
     .capability-grid {
       display: grid;
@@ -184,21 +155,17 @@
       padding: 28px;
     }
 
-    .capability h3 {
+    .capability h2 {
       color: #72d6d0;
       margin-bottom: 12px;
       font-size: 20px;
+      line-height: 1.35;
     }
 
     .capability p {
       color: #c8d0d7;
       font-size: 15px;
     }
-
-
-    /* =========================================================
-       CONTENT SECTIONS
-    ========================================================= */
 
     .section {
       background: #17212b;
@@ -236,16 +203,6 @@
       color: #dfe5ea;
     }
 
-    .small {
-      font-size: 14px;
-      color: #aab3bb;
-    }
-
-
-    /* =========================================================
-       PROJECT GRID
-    ========================================================= */
-
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -262,7 +219,7 @@
 
     .project-card h3 {
       color: #72d6d0;
-      margin: 0 0 12px 0;
+      margin: 0 0 12px;
       font-size: 20px;
     }
 
@@ -271,10 +228,40 @@
       margin-bottom: 0;
     }
 
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
 
-    /* =========================================================
-       RELATED LINKS
-    ========================================================= */
+    .workflow-step {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .workflow-number {
+      display: block;
+      color: #72d6d0;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .workflow-step h3 {
+      color: white;
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .workflow-step p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
 
     .related-links {
       display: flex;
@@ -294,15 +281,16 @@
       font-weight: bold;
     }
 
-    .related-links a:hover {
+    .related-links a:hover,
+    .related-links a:focus-visible {
       background: #72d6d0;
       color: #111820;
     }
 
-
-    /* =========================================================
-       PAGE NAVIGATION
-    ========================================================= */
+    .small {
+      font-size: 14px;
+      color: #aab3bb;
+    }
 
     .page-navigation {
       display: flex;
@@ -323,15 +311,11 @@
       transition: all .2s ease;
     }
 
-    .page-navigation a:hover {
+    .page-navigation a:hover,
+    .page-navigation a:focus-visible {
       background: #72d6d0;
       color: #111820;
     }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
 
     footer {
       text-align: center;
@@ -340,14 +324,13 @@
       color: #aab3bb;
     }
 
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+    @media (max-width: 1000px) {
+      .workflow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
     @media (max-width: 900px) {
-
-      .hero-grid,
       .capability-grid,
       .project-grid {
         grid-template-columns: 1fr;
@@ -356,15 +339,9 @@
       .hero h1 {
         font-size: 38px;
       }
-
-      .hero-image img {
-        min-height: auto;
-      }
-
     }
 
     @media (max-width: 700px) {
-
       header {
         flex-direction: column;
         gap: 15px;
@@ -394,565 +371,344 @@
         margin-bottom: 30px;
       }
 
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+
       .section {
         padding: 25px;
       }
-
     }
-
   </style>
 </head>
 
-
 <body>
+  <div class="sticky-shell">
+    <header>
+      <div class="name">Manuel Bonilla, Ph.D.</div>
 
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Explore Areas</a>
+        <a href="resume.pdf">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<!-- =========================================================
-     STICKY HEADER
-========================================================= -->
-
-<div class="sticky-shell">
-
-  <header>
-
-    <div class="name">
-      Manuel Bonilla, Ph.D.
-    </div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#projects">Explore Areas</a>
-      <a href="resume.pdf">Resume</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </header>
-
-  <div class="page-bar">
-    Python & Engineering Automation
+    <div class="page-bar">Python &amp; Engineering Automation</div>
   </div>
 
-</div>
+  <section class="hero">
+    <h1>Python for Engineering Automation &amp; Manufacturing Data</h1>
 
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p>
+          I use Python as an engineering tool to automate repetitive work,
+          process manufacturing data, connect equipment and systems, perform
+          statistical analysis, and convert raw information into formats that
+          engineers can use for decisions.
+        </p>
 
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-  <h1>
-    Python, Engineering Automation & Manufacturing Data
-  </h1>
-
-  <div class="hero-grid">
-
-    <div class="hero-text">
-
-      <p>
-        I use Python as an engineering tool to automate repetitive work,
-        process manufacturing data, connect equipment and systems,
-        perform statistical analysis, and convert raw information into
-        formats engineers can use for decision-making.
-      </p>
-
-      <div class="hero-summary">
-        My programming work is driven by engineering needs rather than
-        software development for its own sake. When equipment, MES,
-        analysis software, databases, or manufacturing workflows do not
-        connect cleanly, I use code to close the gap.
+        <div class="hero-summary">
+          My programming work begins with an operational or engineering need.
+          When equipment, a Manufacturing Execution System (MES), analysis
+          software, databases, local hardware, or reporting workflows do not
+          connect cleanly, I use targeted code and data pipelines to close the gap.
+        </div>
       </div>
 
+      <a class="hero-image" href="assets/img/python.png" target="_blank" rel="noopener" aria-label="Open the Python engineering automation image at full size">
+        <img src="assets/img/python.png" alt="Python engineering automation and manufacturing-data processing code">
+      </a>
+    </div>
+  </section>
+
+  <main>
+    <div class="capability-grid">
+      <section class="capability">
+        <h2>Engineering Automation</h2>
+        <p>Automating repetitive engineering tasks, notifications, file processing, reporting, and manufacturing workflows.</p>
+      </section>
+
+      <section class="capability">
+        <h2>Equipment &amp; Manufacturing Data</h2>
+        <p>Extracting, transforming, restructuring, and analyzing raw equipment data for engineering and operational use.</p>
+      </section>
+
+      <section class="capability">
+        <h2>Analysis &amp; Decision Support</h2>
+        <p>Statistical analysis, plots, dashboards, alerts, and engineering-ready data products.</p>
+      </section>
     </div>
 
-
-    <div class="hero-image">
-
-      <img
-        src="assets/img/python.png"
-        alt="Python engineering automation and manufacturing data analysis"
-      >
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<main>
-
-
-<!-- =========================================================
-     CAPABILITIES
-========================================================= -->
-
-<div class="capability-grid">
-
-  <div class="capability">
-
-    <h3>Engineering Automation</h3>
-
-    <p>
-      Automating repetitive engineering tasks, notifications,
-      file processing, reporting, and manufacturing workflows.
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>Equipment & Manufacturing Data</h3>
-
-    <p>
-      Extracting, transforming, restructuring, and analyzing raw
-      equipment data for engineering and operational use.
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>Analysis & Decision Support</h3>
-
-    <p>
-      Statistical analysis, SPC, plots, dashboards, alerts, and
-      engineering-ready data products.
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     PROFESSIONAL USE
-========================================================= -->
-
-<section class="section">
-
-  <h2>Python as an Engineering Tool</h2>
-
-  <p>
-    I use Python when an engineering or manufacturing problem can be
-    solved more efficiently through automation, data transformation,
-    analysis, or system interaction.
-  </p>
-
-  <p>
-    This has included everything from processing equipment files and
-    calculating statistical-control rules to connecting manufacturing
-    systems with local hardware and automatically preparing data for
-    engineering analysis.
-  </p>
-
-  <ul>
-    <li>Manufacturing and equipment-data processing</li>
-    <li>Statistical and process analysis</li>
-    <li>Automated file conversion and restructuring</li>
-    <li>Engineering plots and visualizations</li>
-    <li>Automated alerts and notifications</li>
-    <li>MES-support utilities and workflow automation</li>
-    <li>Data preparation for dashboards and reporting systems</li>
-    <li>Integration between otherwise disconnected applications or devices</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     EQUIPMENT DATA
-========================================================= -->
-
-<section class="section">
-
-  <h2>Equipment Data Extraction & Engineering Analysis</h2>
-
-  <p>
-    Manufacturing equipment often produces raw files that are designed
-    for the tool rather than for engineers. File structures may be difficult
-    to analyze directly, incompatible with standard analysis software,
-    or require substantial manual preparation.
-  </p>
-
-  <p>
-    I have used Python to automate that translation between equipment
-    output and engineering analysis.
-  </p>
-
-  <ul>
-    <li>Read raw equipment-generated data files</li>
-    <li>Extract relevant measurements and metadata</li>
-    <li>Clean and restructure inconsistent data</li>
-    <li>Combine multiple files into usable engineering datasets</li>
-    <li>Generate plots directly from equipment output</li>
-    <li>Convert raw files into formats compatible with tools such as JMP</li>
-    <li>Prepare equipment data for dashboards and recurring analysis</li>
-  </ul>
-
-  <p>
-    This approach allows engineers to spend more time interpreting process
-    behavior and less time manually preparing files before analysis can begin.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     SPC
-========================================================= -->
-
-<section class="section">
-
-  <h2>Statistical Process Control & Automated Analysis</h2>
-
-  <p>
-    Python has also been useful for building flexible Statistical Process
-    Control (SPC) tools when engineering requirements extend beyond
-    standard spreadsheet analysis or commercial software workflows.
-  </p>
-
-  <ul>
-    <li>Control-chart calculations</li>
-    <li>X-bar and Range analysis</li>
-    <li>Western Electric (WECO) rule evaluation</li>
-    <li>Warning and control-limit detection</li>
-    <li>Process trend monitoring</li>
-    <li>Automated plotting and visualization</li>
-    <li>Automated notifications when defined conditions occur</li>
-    <li>Batch processing of manufacturing datasets</li>
-  </ul>
-
-  <p>
-    The objective is not to replace commercial statistical software in
-    every situation, but to create automated engineering workflows when
-    customization, integration, or repetitive analysis makes automation useful.
-  </p>
-
-  <div class="related-links">
-    <a href="spc.html">SPC Implementation & Analytics →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     MES AUTOMATION
-========================================================= -->
-
-<section class="section">
-
-  <h2>MES & Manufacturing Workflow Automation</h2>
-
-  <p>
-    Python can also serve as a lightweight bridge when Manufacturing
-    Execution Systems (MES), local equipment, printers, files, or other
-    manufacturing resources do not communicate directly.
-  </p>
-
-  <p>
-    One example involved supporting barcode printing where an existing
-    local printer was not directly integrated with MES. A lightweight
-    automation workflow received manufacturing information, generated
-    the required barcode image, and enabled the local workstation to
-    print the label without requiring a full replacement of the existing
-    hardware.
-  </p>
-
-  <ul>
-    <li>Barcode and label generation</li>
-    <li>Local workstation automation</li>
-    <li>File and message monitoring</li>
-    <li>Data preparation before MES use</li>
-    <li>Translation between system outputs and local manufacturing needs</li>
-    <li>Automated operational notifications</li>
-  </ul>
-
-  <div class="related-links">
-    <a href="mes.html">MES Program Leadership →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     ENVIRONMENTAL DATA
-========================================================= -->
-
-<section class="section">
-
-  <h2>Environmental Monitoring & Automated Data Pipelines</h2>
-
-  <p>
-    I have used automation to turn continuously generated environmental
-    and manufacturing data into usable monitoring systems rather than
-    relying on manual data collection and review.
-  </p>
-
-  <ul>
-    <li>Scheduled extraction of temperature and humidity data</li>
-    <li>Automated appending of new measurements to historical datasets</li>
-    <li>Preparation of data for Power BI and SharePoint reporting</li>
-    <li>Threshold-based alerts for abnormal environmental conditions</li>
-    <li>Recurring dashboards for engineering and manufacturing visibility</li>
-  </ul>
-
-  <p>
-    This type of workflow connects data acquisition, analysis,
-    visualization, and notification into a single automated process.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     SELECTED EXAMPLES
-========================================================= -->
-
-<section class="section">
-
-  <h2>Selected Automation Examples</h2>
-
-
-  <div class="project-grid">
-
-
-    <div class="project-card">
-
-      <h3>SPC Automation</h3>
+    <section class="section">
+      <h2>Python as an Engineering Tool</h2>
 
       <p>
-        Automated statistical calculations, WECO-rule evaluation,
-        control charts, plots, and process alerts from manufacturing data.
+        I use Python when an engineering or manufacturing problem can be solved
+        more efficiently through automation, data transformation, analysis, or
+        system interaction. The objective is practical: reduce manual work,
+        improve repeatability, make data usable, and provide faster technical feedback.
       </p>
 
-    </div>
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <span class="workflow-number">Step 1</span>
+          <h3>Acquire</h3>
+          <p>Collect files, measurements, messages, or system outputs from the available source.</p>
+        </div>
 
+        <div class="workflow-step">
+          <span class="workflow-number">Step 2</span>
+          <h3>Transform</h3>
+          <p>Clean, combine, restructure, and validate data for engineering use.</p>
+        </div>
 
-    <div class="project-card">
+        <div class="workflow-step">
+          <span class="workflow-number">Step 3</span>
+          <h3>Analyze</h3>
+          <p>Calculate statistics, identify conditions, create plots, and prepare decision-ready outputs.</p>
+        </div>
 
-      <h3>Equipment File Processing</h3>
+        <div class="workflow-step">
+          <span class="workflow-number">Step 4</span>
+          <h3>Deliver &amp; Act</h3>
+          <p>Publish results to dashboards, trigger alerts, support MES, or interact with local hardware.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Equipment Data Extraction &amp; Engineering Analysis</h2>
 
       <p>
-        Converted raw equipment outputs into structured datasets and
-        formats suitable for engineering analysis and JMP.
+        Manufacturing equipment often produces raw files designed for the tool
+        rather than for the engineer. Those files may be difficult to analyze
+        directly, incompatible with standard analysis software, or require
+        substantial manual preparation before the data becomes useful.
       </p>
-
-    </div>
-
-
-    <div class="project-card">
-
-      <h3>Barcode Workflow Automation</h3>
 
       <p>
-        Created a lightweight bridge between manufacturing information
-        and an existing local printer to generate and print barcode labels.
+        I have used Python to automate the translation from equipment output to
+        engineering analysis.
       </p>
 
-    </div>
-
-
-    <div class="project-card">
-
-      <h3>Environmental Monitoring</h3>
+      <ul>
+        <li>Read equipment-generated files and extract relevant measurements and metadata</li>
+        <li>Clean inconsistent records and combine multiple files into structured datasets</li>
+        <li>Generate engineering plots directly from raw equipment output</li>
+        <li>Convert files into formats compatible with JMP statistical software</li>
+        <li>Prepare recurring equipment data for dashboards and engineering review</li>
+      </ul>
 
       <p>
-        Automated collection and processing of temperature and humidity
-        data for dashboards, historical trending, and threshold alerts.
+        This allows process engineers to spend more time interpreting process
+        behavior and less time manually restructuring files before analysis can begin.
       </p>
+    </section>
 
-    </div>
-
-
-    <div class="project-card">
-
-      <h3>Equipment Data Visualization</h3>
+    <section class="section">
+      <h2>MES &amp; Manufacturing Workflow Automation</h2>
 
       <p>
-        Transformed raw equipment data into engineering plots and
-        analysis outputs needed to understand process behavior.
+        Python can serve as a lightweight bridge when MES, local equipment,
+        printers, files, or other manufacturing resources do not communicate directly.
+        These targeted utilities solve specific operational gaps without pretending
+        to replace the underlying enterprise platform.
       </p>
 
-    </div>
-
-
-    <div class="project-card">
-
-      <h3>Manufacturing Data Preparation</h3>
+      <h3>Barcode Workflow Example</h3>
 
       <p>
-        Cleaned, combined, and reformatted operational data for MES,
-        dashboards, reporting, and engineering decision support.
+        One example involved an existing local printer that was not barcode-enabled
+        or directly integrated with MES. The automation workflow received manufacturing
+        information, generated the required barcode image, and allowed the local
+        workstation to print the label without replacing otherwise usable hardware.
       </p>
 
-    </div>
+      <ul>
+        <li>Barcode-image and label generation</li>
+        <li>Email or message-triggered processing</li>
+        <li>Local workstation and printer interaction</li>
+        <li>Translation of manufacturing information into a usable physical output</li>
+        <li>Data preparation for MES-related workflows</li>
+      </ul>
 
+      <div class="related-links">
+        <a href="mes.html">MES Architecture &amp; Implementation →</a>
+      </div>
+    </section>
 
-  </div>
-
-</section>
-
-  <!-- =========================================================
-     INDEPENDENT ANALYTICS
-========================================================= -->
-
-<section class="section">
-
-  <h2>Independent Analytics Projects</h2>
-
-  <p>
-    I also use Python and data analysis outside of manufacturing applications
-    to explore questions where publicly available data can be used to test
-    assumptions, identify patterns, and communicate quantitative conclusions.
-  </p>
-
-  <div class="project-grid">
-
-
-    <div class="project-card">
-
-      <h3>Shark Tank Investment Analysis</h3>
+    <section class="section">
+      <h2>Environmental Monitoring &amp; Automated Data Pipelines</h2>
 
       <p>
-        Independent Kaggle analysis exploring whether entrepreneurs who
-        give up a small additional percentage of ownership can improve
-        their probability of securing an investment.
+        I developed automation that converted continuously generated temperature
+        and humidity data into an operational monitoring workflow instead of relying
+        on manual collection and review.
       </p>
 
-      <p style="margin-top:14px;">
-        The project demonstrates exploratory data analysis, quantitative
-        reasoning, visualization, and communicating a conclusion from
-        real-world business data.
+      <ul>
+        <li>Scheduled extraction of temperature and relative-humidity data</li>
+        <li>Automated appending of new measurements to historical datasets</li>
+        <li>Data preparation for Power BI and SharePoint reporting</li>
+        <li>Threshold-based Microsoft Teams notifications for abnormal conditions</li>
+        <li>Historical trends and recurring dashboards for manufacturing visibility</li>
+      </ul>
+
+      <p>
+        This pipeline connected acquisition, preparation, visualization, and
+        notification into a repeatable monitoring system.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Statistical Process Control Automation</h2>
+
+      <p>
+        Python also supports flexible Statistical Process Control (SPC) workflows
+        when customization, integration, or repeated analysis makes automation useful.
+        The code complements the broader SPC governance and implementation work
+        described on the dedicated SPC page.
+      </p>
+
+      <ul>
+        <li>X-bar and Range control-chart calculations</li>
+        <li>Western Electric (WECO) rule evaluation</li>
+        <li>Warning and control-limit detection</li>
+        <li>Automated plotting, batch processing, and process alerts</li>
+        <li>Preparation of manufacturing datasets for recurring engineering review</li>
+      </ul>
+
+      <div class="related-links">
+        <a href="spc.html">SPC Implementation &amp; Analytics →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Selected Automation Examples</h2>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Equipment File Processing</h3>
+          <p>Converted raw equipment outputs into structured datasets and formats suitable for engineering analysis and JMP.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Barcode Workflow Automation</h3>
+          <p>Created a lightweight bridge between manufacturing information and an existing local printer to generate and print barcode labels.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Environmental Monitoring</h3>
+          <p>Automated collection and processing of temperature and humidity data for dashboards, historical trending, and threshold alerts.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>SPC Automation</h3>
+          <p>Automated statistical calculations, WECO-rule evaluation, control charts, plots, and process alerts from manufacturing data.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Equipment Data Visualization</h3>
+          <p>Transformed raw equipment data into engineering plots and analysis outputs needed to understand process behavior.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Manufacturing Data Preparation</h3>
+          <p>Cleaned, combined, and reformatted operational data for MES, dashboards, reporting, and engineering decision support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Independent Analytics Project</h2>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Shark Tank Investment Analysis</h3>
+          <p>
+            Independent Kaggle analysis examining whether entrepreneurs who give
+            up a small additional percentage of ownership can improve their
+            probability of securing an investment.
+          </p>
+
+          <div class="related-links">
+            <a href="https://www.kaggle.com/code/mbonilla1/shark-tank-theory-renouncing-5-ownership-is-good/notebook" target="_blank" rel="noopener">View Kaggle Project →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Transferable Analytical Method</h3>
+          <p>
+            The project demonstrates the same analytical pattern used in engineering:
+            structure the data, test the question, visualize the result, and communicate
+            only what the evidence supports.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Computational &amp; Scientific Foundation</h2>
+
+      <p>
+        My programming background developed through physics, engineering,
+        mathematics, scientific research, and applied manufacturing work rather
+        than through a traditional software-engineering career path.
+      </p>
+
+      <p>
+        I hold a Ph.D. and M.Sc. in Physics and a B.Sc. in Physics Applied to
+        Electrical Engineering, supported by near-minor-level coursework in
+        Computational Mathematics. That foundation trained me to model technical
+        problems, work with imperfect scientific data, evaluate results, and build
+        practical analytical tools.
+      </p>
+
+      <ul>
+        <li>Python and scientific computing</li>
+        <li>Structured Query Language (SQL) and manufacturing databases</li>
+        <li>MATLAB, R, and numerical analysis</li>
+        <li>Visual Basic for Applications (VBA) and Excel automation</li>
+        <li>JMP and statistical-analysis tools</li>
+        <li>Computational physics and quantitative data analysis</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>From Code to Connected Manufacturing Systems</h2>
+
+      <p>
+        Many automation problems extend beyond Python itself. They require an
+        understanding of databases, equipment interfaces, MES, dashboards, data
+        structures, local hardware, and the people responsible for the process.
+      </p>
+
+      <p>
+        My value is not only writing code. It is understanding enough of the
+        engineering and manufacturing problem to determine what should be automated,
+        what data is meaningful, and how the result should fit into the larger operation.
       </p>
 
       <div class="related-links">
-
-        <a
-          href="https://www.kaggle.com/code/mbonilla1/shark-tank-theory-renouncing-5-ownership-is-good/notebook"
-          target="_blank"
-          rel="noopener"
-        >
-          View Kaggle Project →
-        </a>
-
+        <a href="data-systems.html">Data &amp; Systems Integration →</a>
       </div>
+    </section>
 
+    <div class="page-navigation">
+      <a href="index.html">← Back to Home</a>
+      <a href="index.html#projects">Explore Other Areas</a>
     </div>
+  </main>
 
+  <footer>
+    © <span id="year">2026</span> Manuel Bonilla
+  </footer>
 
-    <div class="project-card">
-
-      <h3>Analytics Beyond a Single Domain</h3>
-
-      <p>
-        My use of programming is not limited to one manufacturing platform
-        or engineering discipline. I apply the same analytical approach to
-        operational, scientific, manufacturing, and general quantitative
-        problems: structure the data, test the question, visualize the
-        result, and communicate what the evidence supports.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     TECHNICAL FOUNDATION
-========================================================= -->
-
-<section class="section">
-
-  <h2>Computational & Scientific Foundation</h2>
-
-  <p>
-    My programming background developed alongside physics, engineering,
-    mathematics, and scientific data analysis rather than through a
-    traditional software-engineering career path.
-  </p>
-
-  <p>
-    Computational coursework, scientific research, and applied engineering
-    work provided a foundation for using programming to model, analyze,
-    visualize, and automate technical problems.
-  </p>
-
-  <ul>
-    <li>Python</li>
-    <li>SQL</li>
-    <li>MATLAB</li>
-    <li>VBA and Excel automation</li>
-    <li>R</li>
-    <li>JMP and statistical analysis tools</li>
-    <li>Scientific computing and numerical analysis</li>
-    <li>Computational physics and quantitative data analysis</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     DATA SYSTEMS LINK
-========================================================= -->
-
-<section class="section">
-
-  <h2>From Code to Connected Manufacturing Systems</h2>
-
-  <p>
-    Many automation problems extend beyond Python itself and require
-    understanding databases, equipment interfaces, MES, dashboards,
-    data structures, and the systems surrounding the code.
-  </p>
-
-  <p>
-    That broader systems and integration experience is covered separately
-    in the Data & Systems Integration section.
-  </p>
-
-  <div class="related-links">
-    <a href="data-systems.html">Data & Systems Integration →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PAGE NAVIGATION
-========================================================= -->
-
-<div class="page-navigation">
-
-  <a href="index.html">
-    ← Back to Home
-  </a>
-
-  <a href="index.html#projects">
-    Explore Other Areas
-  </a>
-
-</div>
-
-
-</main>
-
-
-<footer>
-  © <span id="year"></span> Manuel Bonilla
-</footer>
-
-
-<script>
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-</script>
-
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
