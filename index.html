@@ -6,14 +6,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Manuel Bonilla, Ph.D. | Technical Program & Systems Leader</title>
+  <title>Manuel Bonilla, Ph.D. | Technical Program &amp; Systems Leader</title>
 
   <meta
     name="description"
-    content="Technical program and systems leader with experience across manufacturing, MES, digital transformation, semiconductor engineering, quality, data systems, automation, optics, thin films, metrology, and advanced research."
+    content="Technical program and systems leader with experience across commercial semiconductor and defense manufacturing, MES, digital transformation, quality, automation, optics, thin films, metrology, materials science, and magnetism research."
   >
 
   <meta name="theme-color" content="#111820">
+
+  <link rel="canonical" href="https://mbonilla1888.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Manuel Bonilla, Ph.D. | Technical Program &amp; Systems Leader">
+  <meta
+    property="og:description"
+    content="Technical program leadership, digital manufacturing, MES, semiconductor and defense manufacturing, materials science, magnetism, and scientific innovation."
+  >
+  <meta property="og:url" content="https://mbonilla1888.github.io/">
 
   <style>
 
@@ -27,7 +37,7 @@
       padding: 0;
     }
 
-     {
+    html {
       scroll-behavior: smooth;
     }
 
@@ -111,7 +121,7 @@
           rgba(5, 10, 15, .45),
           rgba(5, 10, 15, .78)
         ),
-        url("img/hero.jpg");
+        url("assets/img/hero.jpg");
 
       background-size: cover;
       background-position: center;
@@ -174,6 +184,62 @@
     .hero-actions a:hover {
       background: #72d6d0;
       color: #111820;
+    }
+
+    nav a:focus-visible,
+    .hero-actions a:focus-visible,
+    .project-card:focus-visible,
+    .closing-links a:focus-visible {
+      outline: 3px solid #72d6d0;
+      outline-offset: 4px;
+    }
+
+
+    /* =========================================================
+       IMPACT STRIP
+    ========================================================= */
+
+    .impact-strip {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: -34px auto 0;
+      padding: 0 6%;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-radius: 10px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, .28);
+      overflow: hidden;
+    }
+
+    .impact-item {
+      padding: 22px 16px;
+      text-align: center;
+      border-right: 1px solid #34414d;
+    }
+
+    .impact-item:last-child {
+      border-right: 0;
+    }
+
+    .impact-item strong {
+      display: block;
+      color: #72d6d0;
+      font-size: 24px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .impact-item span {
+      display: block;
+      color: #c8d0d7;
+      font-size: 13px;
+      line-height: 1.35;
     }
 
 
@@ -413,6 +479,18 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .impact-item:nth-child(-n+2) {
+        border-bottom: 1px solid #34414d;
+      }
+
       .hero h1 {
         font-size: 50px;
       }
@@ -469,6 +547,10 @@
         grid-template-columns: 1fr;
       }
 
+      .impact-strip {
+        margin-top: -24px;
+      }
+
       .project-card {
         height: 270px;
       }
@@ -500,10 +582,10 @@
     </div>
 
     <nav>
-      <a href="index.">Home</a>
+      <a href="index.html">Home</a>
       <a href="#projects">Explore Areas</a>
       <a href="resume.pdf">Resume</a>
-      <a href="contact.">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
   </header>
@@ -524,7 +606,7 @@
   <div class="hero-content">
 
     <div class="hero-small">
-      Technical Leadership Across Complex Manufacturing & Technology
+      Digital Manufacturing · MES · Engineering Transformation
     </div>
 
     <h1>
@@ -555,6 +637,39 @@
 </section>
 
 
+<!-- =========================================================
+     IMPACT AT A GLANCE
+========================================================= -->
+
+<section class="impact-strip" aria-label="Career impact at a glance">
+
+  <div class="impact-grid">
+
+    <div class="impact-item">
+      <strong>16+ Years</strong>
+      <span>Engineering, manufacturing, systems, and research</span>
+    </div>
+
+    <div class="impact-item">
+      <strong>5 Locations</strong>
+      <span>Current multi-site manufacturing-system scope</span>
+    </div>
+
+    <div class="impact-item">
+      <strong>~50 Tools in Program Scope</strong>
+      <span>Department-wide PFMEA, qualification, and preventive-maintenance governance</span>
+    </div>
+
+    <div class="impact-item">
+      <strong>~2,500 Citations</strong>
+      <span>Across 10 peer-reviewed scientific publications</span>
+    </div>
+
+  </div>
+
+</section>
+
+
 <main>
 
 
@@ -569,13 +684,14 @@
   </h2>
 
   <p>
-    My career spans semiconductor manufacturing, digital transformation,
-    Manufacturing Execution Systems (MES), process engineering, quality,
-    analytics, automation, optics, thin films, metrology, and advanced
-    scientific research. The common thread is the ability to enter a
-    technically complex environment, understand what is missing, create
-    structure around the problem, and help teams move from technical
-    challenges to sustainable operational solutions.
+    My career spans commercial semiconductor manufacturing, the defense industry,
+    digital transformation, Manufacturing Execution Systems (MES), process
+    engineering, quality, analytics, automation, optics, thin films, metrology,
+    materials science, two-dimensional materials, and magnetism research. I have
+    led work at department, multi-site, and enterprise levels. The common thread
+    is the ability to enter a technically complex environment, understand what is
+    missing, create structure around the problem, and help teams move from
+    technical challenges to sustainable operational solutions.
   </p>
 
 </section>
@@ -592,9 +708,9 @@
     <h3>Technical Program Leadership</h3>
 
     <p>
-      Roadmaps, implementation planning, workstreams, cross-functional
-      coordination, technical decision support, deployment, and
-      sustained execution.
+      Multi-site roadmaps, implementation planning, task ownership,
+      cross-functional coordination, technical decision support, training,
+      deployment, and sustained execution.
     </p>
 
   </div>
@@ -617,9 +733,9 @@
     <h3>Deep Technical Foundation</h3>
 
     <p>
-      Process engineering, semiconductor manufacturing, thin films,
-      optics, metrology, materials science, physics, statistics,
-      and experimental problem solving.
+      Process engineering, semiconductor manufacturing, thin films, optics,
+      metrology, materials science, two-dimensional materials, surface science,
+      magnetism, physics, statistics, and experimental problem solving.
     </p>
 
   </div>
@@ -651,11 +767,13 @@
 
 
     <!-- 1 -->
-    <a class="project-card" href="project-management.">
+    <a class="project-card" href="project-management.html">
 
       <img
         src="assets/img/project-management.png"
         alt="Technical project and program leadership"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -663,7 +781,7 @@
         <h3>Project & Program Leadership</h3>
 
         <p>
-          Technical initiatives, roadmaps, execution, and cross-functional leadership.
+          Multi-site roadmaps, task ownership, execution, training, and sustainment.
         </p>
 
       </div>
@@ -672,11 +790,13 @@
 
 
     <!-- 2 -->
-    <a class="project-card" href="mes.">
+    <a class="project-card" href="mes.html">
 
       <img
         src="assets/img/mes.jpg"
         alt="Manufacturing execution systems"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -684,7 +804,7 @@
         <h3>MES & Manufacturing Systems</h3>
 
         <p>
-          Department, cross-site, and enterprise manufacturing-system implementation.
+          Department, multi-site, and enterprise MES implementation and adoption.
         </p>
 
       </div>
@@ -693,11 +813,13 @@
 
 
     <!-- 3 -->
-    <a class="project-card" href="data-systems.">
+    <a class="project-card" href="data-systems.html">
 
       <img
         src="assets/img/data-systems.jpg"
         alt="Manufacturing data and systems integration"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -714,11 +836,13 @@
 
 
     <!-- 4 -->
-    <a class="project-card" href="quality.">
+    <a class="project-card" href="quality.html">
 
       <img
         src="assets/img/quality.jpg"
         alt="Quality engineering and process control"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -726,7 +850,7 @@
         <h3>Quality Engineering & Process Control</h3>
 
         <p>
-          RCCA, PFMEA, change control, defect elimination, and manufacturing quality.
+          PFMEA, OCAP, RCCA, change control, defect systems, and preventive maintenance.
         </p>
 
       </div>
@@ -735,11 +859,13 @@
 
 
     <!-- 5 -->
-    <a class="project-card" href="spc.">
+    <a class="project-card" href="spc.html">
 
       <img
         src="assets/img/spc.png"
         alt="Statistical process control"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -747,7 +873,7 @@
         <h3>SPC & Analytics</h3>
 
         <p>
-          Statistical Process Control implementation, monitoring, and engineering response.
+          Department-wide Statistical Process Control implementation and response systems.
         </p>
 
       </div>
@@ -756,11 +882,13 @@
 
 
     <!-- 6 -->
-    <a class="project-card" href="semiconductor.">
+    <a class="project-card" href="semiconductor.html">
 
       <img
         src="assets/img/semiconductor.jpg"
         alt="Semiconductor manufacturing"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -768,7 +896,7 @@
         <h3>Semiconductor Manufacturing</h3>
 
         <p>
-          Process engineering, manufacturing systems, equipment, devices, and thin films.
+          Process ownership plus PFMEA, qualification, and reliability governance across an approximately 50-tool department scope.
         </p>
 
       </div>
@@ -777,11 +905,13 @@
 
 
     <!-- 7 -->
-    <a class="project-card" href="python.">
+    <a class="project-card" href="python.html">
 
       <img
         src="assets/img/python.png"
         alt="Python and engineering automation"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -798,11 +928,13 @@
 
 
     <!-- 8 -->
-    <a class="project-card" href="optical.">
+    <a class="project-card" href="optical.html">
 
       <img
         src="assets/img/optics.jpg"
         alt="Optical engineering and coatings"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -819,11 +951,13 @@
 
 
     <!-- 9 -->
-    <a class="project-card" href="deposition.">
+    <a class="project-card" href="deposition.html">
 
       <img
         src="assets/img/deposition.jpg"
         alt="Thin-film deposition"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -840,11 +974,13 @@
 
 
     <!-- 10 -->
-    <a class="project-card" href="metrology.">
+    <a class="project-card" href="metrology.html">
 
       <img
         src="assets/img/metrology.jpg"
         alt="Metrology and materials characterization"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -861,11 +997,13 @@
 
 
     <!-- 11 -->
-    <a class="project-card" href="research.">
+    <a class="project-card" href="research.html">
 
       <img
         src="assets/img/research.jpg"
         alt="Scientific research and innovation"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
@@ -873,7 +1011,7 @@
         <h3>Research & Scientific Innovation</h3>
 
         <p>
-          2D materials, scientific discovery, advanced research, and publication impact.
+          Materials science, 2D magnetism, surface science, 10 publications, and approximately 2,500 citations.
         </p>
 
       </div>
@@ -885,13 +1023,15 @@
     <a class="project-card" href="recognition.html">
 
       <img
-        src="assets/img/rising-star.png"
+        src="assets/img/recognition/rising-star.webp"
         alt="Professional recognition teaching and development"
+        loading="lazy"
+        decoding="async"
       >
 
       <div class="project-overlay">
 
-        <h3>Recognition, Teaching & Development</h3>
+        <h3>Recognition, Awards & Development</h3>
 
         <p>
           Awards, fellowships, university teaching, mentoring, and professional growth.
@@ -936,6 +1076,14 @@
     rel="noopener"
   >
     Google Scholar
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/manuel-bonilla-ph-d-4583054a"
+    target="_blank"
+    rel="noopener"
+  >
+    LinkedIn
   </a>
 
   <a href="contact.html">
