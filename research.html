@@ -107,21 +107,24 @@
       line-height: 1.15;
       text-align: center;
       max-width: 1000px;
-      margin: 0 auto 42px;
+      margin: 0 auto 32px;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 45px;
-      align-items: center;
+      max-width: 1080px;
+      margin: auto;
+    }
+
+    .hero-text {
+      max-width: 960px;
+      margin: 0 auto 30px;
     }
 
     .hero-text p {
       font-size: 18px;
       line-height: 1.7;
       color: #c8d0d7;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
     .hero-summary {
@@ -136,16 +139,20 @@
     ========================================================= */
 
     .impact-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
       background: #17212b;
       border: 1px solid #34414d;
       border-radius: 10px;
-      padding: 30px;
+      padding: 26px;
     }
 
     .impact-panel h3 {
+      grid-column: 1 / -1;
       color: #72d6d0;
       font-size: 22px;
-      margin-bottom: 18px;
+      margin-bottom: 2px;
     }
 
     .impact-item {
@@ -153,7 +160,7 @@
       border: 1px solid #34414d;
       border-radius: 7px;
       padding: 16px 18px;
-      margin-bottom: 13px;
+      margin-bottom: 0;
     }
 
     .impact-item strong {
@@ -493,10 +500,13 @@
 
     @media (max-width: 900px) {
 
-      .hero-grid,
       .capability-grid,
       .research-grid,
       .facility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-panel {
         grid-template-columns: 1fr;
       }
 
