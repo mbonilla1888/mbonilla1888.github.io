@@ -1,49 +1,655 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Contact | Manuel Bonilla, Ph.D.</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+
+  <meta
+    name="description"
+    content="Contact Manuel Bonilla, Ph.D. regarding technical program leadership, digital manufacturing, MES, advanced manufacturing engineering, data systems, and technical opportunities."
+  >
+
+  <meta name="theme-color" content="#111820">
+  <link rel="canonical" href="https://mbonilla1888.github.io/contact.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | Manuel Bonilla, Ph.D.">
+  <meta
+    property="og:description"
+    content="Professional contact information for technical leadership, digital manufacturing, MES, engineering, and systems opportunities."
+  >
+  <meta property="og:url" content="https://mbonilla1888.github.io/contact.html">
+
+  <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111820;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================================================
+       STICKY HEADER
+    ========================================================= */
+
+    .sticky-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111820;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: #111820;
+      border-bottom: 1px solid #28323c;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: #72d6d0;
+    }
+
+    .page-bar {
+      background: #151f28;
+      color: #72d6d0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-bottom: 1px solid #28323c;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      max-width: 1050px;
+      margin: auto;
+      padding: 80px 6% 55px;
+      text-align: center;
+    }
+
+    .hero-small {
+      color: #72d6d0;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: auto;
+      color: #c8d0d7;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 6% 80px;
+    }
+
+
+    /* =========================================================
+       CONTACT CARDS
+    ========================================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .contact-label {
+      color: #72d6d0;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .contact-card h2 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      flex-grow: 1;
+      color: #c8d0d7;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .contact-card .address {
+      color: white;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .action-link {
+      align-self: flex-start;
+      display: inline-block;
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all .2s ease;
+    }
+
+    .action-link:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .section {
+      background: #17212b;
+      border: 1px solid #28323c;
+      border-left: 4px solid #72d6d0;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #72d6d0;
+      font-size: 27px;
+      margin-bottom: 16px;
+    }
+
+    .section > p {
+      color: #c8d0d7;
+      margin-bottom: 20px;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .scope-item {
+      background: #111820;
+      border: 1px solid #34414d;
+      border-radius: 8px;
+      padding: 21px;
+    }
+
+    .scope-item h3 {
+      color: white;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .scope-item p {
+      color: #c8d0d7;
+      font-size: 14px;
+    }
+
+    .availability {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .availability strong {
+      display: block;
+      color: white;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .availability span {
+      color: #72d6d0;
+      font-weight: bold;
+    }
+
+    .availability p {
+      color: #c8d0d7;
+    }
+
+
+    /* =========================================================
+       CLOSING
+    ========================================================= */
+
+    .closing {
+      margin-top: 30px;
+      text-align: center;
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-radius: 10px;
+      padding: 38px;
+    }
+
+    .closing h2 {
+      color: #72d6d0;
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .closing p {
+      max-width: 760px;
+      margin: auto;
+      color: #c8d0d7;
+    }
+
+    .closing-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 24px;
+    }
+
+    .closing-links a {
+      color: #72d6d0;
+      border: 1px solid #72d6d0;
+      border-radius: 6px;
+      padding: 10px 17px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .closing-links a:hover {
+      background: #72d6d0;
+      color: #111820;
+    }
+
+    nav a:focus-visible,
+    .action-link:focus-visible,
+    .closing-links a:focus-visible {
+      outline: 3px solid #72d6d0;
+      outline-offset: 4px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #28323c;
+      color: #aab3bb;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+
+      .page-bar {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .scope-grid,
+      .availability {
+        grid-template-columns: 1fr;
+      }
+
+      .section,
+      .closing {
+        padding: 28px 22px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
-<body>
-<header class="site-header">
-  <div class="container header-row">
-    <div class="brand">
-      <div class="name">Manuel Bonilla, Ph.D.</div>
-      <div class="tag">MES & Digital Transformation • Manufacturing Systems • SPC/Analytics</div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="optical.html">Optical</a>
-      <a href="deposition.html">Deposition</a>
-      <a href="spc.html">SPC</a>
-      <a href="mes.html">MES</a>
-      <a class="active" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container">
-<section class="card hero">
-  <h1>Contact</h1>
-  <p class="muted">
-    Interested in manufacturing systems, MES leadership, or analytics automation?
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<div class="sticky-shell">
+
+  <header>
+
+    <div class="name">
+      Manuel Bonilla, Ph.D.
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Explore Areas</a>
+      <a href="resume.pdf">Resume</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+
+  </header>
+
+  <div class="page-bar">
+    Contact &amp; Professional Inquiries
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+  <div class="hero-small">
+    Technical Leadership · Engineering · Digital Manufacturing
+  </div>
+
+  <h1>Let’s Connect</h1>
+
+  <p>
+    I welcome conversations about technical program leadership, digital
+    manufacturing and Manufacturing Execution Systems (MES), advanced
+    manufacturing engineering, process and quality systems, data integration,
+    and multidisciplinary technical opportunities.
   </p>
 
-  <div class="cta-row">
-    <a class="btn" href="mailto:mbonilla1888@gmail.com">Email me</a>
-    <a class="btn secondary" href="assets/Manuel_Bonilla_Resume.pdf" target="_blank">Download Resume</a>
-  </div>
 </section>
+
+
+<main>
+
+
+<!-- =========================================================
+     CONTACT OPTIONS
+========================================================= -->
+
+<section class="contact-grid" aria-label="Professional contact options">
+
+  <article class="contact-card">
+
+    <div class="contact-label">Preferred Contact</div>
+
+    <h2>Email</h2>
+
+    <p>
+      The most direct way to reach me regarding a role, project, technical
+      discussion, or professional collaboration is by email.<br><br>
+      <span class="address">mbonilla1888@gmail.com</span>
+    </p>
+
+    <a
+      class="action-link"
+      href="mailto:mbonilla1888@gmail.com?subject=Portfolio%20Inquiry"
+    >
+      Send Email →
+    </a>
+
+  </article>
+
+
+  <article class="contact-card">
+
+    <div class="contact-label">Professional Network</div>
+
+    <h2>LinkedIn</h2>
+
+    <p>
+      Connect with me on LinkedIn for professional background, career updates,
+      industry conversations, and employment opportunities.
+    </p>
+
+    <a
+      class="action-link"
+      href="https://www.linkedin.com/in/manuel-bonilla-ph-d-4583054a"
+      target="_blank"
+      rel="noopener"
+    >
+      View LinkedIn →
+    </a>
+
+  </article>
+
+</section>
+
+
+<!-- =========================================================
+     AREAS OF INTEREST
+========================================================= -->
+
+<section class="section">
+
+  <h2>Areas for Conversation</h2>
+
+  <p>
+    My experience crosses several technical domains, but the following areas
+    are especially aligned with the work presented throughout this portfolio.
+  </p>
+
+  <div class="scope-grid">
+
+    <div class="scope-item">
+      <h3>Technical Program Leadership</h3>
+      <p>
+        Multi-site roadmaps, implementation planning, workstream leadership,
+        task ownership, training, deployment, and sustainment.
+      </p>
+    </div>
+
+    <div class="scope-item">
+      <h3>Digital Manufacturing &amp; MES</h3>
+      <p>
+        Manufacturing Execution Systems, digital transformation, workflow
+        design, adoption, equipment connectivity, and operational systems.
+      </p>
+    </div>
+
+    <div class="scope-item">
+      <h3>Manufacturing &amp; Process Engineering</h3>
+      <p>
+        Semiconductor processes, optics, thin films, metrology, quality,
+        Statistical Process Control, and complex technical problem solving.
+      </p>
+    </div>
+
+    <div class="scope-item">
+      <h3>Data &amp; Systems Integration</h3>
+      <p>
+        Manufacturing data, databases, middleware, automation, dashboards,
+        analytics, and connected engineering workflows.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="section availability">
+
+  <div>
+    <strong>Central Florida</strong>
+    <span>Professional Location</span>
+  </div>
+
+  <p>
+    Based in Central Florida and available for conversations about local,
+    hybrid, travel-based, and remote opportunities depending on the role and
+    organizational needs.
+  </p>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="closing">
+
+  <h2>Start with the Scope</h2>
+
+  <p>
+    When reaching out about an opportunity, including the role, location or
+    work arrangement, technical scope, and primary organizational need will
+    help me respond with the most relevant experience.
+  </p>
+
+  <div class="closing-links">
+    <a href="resume.pdf">View Resume</a>
+    <a href="index.html">Return to Portfolio</a>
+  </div>
+
+</section>
+
+
 </main>
 
-<footer class="footer">
-  <div class="container">© <span id="year"></span> Manuel Bonilla</div>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+  © <span id="year"></span> Manuel Bonilla
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<script>
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+
 </body>
 </html>
