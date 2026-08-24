@@ -114,28 +114,42 @@
     ========================================================= */
 
     .hero {
-      min-height: 540px;
-
-      background:
-        linear-gradient(
-          rgba(5, 10, 15, .45),
-          rgba(5, 10, 15, .78)
-        ),
-        url("assets/img/hero.png");
-
-      background-size: cover;
-      background-position: center;
-
+      min-height: 560px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding: 70px 7% 90px;
+      background:
+        radial-gradient(
+          circle at 82% 25%,
+          #263a47 0,
+          #17212b 32%,
+          #111820 68%,
+          #0b1117 100%
+        );
+    }
 
+    .hero-inner {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-shell {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero-heading {
+      max-width: 1050px;
+      margin: 0 auto 40px;
       text-align: center;
-      padding: 55px 6%;
     }
 
     .hero-content {
-      max-width: 980px;
+      max-width: 760px;
     }
 
     .hero-small {
@@ -150,23 +164,39 @@
     .hero h1 {
       font-size: 60px;
       line-height: 1.08;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .hero-lead {
-      max-width: 860px;
-      margin: auto;
+      max-width: 760px;
       font-size: 21px;
       line-height: 1.55;
       color: #e4eaee;
     }
 
+    .hero-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-credentials span {
+      display: inline-block;
+      padding: 7px 13px;
+      color: #dfe5ea;
+      background: rgba(17, 24, 32, .78);
+      border: 1px solid #49606f;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
     .hero-actions {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .hero-actions a {
@@ -184,6 +214,24 @@
     .hero-actions a:hover {
       background: #72d6d0;
       color: #111820;
+    }
+
+    .hero-profile {
+      width: 100%;
+      max-width: 430px;
+      justify-self: end;
+      padding: 8px;
+      background: #17212b;
+      border: 1px solid #49606f;
+      border-radius: 16px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, .35);
+    }
+
+    .hero-profile img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 
     nav a:focus-visible,
@@ -474,6 +522,32 @@
 
     @media (max-width: 1000px) {
 
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .hero-lead {
+        margin: auto;
+      }
+
+      .hero-credentials,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-profile {
+        max-width: 390px;
+        margin: auto;
+        justify-self: center;
+      }
+
       .project-grid,
       .value-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -521,8 +595,12 @@
       }
 
       .hero {
-        min-height: 500px;
-        padding: 45px 7%;
+        min-height: auto;
+        padding: 45px 7% 70px;
+      }
+
+      .hero-profile {
+        max-width: 320px;
       }
 
       .hero h1 {
@@ -603,32 +681,61 @@
 
 <section class="hero">
 
-  <div class="hero-content">
+  <div class="hero-shell">
 
-    <div class="hero-small">
-      Digital Manufacturing · MES · Engineering Transformation
+    <div class="hero-heading">
+
+      <div class="hero-small">
+        Digital Manufacturing · MES · Engineering Transformation
+      </div>
+
+      <h1>
+        Technical Program &amp; Systems Leader
+      </h1>
+
     </div>
 
-    <h1>
-      Technical Program & Systems Leader
-    </h1>
+    <div class="hero-inner">
 
-    <p class="hero-lead">
-      I lead complex technical initiatives at the intersection of
-      manufacturing, engineering, digital systems, data, and technology —
-      combining program leadership with the technical depth needed to
-      understand the work and drive it toward execution.
-    </p>
+      <div class="hero-content">
 
-    <div class="hero-actions">
+        <p class="hero-lead">
+          I lead complex technical initiatives at the intersection of
+          manufacturing, engineering, digital systems, data, and technology —
+          combining program leadership with the technical depth needed to
+          understand the work and drive it toward execution.
+        </p>
 
-      <a href="#projects">
-        Explore My Work
-      </a>
+        <div
+          class="hero-credentials"
+          aria-label="Professional credentials"
+        >
+          <span>Ph.D. in Physics</span>
+          <span>Active U.S. Secret Security Clearance</span>
+        </div>
 
-      <a href="resume.pdf">
-        View Resume
-      </a>
+        <div class="hero-actions">
+
+          <a href="#projects">
+            Explore My Work
+          </a>
+
+          <a href="resume.pdf">
+            View Resume
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-profile">
+
+        <img
+          src="assets/img/hero.png"
+          alt="Professional portrait of Manuel Bonilla"
+        >
+
+      </div>
 
     </div>
 
