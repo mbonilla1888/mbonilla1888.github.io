@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Recognition, awards, and professional development portfolio -->
 <html lang="en">
 
 <head>
@@ -349,6 +350,68 @@
 
 
     /* =========================================================
+       FEATURED CEREMONY
+    ========================================================= */
+
+    .ceremony-feature {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      background: #17212b;
+      border: 1px solid #34414d;
+      border-top: 3px solid #72d6d0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .ceremony-image-link {
+      display: block;
+      min-height: 390px;
+      background: #111820;
+    }
+
+    .ceremony-feature img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 390px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .ceremony-feature-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .ceremony-feature-content h2 {
+      color: white;
+      font-size: 27px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .ceremony-feature-content p {
+      color: #c8d0d7;
+      margin-bottom: 20px;
+    }
+
+    .ceremony-feature-content a {
+      align-self: flex-start;
+      color: #72d6d0;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .ceremony-feature-content a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* =========================================================
        EXTERNAL RECOGNITION & MEDIA
     ========================================================= */
 
@@ -532,6 +595,16 @@
       .coverage-grid,
       .award-feature {
         grid-template-columns: 1fr;
+      }
+
+      .ceremony-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .ceremony-image-link,
+      .ceremony-feature img {
+        min-height: auto;
+        height: auto;
       }
 
       .hero h1 {
@@ -725,6 +798,49 @@
 
 
 <!-- =========================================================
+     FEATURED AWARD CEREMONY
+========================================================= -->
+
+<section class="ceremony-feature">
+
+  <a
+    class="ceremony-image-link"
+    href="assets/img/rising-star-ceremony.webp"
+    target="_blank"
+    rel="noopener"
+    aria-label="Open the full Rising Star Award ceremony photograph"
+  >
+    <img
+      src="assets/img/rising-star-ceremony.webp"
+      alt="Manuel Bonilla receiving the L3Harris Rising Star Award during the 2025 SAS Operations Achievement Awards ceremony"
+    >
+  </a>
+
+  <div class="ceremony-feature-content">
+
+    <div class="award-label">
+      Featured Professional Recognition
+    </div>
+
+    <h2>
+      Rising Star Award Ceremony
+    </h2>
+
+    <p>
+      Receiving the L3Harris Rising Star Award during the 2025
+      Space and Airborne Systems Operations Achievement Awards.
+    </p>
+
+    <a href="#l3harris-recognition">
+      View the Award Details →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
      EXTERNAL RECOGNITION & MEDIA FEATURES
 ========================================================= -->
 
@@ -909,7 +1025,7 @@
      L3HARRIS
 ========================================================= -->
 
-<section class="section">
+<section class="section" id="l3harris-recognition">
 
   <h2>L3Harris Recognition</h2>
 
