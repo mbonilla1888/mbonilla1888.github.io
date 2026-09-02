@@ -1,815 +1,537 @@
-<!doctype html>
-<html lang="en">
+{#asset ../../shared/utils.js @encoding=utf8}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function formatTimestamp(value, includeTime) {
+    const timestamp = Number(value);
 
-  <title>Statistical Process Control Program Leadership | Manuel Bonilla, Ph.D.</title>
-
-  <meta
-    name="description"
-    content="Department-wide Statistical Process Control leadership, manufacturing analytics, engineering response, training, process capability, recurring review, and MES integration."
-  >
-
-  <style>
-
-    /* =========================================================
-       GLOBAL
-    ========================================================= */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    if (!timestamp || Number.isNaN(timestamp)) {
+        return '';
     }
 
-    html {
-      scroll-behavior: smooth;
+    const date = new Date(timestamp);
+
+    if (Number.isNaN(date.getTime())) {
+        return '';
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #111820;
-      color: white;
-      line-height: 1.6;
+    return includeTime
+        ? date.toLocaleString('en-US')
+        : date.toLocaleDateString('en-US');
+}
+
+function calculateAgeDays(value) {
+    const timestamp = Number(value);
+
+    if (!timestamp || Number.isNaN(timestamp)) {
+        return '';
     }
 
+    return Math.max(
+        0,
+        Math.floor((Date.now() - timestamp) / 86400000)
+    );
+}
 
-    /* =========================================================
-       STICKY HEADER
-    ========================================================= */
+async function postFirstWorkingRoute(jwtToken, urls, payload) {
+    let lastError;
 
-    .sticky-shell {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #111820;
+    for (const url of urls) {
+        try {
+            const response =
+                await getAxios(jwtToken, url).post('', payload);
+
+            return {
+                response,
+                url
+            };
+        } catch (error) {
+            lastError = error;
+
+            const status =
+                error.response && error.response.status
+                    ? error.response.status
+                    : null;
+
+            if (
+                status &&
+                status !== 404 &&
+                status !== 405
+            ) {
+                throw error;
+            }
+        }
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 7%;
-      background: #111820;
-      border-bottom: 1px solid #28323c;
+    throw lastError;
+}
+
+async function beforeRender(req, res) {
+    const cookie =
+        req.context.http.headers.cookie || '';
+
+    const authorization =
+        req.context.http.headers.authorization || '';
+
+    const jwtToken =
+        extractToken(authorization, cookie);
+
+    const serviceRoot =
+        process.env.IBA_SERVICE;
+
+    req.data.activeWipError = false;
+    req.data.orderList = [];
+    req.data.orderCount = 0;
+    req.data.activeOrderCount = 0;
+    req.data.totalOpenOrderCount = 0;
+    req.data.reportRowCount = 0;
+    req.data.enrichmentOrderCount = 0;
+
+    try {
+        const allOrders = [];
+
+        let pageIndex = 0;
+        let hasMore = true;
+
+        const maximumPages = 50;
+
+        while (
+            hasMore &&
+            pageIndex < maximumPages
+        ) {
+            const pageUrl =
+                `${serviceRoot}` +
+                `/solumina-G8/api/v1.0/productionControlExpediterView/ordersInfo` +
+                `?index=${pageIndex}` +
+                `&limit=100` +
+                `&sortBy=DAYS_IN_STATION` +
+                `&sortType=desc` +
+                `&isFromScan=false`;
+
+            const response =
+                await getAxios(
+                    jwtToken,
+                    pageUrl
+                ).post('', {});
+
+            const pageData =
+                response.data.data || {};
+
+            const pageOrders =
+                pageData.orderList || [];
+
+            const responseMeta =
+                response.data.meta || {};
+
+            allOrders.push(...pageOrders);
+
+            hasMore =
+                responseMeta.hasMore === true;
+
+            pageIndex += 1;
+        }
+
+        req.data.totalOpenOrderCount =
+            allOrders.length;
+
+        const activeOrders = allOrders
+            .filter(order =>
+                order.orderStatus === 'ACTIVE'
+            )
+            .map(order => ({
+                ...order,
+
+                schedStartDateDisplay:
+                    formatTimestamp(
+                        order.schedStartDate,
+                        false
+                    ),
+
+                currentOperation: '',
+                operationTitle: '',
+                operationStatus: '',
+                workCenter: '',
+                department: '',
+                operationLocation: '',
+                previousCenter: '',
+
+                serialNoDisplay: '',
+                lotNoDisplay: '',
+                identifier: '',
+                serialOperationStatusDisplay: '',
+                serialStatusReason: '',
+                serialExecutionCount: '',
+
+                arrivedDateDisplay: '',
+                lastWipTimeDisplay: '',
+                daysInStation: '',
+
+                actualStartDateDisplay: '',
+                actualEndDateDisplay: '',
+
+                serialRows: []
+            }));
+
+        req.data.activeOrderCount =
+            activeOrders.length;
+
+        /*
+         * Only three orders are used for this
+         * row-level serial test.
+         */
+        const enrichmentLimit =
+            Math.min(3, activeOrders.length);
+
+        req.data.orderCount =
+            enrichmentLimit;
+
+        req.data.enrichmentOrderCount =
+            enrichmentLimit;
+
+        const operationRouteCandidates = [
+            `${serviceRoot}/solumina-G8/api/v1.0/dispatch/operations/workOrder/oper`,
+            `${serviceRoot}/solumina-G8/api/dispatch/operations/workOrder/oper`,
+            `${serviceRoot}/api/dispatch/operations/workOrder/oper`
+        ];
+
+        const serialRouteCandidates = [
+            `${serviceRoot}/solumina-G8/api/v1.0/dispatch/operations/workOrder/oper/serialStatus`,
+            `${serviceRoot}/solumina-G8/api/dispatch/operations/workOrder/oper/serialStatus`,
+            `${serviceRoot}/api/dispatch/operations/workOrder/oper/serialStatus`
+        ];
+
+        let workingOperationUrl = '';
+        let workingSerialUrl = '';
+
+        for (
+            let index = 0;
+            index < enrichmentLimit;
+            index += 1
+        ) {
+            const order = activeOrders[index];
+
+            /*
+             * Production Control detail request.
+             */
+            try {
+                const detailUrl =
+                    `${serviceRoot}` +
+                    `/solumina-G8/api/v1.0/productionControlExpediterView/orders/` +
+                    `${order.orderId}/info`;
+
+                const detailResponse =
+                    await getAxios(
+                        jwtToken,
+                        detailUrl
+                    ).get('');
+
+                const detailRows =
+                    detailResponse.data.data || [];
+
+                const detail =
+                    detailRows[0] || {};
+
+                order.currentOperation =
+                    detail.operNo || '';
+
+                order.previousCenter =
+                    detail.previousCenter || '';
+
+                if (detail.arrivedDate) {
+                    order.arrivedDateDisplay =
+                        formatTimestamp(
+                            detail.arrivedDate,
+                            true
+                        );
+
+                    order.lastWipTimeDisplay =
+                        order.arrivedDateDisplay;
+
+                    order.daysInStation =
+                        calculateAgeDays(
+                            detail.arrivedDate
+                        );
+                }
+            } catch (error) {
+                console.log(
+                    `Detail request failed for ${order.orderNo}:`,
+                    error.message
+                );
+            }
+
+            /*
+             * Retrieve the operation route.
+             */
+            try {
+                const operationUrls =
+                    workingOperationUrl
+                        ? [workingOperationUrl]
+                        : operationRouteCandidates;
+
+                const operationResult =
+                    await postFirstWorkingRoute(
+                        jwtToken,
+                        operationUrls,
+                        {
+                            orderId: order.orderId,
+                            pagination: {
+                                pageIndex: 0,
+                                limit: 150
+                            }
+                        }
+                    );
+
+                workingOperationUrl =
+                    operationResult.url;
+
+                const operationRows =
+                    operationResult.response.data.data || [];
+
+                const expectedOperation =
+                    String(
+                        order.currentOperation || ''
+                    ).trim();
+
+                const firstIncompleteOperation =
+                    operationRows.find(operation =>
+                        !operation.actualEndDate
+                    );
+
+                let currentOperation =
+                    operationRows.find(operation => {
+                        const operationNumber =
+                            String(
+                                operation.operNo ||
+                                operation.operationNo ||
+                                ''
+                            ).trim();
+
+                        return (
+                            expectedOperation &&
+                            operationNumber ===
+                                expectedOperation
+                        );
+                    });
+
+                if (
+                    !currentOperation ||
+                    currentOperation.actualEndDate
+                ) {
+                    currentOperation =
+                        firstIncompleteOperation ||
+                        currentOperation ||
+                        operationRows[0] ||
+                        {};
+                }
+
+                order.currentOperation =
+                    currentOperation.operNo ||
+                    currentOperation.operationNo ||
+                    order.currentOperation ||
+                    '';
+
+                order.operationTitle =
+                    currentOperation.operTitle || '';
+
+                order.operationStatus =
+                    currentOperation.operStatus ||
+                    currentOperation.status ||
+                    '';
+
+                order.workCenter =
+                    currentOperation.asgndWorkCenter || '';
+
+                order.department =
+                    currentOperation.asgndWorkDept || '';
+
+                order.operationLocation =
+                    currentOperation.asgndWorkLoc || '';
+
+                const operationKey =
+                    currentOperation.operationKey !==
+                        undefined &&
+                    currentOperation.operationKey !==
+                        null
+                        ? currentOperation.operationKey
+                        : currentOperation.operKey;
+
+                if (
+                    operationKey !== undefined &&
+                    operationKey !== null
+                ) {
+                    try {
+                        const serialUrls =
+                            workingSerialUrl
+                                ? [workingSerialUrl]
+                                : serialRouteCandidates;
+
+                        const serialResult =
+                            await postFirstWorkingRoute(
+                                jwtToken,
+                                serialUrls,
+                                {
+                                    ordId: order.orderId,
+                                    operationKey:
+                                        String(operationKey),
+                                    pagination: {
+                                        pageIndex: 0,
+                                        limit: 150
+                                    }
+                                }
+                            );
+
+                        workingSerialUrl =
+                            serialResult.url;
+
+                        order.serialRows =
+                            serialResult.response.data.data ||
+                            [];
+                    } catch (error) {
+                        console.log(
+                            `Serial Status request failed for ${order.orderNo}:`,
+                            error.message
+                        );
+                    }
+                }
+            } catch (error) {
+                console.log(
+                    `Operation request failed for ${order.orderNo}:`,
+                    error.message
+                );
+            }
+        }
+
+        /*
+         * Convert each serial or lot into its own
+         * report row.
+         */
+        const reportRows = [];
+
+        for (
+            let index = 0;
+            index < enrichmentLimit;
+            index += 1
+        ) {
+            const order = activeOrders[index];
+            const serialRows =
+                order.serialRows || [];
+
+            if (serialRows.length === 0) {
+                reportRows.push({
+                    ...order,
+                    serialRows: []
+                });
+
+                continue;
+            }
+
+            for (const serial of serialRows) {
+                const serialNumber =
+                    serial.serialNo || '';
+
+                const lotNumber =
+                    serial.lotNo || '';
+
+                const hasSerialNumber =
+                    serialNumber &&
+                    String(serialNumber).toUpperCase() !==
+                        'N/A';
+
+                const identifier =
+                    hasSerialNumber
+                        ? serialNumber
+                        : lotNumber;
+
+                const lastWipTimestamp =
+                    Number(
+                        serial.actualInQueueDate ||
+                        serial.actualStartDate ||
+                        serial.timeStamp ||
+                        serial.timestamp
+                    );
+
+                const lastWipTimeDisplay =
+                    lastWipTimestamp
+                        ? formatTimestamp(
+                            lastWipTimestamp,
+                            true
+                        )
+                        : order.lastWipTimeDisplay;
+
+                const ageDays =
+                    lastWipTimestamp
+                        ? calculateAgeDays(
+                            lastWipTimestamp
+                        )
+                        : order.daysInStation;
+
+                reportRows.push({
+                    ...order,
+
+                    serialNoDisplay:
+                        serialNumber,
+
+                    lotNoDisplay:
+                        lotNumber,
+
+                    identifier:
+                        identifier,
+
+                    serialOperationStatusDisplay:
+                        serial.serialOperStatus || '',
+
+                    serialStatusReason:
+                        serial.statusChgReason || '',
+
+                    serialExecutionCount:
+                        serial.operExecCount || '',
+
+                    arrivedDateDisplay:
+                        lastWipTimeDisplay,
+
+                    lastWipTimeDisplay:
+                        lastWipTimeDisplay,
+
+                    daysInStation:
+                        ageDays,
+
+                    actualStartDateDisplay:
+                        formatTimestamp(
+                            serial.actualStartDate,
+                            true
+                        ),
+
+                    actualEndDateDisplay:
+                        formatTimestamp(
+                            serial.actualEndDate,
+                            true
+                        ),
+
+                    serialRows: []
+                });
+            }
+        }
+
+        req.data.orderList =
+            reportRows;
+
+        req.data.reportRowCount =
+            reportRows.length;
+    } catch (error) {
+        const status =
+            error.response && error.response.status
+                ? error.response.status
+                : '';
+
+        console.log(
+            'Active WIP API Error:',
+            status,
+            error.message
+        );
+
+        req.data.activeWipError = true;
+        req.data.orderList = [];
+        req.data.orderCount = 0;
+        req.data.activeOrderCount = 0;
+        req.data.totalOpenOrderCount = 0;
+        req.data.reportRowCount = 0;
     }
-
-    .name {
-      font-size: 22px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-      transition: color .2s ease;
-    }
-
-    nav a:hover {
-      color: #72d6d0;
-    }
-
-    .page-bar {
-      background: #151f28;
-      color: #72d6d0;
-      text-align: center;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      padding: 8px 20px;
-      border-bottom: 1px solid #28323c;
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 6% 50px;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      line-height: 1.15;
-      text-align: center;
-      max-width: 950px;
-      margin: 0 auto 42px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 45px;
-      align-items: stretch;
-    }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #c8d0d7;
-      margin-bottom: 22px;
-    }
-
-    .spc-definition {
-      color: #e4eaee;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .hero-image {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 340px;
-      object-fit: contain;
-      display: block;
-      background: white;
-      border-radius: 10px;
-      border: 1px solid #34414d;
-    }
-
-
-    /* =========================================================
-       MAIN CONTENT
-    ========================================================= */
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 0 6% 80px;
-    }
-
-
-    /* =========================================================
-       HIGH LEVEL CAPABILITIES
-    ========================================================= */
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    .capability {
-      background: #17212b;
-      border: 1px solid #28323c;
-      border-top: 3px solid #72d6d0;
-      border-radius: 10px;
-      padding: 28px;
-    }
-
-    .capability h3 {
-      color: #72d6d0;
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .capability p {
-      color: #c8d0d7;
-      font-size: 15px;
-    }
-
-
-    /* =========================================================
-       CONTENT SECTIONS
-    ========================================================= */
-
-    .section {
-      background: #17212b;
-      border: 1px solid #28323c;
-      border-left: 4px solid #72d6d0;
-      border-radius: 10px;
-      padding: 35px;
-      margin-bottom: 30px;
-    }
-
-    .section h2 {
-      color: #72d6d0;
-      font-size: 27px;
-      margin-bottom: 18px;
-    }
-
-    .section p {
-      color: #c8d0d7;
-      margin-bottom: 18px;
-    }
-
-    .section ul {
-      padding-left: 22px;
-    }
-
-    .section li {
-      margin-bottom: 9px;
-      color: #dfe5ea;
-    }
-
-    .img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      margin: 25px 0;
-      border: 1px solid #34414d;
-    }
-
-    .small {
-      font-size: 14px;
-      color: #aab3bb;
-    }
-
-    .small a {
-      color: #72d6d0;
-    }
-
-
-    /* =========================================================
-       PAGE NAVIGATION
-    ========================================================= */
-
-    .page-navigation {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin: 55px 0 10px;
-    }
-
-    .page-navigation a {
-      display: inline-block;
-      text-decoration: none;
-      color: #72d6d0;
-      border: 1px solid #72d6d0;
-      border-radius: 6px;
-      padding: 12px 22px;
-      font-weight: bold;
-      transition: all .2s ease;
-    }
-
-    .page-navigation a:hover {
-      background: #72d6d0;
-      color: #111820;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      border-top: 1px solid #28323c;
-      color: #aab3bb;
-    }
-
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media (max-width: 900px) {
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero-image img {
-        min-height: auto;
-      }
-
-      .capability-grid {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
-
-    @media (max-width: 700px) {
-
-      header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 16px 5%;
-      }
-
-      nav {
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .name {
-        font-size: 20px;
-      }
-
-      .page-bar {
-        font-size: 11px;
-      }
-
-      .hero {
-        padding-top: 38px;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-        margin-bottom: 30px;
-      }
-
-      .hero-text p {
-        font-size: 17px;
-      }
-
-      .section {
-        padding: 25px;
-      }
-
-    }
-
-  </style>
-</head>
-
-
-<body>
-
-
-<!-- =========================================================
-     STICKY HEADER
-========================================================= -->
-
-<div class="sticky-shell">
-
-  <header>
-
-    <div class="name">
-      Manuel Bonilla, Ph.D.
-    </div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#projects">Explore Areas</a>
-      <a href="resume.pdf">Resume</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </header>
-
-  <div class="page-bar">
-    Statistical Process Control (SPC)
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-  <h1>
-    SPC Implementation, Process Control &amp; Manufacturing Analytics
-  </h1>
-
-  <div class="hero-grid">
-
-    <div class="hero-text">
-
-      <p>
-        I led the department implementation of Statistical Process Control (SPC),
-        translating control-chart signals into standardized engineering and
-        manufacturing action. The work covered program planning, process selection,
-        data configuration, engineering reaction plans, training, recurring reviews,
-        analytics, governance, and Manufacturing Execution System (MES) integration.
-      </p>
-
-      <div class="spc-definition">
-        SPC uses process data over time to distinguish normal manufacturing
-        variation from signals that require investigation. My focus was not only
-        detecting those signals, but creating the engineering ownership, review
-        practices, training, and operational discipline needed to act on them.
-      </div>
-
-    </div>
-
-
-    <div class="hero-image">
-
-      <img
-        src="assets/img/spc/generic_control_chart.jpg"
-        alt="SPC control chart showing process limits and an out-of-control condition"
-      >
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<main>
-
-
-<!-- =========================================================
-     HIGH LEVEL CAPABILITIES
-========================================================= -->
-
-<div class="capability-grid">
-
-  <div class="capability">
-
-    <h3>Department SPC Leadership</h3>
-
-    <p>
-      Introduced the structured program, developed the department SPC plan,
-      coordinated engineering participation, and established biweekly review and
-      accountability.
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>Process Monitoring &amp; Response</h3>
-
-    <p>
-      Applied SPC to process monitoring, tool ownership, variation analysis,
-      troubleshooting, defined reaction plans, and Root Cause and Corrective
-      Action (RCCA).
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>MES, Training &amp; Adoption</h3>
-
-    <p>
-      Served as the SPC subject-matter expert for MES configuration, created SPC
-      data structures, and led training for engineers and manufacturing users.
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     WHY SPC MATTERS
-========================================================= -->
-
-<section class="section">
-
-  <h2>Why SPC Matters in Manufacturing</h2>
-
-  <p>
-    Manufacturing processes naturally vary. SPC provides engineers and operations
-    teams with a structured way to determine whether that variation is normal
-    or whether the process is beginning to behave differently and should be investigated.
-  </p>
-
-  <ul>
-    <li>Detects process drift and instability earlier</li>
-    <li>Helps avoid unnecessary adjustments to processes operating normally</li>
-    <li>Supports consistent, data-based engineering decisions</li>
-    <li>Improves process visibility and manufacturing discipline</li>
-    <li>Supports troubleshooting, quality improvement, and RCCA</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     IMPLEMENTATION LEADERSHIP
-========================================================= -->
-
-<section class="section">
-
-  <h2>SPC Implementation &amp; Department Leadership</h2>
-
-  <p>
-    My SPC experience extends beyond creating control charts. I led the department
-    structure required to use SPC consistently as an engineering, manufacturing,
-    and quality decision system.
-  </p>
-
-  <ul>
-
-    <li>
-      Developed the department SPC implementation plan.
-    </li>
-
-    <li>
-      Defined how engineers should establish, maintain, respond to, and review SPC monitoring.
-    </li>
-
-    <li>
-      Worked directly with engineers and tool owners to identify appropriate
-      processes, measurements, limits, ownership, and reaction plans.
-    </li>
-
-    <li>
-      Served as the SPC subject-matter expert during Manufacturing Execution
-      System (MES) implementation and created the data needed for SPC configuration.
-    </li>
-
-    <li>
-      Led training on MES SPC functionality, engineering responsibilities,
-      and the operational response to an abnormal signal.
-    </li>
-
-    <li>
-      Established recurring biweekly SPC review meetings with engineering teams.
-    </li>
-
-    <li>
-      Defined engineering reaction plans, including Out-of-Control Action Plan
-      (OCAP) responses, for monitored department processes and tools.
-    </li>
-
-    <li>
-      Helped transition SPC from individual engineering activity into a structured
-      department capability.
-    </li>
-
-  </ul>
-
-  <p class="small">
-    The broader department quality-response framework is covered on the
-    <a href="quality.html">Quality Engineering page</a> so it is not repeated here.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     METHODS
-========================================================= -->
-
-<section class="section">
-
-  <h2>SPC Methods &amp; Implementation Approaches</h2>
-
-  <p>
-    SPC does not depend on a single software platform. The approach can be adapted
-    to the process, manufacturing environment, available data, and level of automation.
-  </p>
-
-  <ul>
-    <li>MES-integrated SPC monitoring</li>
-    <li>Excel-based SPC analysis</li>
-    <li>Automated data analysis</li>
-    <li>Manual engineering review where appropriate</li>
-    <li>X-bar and Range control charts</li>
-    <li>Western Electric (WECO) rule evaluation</li>
-    <li>Warning and control limits</li>
-    <li>Process variation and trend monitoring</li>
-    <li>Automated notifications and engineering review workflows</li>
-    <li>Process capability analysis</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     WECO RULES
-========================================================= -->
-
-<section class="section">
-
-  <h2>Western Electric (WECO) Rules</h2>
-
-  <p>
-    Western Electric rules provide a systematic way to identify patterns in
-    control-chart data that may indicate special-cause variation.
-  </p>
-
-  <p>
-    Instead of reacting to every change in a measurement, the rules help engineers
-    distinguish ordinary process noise from patterns that may indicate drift,
-    instability, or a meaningful change in process behavior.
-  </p>
-
-  <img
-    class="img"
-    src="assets/img/spc/weco_rules.png"
-    alt="Western Electric rules illustrated using SPC control charts"
-  >
-
-  <ul>
-
-    <li>
-      <b>Rule 1:</b> One point outside the 3-sigma control limit
-    </li>
-
-    <li>
-      <b>Rule 2:</b> Two of three consecutive points beyond 2 sigma
-      on the same side of the mean
-    </li>
-
-    <li>
-      <b>Rule 3:</b> Four of five consecutive points beyond 1 sigma
-      on the same side of the mean
-    </li>
-
-    <li>
-      <b>Rule 4:</b> Nine or more consecutive points on one side
-      of the mean
-    </li>
-
-    <li>
-      <b>Rule 5:</b> Six or more consecutive points continuously
-      increasing or decreasing
-    </li>
-
-    <li>
-      <b>Rule 6:</b> Fourteen or more consecutive points alternating
-      up and down
-    </li>
-
-  </ul>
-
-  <p class="small">
-    Rule sets can be selected based on the process and monitoring strategy.
-    Their purpose is to make identification of unusual process behavior more
-    consistent and less dependent on subjective interpretation.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     AUTOMATED ALERTS
-========================================================= -->
-
-<section class="section">
-
-  <h2>Automated Alerts &amp; Engineering Response</h2>
-
-  <p>
-    SPC becomes more useful when abnormal process signals are connected to timely
-    engineering action. Automated email notifications can alert the appropriate
-    team when defined warning or control conditions are detected, reducing the
-    delay between a statistical signal and engineering review.
-  </p>
-
-  <img
-    class="img"
-    src="assets/img/spc/Alert.png"
-    alt="Automated SPC engineering alert example"
-    loading="lazy"
-  >
-
-  <ul>
-    <li>Provides faster awareness of emerging process issues</li>
-    <li>Reduces dependence on delayed manual data review</li>
-    <li>Improves consistency in engineering response</li>
-    <li>Can support escalation and recurring manufacturing review workflows</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     PROCESS CAPABILITY
-========================================================= -->
-
-<section class="section">
-
-  <h2>Process Capability</h2>
-
-  <p>
-    Process stability and process capability answer different questions.
-    A process may behave consistently but still be unable to reliably meet
-    product requirements.
-  </p>
-
-  <p>
-    Capability analysis compares process variation with specification limits
-    to evaluate whether the process can consistently produce acceptable results.
-  </p>
-
-  <ul>
-
-    <li>
-      <b>Cp:</b> Compares potential process capability with the available
-      specification width
-    </li>
-
-    <li>
-      <b>Cpk:</b> Evaluates capability while accounting for how well the
-      process is centered
-    </li>
-
-    <li>
-      <b>Pp:</b> Evaluates overall process performance relative to specifications
-    </li>
-
-    <li>
-      <b>Ppk:</b> Evaluates overall performance while accounting for process centering
-    </li>
-
-  </ul>
-
-  <p class="small">
-    Capability metrics are most meaningful when the process behavior and
-    measurement system are understood and the process is reasonably stable.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     CLOSING
-========================================================= -->
-
-<section class="section">
-
-  <h2>From Data to Manufacturing Action</h2>
-
-  <p>
-    Effective SPC is not simply a charting exercise. It requires appropriate
-    process selection, reliable data, engineering ownership, defined reaction
-    plans, recurring review, training, and integration into normal manufacturing
-    operations.
-  </p>
-
-  <ul>
-    <li>Process and data ownership</li>
-    <li>Defined monitoring strategy</li>
-    <li>Defined engineering reaction plans</li>
-    <li>Corrective-action feedback loops</li>
-    <li>MES and operational integration</li>
-    <li>Training and adoption</li>
-    <li>Recurring review and continuous improvement</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     PAGE NAVIGATION
-========================================================= -->
-
-<div class="page-navigation">
-
-  <a href="index.html">
-    ← Back to Home
-  </a>
-
-  <a href="index.html#projects">
-    Explore Other Areas
-  </a>
-
-</div>
-
-
-</main>
-
-
-<footer>
-  © <span id="year"></span> Manuel Bonilla
-</footer>
-
-
-<script>
-
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-</script>
-
-
-</body>
-</html>
+}
