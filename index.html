@@ -1,19 +1,5 @@
-function getWatermarkText(orderStatus, orderNotCompleteText) {
-  const status = String(orderStatus || '')
-    .trim()
-    .toUpperCase()
-
-  if (status === 'CLOSE' || status === 'CLOSED') {
-    return ''
-  }
-
-  if (
-    status === 'CANCEL' ||
-    status === 'CANCELED' ||
-    status === 'CANCELLED'
-  ) {
-    return 'Canceled'
-  }
-
-  return orderNotCompleteText || 'Order Not Complete'
-}
+{{#with (getWatermarkText @root.req_group.orderStatus) as |watermarkText|}}
+    <div class="watermark-container">
+        <div class="watermark">{{watermarkText}}</div>
+    </div>
+{{/with}}
