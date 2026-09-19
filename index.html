@@ -1,648 +1,210 @@
-{#asset ../../shared/utils.js @encoding=utf8}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
 
-const UNIT_PAGE_SIZE = 150;
-const MAX_UNIT_PAGES = 50;
-const DETAIL_LIMIT = 500;
-
-// Keep this small until the API results are validated.
-const TEST_ORDER_LIMIT = 2;
-const REQUEST_CONCURRENCY = 2;
-
-function extractReportJwtToken(req) {
-    const headers =
-        req.context &&
-        req.context.http &&
-        req.context.http.headers
-            ? req.context.http.headers
-            : {};
-
-    const authorization = String(headers.authorization || "");
-
-    if (authorization.toLowerCase().startsWith("bearer ")) {
-        return authorization;
-    }
-
-    const tokenCookie = String(headers.cookie || "")
-        .split(";")
-        .map(value => value.trim())
-        .find(value => value.startsWith("token="));
-
-    return tokenCookie
-        ? "Bearer " + tokenCookie.substring(6)
-        : "";
-}
-
-function getResponseRows(response) {
-    const body = response && response.data
-        ? response.data
-        : {};
-
-    if (Array.isArray(body.data)) {
-        return body.data;
-    }
-
-    if (
-        body.data &&
-        Array.isArray(body.data.orderList)
-    ) {
-        return body.data.orderList;
-    }
-
-    if (Array.isArray(body.orderList)) {
-        return body.orderList;
-    }
-
-    return [];
-}
-
-async function postUsingFirstWorkingUrl(
-    jwtToken,
-    urls,
-    payload,
-    requestName
-) {
-    let lastError;
-
-    for (const url of urls) {
-        try {
-            return await getAxios(jwtToken, url).post("", payload);
-        } catch (error) {
-            lastError = error;
-
-            const status =
-                error &&
-                error.response &&
-                error.response.status
-                    ? error.response.status
-                    : "unknown";
-
-            console.log(
-                requestName +
-                " failed at " +
-                url +
-                ". Status: " +
-                status
-            );
-        }
-    }
-
-    throw lastError || new Error(requestName + " failed.");
-}
-
-async function getUsingFirstWorkingUrl(
-    jwtToken,
-    urls,
-    requestName
-) {
-    let lastError;
-
-    for (const url of urls) {
-        try {
-            return await getAxios(jwtToken, url).get("");
-        } catch (error) {
-            lastError = error;
-
-            const status =
-                error &&
-                error.response &&
-                error.response.status
-                    ? error.response.status
-                    : "unknown";
-
-            console.log(
-                requestName +
-                " failed at " +
-                url +
-                ". Status: " +
-                status
-            );
-        }
-    }
-
-    throw lastError || new Error(requestName + " failed.");
-}
-
-async function mapWithConcurrency(items, limit, worker) {
-    const results = new Array(items.length);
-    let nextIndex = 0;
-
-    async function runWorker() {
-        while (nextIndex < items.length) {
-            const index = nextIndex;
-            nextIndex += 1;
-            results[index] = await worker(items[index], index);
-        }
-    }
-
-    const workers = [];
-
-    for (
-        let index = 0;
-        index < Math.min(limit, items.length);
-        index += 1
-    ) {
-        workers.push(runWorker());
-    }
-
-    await Promise.all(workers);
-    return results;
-}
-
-function getUnitKey(unit) {
-    const serialNo = String(unit.serialNo || "").trim();
-
-    if (serialNo && serialNo.toUpperCase() !== "N/A") {
-        return "SERIAL:" + serialNo.toUpperCase();
-    }
-
-    const lotNo = String(unit.lotNo || "").trim();
-
-    if (lotNo && lotNo.toUpperCase() !== "N/A") {
-        return "LOT:" + lotNo.toUpperCase();
-    }
-
-    return "";
-}
-
-function getStatusValue(row) {
-    return String(
-        row.serialOperStatus ||
-        row.serialStatus ||
-        row.operStatus ||
-        row.operationStatus ||
-        row.status ||
-        ""
-    ).trim();
-}
-
-function isCompletedStatus(value) {
-    const status = String(value || "")
-        .trim()
-        .toUpperCase()
-        .replace(/[\s_-]+/g, "");
-
-    if (
-        status.includes("NOTCOMPLETE") ||
-        status.includes("INCOMPLETE")
-    ) {
-        return false;
-    }
-
-    return [
-        "PASS",
-        "PASSED",
-        "COMPLETE",
-        "COMPLETED",
-        "CLOSE",
-        "CLOSED"
-    ].includes(status);
-}
-
-function isPmaUnit(unit) {
-    const unitType = String(
-        unit.unitType ||
-        unit.itemType ||
-        ""
-    ).trim().toUpperCase();
-
-    return unitType === "PMA";
-}
-
-async function getAllUnits(jwtToken) {
-    const baseUrl = process.env.IBA_SERVICE;
-    const urls = [
-        baseUrl +
-            "/solumina-G8/api/v1.0/dispatch/productionControl/units/list",
-        baseUrl +
-            "/solumina-G8/api/dispatch/productionControl/units/list",
-        baseUrl +
-            "/api/dispatch/productionControl/units/list"
-    ];
-
-    const allUnits = [];
-    let previousPageSignature = "";
-
-    for (
-        let pageIndex = 0;
-        pageIndex < MAX_UNIT_PAGES;
-        pageIndex += 1
-    ) {
-        const response = await postUsingFirstWorkingUrl(
-            jwtToken,
-            urls,
-            {
-                filter: null,
-                pagination: {
-                    pageIndex: pageIndex,
-                    limit: UNIT_PAGE_SIZE
-                }
-            },
-            "Unit-list request"
-        );
-
-        const pageRows = getResponseRows(response);
-
-        if (pageRows.length === 0) {
-            break;
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 14mm;
         }
 
-        const pageSignature = pageRows
-            .slice(0, 5)
-            .map(unit =>
-                String(unit.orderId || "") +
-                "|" +
-                String(unit.serialId || "") +
-                "|" +
-                String(unit.lotId || "")
-            )
-            .join("~");
-
-        if (
-            pageIndex > 0 &&
-            pageSignature === previousPageSignature
-        ) {
-            console.log(
-                "Pagination returned the same unit page twice. Stopping."
-            );
-            break;
+        * {
+            box-sizing: border-box;
         }
 
-        previousPageSignature = pageSignature;
-        allUnits.push(...pageRows);
-
-        const body = response.data || {};
-        const hasMore =
-            body.meta &&
-            (
-                body.meta.hasMore === true ||
-                body.meta.hasMore === "true"
-            );
-
-        if (!hasMore && pageRows.length < UNIT_PAGE_SIZE) {
-            break;
-        }
-    }
-
-    return allUnits;
-}
-
-async function getOrderInfo(jwtToken, orderId) {
-    const baseUrl = process.env.IBA_SERVICE;
-    const encodedOrderId = encodeURIComponent(orderId);
-
-    const urls = [
-        baseUrl +
-            "/solumina-G8/api/v1.0/productionControlExpediter/view/orders/" +
-            encodedOrderId +
-            "/info",
-        baseUrl +
-            "/solumina-G8/api/productionControlExpediter/view/orders/" +
-            encodedOrderId +
-            "/info",
-        baseUrl +
-            "/api/productionControlExpediter/view/orders/" +
-            encodedOrderId +
-            "/info"
-    ];
-
-    const response = await getUsingFirstWorkingUrl(
-        jwtToken,
-        urls,
-        "Order-info request"
-    );
-
-    const rows = getResponseRows(response);
-
-    if (rows.length > 0) {
-        return rows[0];
-    }
-
-    const body = response.data || {};
-
-    if (
-        body.data &&
-        !Array.isArray(body.data)
-    ) {
-        return body.data;
-    }
-
-    return {};
-}
-
-async function getOrderOperations(jwtToken, orderId) {
-    const baseUrl = process.env.IBA_SERVICE;
-
-    const urls = [
-        baseUrl +
-            "/solumina-G8/api/v1.0/dispatch/operations/workOrder/oper",
-        baseUrl +
-            "/solumina-G8/api/dispatch/operations/workOrder/oper",
-        baseUrl +
-            "/api/dispatch/operations/workOrder/oper"
-    ];
-
-    const response = await postUsingFirstWorkingUrl(
-        jwtToken,
-        urls,
-        {
-            orderId: orderId,
-            pagination: {
-                pageIndex: 0,
-                limit: DETAIL_LIMIT
-            }
-        },
-        "Operation request"
-    );
-
-    return getResponseRows(response);
-}
-
-async function getOperationSerialStatuses(
-    jwtToken,
-    orderId,
-    operationKey
-) {
-    const baseUrl = process.env.IBA_SERVICE;
-
-    const urls = [
-        baseUrl +
-            "/solumina-G8/api/v1.0/dispatch/operations/workOrder/oper/serialStatus",
-        baseUrl +
-            "/solumina-G8/api/dispatch/operations/workOrder/oper/serialStatus",
-        baseUrl +
-            "/api/dispatch/operations/workOrder/oper/serialStatus"
-    ];
-
-    const response = await postUsingFirstWorkingUrl(
-        jwtToken,
-        urls,
-        {
-            ordId: orderId,
-            operationKey: String(operationKey),
-            pagination: {
-                pageIndex: 0,
-                limit: DETAIL_LIMIT
-            }
-        },
-        "Operation serial-status request"
-    );
-
-    return getResponseRows(response);
-}
-
-async function analyzeOrder(jwtToken, orderGroup) {
-    const firstUnit = orderGroup.units[0];
-
-    let orderInfo = {};
-
-    try {
-        orderInfo = await getOrderInfo(
-            jwtToken,
-            orderGroup.orderId
-        );
-    } catch (error) {
-        console.log(
-            "Order information was unavailable for " +
-            (firstUnit.orderNo || orderGroup.orderId)
-        );
-    }
-
-    const operations = await getOrderOperations(
-        jwtToken,
-        orderGroup.orderId
-    );
-
-    const operationResults = await mapWithConcurrency(
-        operations,
-        REQUEST_CONCURRENCY,
-        async operation => {
-            const operationKey =
-                operation.operationKey !== undefined &&
-                operation.operationKey !== null
-                    ? operation.operationKey
-                    : operation.operKey;
-
-            if (
-                operationKey === undefined ||
-                operationKey === null
-            ) {
-                return null;
-            }
-
-            let statusRows = [];
-
-            try {
-                statusRows =
-                    await getOperationSerialStatuses(
-                        jwtToken,
-                        orderGroup.orderId,
-                        operationKey
-                    );
-            } catch (error) {
-                console.log(
-                    "Serial statuses were unavailable for operation " +
-                    (operation.operNo || operation.operationNo || "")
-                );
-
-                return null;
-            }
-
-            const completedSerials = new Set();
-            const detectedStatuses = new Set();
-
-            statusRows.forEach(statusRow => {
-                const statusValue = getStatusValue(statusRow);
-
-                if (statusValue) {
-                    detectedStatuses.add(statusValue);
-                }
-
-                if (!isCompletedStatus(statusValue)) {
-                    return;
-                }
-
-                const unitKey = getUnitKey(statusRow);
-
-                if (unitKey) {
-                    completedSerials.add(unitKey);
-                }
-            });
-
-            return {
-                programName:
-                    orderInfo.orderProgram ||
-                    orderInfo.program ||
-                    firstUnit.orderProgram ||
-                    firstUnit.program ||
-                    "",
-                job:
-                    orderInfo.orderNo ||
-                    firstUnit.orderNo ||
-                    "",
-                modelPointName:
-                    operation.operTitle ||
-                    operation.operationTitle ||
-                    "",
-                assembly:
-                    orderInfo.itemNo ||
-                    firstUnit.itemNo ||
-                    "",
-                operationNumber:
-                    operation.operNo ||
-                    operation.operationNo ||
-                    "",
-                completedSerials:
-                    Array.from(completedSerials),
-                detectedStatuses:
-                    Array.from(detectedStatuses)
-            };
-        }
-    );
-
-    return operationResults.filter(Boolean);
-}
-
-async function beforeRender(req, res) {
-    if (!req.data) {
-        req.data = {};
-    }
-
-    const jwtToken = extractReportJwtToken(req);
-
-    if (!jwtToken) {
-        throw new Error(
-            "The Solumina JWT token was not provided."
-        );
-    }
-
-    const allUnits = await getAllUnits(jwtToken);
-
-    const eligibleUnits = allUnits.filter(
-        unit => !isPmaUnit(unit)
-    );
-
-    const orderMap = new Map();
-
-    eligibleUnits.forEach(unit => {
-        const orderId = unit.orderId || unit.ordId;
-
-        if (!orderId) {
-            return;
+        body {
+            margin: 0;
+            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
         }
 
-        if (!orderMap.has(orderId)) {
-            orderMap.set(orderId, {
-                orderId: orderId,
-                units: []
-            });
+        h1 {
+            margin: 0 0 4px;
+            font-size: 25px;
+            font-weight: 500;
         }
 
-        orderMap.get(orderId).units.push(unit);
-    });
+        .subtitle {
+            margin-bottom: 18px;
+            color: #666;
+            font-size: 11px;
+        }
 
-    const allOrderGroups = Array.from(orderMap.values());
+        .diagnostic {
+            margin-bottom: 16px;
+            padding: 10px 12px;
+            border-left: 5px solid #e56620;
+            background: #f5f5f5;
+            line-height: 1.5;
+        }
 
-    const testedOrderGroups = allOrderGroups.slice(
-        0,
-        TEST_ORDER_LIMIT
-    );
+        .status-line {
+            margin-top: 5px;
+            font-weight: bold;
+        }
 
-    const analyzedOrders = await mapWithConcurrency(
-        testedOrderGroups,
-        REQUEST_CONCURRENCY,
-        orderGroup =>
-            analyzeOrder(jwtToken, orderGroup)
-    );
+        .metrics {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
 
-    const aggregateMap = new Map();
-    const detectedStatuses = new Set();
+        .metric {
+            width: 180px;
+            padding: 10px 12px;
+            border: 1px solid #d2d2d2;
+        }
 
-    analyzedOrders
-        .flat()
-        .forEach(result => {
-            result.detectedStatuses.forEach(status =>
-                detectedStatuses.add(status)
-            );
+        .metric-label {
+            color: #666;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
 
-            const aggregateKey = [
-                result.programName,
-                result.job,
-                result.modelPointName,
-                result.assembly
-            ].join("|");
+        .metric-value {
+            margin-top: 5px;
+            font-size: 20px;
+        }
 
-            if (!aggregateMap.has(aggregateKey)) {
-                aggregateMap.set(aggregateKey, {
-                    programName: result.programName,
-                    job: result.job,
-                    modelPointName: result.modelPointName,
-                    assembly: result.assembly,
-                    operationNumbers: new Set(),
-                    serials: new Set()
-                });
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
 
-            const aggregate = aggregateMap.get(aggregateKey);
+        thead {
+            display: table-header-group;
+        }
 
-            if (result.operationNumber) {
-                aggregate.operationNumbers.add(
-                    result.operationNumber
-                );
-            }
+        th {
+            padding: 9px 8px;
+            border: 1px solid #555;
+            background: #222;
+            color: white;
+            text-align: left;
+            font-size: 9px;
+        }
 
-            result.completedSerials.forEach(serial =>
-                aggregate.serials.add(serial)
-            );
-        });
+        td {
+            padding: 7px 8px;
+            border: 1px solid #aaa;
+            vertical-align: top;
+            overflow-wrap: anywhere;
+        }
 
-    const performanceRows = Array.from(
-        aggregateMap.values()
-    ).map(row => ({
-        programName: row.programName,
-        job: row.job,
-        modelPointName: row.modelPointName,
-        assembly: row.assembly,
-        operationNumber:
-            Array.from(row.operationNumbers).join(", "),
-        completions: row.serials.size
-    }));
+        tbody tr:nth-child(even) {
+            background: #f3f3f3;
+        }
 
-    performanceRows.sort((left, right) =>
-        String(left.programName).localeCompare(
-            String(right.programName)
-        ) ||
-        String(left.job).localeCompare(
-            String(right.job)
-        ) ||
-        String(left.modelPointName).localeCompare(
-            String(right.modelPointName)
-        )
-    );
+        .program {
+            width: 18%;
+        }
 
-    req.data.performanceRows = performanceRows;
+        .job {
+            width: 18%;
+        }
 
-    // Temporary compatibility with the existing HTML.
-    req.data.orderList = performanceRows.map(row => ({
-        orderNo: row.job,
-        operationNo: row.operationNumber,
-        orderQuantity: "",
-        itemNo: row.assembly,
-        quantityCompleted: row.completions,
-        assembly: row.assembly,
-        lastWipPoint: row.modelPointName,
-        serialNo: "",
-        customer: row.programName,
-        job: row.job
-    }));
+        .model-point {
+            width: 30%;
+        }
 
-    req.data.unitsReviewed = eligibleUnits.length;
-    req.data.unitCount = eligibleUnits.length;
-    req.data.testedOrderCount = testedOrderGroups.length;
-    req.data.availableOrderCount = allOrderGroups.length;
-    req.data.detectedStatuses =
-        Array.from(detectedStatuses).join(", ") ||
-        "No operation statuses detected";
-    req.data.reportGeneratedAt =
-        new Date().toLocaleString("en-US");
-    req.data.isDiagnosticMode = true;
-}
+        .assembly {
+            width: 20%;
+        }
+
+        .completions {
+            width: 14%;
+            text-align: right;
+        }
+
+        .empty-message {
+            padding: 20px;
+            text-align: center;
+            color: #a00000;
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            color: #777;
+            font-size: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Performance by Assembly</h1>
+
+    <div class="subtitle">
+        Solumina completion-data diagnostic
+    </div>
+
+    <div class="diagnostic">
+        This test analyzes only the first
+        <strong>{{testedOrderCount}}</strong>
+        of
+        <strong>{{availableOrderCount}}</strong>
+        work orders. The limit prevents excessive API traffic while
+        the completion-status mapping is validated.
+
+        <div class="status-line">
+            Solumina operation statuses detected:
+            {{detectedStatuses}}
+        </div>
+    </div>
+
+    <div class="metrics">
+        <div class="metric">
+            <div class="metric-label">Unit records loaded</div>
+            <div class="metric-value">{{unitsReviewed}}</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-label">Available work orders</div>
+            <div class="metric-value">{{availableOrderCount}}</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-label">Orders tested</div>
+            <div class="metric-value">{{testedOrderCount}}</div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="program">Program Name</th>
+                <th class="job">Job / CID</th>
+                <th class="model-point">Model Point Name</th>
+                <th class="assembly">Assembly</th>
+                <th class="completions">Completions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each performanceRows}}
+                <tr>
+                    <td>{{programName}}</td>
+                    <td>{{job}}</td>
+                    <td>{{modelPointName}}</td>
+                    <td>{{assembly}}</td>
+                    <td class="completions">{{completions}}</td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="5" class="empty-message">
+                        No completed operation records matched the
+                        recognized statuses. Review the detected status
+                        values shown above.
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="footer-note">
+        Generated: {{reportGeneratedAt}}
+    </div>
+</body>
+</html>
