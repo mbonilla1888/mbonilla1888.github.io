@@ -1,5 +1,50 @@
-{{#with (getWatermarkText @root.req_group.orderStatus) as |watermarkText|}}
-    <div class="watermark-container">
-        <div class="watermark">{{watermarkText}}</div>
-    </div>
-{{/with}}
+<meta charset="UTF-8">
+
+<style>
+    .watermark-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+    }
+
+    .watermark {
+        color: rgba(0, 0, 0, 0.10);
+        font-weight: 300;
+        font-size: 30pt;
+        display: flex;
+        margin-bottom: 1.5cm;
+        margin-left: 0.7cm;
+    }
+</style>
+
+{{#each $pdf.pages}}
+    {{#if @index}}
+        <div style="page-break-before: always;"></div>
+    {{/if}}
+
+    {{#eq req_group.orderStatus "CLOSE"}}
+    {{else}}
+        {{#eq req_group.orderStatus "CLOSED"}}
+        {{else}}
+            <div class="watermark-container">
+                <div class="watermark">
+                    {{#eq req_group.orderStatus "CANCEL"}}
+                        Canceled
+                    {{else}}
+                        {{#eq req_group.orderStatus "CANCELED"}}
+                            Canceled
+                        {{else}}
+                            {{#eq req_group.orderStatus "CANCELLED"}}
+                                Canceled
+                            {{else}}
+                                Order Not Complete
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                </div>
+            </div>
+        {{/eq}}
+    {{/eq}}
+{{/each}}
