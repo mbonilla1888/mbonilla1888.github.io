@@ -1,5 +1,19 @@
-{{#with (getWatermarkText group.orderStatus @root.$localizedResource.orderNotComplete) as |msg|}}
-    <div class="watermark-container">
-        <div class="watermark">{{msg}}</div>
-    </div>
-{{/with}}
+function getWatermarkText(orderStatus, orderNotCompleteText) {
+    const status = String(orderStatus || "")
+        .trim()
+        .toUpperCase();
+
+    if (status === "CLOSE" || status === "CLOSED") {
+        return "";
+    }
+
+    if (
+        status === "CANCEL" ||
+        status === "CANCELED" ||
+        status === "CANCELLED"
+    ) {
+        return "Canceled";
+    }
+
+    return orderNotCompleteText || "Order Not Complete";
+}
