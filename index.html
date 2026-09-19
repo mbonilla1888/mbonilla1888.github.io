@@ -1,32 +1,19 @@
-<meta charset="UTF-8">
+function getWatermarkText(orderStatus, orderNotCompleteText) {
+  const status = String(orderStatus || '')
+    .trim()
+    .toUpperCase()
 
-<style>
-    .watermark-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 100%;
-        height: 100%;
-    }
+  if (status === 'CLOSE' || status === 'CLOSED') {
+    return ''
+  }
 
-    .watermark {
-        color: rgba(0, 0, 0, 0.10);
-        font-weight: 300;
-        font-size: 30pt;
-        display: flex;
-        margin-bottom: 1.5cm;
-        margin-left: 0.7cm;
-    }
-</style>
+  if (
+    status === 'CANCEL' ||
+    status === 'CANCELED' ||
+    status === 'CANCELLED'
+  ) {
+    return 'Canceled'
+  }
 
-{{#each $pdf.pages}}
-    {{#if @index}}
-        <div style="page-break-before: always;"></div>
-    {{/if}}
-
-    {{#with (getWatermarkText group.orderStatus @root.$localizedResource.orderNotComplete) as |watermarkText|}}
-        <div class="watermark-container">
-            <div class="watermark">{{watermarkText}}</div>
-        </div>
-    {{/with}}
-{{/each}}
+  return orderNotCompleteText || 'Order Not Complete'
+}
