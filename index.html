@@ -24,19 +24,19 @@
         <div style="page-break-before: always;"></div>
     {{/if}}
 
-    {{#eq req_group.orderStatus "CLOSE"}}
+    {{#eq group.orderStatus "CLOSE"}}
     {{else}}
-        {{#eq req_group.orderStatus "CLOSED"}}
+        {{#eq group.orderStatus "CLOSED"}}
         {{else}}
             <div class="watermark-container">
                 <div class="watermark">
-                    {{#eq req_group.orderStatus "CANCEL"}}
+                    {{#eq group.orderStatus "CANCEL"}}
                         Canceled
                     {{else}}
-                        {{#eq req_group.orderStatus "CANCELED"}}
+                        {{#eq group.orderStatus "CANCELED"}}
                             Canceled
                         {{else}}
-                            {{#eq req_group.orderStatus "CANCELLED"}}
+                            {{#eq group.orderStatus "CANCELLED"}}
                                 Canceled
                             {{else}}
                                 Order Not Complete
