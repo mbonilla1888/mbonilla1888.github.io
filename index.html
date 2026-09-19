@@ -1,37 +1,7 @@
-async function getUnitOrderInfo(jwtToken, unit) {
-    const baseUrl = process.env.IBA_SERVICE;
-    const urls = [
-        baseUrl +
-            "/solumina-G8/api/v1.0/dispatch/productionControl/units/order/list",
-        baseUrl +
-            "/solumina-G8/api/dispatch/productionControl/units/order/list",
-        baseUrl +
-            "/api/dispatch/productionControl/units/order/list"
-    ];
+function isCompletedStatus(value) {
+    const status = String(value || "")
+        .trim()
+        .toUpperCase();
 
-    const response = await postUsingFirstWorkingUrl(
-        jwtToken,
-        urls,
-        {
-            itemNo: unit.itemNo,
-            lotId: unit.lotId,
-            serialId: unit.serialId,
-            pagination: {
-                pageIndex: 0,
-                limit: DETAIL_LIMIT
-            }
-        },
-        "Unit-order request"
-    );
-
-    const rows = getResponseRows(response);
-
-    return (
-        rows.find(row =>
-            String(row.orderId || "") ===
-            String(unit.orderId || "")
-        ) ||
-        rows[0] ||
-        {}
-    );
+    return status === "COMPLETE";
 }
