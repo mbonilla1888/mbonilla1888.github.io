@@ -1,210 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+async function getUnitOrderInfo(jwtToken, unit) {
+    const baseUrl = process.env.IBA_SERVICE;
+    const urls = [
+        baseUrl +
+            "/solumina-G8/api/v1.0/dispatch/productionControl/units/order/list",
+        baseUrl +
+            "/solumina-G8/api/dispatch/productionControl/units/order/list",
+        baseUrl +
+            "/api/dispatch/productionControl/units/order/list"
+    ];
 
-    <style>
-        @page {
-            size: A4 landscape;
-            margin: 14mm;
-        }
+    const response = await postUsingFirstWorkingUrl(
+        jwtToken,
+        urls,
+        {
+            itemNo: unit.itemNo,
+            lotId: unit.lotId,
+            serialId: unit.serialId,
+            pagination: {
+                pageIndex: 0,
+                limit: DETAIL_LIMIT
+            }
+        },
+        "Unit-order request"
+    );
 
-        * {
-            box-sizing: border-box;
-        }
+    const rows = getResponseRows(response);
 
-        body {
-            margin: 0;
-            color: #222;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10px;
-        }
-
-        h1 {
-            margin: 0 0 4px;
-            font-size: 25px;
-            font-weight: 500;
-        }
-
-        .subtitle {
-            margin-bottom: 18px;
-            color: #666;
-            font-size: 11px;
-        }
-
-        .diagnostic {
-            margin-bottom: 16px;
-            padding: 10px 12px;
-            border-left: 5px solid #e56620;
-            background: #f5f5f5;
-            line-height: 1.5;
-        }
-
-        .status-line {
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .metrics {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 16px;
-        }
-
-        .metric {
-            width: 180px;
-            padding: 10px 12px;
-            border: 1px solid #d2d2d2;
-        }
-
-        .metric-label {
-            color: #666;
-            font-size: 9px;
-            text-transform: uppercase;
-        }
-
-        .metric-value {
-            margin-top: 5px;
-            font-size: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-        }
-
-        thead {
-            display: table-header-group;
-        }
-
-        th {
-            padding: 9px 8px;
-            border: 1px solid #555;
-            background: #222;
-            color: white;
-            text-align: left;
-            font-size: 9px;
-        }
-
-        td {
-            padding: 7px 8px;
-            border: 1px solid #aaa;
-            vertical-align: top;
-            overflow-wrap: anywhere;
-        }
-
-        tbody tr:nth-child(even) {
-            background: #f3f3f3;
-        }
-
-        .program {
-            width: 18%;
-        }
-
-        .job {
-            width: 18%;
-        }
-
-        .model-point {
-            width: 30%;
-        }
-
-        .assembly {
-            width: 20%;
-        }
-
-        .completions {
-            width: 14%;
-            text-align: right;
-        }
-
-        .empty-message {
-            padding: 20px;
-            text-align: center;
-            color: #a00000;
-        }
-
-        .footer-note {
-            margin-top: 10px;
-            color: #777;
-            font-size: 8px;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>Performance by Assembly</h1>
-
-    <div class="subtitle">
-        Solumina completion-data diagnostic
-    </div>
-
-    <div class="diagnostic">
-        This test analyzes only the first
-        <strong>{{testedOrderCount}}</strong>
-        of
-        <strong>{{availableOrderCount}}</strong>
-        work orders. The limit prevents excessive API traffic while
-        the completion-status mapping is validated.
-
-        <div class="status-line">
-            Solumina operation statuses detected:
-            {{detectedStatuses}}
-        </div>
-    </div>
-
-    <div class="metrics">
-        <div class="metric">
-            <div class="metric-label">Unit records loaded</div>
-            <div class="metric-value">{{unitsReviewed}}</div>
-        </div>
-
-        <div class="metric">
-            <div class="metric-label">Available work orders</div>
-            <div class="metric-value">{{availableOrderCount}}</div>
-        </div>
-
-        <div class="metric">
-            <div class="metric-label">Orders tested</div>
-            <div class="metric-value">{{testedOrderCount}}</div>
-        </div>
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th class="program">Program Name</th>
-                <th class="job">Job / CID</th>
-                <th class="model-point">Model Point Name</th>
-                <th class="assembly">Assembly</th>
-                <th class="completions">Completions</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            {{#each performanceRows}}
-                <tr>
-                    <td>{{programName}}</td>
-                    <td>{{job}}</td>
-                    <td>{{modelPointName}}</td>
-                    <td>{{assembly}}</td>
-                    <td class="completions">{{completions}}</td>
-                </tr>
-            {{else}}
-                <tr>
-                    <td colspan="5" class="empty-message">
-                        No completed operation records matched the
-                        recognized statuses. Review the detected status
-                        values shown above.
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
-
-    <div class="footer-note">
-        Generated: {{reportGeneratedAt}}
-    </div>
-</body>
-</html>
+    return (
+        rows.find(row =>
+            String(row.orderId || "") ===
+            String(unit.orderId || "")
+        ) ||
+        rows[0] ||
+        {}
+    );
+}
