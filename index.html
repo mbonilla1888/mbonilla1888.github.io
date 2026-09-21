@@ -1,50 +1,81 @@
-<meta charset="UTF-8">
+D TEAM / MANUFACTURING SYSTEMS — WEEKLY IOI
+Week Ending: [Date]
 
-<style>
-    .watermark-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 100%;
-        height: 100%;
-    }
+CURRENT SCOPE
+Transitioning into the D Team Group Lead role next week while supporting IPT/CAM activities, D Team operational improvements, State College ZEUS deployment, and Solumina reporting.
 
-    .watermark {
-        color: rgba(0, 0, 0, 0.10);
-        font-weight: 300;
-        font-size: 30pt;
-        display: flex;
-        margin-bottom: 1.5cm;
-        margin-left: 0.7cm;
-    }
-</style>
+HIGHLIGHTS / ACCOMPLISHMENTS
 
-{{#each $pdf.pages}}
-    {{#if @index}}
-        <div style="page-break-before: always;"></div>
-    {{/if}}
+[D Team – Vendor Qualification]
 
-    {{#eq group.orderStatus "CLOSE"}}
-    {{else}}
-        {{#eq group.orderStatus "CLOSED"}}
-        {{else}}
-            <div class="watermark-container">
-                <div class="watermark">
-                    {{#eq group.orderStatus "CANCEL"}}
-                        Canceled
-                    {{else}}
-                        {{#eq group.orderStatus "CANCELED"}}
-                            Canceled
-                        {{else}}
-                            {{#eq group.orderStatus "CANCELLED"}}
-                                Canceled
-                            {{else}}
-                                Order Not Complete
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
-                </div>
-            </div>
-        {{/eq}}
-    {{/eq}}
-{{/each}}
+• Accelerated a previously stalled vendor-qualification effort and delivered a finalized questionnaire within one week of joining the effort.
+
+• Led cross-functional working sessions involving IPT, Quality, technical leads, and supplier-management representatives.
+
+• Converted individual vendor preferences into defined technical, quality, inspection, continuity, and manufacturing-capability criteria.
+
+• Drafted the initial 20 questions, expanded the framework to 30 questions, and facilitated consolidation of approximately 60 team inputs into the final formatted package.
+
+• The questionnaire is ready for Program Manager review and distribution, providing a consistent, evidence-based method for evaluating and ranking potential vendors.
+
+[D Team – Digital Operations]
+
+• Built the initial D Team SharePoint operations hub, including:
+– Power Apps tool-status dashboard
+– Microsoft List for tool status and issue tracking
+– Chemical-request form
+– Temperature and humidity monitoring
+
+• Walked the production floor to identify the current tool population and locations, establishing the foundation for tracking equipment availability, downtime, and recurring issues.
+
+• The hub is pilot-ready and is planned for introduction following the Group Lead transition and team introduction.
+
+[Solumina Digital Transformation]
+
+• Completed 2 of 12 priority Solumina reports required for the November pilot.
+
+• Current progress is aligned with the delivery plan; report completion will continue weekly as allocated support time permits.
+
+LOWLIGHTS / WATCH ITEMS
+
+[D Team – Environmental Conditions]
+
+• Elevated temperature conditions have been observed in the room housing one of the tools, with temperatures reported in the 80–90°F range.
+
+• Temperature and humidity data are being collected to quantify the conditions and support an informed facilities assessment.
+
+• Leadership assistance requested: Identify the appropriate Facilities contact and evaluate improved environmental controls or relocation of the tool to a suitable production space.
+
+[D Team – Safety and Incident Visibility]
+
+• A consistent internal method for capturing safety observations, near misses, incidents, corrective actions, and closure status has not yet been established.
+
+• A recent event reinforced the need for better visibility and follow-through.
+
+• Proposed action: Develop a simple SharePoint/Gemba tracking process aligned with the formal Environmental Health and Safety reporting process.
+
+[Solumina – Resource Dependency]
+
+• Completion of the remaining priority reports depends on preserving the currently allocated Solumina support hours while the D Team Group Lead responsibilities are introduced.
+
+UPCOMING EVENTS / MILESTONES
+
+[D Team]
+
+• Next week — Transition into the Group Lead role and introduction to approximately 10 D Team engineering technicians.
+
+• Following team introduction — Launch the SharePoint operations hub, tool-status reporting, issue tracking, and chemical-request process.
+
+• Initiate a recurring D Team Gemba process to identify barriers, assign owners and due dates, and track actions through closure.
+
+[State College ZEUS]
+
+• End of September — Conduct the ZEUS MES pilot using parallel tracking with the existing paper travelers.
+
+• Provide user training, gather feedback, and identify changes needed before broader adoption.
+
+[Solumina Digital Transformation]
+
+• Continue development of the 12 priority reports supporting the November pilot.
+
+• Current status: 2 of 12 completed. Next reporting target: 3 of 12 completed.
