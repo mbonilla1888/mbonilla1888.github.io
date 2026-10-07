@@ -6,7 +6,7 @@
 
   <title>MES &amp; Manufacturing Systems | Manuel Bonilla, Ph.D.</title>
 
-  <meta name="description" content="Manufacturing Execution System architecture and implementation across digital production, manufacturing models, quality, equipment, analytics, automation, governance, training, and multi-site adoption.">
+  <meta name="description" content="Manufacturing Execution Systems leadership across Eyelit, ZEUS, and Solumina/iBaseT, including platform recovery, multi-site enablement, reporting, analytics, governance, training, and connected manufacturing.">
 
   <style>
     * {
@@ -496,10 +496,11 @@
         </p>
 
         <div class="hero-summary">
-          I independently recovered and deployed a department MES for approximately
-          200 users, then expanded into cross-site Eyelit architecture, administrator
-          enablement, implementation planning, an internally developed Zeus implementation,
-          and current iBaseT Solumina work within a segment-wide digital-transformation program.
+          I brought a stalled Eyelit investment into production in approximately
+          three months, expanded the architecture into a multi-site enablement and
+          escalation model, support direct Eyelit and ZEUS user populations, and now
+          lead development and remediation of a 17-report Solumina/iBaseT pilot portfolio
+          within a segment-wide digital-transformation program.
         </div>
       </div>
 
@@ -537,23 +538,23 @@
 
       <div class="impact-grid">
         <div class="impact-card">
-          <span class="impact-value">~200 Users</span>
-          <p>Production Eyelit MES deployment for semiconductor manufacturing, including governance, administration, adoption, and sustainment.</p>
+          <span class="impact-value">~250–300 Direct</span>
+          <p>Combined Eyelit and ZEUS user scope supported through direct ownership, implementation, administration, and problem solving.</p>
         </div>
 
         <div class="impact-card">
-          <span class="impact-value">50–100 Users</span>
-          <p>Separate Palm Bay Circuit Card Assembly (CCA) Eyelit implementation currently being planned and structured.</p>
+          <span class="impact-value">~300 Indirect</span>
+          <p>Users enabled through trained site administrators and managers, with complex questions and escalations routed to me.</p>
         </div>
 
         <div class="impact-card">
-          <span class="impact-value">5 U.S. Sites</span>
-          <p>Eyelit and Zeus responsibilities spanning direct ownership, reference architecture, site enablement, and current implementation workstreams.</p>
+          <span class="impact-value">3 MES Platforms</span>
+          <p>Eyelit, ZEUS, and Solumina/iBaseT responsibilities spanning direct ownership, consulting, reporting, and transformation work.</p>
         </div>
 
         <div class="impact-card">
-          <span class="impact-value">100+ Trained</span>
-          <p>User, engineer, and administrator training supporting adoption and local ownership.</p>
+          <span class="impact-value">17-Report Pilot</span>
+          <p>Solumina/iBaseT manufacturing-reporting backlog under active development and remediation for planned segment expansion.</p>
         </div>
       </div>
     </section>
@@ -565,10 +566,10 @@
         <div class="case-block">
           <h3>Situation &amp; Ownership</h3>
           <p>
-            <span class="case-label">Situation:</span> Earlier implementation efforts
-            had not produced a sustainable production system, while the manufacturing
-            department still depended heavily on paper and disconnected processes for
-            semiconductor production.
+            <span class="case-label">Situation:</span> An estimated $300K software
+            investment and approximately $200K in prior implementation effort had not
+            produced a sustainable production system. The manufacturing department still
+            depended heavily on paper, Word-based travelers, and disconnected processes.
           </p>
           <p>
             <span class="case-label">Ownership:</span> I assumed direct responsibility
@@ -587,9 +588,29 @@
             troubleshooting, and continued expansion.
           </p>
           <p>
-            <span class="case-label">Outcome:</span> Delivered a sustainable MES used
-            by approximately 200 personnel for digital production execution, asset and
-            equipment control, quality workflows, data collection, analytics, and reporting.
+            <span class="case-label">Outcome:</span> Brought Eyelit into production in
+            approximately three months and established a sustainable MES used by roughly
+            200 personnel for digital execution, equipment control, quality workflows,
+            data collection, analytics, visualization, and reporting.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <h3>Investment &amp; Time Preserved</h3>
+          <p>
+            The recovery preserved the value of the existing software and implementation
+            investment and avoided immediately restarting with another costly, multiyear
+            MES selection and development effort.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <h3>Annual Department Cost Avoidance</h3>
+          <p>
+            As the platform gained broader enterprise interest, headquarters assumed the
+            estimated $150K annual base licensing cost. This created approximately $150K
+            per year in cost avoidance for the local Microelectronics department; added
+            users and sites create separate enterprise licensing costs.
           </p>
         </div>
       </div>
@@ -818,13 +839,72 @@
     </section>
 
     <section class="section">
+      <h2>Solumina/iBaseT Manufacturing Reporting</h2>
+
+      <p>
+        Within the segment digital-transformation team, I own development and
+        remediation of a 17-report pilot backlog. When I entered the effort, two
+        reports existed and both still required correction. The number 17 describes
+        the current pilot scope—not the number of reports already completed—and the
+        reporting need is expected to continue beyond the pilot.
+      </p>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Reporting Development</h3>
+          <ul>
+            <li>Translate manufacturing questions into report requirements and data mappings</li>
+            <li>Build and troubleshoot jsreport templates using HTML and Handlebars</li>
+            <li>Work with JSON returned through Solumina API requests</li>
+            <li>Develop manufacturing tables, status views, formatting, and pagination</li>
+            <li>Investigate printing, PDF generation, shared links, filtering, sorting, and export needs</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3>Data Validation &amp; Technical Investigation</h3>
+          <ul>
+            <li>Use browser developer tools to inspect requests, methods, payloads, responses, and report behavior</li>
+            <li>Reconcile order status, unit status, operation completion, completed quantity, and field availability</li>
+            <li>Validate pagination, dates, numerical formatting, and record inclusion logic</li>
+            <li>Compare existing Solumina and Fusion reporting patterns where relevant</li>
+            <li>Determine whether available system data actually supports the requested business metric</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <h3>Early Performance Validation</h3>
+          <p>
+            An early Active WIP Aging implementation executed in approximately four
+            to eight seconds in the observed test environment. One documented run
+            retrieved 252 orders and displayed 183 active records in roughly eight seconds.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <h3>Current Status &amp; Future Scale</h3>
+          <p>
+            Report development, field mapping, quantity validation, output behavior,
+            and portfolio remediation remain active work. The planned Solumina rollout
+            across Palm Bay, Malabar, Tempe, Mason, and Londonderry could ultimately
+            serve thousands of segment users, but that future audience is not counted
+            as a current production deployment or direct support population.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Multi-Site &amp; Segment MES Scope</h2>
 
       <p>
-        My responsibilities span three MES environments and range from direct system
-        ownership to reference architecture, administrator enablement, implementation
-        advising, and current workstream leadership. The distinctions below reflect
-        the actual platform, manufacturing scope, and role at each location or program.
+        My responsibilities span three MES environments. Current direct and advisory
+        coverage touches Palm Bay, State College, Tempe, Mason, and Londonderry, while
+        the planned Solumina segment deployment includes Palm Bay, Malabar, Tempe,
+        Mason, and Londonderry. The distinctions below reflect my actual role and avoid
+        combining current users with future deployment populations.
       </p>
 
       <div class="site-grid">
@@ -834,23 +914,19 @@
         </div>
 
         <div class="site-card">
-          <h3>Palm Bay, Florida — Eyelit Circuit Card Assembly</h3>
-          <p>Lead planning and activity tracking for a separate Eyelit Circuit Card Assembly implementation expected to support approximately 50–100 MES users.</p>
-        </div>
-
-        <div class="site-card">
           <h3>Tempe, Arizona; Mason, Ohio; Londonderry, New Hampshire — Eyelit</h3>
-          <p>Reference Eyelit architect and implementation advisor supporting manufacturing areas that include semiconductors, power supplies, and other products. Scope includes roadmaps, governance, workflow standardization, training curricula, and future local-administrator enablement.</p>
+          <p>Serve as the Eyelit reference architect and escalation-level consultant. Built sandboxes, trained local MES administrators, helped plan budget and scope, supported SOP and vendor implementation planning, and provided roadmaps, curricula, role definitions, executive demonstrations, and approximately 40-slide training packages.</p>
         </div>
 
         <div class="site-card">
           <h3>State College, Pennsylvania — Zeus Circuit Card Assembly</h3>
-          <p>Currently lead selected Circuit Card Assembly implementation workstreams using Zeus, an internally developed MES. Responsibilities include work instructions, team training, developer and Information Technology coordination, task assignment, scheduling, and dependency tracking.</p>
+          <p>Provide direct manufacturing-system support for approximately 50 users of ZEUS, including implementation workstreams, work instructions, team training, troubleshooting, developer and Information Technology coordination, task assignment, scheduling, and dependency tracking.</p>
         </div>
 
         <div class="site-card">
           <h3>Segment-Wide Digital Transformation — iBaseT Solumina</h3>
-          <p>Recently joined the segment-level iBaseT Solumina program supporting multiple manufacturing areas. Current contributions include manufacturing-workflow support, equipment-integration and data requirements, testing, troubleshooting, and technical coordination within the broader digital-transformation solution.</p>
+          <p>Serve as a reporting lead and manufacturing-systems contributor for the planned Palm Bay, Malabar, Tempe, Mason, and Londonderry deployment. Current work includes the 17-report pilot backlog, API and data investigation, reporting templates, manufacturing-workflow support, equipment-integration requirements, testing, troubleshooting, and technical coordination.</p>
+          <p>The program remains in development. Its potential audience of thousands is future segment scale, not a current deployed-user count.</p>
         </div>
       </div>
     </section>
@@ -863,9 +939,10 @@
           <h3>Eyelit MES — Direct &amp; Cross-Site Leadership</h3>
           <ul>
             <li>Direct Palm Bay semiconductor deployment and sustainment</li>
-            <li>Separate Palm Bay Circuit Card Assembly implementation planning</li>
-            <li>Tempe, Mason, and Londonderry reference architecture and enablement</li>
-            <li>Configuration, governance, training, troubleshooting, and expansion</li>
+            <li>Approximately 200 direct Palm Bay users</li>
+            <li>Tempe, Mason, and Londonderry reference architecture, administrator enablement, and escalation support</li>
+            <li>Approximately 300 additional users supported indirectly through trained site teams</li>
+            <li>Configuration, governance, training, reporting, troubleshooting, and expansion</li>
           </ul>
         </div>
 
@@ -873,26 +950,28 @@
           <h3>Zeus — State College Circuit Card Assembly</h3>
           <ul>
             <li>Implementation workstreams for an internally developed MES</li>
+            <li>Direct support scope of approximately 50 users</li>
             <li>Manufacturing-to-system requirement translation</li>
             <li>Work instructions, training, and operational readiness</li>
-            <li>Developer coordination and activity tracking</li>
+            <li>Troubleshooting, developer coordination, and activity tracking</li>
           </ul>
         </div>
 
         <div class="platform-card">
           <h3>iBaseT Solumina — Segment Digital Transformation</h3>
           <ul>
-            <li>Recently joined a segment-wide implementation program</li>
-            <li>Support across multiple manufacturing areas</li>
-            <li>Equipment-integration and data requirements</li>
-            <li>Testing, troubleshooting, workflow support, and technical coordination</li>
+            <li>Reporting lead for a 17-report pilot backlog under development and remediation</li>
+            <li>Planned deployment across Palm Bay, Malabar, Tempe, Mason, and Londonderry</li>
+            <li>Manufacturing workflows, APIs, data validation, templates, and equipment-integration requirements</li>
+            <li>Testing, troubleshooting, reporting support, and technical coordination</li>
           </ul>
         </div>
       </div>
 
       <p class="small">
-        Zeus and iBaseT Solumina responsibilities are ongoing contributions within
-        larger programs and are not presented as completed deployments under my sole ownership.
+        ZEUS responsibilities are part of a broader internal program. The Solumina
+        reporting portfolio and segment deployment remain in development and are not
+        presented as completed implementations under my sole ownership.
       </p>
     </section>
 
@@ -902,7 +981,10 @@
       <p>
         A production MES succeeds only when users understand it, administrators can
         maintain it, engineering owns the data, and the organization has a disciplined
-        method for testing changes and resolving problems.
+        method for testing changes and resolving problems. My cross-site model is designed
+        to create local capability rather than make every user dependent on me: trained
+        administrators handle routine support and escalate complex technical or governance
+        questions when needed.
       </p>
 
       <div class="detail-grid">
@@ -912,6 +994,8 @@
             <li>User Acceptance Testing (UAT) and production-readiness verification</li>
             <li>Work instructions and controlled documentation</li>
             <li>User, engineer, and administrator training</li>
+            <li>Sandbox environments for safe administrator learning and configuration practice</li>
+            <li>Executive demonstrations, curricula, roadmaps, and role-based responsibility models</li>
             <li>Dry runs, release planning, and production transition</li>
             <li>Role and permission verification</li>
           </ul>
@@ -924,6 +1008,7 @@
             <li>Enhancement requests and issue workflows</li>
             <li>Recurring operational and engineering reviews</li>
             <li>Vendor coordination and technical escalation</li>
+            <li>Budget, scope, SOP, and implementation-plan support for adopting sites</li>
             <li>Continuous expansion of manufacturing capabilities</li>
           </ul>
         </div>
