@@ -6,7 +6,7 @@
 
   <title>Manufacturing Data &amp; Systems Integration | Manuel Bonilla, Ph.D.</title>
 
-  <meta name="description" content="Manufacturing data architecture, systems integration, equipment connectivity, MES, SQL databases, dashboards, automation, and operational decision support.">
+  <meta name="description" content="Manufacturing data, reporting, and systems integration across MES APIs, Solumina/iBaseT reporting, equipment connectivity, databases, analytics, automation, and operational decision support.">
 
   <style>
     * {
@@ -432,10 +432,11 @@
         </p>
 
         <div class="hero-summary">
-          I work across that environment to define what manufacturing data means,
-          how it should move, how otherwise isolated systems should connect, and
-          how raw information becomes useful for execution, engineering, quality,
-          analytics, and action.
+          Alongside my management, IPT, and CAM responsibilities, I continue to work
+          directly with manufacturing data and digital systems. I define what the data
+          means, investigate how applications expose it, build operational reporting,
+          evaluate equipment connectivity, and translate raw information into execution,
+          engineering, quality, and program decisions.
         </div>
       </div>
 
@@ -576,31 +577,74 @@
     </section>
 
     <section class="section">
-      <h2>Current iBaseT Solumina Integration Work</h2>
+      <h2>Current Solumina/iBaseT Reporting &amp; Integration Work</h2>
+
+      <div class="current-work">
+        <span class="status-label">Current Technical Ownership</span>
+        <h3>Manufacturing Reporting Portfolio</h3>
+
+        <p>
+          Own development and remediation of a 17-report pilot backlog for the
+          segment digital-transformation team. Two reports existed when I entered the
+          effort and both still required correction. The 17-report figure represents
+          the current pilot scope—not a claim that all reports are complete—and the
+          portfolio is expected to expand as the program moves beyond the pilot.
+        </p>
+
+        <div class="card-grid">
+          <div class="detail-card">
+            <h3>Development &amp; Tooling</h3>
+            <ul>
+              <li>jsreport, HTML, and Handlebars report templates</li>
+              <li>JSON data returned through Solumina API requests</li>
+              <li>Browser developer tools for requests, payloads, responses, and system behavior</li>
+              <li>Tables, date and numerical formatting, pagination, and report layout</li>
+              <li>Printing, PDF, shared-link, filtering, sorting, and export investigation</li>
+            </ul>
+          </div>
+
+          <div class="detail-card">
+            <h3>Manufacturing Data Validation</h3>
+            <ul>
+              <li>Translate operational questions into requirements and data mappings</li>
+              <li>Reconcile order status, unit status, operation completion, and completed quantity</li>
+              <li>Investigate missing fields, pagination, record inclusion, and calculation behavior</li>
+              <li>Compare existing Solumina and Fusion reporting patterns where useful</li>
+              <li>Determine whether available data actually supports the requested metric</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          An early Active WIP Aging implementation executed in approximately four to
+          eight seconds in the observed test environment. One documented run retrieved
+          252 orders and displayed 183 active records in roughly eight seconds.
+        </p>
+      </div>
 
       <div class="current-work">
         <span class="status-label">Current Program Contribution</span>
         <h3>Automated Optical Inspection Data &amp; Equipment Connectivity</h3>
 
         <p>
-          As part of a segment-wide iBaseT Solumina digital-transformation program,
-          I recently joined work involving the integration of manufacturing equipment
-          and data across multiple production areas. One current use case involves a
-          Koh Young Automated Optical Inspection (AOI) system and the path required to
-          make inspection information available to the broader manufacturing architecture.
+          One current use case involves a Koh Young Automated Optical Inspection (AOI)
+          system and the path required to make inspection information available to the
+          broader manufacturing architecture. My contribution focuses on manufacturing
+          requirements, vendor questions, data needs, interface behavior, and technical
+          coordination.
         </p>
 
         <p>
-          My contribution is focused on manufacturing requirements, vendor questions,
-          data needs, interface behavior, and technical coordination. Technologies being
-          evaluated or discussed include IPC Connected Factory Exchange (IPC-CFX),
-          Advanced Message Queuing Protocol (AMQP), Ignition, and enterprise middleware.
+          Technologies being evaluated include IPC Connected Factory Exchange
+          (IPC-CFX), Advanced Message Queuing Protocol (AMQP), Ignition, and enterprise
+          middleware as possible alternatives or complements to existing integration methods.
         </p>
       </div>
 
       <p class="small">
-        This is ongoing planning and implementation support within a larger program;
-        it is not presented as a completed integration solely designed or deployed by me.
+        Reporting development, field mapping, quantity validation, and equipment
+        integration remain ongoing. These items are not presented as completed segment
+        deployments, finished integrations, or solutions designed solely by me.
       </p>
     </section>
 
@@ -608,10 +652,11 @@
       <h2>Databases &amp; Manufacturing Data Models</h2>
 
       <p>
-        I use database access to understand what is happening behind a manufacturing
-        application rather than relying only on what the user interface exposes.
-        Microsoft SQL Server and Structured Query Language (SQL) are practical tools
-        for investigating data, validating behavior, and supporting reporting.
+        In prior and continuing manufacturing-systems work outside the current Solumina
+        report-development method, I use database access to understand what is happening
+        behind an application rather than relying only on what the user interface exposes.
+        Microsoft SQL Server and Structured Query Language (SQL) are practical tools for
+        investigating data, validating behavior, and supporting reporting.
       </p>
 
       <div class="card-grid">
@@ -679,6 +724,29 @@
     </section>
 
     <section class="section">
+      <h2>Operational Analytics Roadmap</h2>
+
+      <div class="current-work">
+        <span class="status-label">In Development</span>
+        <h3>From Visibility Toward Predictive Operations</h3>
+
+        <p>
+          My next-stage objective is to connect reliable transaction and equipment data
+          to better planning decisions. Current concepts under development include yield
+          and defect visibility, WIP aging, parts-flow forecasting, schedule risk,
+          labor-capacity signals, preventive-maintenance planning, and consumables needs.
+        </p>
+
+        <p>
+          These are roadmap objectives rather than completed predictive models. The first
+          requirement is trustworthy definitions, complete source data, accountable
+          ownership, and repeatable reporting; predictive metrics should be added only
+          after that foundation is proven.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Integration Requirements &amp; Technical Coordination</h2>
 
       <p>
@@ -725,6 +793,14 @@
         what information should move, why it matters, and how manufacturing will use it.
         Connected operations are successful when the data path ends in a reliable action,
         not merely in another database.
+      </p>
+
+      <p>
+        As an engineering manager and program leader, I use this technical depth to
+        improve requirements, challenge weak assumptions, coordinate specialists, and
+        make better cost, schedule, supplier, and implementation decisions. I remain
+        hands-on where direct investigation is valuable, while building systems and
+        team capability that do not depend on one individual.
       </p>
 
       <div class="related-links">
