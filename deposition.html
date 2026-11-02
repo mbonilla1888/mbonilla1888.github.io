@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E1W9HQ8JG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-2E1W9HQ8JG');
+  </script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,14 +18,22 @@
 
   <meta
     name="description"
-    content="Thin-film deposition, vacuum systems, process engineering, equipment installation and ownership, ALD, PECVD, e-beam evaporation, sputtering, MBE, PLD, and CVD experience."
+    content="Thin-film deposition, vacuum systems, process engineering, equipment installation and ownership, ALD, PECVD, e-beam evaporation, thermal evaporation, sputtering, MBE, PLD, and CVD experience."
   >
 
   <style>
-
-    /* =========================================================
-       GLOBAL
-    ========================================================= */
+    :root {
+      --page: #111820;
+      --panel: #17212b;
+      --panel-dark: #0c141d;
+      --line: #34414d;
+      --line-soft: #28323c;
+      --accent: #72d6d0;
+      --text: #ffffff;
+      --muted: #c8d0d7;
+      --muted-light: #dfe5ea;
+      --muted-dark: #aab3bb;
+    }
 
     * {
       box-sizing: border-box;
@@ -30,21 +47,16 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #111820;
-      color: white;
+      background: var(--page);
+      color: var(--text);
       line-height: 1.6;
     }
-
-
-    /* =========================================================
-       STICKY HEADER
-    ========================================================= */
 
     .sticky-shell {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #111820;
+      background: var(--page);
     }
 
     header {
@@ -52,8 +64,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 7%;
-      background: #111820;
-      border-bottom: 1px solid #28323c;
+      background: var(--page);
+      border-bottom: 1px solid var(--line-soft);
     }
 
     .name {
@@ -69,32 +81,28 @@
     }
 
     nav a {
-      color: white;
+      color: var(--text);
       text-decoration: none;
       font-size: 15px;
       transition: color .2s ease;
     }
 
-    nav a:hover {
-      color: #72d6d0;
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent);
     }
 
     .page-bar {
       background: #151f28;
-      color: #72d6d0;
+      color: var(--accent);
       text-align: center;
       font-size: 13px;
       font-weight: bold;
       letter-spacing: 1.8px;
       text-transform: uppercase;
       padding: 8px 20px;
-      border-bottom: 1px solid #28323c;
+      border-bottom: 1px solid var(--line-soft);
     }
-
-
-    /* =========================================================
-       HERO
-    ========================================================= */
 
     .hero {
       max-width: 1200px;
@@ -112,21 +120,15 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: .9fr 1.1fr;
       gap: 45px;
-      align-items: stretch;
-    }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
     }
 
     .hero-text p {
       font-size: 18px;
       line-height: 1.7;
-      color: #c8d0d7;
+      color: var(--muted);
       margin-bottom: 22px;
     }
 
@@ -138,36 +140,27 @@
 
     .hero-image {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      overflow: hidden;
+      background: var(--panel-dark);
+      border: 1px solid var(--line);
+      border-radius: 10px;
     }
 
     .hero-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 340px;
-      object-fit: contain;
       display: block;
-      background: white;
-      border-radius: 10px;
-      border: 1px solid #34414d;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
     }
-
-
-    /* =========================================================
-       MAIN
-    ========================================================= */
 
     main {
       max-width: 1150px;
       margin: auto;
       padding: 0 6% 80px;
     }
-
-
-    /* =========================================================
-       CAPABILITY CARDS
-    ========================================================= */
 
     .capability-grid {
       display: grid;
@@ -177,21 +170,21 @@
     }
 
     .capability {
-      background: #17212b;
-      border: 1px solid #28323c;
-      border-top: 3px solid #72d6d0;
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      border-top: 3px solid var(--accent);
       border-radius: 10px;
       padding: 28px;
     }
 
     .capability h3 {
-      color: #72d6d0;
+      color: var(--accent);
       margin-bottom: 12px;
       font-size: 20px;
     }
 
     .capability p {
-      color: #c8d0d7;
+      color: var(--muted);
       font-size: 15px;
     }
 
@@ -203,15 +196,15 @@
     }
 
     .impact-card {
-      background: #111820;
-      border: 1px solid #34414d;
+      background: var(--page);
+      border: 1px solid var(--line);
       border-radius: 8px;
       padding: 22px;
     }
 
     .impact-value {
       display: block;
-      color: #72d6d0;
+      color: var(--accent);
       font-size: 23px;
       font-weight: bold;
       line-height: 1.2;
@@ -223,71 +216,30 @@
       margin-bottom: 0;
     }
 
-    .pump-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin: 25px 0;
-    }
-
-    .pump-card {
-      background: #111820;
-      border: 1px solid #34414d;
-      border-top: 3px solid #72d6d0;
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .pump-card span {
-      display: block;
-      color: #72d6d0;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: .08em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .pump-card h3 {
-      color: white;
-      font-size: 18px;
-      margin: 0 0 9px;
-    }
-
-    .pump-card p {
-      font-size: 14px;
-      margin-bottom: 0;
-    }
-
-
-    /* =========================================================
-       CONTENT SECTIONS
-    ========================================================= */
-
     .section {
-      background: #17212b;
-      border: 1px solid #28323c;
-      border-left: 4px solid #72d6d0;
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      border-left: 4px solid var(--accent);
       border-radius: 10px;
       padding: 35px;
       margin-bottom: 30px;
     }
 
     .section h2 {
-      color: #72d6d0;
+      color: var(--accent);
       font-size: 27px;
       margin-bottom: 18px;
     }
 
     .section h3 {
-      color: white;
+      color: var(--text);
       font-size: 20px;
       margin-top: 24px;
       margin-bottom: 12px;
     }
 
     .section p {
-      color: #c8d0d7;
+      color: var(--muted);
       margin-bottom: 18px;
     }
 
@@ -297,37 +249,96 @@
 
     .section li {
       margin-bottom: 9px;
-      color: #dfe5ea;
+      color: var(--muted-light);
     }
 
     .small {
       font-size: 14px;
-      color: #aab3bb;
+      color: var(--muted-dark);
     }
 
+    .pump-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 25px 0;
+    }
 
-    /* =========================================================
-       TECHNIQUE GRID
-    ========================================================= */
+    .pump-card {
+      background: var(--page);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .pump-card span {
+      display: block;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .pump-card h3 {
+      color: var(--text);
+      font-size: 18px;
+      margin: 0 0 9px;
+    }
+
+    .pump-card p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
 
     .technique-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
       margin-top: 25px;
     }
 
     .technique-card {
-      background: #111820;
-      border: 1px solid #34414d;
+      display: flex;
+      flex-direction: column;
+      background: var(--page);
+      border: 1px solid var(--line);
       border-radius: 8px;
       padding: 20px;
     }
 
     .technique-card h3 {
-      color: #72d6d0;
-      margin: 0 0 12px 0;
+      color: var(--accent);
+      margin: 0 0 12px;
       font-size: 20px;
+    }
+
+    /*
+      The figure and image rules below fix the white-band problem.
+      The image is not forced into a fixed-height white container.
+      It renders at its natural aspect ratio with no padding or margin.
+    */
+    .technique-figure {
+      width: 100%;
+      margin: 0 0 17px;
+      padding: 0;
+      overflow: hidden;
+      background: var(--panel-dark);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      line-height: 0;
+    }
+
+    .technique-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
     }
 
     .technique-card p {
@@ -335,52 +346,91 @@
       margin-bottom: 12px;
     }
 
-    .technique-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: contain;
-      display: block;
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 15px;
+    .technique-card p:last-child {
+      margin-bottom: 0;
     }
 
+    .technique-card strong {
+      color: var(--text);
+    }
 
-    /* =========================================================
-       ALD LARGE SEQUENCE
-    ========================================================= */
+    .experience-note {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--line-soft);
+      color: #dfe8ec !important;
+    }
+
+    .comparison-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+      background: var(--page);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .comparison-table th {
+      color: var(--accent);
+      background: #151f28;
+      font-size: 13px;
+      letter-spacing: .03em;
+    }
+
+    .comparison-table td:first-child {
+      color: var(--text);
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
 
     .ald-step {
-      background: #111820;
-      border: 1px solid #34414d;
+      background: var(--page);
+      border: 1px solid var(--line);
       border-radius: 10px;
       padding: 22px;
       margin-top: 24px;
     }
 
     .ald-step h3 {
-      color: #72d6d0;
+      color: var(--accent);
       font-size: 21px;
-      margin: 0 0 15px 0;
+      margin: 0 0 15px;
     }
 
     .ald-step img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
-      background: white;
+      margin: 0 0 15px;
+      padding: 0;
+      background: transparent;
+      border: 1px solid var(--line);
       border-radius: 8px;
-      margin-bottom: 15px;
     }
 
     .ald-step p {
       margin-bottom: 0;
     }
-
-
-    /* =========================================================
-       RELATED LINKS
-    ========================================================= */
 
     .related-links {
       display: flex;
@@ -389,26 +439,26 @@
       margin-top: 22px;
     }
 
-    .related-links a {
+    .related-links a,
+    .page-navigation a {
       display: inline-block;
-      border: 1px solid #72d6d0;
-      color: #72d6d0;
+      border: 1px solid var(--accent);
+      color: var(--accent);
       padding: 9px 14px;
       border-radius: 5px;
       text-decoration: none;
       font-size: 14px;
       font-weight: bold;
+      transition: all .2s ease;
     }
 
-    .related-links a:hover {
-      background: #72d6d0;
-      color: #111820;
+    .related-links a:hover,
+    .related-links a:focus-visible,
+    .page-navigation a:hover,
+    .page-navigation a:focus-visible {
+      background: var(--accent);
+      color: var(--page);
     }
-
-
-    /* =========================================================
-       PAGE NAVIGATION
-    ========================================================= */
 
     .page-navigation {
       display: flex;
@@ -419,40 +469,18 @@
     }
 
     .page-navigation a {
-      display: inline-block;
-      text-decoration: none;
-      color: #72d6d0;
-      border: 1px solid #72d6d0;
-      border-radius: 6px;
       padding: 12px 22px;
-      font-weight: bold;
-      transition: all .2s ease;
+      font-size: 15px;
     }
-
-    .page-navigation a:hover {
-      background: #72d6d0;
-      color: #111820;
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
 
     footer {
       text-align: center;
       padding: 40px;
-      border-top: 1px solid #28323c;
-      color: #aab3bb;
+      border-top: 1px solid var(--line-soft);
+      color: var(--muted-dark);
     }
 
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
     @media (max-width: 900px) {
-
       .hero-grid,
       .capability-grid,
       .impact-grid,
@@ -467,15 +495,9 @@
       .hero h1 {
         font-size: 38px;
       }
-
-      .hero-image img {
-        min-height: auto;
-      }
-
     }
 
     @media (max-width: 700px) {
-
       header {
         flex-direction: column;
         gap: 15px;
@@ -506,260 +528,181 @@
       }
 
       .section {
-        padding: 25px;
+        padding: 25px 20px;
       }
 
       .pump-grid {
         grid-template-columns: 1fr;
       }
 
+      .technique-card {
+        padding: 16px;
+      }
     }
-
   </style>
 </head>
 
-
 <body>
+  <div class="sticky-shell">
+    <header>
+      <div class="name">Manuel Bonilla Lopez, Ph.D.</div>
 
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Explore Areas</a>
+        <a href="Manuel%20Bonilla%20Lopez%20PhD%20Master%20Resume.pdf">Master Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<!-- =========================================================
-     STICKY HEADER
-========================================================= -->
-
-<div class="sticky-shell">
-
-  <header>
-
-    <div class="name">
-      Manuel Bonilla Lopez, Ph.D.
+    <div class="page-bar">
+      Thin-Film Deposition &amp; Vacuum Process Engineering
     </div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#projects">Explore Areas</a>
-      <a href="Manuel%20Bonilla%20Lopez%20PhD%20Master%20Resume.pdf">Master Resume</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </header>
-
-  <div class="page-bar">
-    Thin-Film Deposition &amp; Vacuum Process Engineering
   </div>
 
-</div>
+  <section class="hero">
+    <h1>Thin-Film Deposition, Vacuum Systems &amp; Process Engineering</h1>
 
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p>
+          Hands-on thin-film deposition and process experience dating to 2008
+          across semiconductor manufacturing, optical coatings, nanotechnology,
+          and advanced materials research.
+        </p>
 
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-  <h1>
-    Thin-Film Deposition, Vacuum Systems &amp; Process Engineering
-  </h1>
-
-  <div class="hero-grid">
-
-    <div class="hero-text">
-
-      <p>
-        Hands-on thin-film deposition and process experience dating to 2008
-        across semiconductor manufacturing, optical coatings, nanotechnology,
-        and advanced materials research.
-      </p>
-
-      <div class="hero-summary">
-        My experience spans production deposition equipment through
-        ultra-high-vacuum research systems, combining process development,
-        equipment installation and ownership, vacuum physics, characterization,
-        troubleshooting, qualification, and manufacturing support. That depth
-        now strengthens my work as an Associate Manager, IPT Lead, and CAM by
-        grounding people, supplier, cost, schedule, and technical decisions in
-        a practical understanding of process and equipment behavior.
+        <div class="hero-summary">
+          My experience spans production deposition equipment through
+          ultra-high-vacuum research systems. It combines process development,
+          equipment installation and ownership, vacuum physics, characterization,
+          troubleshooting, qualification, and manufacturing support. This depth
+          helps me evaluate not only whether a process can produce a film, but
+          whether the equipment, controls, metrology, maintenance strategy, and
+          operating discipline can produce it repeatedly.
+        </div>
       </div>
 
+      <div class="hero-image">
+        <img
+          src="assets/img/deposition.jpg"
+          alt="Molecular beam epitaxy and thin-film deposition system"
+        >
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="capability-grid">
+      <div class="capability">
+        <h3>Manufacturing Process Ownership</h3>
+        <p>
+          Deposition recipes, qualification, production support, troubleshooting,
+          operator controls, preventive maintenance, and sustained performance.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Vacuum &amp; Equipment Systems</h3>
+        <p>
+          Practical experience across manufacturing vacuum systems, high vacuum,
+          and research systems operating in ultra-high-vacuum regimes.
+        </p>
+      </div>
+
+      <div class="capability">
+        <h3>Cross-Platform Technical Depth</h3>
+        <p>
+          ALD, PECVD, conventional CVD, e-beam evaporation, thermal evaporation,
+          sputtering, MBE, and PLD across production and research environments.
+        </p>
+      </div>
     </div>
 
+    <section class="section">
+      <h2>Selected Deposition Scope</h2>
 
-    <div class="hero-image">
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-value">Since 2008</span>
+          <p>Thin-film processing across nanotechnology research, semiconductor manufacturing, optical coatings, and advanced materials.</p>
+        </div>
 
-      <img
-        src="assets/img/deposition.jpg"
-        alt="Molecular beam epitaxy and thin-film deposition system"
-      >
+        <div class="impact-card">
+          <span class="impact-value">10⁻³ to 10⁻¹¹ Torr</span>
+          <p>Experience spanning manufacturing-vacuum processes through ultra-high-vacuum research environments.</p>
+        </div>
 
-    </div>
+        <div class="impact-card">
+          <span class="impact-value">Process + Equipment</span>
+          <p>Recipe development, installation, chamber condition, qualification, troubleshooting, characterization, and sustainment.</p>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <section class="section">
+      <h2>Professional Thin-Film &amp; Deposition Experience</h2>
 
-</section>
-
-
-<main>
-
-
-<!-- =========================================================
-     HIGH LEVEL CAPABILITIES
-========================================================= -->
-
-<div class="capability-grid">
-
-  <div class="capability">
-
-    <h3>Manufacturing Process Ownership</h3>
-
-    <p>
-      Semiconductor and optical deposition recipes, qualification, production
-      support, troubleshooting, operator controls, and sustained performance.
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>Vacuum &amp; Equipment Systems</h3>
-
-    <p>
-      Practical experience across manufacturing vacuum systems,
-      high vacuum, and ultra-high vacuum approaching 10⁻¹¹ Torr.
-    </p>
-
-  </div>
-
-
-  <div class="capability">
-
-    <h3>Cross-Platform Technical Depth</h3>
-
-    <p>
-      Atomic Layer Deposition (ALD), Plasma-Enhanced Chemical Vapor Deposition
-      (PECVD), evaporation, sputtering, Molecular Beam Epitaxy (MBE), Pulsed
-      Laser Deposition (PLD), and Chemical Vapor Deposition (CVD).
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
-     SELECTED SCOPE
-========================================================= -->
-
-<section class="section">
-
-  <h2>Selected Deposition Scope</h2>
-
-  <div class="impact-grid">
-
-    <div class="impact-card">
-      <span class="impact-value">Since 2008</span>
-      <p>Hands-on thin-film processing across nanotechnology research, semiconductor manufacturing, optical coatings, and advanced materials.</p>
-    </div>
-
-    <div class="impact-card">
-      <span class="impact-value">10⁻³ to 10⁻¹¹ Torr</span>
-      <p>Experience spanning manufacturing-vacuum processes through ultra-high-vacuum research environments.</p>
-    </div>
-
-    <div class="impact-card">
-      <span class="impact-value">Process + Equipment</span>
-      <p>Recipe development, installation, chamber condition, qualification, troubleshooting, characterization, and sustainment.</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROFESSIONAL EXPERIENCE
-========================================================= -->
-
-<section class="section">
-
-  <h2>Professional Thin-Film &amp; Deposition Experience</h2>
-
-  <p>
-    My deposition experience includes direct industrial responsibility
-    for semiconductor and optical coating processes. The work extended
-    beyond operating deposition systems to owning processes, equipment,
-    production performance, and technical support.
-  </p>
-
-  <ul>
-    <li>Atomic Layer Deposition semiconductor process engineering at Intel</li>
-    <li>Optical thin-film deposition and process development at Lockheed Martin</li>
-    <li>PECVD Diamond-Like Carbon durable optical coating processes</li>
-    <li>E-beam evaporation, thermal evaporation, and sputtering</li>
-    <li>Deposition recipe development and optimization</li>
-    <li>Film characterization and process-performance evaluation</li>
-    <li>Tool qualification, troubleshooting, maintenance, and upgrades</li>
-    <li>Production work instructions and operator technical support</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     PROCESS DEVELOPMENT
-========================================================= -->
-
-<section class="section">
-
-  <h2>Process Development &amp; Production Sustainment</h2>
-
-  <p>
-    Developing a thin-film process requires understanding both the
-    desired material properties and the equipment behavior required
-    to produce them consistently.
-  </p>
-
-  <ul>
-    <li>Translate film requirements into deposition recipes</li>
-    <li>Establish pressure, temperature, power, gas-flow, and rate conditions</li>
-    <li>Run engineering trials and characterize deposited films</li>
-    <li>Adjust process parameters based on measured results</li>
-    <li>Evaluate chamber condition and process repeatability</li>
-    <li>Qualify processes for manufacturing use</li>
-    <li>Investigate process excursions and equipment abnormalities</li>
-    <li>Support chamber recovery following maintenance</li>
-    <li>Create production instructions and operating controls</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================================================
-     EQUIPMENT INSTALLATION / TROUBLESHOOTING
-========================================================= -->
-
-<section class="section">
-
-  <h2>Equipment Installation, Setup &amp; Troubleshooting</h2>
-    <p>
-        During the transition of graduate-research laboratory space, I
-        assisted a departing professor with equipment deinstallation and
-        preparation for shipment to another university.
-      </p>
-    
       <p>
-        I then helped establish the new experimental laboratory by installing
-        and setting up equipment in the newly available space. This became
-        the laboratory used for the ultrathin-material and monolayer VSe₂
-        research that contributed to the Nature Nanotechnology publication.
+        My deposition work extends beyond operating equipment. It includes
+        understanding the film requirement, selecting and adjusting the process,
+        qualifying the result, restoring unstable tools, and building the controls
+        needed for repeatable manufacturing.
       </p>
-    
+
+      <ul>
+        <li>Atomic Layer Deposition process ownership in high-volume semiconductor manufacturing</li>
+        <li>Optical thin-film deposition, design support, and production process development</li>
+        <li>PECVD durable-coating process development and sustainment</li>
+        <li>E-beam evaporation, thermal evaporation, sputtering, CVD, MBE, and PLD</li>
+        <li>Deposition recipe development, optimization, and qualification</li>
+        <li>Film characterization and process-performance evaluation</li>
+        <li>Tool installation, qualification, troubleshooting, maintenance, and upgrades</li>
+        <li>Production work instructions and operator technical support</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Process Development &amp; Production Sustainment</h2>
+
       <p>
-        Before graduating, I also performed the hands-on installation of a
-        separate shared departmental Molecular Beam Epitaxy chamber with
-        equipment-vendor support. I helped prepare the system for future
-        departmental use but did not use that separate system for experiments.
+        A successful thin-film process must connect material requirements with
+        equipment behavior, measurement capability, and production controls.
+        Improving only the recipe is not enough when defects are being introduced
+        by tooling, chamber condition, handling, cleaning, metrology, maintenance,
+        or acceptance criteria.
       </p>
-    
+
+      <ul>
+        <li>Translate film and product requirements into practical deposition controls</li>
+        <li>Establish pressure, temperature, power, gas-flow, rate, and timing conditions</li>
+        <li>Run engineering trials and characterize deposited films</li>
+        <li>Adjust process parameters based on measured results</li>
+        <li>Evaluate chamber condition, process repeatability, and failure mechanisms</li>
+        <li>Qualify processes and equipment for manufacturing use</li>
+        <li>Investigate process excursions and equipment abnormalities</li>
+        <li>Support chamber recovery following maintenance</li>
+        <li>Create production instructions, inspection steps, and operating controls</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Equipment Installation, Setup &amp; Troubleshooting</h2>
+
+      <p>
+        During the transition of graduate-research laboratory space, I assisted
+        with equipment deinstallation and preparation for shipment to another
+        university. I then helped establish the new experimental laboratory by
+        installing and setting up equipment in the newly available space.
+      </p>
+
+      <p>
+        The completed laboratory supported ultrathin-material and monolayer
+        research. Before graduating, I also performed the hands-on installation
+        of a separate shared departmental MBE chamber with equipment-vendor
+        support. I prepared that system for future departmental use but did not
+        use the separate system for experiments.
+      </p>
+
       <ul>
         <li>Laboratory-equipment deinstallation and shipment preparation</li>
         <li>Installation and setup of new experimental-laboratory equipment</li>
@@ -767,387 +710,560 @@
         <li>Departmental MBE installation with equipment-vendor support</li>
         <li>Equipment startup, maintenance, and troubleshooting</li>
         <li>Diagnosis of vacuum, temperature, pumping, and process issues</li>
-        <li>
-          Development of practical understanding of how equipment behavior
-          affects experiments and production processes
-        </li>
+        <li>Connection of equipment behavior to experimental and production performance</li>
       </ul>
-      
+    </section>
 
-</section>
-
-
-<!-- =========================================================
-     VACUUM PHYSICS
-========================================================= -->
-
-<section class="section">
-
-  <h2>Vacuum Systems &amp; Thin-Film Process Physics</h2>
-
-  <p>
-    My deposition experience spans pressure regimes from manufacturing
-    vacuum equipment through ultra-high-vacuum research systems operating
-    near 10⁻¹¹ Torr.
-  </p>
-
-  <p>
-    Working across these regimes developed a practical understanding of
-    how chamber condition, residual gases, pumping behavior, temperature,
-    materials, and pressure influence both equipment performance and
-    film growth.
-  </p>
-
-  <h3>Vacuum Pumping Systems</h3>
-
-  <p>
-    My hands-on vacuum experience includes the major pumping approaches used
-    to move a chamber from atmosphere into rough, high, and ultra-high vacuum.
-    I am most familiar with roughing, turbomolecular, ion, and cryogenic pumps
-    and with how their operating roles affect pump-down, recovery, cleanliness,
-    troubleshooting, and process readiness.
-  </p>
-
-  <div class="pump-grid" aria-label="Vacuum pumping methods and operating roles">
-
-    <div class="pump-card">
-      <span>Initial Pump-Down</span>
-      <h3>Roughing Pump</h3>
-      <p>Removes the initial gas load from atmosphere and commonly provides the backing pressure required by a turbomolecular pump.</p>
-    </div>
-
-    <div class="pump-card">
-      <span>High Vacuum</span>
-      <h3>Turbomolecular Pump</h3>
-      <p>Uses high-speed rotor and stator stages to transfer gas molecules toward the backing pump and generate high vacuum.</p>
-    </div>
-
-    <div class="pump-card">
-      <span>Ultra-High Vacuum</span>
-      <h3>Ion Pump</h3>
-      <p>Ionizes and captures residual gas after the chamber is already under high vacuum, supporting clean ultra-high-vacuum operation.</p>
-    </div>
-
-    <div class="pump-card">
-      <span>Gas Capture</span>
-      <h3>Cryogenic Pump</h3>
-      <p>Condenses or adsorbs gases on cooled surfaces, providing high pumping speed with gas-dependent performance and periodic regeneration.</p>
-    </div>
-
-  </div>
-
-  <p class="small">
-    Actual pump combinations depend on the process, chamber design, gas load,
-    cleanliness requirements, and target pressure; the methods are not presented
-    as one mandatory sequence for every deposition system.
-  </p>
-
-  <ul>
-    <li>Vacuum, high-vacuum, and ultra-high-vacuum environments</li>
-    <li>Experience across approximately 10⁻³ to 10⁻¹¹ Torr depending on process</li>
-    <li>Rate-of-rise testing and chamber-integrity evaluation</li>
-    <li>Distinguishing true leaks from outgassing and residual contamination</li>
-    <li>Gas purity and controlled-reactant delivery</li>
-    <li>Pumping behavior and chamber recovery</li>
-    <li>Temperature behavior under reduced-pressure conditions</li>
-    <li>Material and film stress during pressure and temperature transitions</li>
-    <li>Controlled heating, cooling, pump-down, and venting</li>
-    <li>Effects of chamber cleanliness on process stability and film quality</li>
-  </ul>
-
-  <p>
-    This background is particularly valuable during troubleshooting,
-    because identical pressure readings can result from very different
-    physical conditions such as a leak, water or solvent outgassing,
-    contamination, incomplete pumping, or residual process gases.
-  </p>
-
-</section>
-
-
-<!-- =========================================================
-     SELECTED TECHNOLOGIES
-========================================================= -->
-
-<section class="section">
-
-  <h2>Selected Deposition Technologies</h2>
-
-  <p>
-    My experience includes deposition methods with different growth
-    mechanisms, pressure regimes, materials, and manufacturing applications.
-  </p>
-
-
-  <div class="technique-grid">
-
-
-    <div class="technique-card">
-
-      <h3>PECVD</h3>
-
-      <img
-        src="assets/img/deposition/PECVD.png"
-        alt="Plasma Enhanced Chemical Vapor Deposition illustration"
-      >
+    <section class="section">
+      <h2>Vacuum Systems &amp; Thin-Film Process Physics</h2>
 
       <p>
-        Plasma Enhanced Chemical Vapor Deposition uses plasma-assisted
-        chemistry to deposit films at reduced substrate temperatures.
-        My industrial experience includes PECVD-based DLC durable optical coatings.
+        My deposition experience spans pressure regimes from manufacturing
+        vacuum equipment through ultra-high-vacuum research systems. Working
+        across these regimes developed a practical understanding of how chamber
+        condition, residual gases, pumping behavior, temperature, materials, and
+        pressure influence both equipment performance and film growth.
       </p>
 
-    </div>
-
-
-    <div class="technique-card">
-
-      <h3>E-Beam &amp; Thermal Evaporation</h3>
-
-      <img
-        src="assets/img/deposition/Ebeam.png"
-        alt="Electron beam evaporation illustration"
-      >
+      <h3>Vacuum Pumping Systems</h3>
 
       <p>
-        Physical Vapor Deposition methods used for optical coatings,
-        metallic films, and device fabrication across manufacturing
-        and research applications.
+        My hands-on vacuum experience includes the major pumping approaches used
+        to move a chamber from atmosphere into rough, high, and ultra-high vacuum.
       </p>
 
-    </div>
+      <div class="pump-grid" aria-label="Vacuum pumping methods and operating roles">
+        <div class="pump-card">
+          <span>Initial Pump-Down</span>
+          <h3>Roughing Pump</h3>
+          <p>Removes the initial gas load from atmosphere and commonly provides the backing pressure required by a turbomolecular pump.</p>
+        </div>
 
+        <div class="pump-card">
+          <span>High Vacuum</span>
+          <h3>Turbomolecular Pump</h3>
+          <p>Uses high-speed rotor and stator stages to transfer gas molecules toward the backing pump and generate high vacuum.</p>
+        </div>
 
-    <div class="technique-card">
+        <div class="pump-card">
+          <span>Ultra-High Vacuum</span>
+          <h3>Ion Pump</h3>
+          <p>Ionizes and captures residual gas after the chamber is already under high vacuum, supporting clean ultra-high-vacuum operation.</p>
+        </div>
 
-      <h3>Sputtering</h3>
+        <div class="pump-card">
+          <span>Gas Capture</span>
+          <h3>Cryogenic Pump</h3>
+          <p>Condenses or adsorbs gases on cooled surfaces, providing high pumping speed with gas-dependent performance and periodic regeneration.</p>
+        </div>
+      </div>
+
+      <p class="small">
+        Actual pump combinations depend on chamber design, gas load, cleanliness,
+        target pressure, and process requirements. These methods are not one
+        mandatory sequence for every deposition system.
+      </p>
+
+      <ul>
+        <li>Vacuum, high-vacuum, and ultra-high-vacuum environments</li>
+        <li>Experience across approximately 10⁻³ to 10⁻¹¹ Torr depending on the process and operating state</li>
+        <li>Rate-of-rise testing and chamber-integrity evaluation</li>
+        <li>Distinguishing true leaks from outgassing and residual contamination</li>
+        <li>Gas purity and controlled-reactant delivery</li>
+        <li>Pumping behavior and chamber recovery</li>
+        <li>Temperature behavior under reduced-pressure conditions</li>
+        <li>Controlled heating, cooling, pump-down, and venting</li>
+        <li>Effects of chamber cleanliness on process stability and film quality</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Selected Deposition Technologies</h2>
 
       <p>
-        Physical Vapor Deposition using energetic ions to remove material
-        from a target and deposit it onto a substrate. Experience includes
-        optical and thin-film manufacturing applications.
+        These methods do not compete on only one axis. The correct choice depends
+        on the material system, temperature limit, substrate geometry, film
+        thickness, required interface control, deposition rate, production volume,
+        and cost of ownership. The summaries below explain what each method does,
+        what it is good at, and where industry commonly applies it.
       </p>
 
-    </div>
+      <div class="technique-grid">
+        <article class="technique-card">
+          <h3>Plasma-Enhanced CVD (PECVD)</h3>
 
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/PECVD.png"
+              alt="Diagram of a plasma-enhanced chemical vapor deposition chamber"
+            >
+          </figure>
 
-    <div class="technique-card">
+          <p>
+            <strong>How it works:</strong> RF power creates a plasma that breaks
+            precursor gases into reactive species. Those species react at the
+            substrate and form a solid film while volatile by-products are pumped away.
+          </p>
 
-      <h3>Molecular Beam Epitaxy (MBE)</h3>
+          <p>
+            <strong>Why industry uses it:</strong> Plasma energy enables lower
+            substrate temperatures than conventional thermal CVD while supporting
+            useful deposition rates and control of film stress, refractive index,
+            and composition. Common applications include silicon oxide, silicon
+            nitride, passivation, dielectric layers, hard masks, optical films,
+            amorphous silicon, and carbon-based durable coatings.
+          </p>
 
-      <img
-        src="assets/img/deposition/MBE.png"
-        alt="Molecular Beam Epitaxy illustration"
-      >
+          <p>
+            <strong>Engineering tradeoff:</strong> Plasma power, frequency, gas
+            ratio, pressure, temperature, electrode spacing, and chamber condition
+            can affect stress, density, defects, and possible plasma damage.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Production-oriented optical-coating
+            work spanning process development, qualification, troubleshooting,
+            maintenance controls, work instructions, and sustainment.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Conventional Chemical Vapor Deposition (CVD)</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/CVD.png"
+              alt="Diagram of a conventional chemical vapor deposition chamber"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> Gaseous precursors flow over a heated
+            substrate, where thermal decomposition or chemical reaction produces
+            a solid film. Reaction by-products remain volatile and are removed by
+            the vacuum and exhaust system.
+          </p>
+
+          <p>
+            <strong>Why industry uses it:</strong> CVD can provide uniform films,
+            good step coverage, scalable batch or continuous processing, and high
+            throughput. It is widely used for semiconductor layers, protective and
+            hard coatings, silicon-based films, carbon materials, and compound films.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> Conventional CVD often requires
+            more substrate heat than PECVD. Precursor delivery, gas-phase reactions,
+            by-product control, safety systems, and thermal compatibility can limit
+            the process window.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> CVD growth of carbon-based
+            nanomaterials followed by microfabrication and electrical device testing.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Electron-Beam Evaporation</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/Ebeam.png"
+              alt="Diagram of an electron-beam evaporation system"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> A focused electron beam locally heats
+            source material in a water-cooled hearth until it evaporates. The vapor
+            travels through high vacuum and condenses on the substrate.
+          </p>
+
+          <p>
+            <strong>Why industry uses it:</strong> Localized heating allows many
+            high-melting-point metals and dielectric materials to be deposited with
+            relatively high purity and useful rates. Common applications include
+            optical coating stacks, metallization, lift-off structures, and research
+            or specialty thin films.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> It is largely line-of-sight, so
+            step coverage on complex geometry is limited. Source conditioning,
+            spitting, beam stability, thickness monitoring, and material compatibility
+            must be controlled.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Optical and thin-film manufacturing
+            work connecting recipe conditions with metrology, qualification,
+            equipment health, and production performance.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Thermal Evaporation</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/ThermalEvaporation.png"
+              alt="Diagram of a resistive thermal evaporation system"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> Electrical resistance heats a boat,
+            basket, filament, or crucible that contains the source material. Once
+            the material reaches sufficient vapor pressure, it evaporates and
+            condenses on the substrate.
+          </p>
+
+          <p>
+            <strong>Why industry uses it:</strong> Thermal evaporation is comparatively
+            simple, economical, and capable of useful deposition rates for compatible
+            metals, organics, and other lower-vaporization-temperature materials.
+            Typical uses include metal contacts, electrodes, optical layers, and
+            research-device fabrication.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> It is line-of-sight and less suitable
+            for many refractory materials. Source-container reactions, temperature
+            control, contamination, and nonuniform coverage can limit performance.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Thin metallic electrode deposition
+            supporting fabricated electronic and sensing devices.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Sputtering</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/Sputtering.png"
+              alt="Diagram of a magnetron sputtering deposition system"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> A plasma accelerates ions toward a solid
+            target. Momentum transfer ejects target atoms, which travel through the
+            chamber and form a film on the substrate.
+          </p>
+
+          <p>
+            <strong>Why industry uses it:</strong> Sputtering can produce dense,
+            adherent films with strong thickness uniformity and good control of
+            metals, alloys, oxides, nitrides, and other compounds. It is common in
+            semiconductor metallization, optical coatings, displays, magnetic media,
+            wear coatings, and transparent conductive films.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> Deposition can be slower than
+            evaporation. Plasma conditions can introduce stress, heating, charging,
+            or damage, and reactive sputtering requires careful control to prevent
+            target poisoning and process drift.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Optical and general thin-film
+            manufacturing applications involving process optimization, equipment
+            behavior, and film-performance evaluation.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Molecular Beam Epitaxy (MBE)</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/MBE.png"
+              alt="Diagram of a molecular beam epitaxy system"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> Heated sources create directed atomic or
+            molecular beams that reach a heated crystalline substrate under
+            ultra-high vacuum. Independent shutters and calibrated source fluxes
+            provide precise control of composition, thickness, and interfaces.
+          </p>
+
+          <p>
+            <strong>Why industry and research use it:</strong> MBE offers exceptional
+            epitaxial quality, interface control, and access to in-situ diagnostics.
+            It is used for III-V semiconductors, quantum structures, advanced oxides,
+            two-dimensional materials, and specialty optoelectronic or electronic devices.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> MBE requires complex ultra-high-
+            vacuum hardware, disciplined source and chamber management, and relatively
+            slow growth. Specialized production exists, especially for compound
+            semiconductors, but cost and throughput limit broad high-volume use.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Ultra-thin and monolayer materials
+            research, source-flux and substrate-condition control, vacuum-system
+            maintenance, and installation of a separate shared MBE system.
+          </p>
+        </article>
+
+        <article class="technique-card">
+          <h3>Pulsed Laser Deposition (PLD)</h3>
+
+          <figure class="technique-figure">
+            <img
+              src="assets/img/deposition/PLD.png"
+              alt="Diagram of a pulsed laser deposition system"
+            >
+          </figure>
+
+          <p>
+            <strong>How it works:</strong> Short, high-energy laser pulses ablate a
+            solid target and create a plasma plume. Material from the plume travels
+            to a heated substrate and condenses into a film under vacuum or a
+            controlled reactive atmosphere.
+          </p>
+
+          <p>
+            <strong>Why research and specialty production use it:</strong> PLD can
+            transfer complex multi-element compositions effectively and allows rapid
+            switching among targets. It is widely used for complex oxides,
+            ferroelectrics, superconductors, magnetic materials, multilayers, and
+            materials-discovery work.
+          </p>
+
+          <p>
+            <strong>Engineering tradeoff:</strong> Particulates, plume geometry,
+            target condition, laser fluence, and limited uniform area can complicate
+            scale-up. It is especially powerful for development and specialty films,
+            but is less common than sputtering or CVD for large-area production.
+          </p>
+
+          <p class="experience-note">
+            <strong>Experience context:</strong> Oxide thin-film research connecting
+            deposition conditions with structural and material characterization.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the Techniques Compare</h2>
 
       <p>
-        Ultra-high-vacuum epitaxial growth with precise source-flux control.
-        Graduate research included ultrathin and monolayer transition-metal
-        dichalcogenide materials.
+        No deposition method is universally better. The engineering decision is to
+        select the mechanism whose strengths match the film, substrate, geometry,
+        rate, interface, and production requirements.
       </p>
 
-    </div>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Technique</th>
+              <th scope="col">Growth mechanism</th>
+              <th scope="col">Primary strength</th>
+              <th scope="col">Main tradeoff</th>
+              <th scope="col">Common applications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PECVD</td>
+              <td>Plasma-assisted gas-phase and surface chemistry</td>
+              <td>Lower-temperature chemical deposition with useful rate and film-property control</td>
+              <td>Plasma effects, stress, chemistry, and chamber condition must be controlled</td>
+              <td>Dielectrics, passivation, hard masks, optical films, durable coatings</td>
+            </tr>
+            <tr>
+              <td>CVD</td>
+              <td>Thermally driven precursor reaction at the substrate</td>
+              <td>Uniform, scalable, and often conformal deposition</td>
+              <td>Higher temperature and demanding precursor, exhaust, and safety controls</td>
+              <td>Semiconductors, hard coatings, silicon compounds, carbon materials</td>
+            </tr>
+            <tr>
+              <td>ALD</td>
+              <td>Sequential self-limiting surface reactions</td>
+              <td>Atomic-scale thickness control and exceptional conformality</td>
+              <td>Slow cycle-based growth and demanding precursor management</td>
+              <td>High-k dielectrics, barriers, conformal coatings, nanoscale devices</td>
+            </tr>
+            <tr>
+              <td>E-Beam Evaporation</td>
+              <td>Electron-beam heating and source evaporation</td>
+              <td>High-purity deposition of many high-melting-point materials</td>
+              <td>Line-of-sight coverage and source-behavior controls</td>
+              <td>Optical stacks, metallization, lift-off, specialty films</td>
+            </tr>
+            <tr>
+              <td>Thermal Evaporation</td>
+              <td>Resistive heating and source evaporation</td>
+              <td>Simple, economical, and effective for compatible materials</td>
+              <td>Material limits, source-container interaction, and line-of-sight coverage</td>
+              <td>Metal contacts, electrodes, organics, optical and research films</td>
+            </tr>
+            <tr>
+              <td>Sputtering</td>
+              <td>Plasma-ion momentum transfer from a solid target</td>
+              <td>Dense, adherent films and strong material versatility</td>
+              <td>Plasma damage, stress, reactive-process drift, and lower rate for some materials</td>
+              <td>Metals, alloys, oxides, nitrides, optical and transparent conductive films</td>
+            </tr>
+            <tr>
+              <td>MBE</td>
+              <td>Directed atomic or molecular beams in ultra-high vacuum</td>
+              <td>Exceptional epitaxy, composition, and interface control</td>
+              <td>Slow, expensive, vacuum-intensive, and lower throughput</td>
+              <td>III-V devices, quantum structures, 2D materials, specialty epitaxy</td>
+            </tr>
+            <tr>
+              <td>PLD</td>
+              <td>Pulsed-laser ablation and plume transport</td>
+              <td>Rapid development of complex-composition and multilayer films</td>
+              <td>Particulates, area uniformity, plume control, and scale-up</td>
+              <td>Complex oxides, ferroelectrics, superconductors, research and specialty films</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-
-    <div class="technique-card">
-
-      <h3>Chemical Vapor Deposition (CVD)</h3>
+    <section class="section">
+      <h2>Atomic Layer Deposition (ALD)</h2>
 
       <p>
-        Research experience includes CVD growth of carbon nanotube and
-        graphene-related nanomaterials used in electronic and sensing devices.
+        My industrial semiconductor experience includes ALD process engineering
+        and tool ownership. ALD uses alternating precursor exposures separated by
+        purge steps. Each surface reaction is self-limiting, which enables precise
+        thickness control and highly conformal films on three-dimensional features.
       </p>
-
-    </div>
-
-
-    <div class="technique-card">
-
-      <h3>Pulsed Laser Deposition (PLD)</h3>
 
       <p>
-        Research experience included PLD growth of oxide thin films and
-        characterization of deposited materials.
+        Industry uses ALD for high-k dielectrics, diffusion barriers, seed layers,
+        passivation, and other nanoscale films where uniformity and interface control
+        matter more than maximum deposition rate. Its principal tradeoff is slow,
+        cycle-based growth combined with demanding precursor delivery, purge, and
+        chamber-condition requirements.
       </p>
 
+      <p>
+        The sequence below illustrates a conceptual HfO₂ cycle using alternating
+        precursor exposures and purge steps.
+      </p>
+
+      <div class="ald-step">
+        <h3>1 — First Precursor Exposure</h3>
+        <img
+          src="assets/img/deposition/ALD_a.png"
+          alt="First precursor exposure during an ALD cycle"
+        >
+        <p>
+          The first precursor reacts with available surface sites until the
+          surface reaction reaches saturation. Excess precursor and reaction
+          products are then removed through the purge step.
+        </p>
+      </div>
+
+      <div class="ald-step">
+        <h3>2 — Second Precursor Exposure</h3>
+        <img
+          src="assets/img/deposition/ALD_b.png"
+          alt="Second precursor exposure during an ALD cycle"
+        >
+        <p>
+          After purging, the second precursor reacts with the modified surface
+          and completes the second half-reaction.
+        </p>
+      </div>
+
+      <div class="ald-step">
+        <h3>3 — Surface-Reaction Cycle Completion</h3>
+        <img
+          src="assets/img/deposition/ALD_c.png"
+          alt="Completed ALD surface reaction cycle"
+        >
+        <p>
+          Repeating the exposure-and-purge sequence builds film thickness through
+          controlled, self-limiting surface reactions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Research &amp; Advanced Thin-Film Experience</h2>
+
+      <p>
+        My research background extended thin-film experience into materials,
+        pressure regimes, and growth methods beyond typical production environments.
+      </p>
+
+      <ul>
+        <li>MBE growth of ultrathin and monolayer materials</li>
+        <li>Ultra-high-vacuum surface preparation and deposition</li>
+        <li>PLD growth of oxide materials</li>
+        <li>CVD growth of carbon nanotubes and graphene-related materials</li>
+        <li>Thermal evaporation of metallic electrodes</li>
+        <li>Experimental process development and parameter optimization</li>
+        <li>Thin-film and material characterization</li>
+      </ul>
+
+      <p>
+        The installation and equipment work enabled thin-film experiments that
+        contributed to graduate publications, including work published in Nature
+        Nanotechnology. The research page covers the scientific results and
+        publication impact in greater detail.
+      </p>
+
+      <div class="related-links">
+        <a href="research.html">Research &amp; Publications →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Deposition Across Semiconductor &amp; Optical Manufacturing</h2>
+
+      <p>
+        My deposition experience spans applications where the underlying thin-film
+        physics is shared, but the materials, equipment, process controls, and
+        performance requirements differ substantially. That range supports technical
+        direction because it makes it easier to separate universal process principles
+        from equipment-specific habits.
+      </p>
+
+      <p>
+        This page focuses on deposition methods and equipment. The semiconductor and
+        optical pages cover the manufacturing applications, organizational leadership,
+        and product requirements without repeating them here.
+      </p>
+
+      <div class="related-links">
+        <a href="semiconductor.html">Semiconductor Manufacturing →</a>
+        <a href="optical.html">Optical Engineering &amp; Coatings →</a>
+      </div>
+    </section>
+
+    <div class="page-navigation">
+      <a href="index.html">← Back to Home</a>
+      <a href="index.html#projects">Explore Other Areas</a>
     </div>
+  </main>
 
+  <footer>
+    © <span id="year"></span> Manuel Bonilla Lopez
+  </footer>
 
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     ALD SECTION
-========================================================= -->
-
-<section class="section">
-
-  <h2>Atomic Layer Deposition (ALD)</h2>
-
-  <p>
-    My industrial semiconductor experience includes Atomic Layer
-    Deposition process engineering at Intel. ALD uses sequential,
-    self-limiting surface reactions to provide highly controlled
-    film thickness and conformality.
-  </p>
-
-  <p>
-    The sequence below illustrates a conceptual HfO₂ ALD cycle using
-    alternating precursor exposures and purge steps.
-  </p>
-
-
-  <div class="ald-step">
-
-    <h3>1 — First Precursor Exposure</h3>
-
-    <img
-      src="assets/img/deposition/ALD_a.png"
-      alt="First precursor exposure during an ALD cycle"
-    >
-
-    <p>
-      The first precursor reacts with available surface sites until
-      the surface reaction reaches saturation. Excess precursor and
-      reaction products are then removed through the purge step.
-    </p>
-
-  </div>
-
-
-  <div class="ald-step">
-
-    <h3>2 — Second Precursor Exposure</h3>
-
-    <img
-      src="assets/img/deposition/ALD_b.png"
-      alt="Second precursor exposure during an ALD cycle"
-    >
-
-    <p>
-      After purging, the second precursor reacts with the modified
-      surface and completes the second half-reaction.
-    </p>
-
-  </div>
-
-
-  <div class="ald-step">
-
-    <h3>3 — Surface-Reaction Cycle Completion</h3>
-
-    <img
-      src="assets/img/deposition/ALD_c.png"
-      alt="Completed ALD surface reaction cycle"
-    >
-
-    <p>
-      Repeating the precursor-and-purge sequence builds film thickness
-      through controlled, self-limiting surface reactions.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     RESEARCH EXPERIENCE
-========================================================= -->
-
-<section class="section">
-
-  <h2>Research &amp; Advanced Thin-Film Experience</h2>
-
-  <p>
-    My research background extended thin-film experience into materials,
-    pressure regimes, and growth methods beyond typical production environments.
-  </p>
-
-  <ul>
-    <li>MBE growth of ultrathin and monolayer VSe₂</li>
-    <li>Ultra-high-vacuum surface preparation and deposition</li>
-    <li>PLD growth of oxide materials</li>
-    <li>CVD growth of carbon nanotubes and related nanomaterials</li>
-    <li>Thermal evaporation of metallic electrodes</li>
-    <li>Experimental process development and parameter optimization</li>
-    <li>Thin-film and material characterization</li>
-  </ul>
-
-  <p>
-    The installation and equipment work enabled thin-film experiments that
-    contributed to graduate publications, including work published in Nature.
-    The research page covers the scientific results and publication impact in
-    greater detail.
-  </p>
-
-  <div class="related-links">
-    <a href="research.html">Research &amp; Publications →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     APPLICATIONS
-========================================================= -->
-
-<section class="section">
-
-  <h2>Deposition Across Semiconductor &amp; Optical Manufacturing</h2>
-
-  <p>
-    My deposition experience spans applications where the underlying
-    thin-film physics is shared, but the materials, equipment, process
-    controls, and performance requirements differ substantially.
-  </p>
-
-  <p>
-    This page focuses on the deposition methods and equipment. The semiconductor
-    and optical pages cover the manufacturing applications, organizational
-    leadership, and product requirements without repeating them here.
-  </p>
-
-  <div class="related-links">
-    <a href="semiconductor.html">Semiconductor Manufacturing →</a>
-    <a href="optical.html">Optical Engineering &amp; Coatings →</a>
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PAGE NAVIGATION
-========================================================= -->
-
-<div class="page-navigation">
-
-  <a href="index.html">
-    ← Back to Home
-  </a>
-
-  <a href="index.html#projects">
-    Explore Other Areas
-  </a>
-
-</div>
-
-
-</main>
-
-
-<footer>
-  © <span id="year"></span> Manuel Bonilla Lopez
-</footer>
-
-
-<script>
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-</script>
-
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
